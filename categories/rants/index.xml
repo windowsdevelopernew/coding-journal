@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rants on Coding Journal</title>
+    <link>http://localhost:1313/categories/rants/</link>
+    <description>Recent content in Rants on Coding Journal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 Oct 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/rants/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Lenovo, why do you screw Thinkpads with every update?</title>
+      <link>http://localhost:1313/lenovo-why-do-you-screw-thinkpads-with-every-update/</link>
+      <pubDate>Wed, 21 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/lenovo-why-do-you-screw-thinkpads-with-every-update/</guid>
+      <description>&lt;p&gt;I have a Lenovo Thinpad T440s that I got about a year ago after a great experience with a company issued Lenovo Thinkpad T420 I used for about two and half years before that. I use it daily for on-site work, not so much at home, where I have a desktop computer. The T440s is thinner and lighter than T420, but otherwise everything is just worse. You cannot change RAM or disk so easily as on the T420, the keyboard and trackpoint are worse (the trackpoint does not have physical buttons like on the T420 but &lt;a href=&#34;http://camerongray.me/2015/02/fitting-physical-trackpoint-buttons-to-a-lenovo-thinkpad-t440s/&#34;&gt;I had it replaced for one that does&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;So why did I get the T440s? Because it seemed like a wise choice at the time, compared to the competition. It has a trackpoint, fingerprint reader, a keyboard with all the keys in the right place and it is, after all, a Thinkpad, a sturdy and reliable work machine build from good materials.&lt;/p&gt;
+
+&lt;p&gt;But not really. As every Thinkpad fan can tell you, the quality of Thinkpads is declining (even when not counting the plastic Thinkpad Edge computers that are not &amp;#8220;real&amp;#8221; Thinkpads). It seems like Lenovo simply does not care, making the hardware worse and software even more so. Gone are the superb ThinkVantage tools, only the Thinkpad update utility remained. And it often install software and drivers that can screw up your computer. It happened to many times, this is the latest incident.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Security BIOS update&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The latest problem is with a BIOS update. Lenovo releases BIOS 2.35 for my T440s, fixing a &lt;a href=&#34;https://support.lenovo.com/us/en/product_security/smm_attack&#34;&gt;SMM &amp;#8220;Incursion&amp;#8221; Attack&lt;/a&gt;. The BIOS update as pushed to me as critical using the Thinkpad update tools and fixing security problems is always a good thing. So I installed it. And problems started.&lt;/p&gt;
+
+&lt;p&gt;When I put the computer to sleep and it went from sleep to hibernation after 180 minutes (default settings), the computer started to beep madly and hung on a black screen. Not really a good sight.&lt;/p&gt;
+
+&lt;p&gt;I figured it must be because of the BIOS update, so I went to the Lenovo website to download the previous BIOS update. I downloaded BIOS 2.34 and could not installed it because of I strange error. Then I noticed this note in the BIOS 2.35 changelog: &lt;strong&gt;&amp;#8220;If the UEFI BIOS has been updated to version 2.35 or higher, it is no longer able to roll back to the version before 2.35 for security improvement.&amp;#8221;&lt;/strong&gt;. So my computer got screwed. I had a problematic BIOS and could not downgrade. Great work Lenovo.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Insecure workaround&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I did some research and &lt;a href=&#34;https://forums.lenovo.com/t5/ThinkPad-T400-T500-and-newer-T/T440s-beeps-while-putting-in-sleep-mode-and-a-blank-screen/m-p/2191866&#34;&gt;found out that the problem is related to the TPM chip&lt;/a&gt;. I use the TPM chip with BitLocker in Windows 10, so It looked like it maybe be the problem.&lt;/p&gt;
+
+&lt;p&gt;So I turned off BitLocker, waited for my disk do get decrypted and disabled the TPM in BIOS. I put the computer to sleep, waited for it to go to hibernation, and nothing happened. No beeps, no problems, the computer woke normally.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Conclusion&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;So now I have a BIOS (that I cannot get rid of) with the security fix for an obscure issue but my disk is not encrypted and when I loose my computer or it gets stolen, anyone can read my data. Again, great work Lenovo. Time to install TrueCrypt I guess.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

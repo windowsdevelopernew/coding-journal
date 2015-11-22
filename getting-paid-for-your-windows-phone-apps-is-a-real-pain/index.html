@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows Phone Store and problems with payments &middot; Coding Journal</title>
+
+    <meta name="description" content="">
+
+    <meta name="generator" content="Hugo 0.14" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="Windows Phone Store and problems with payments &middot; Coding Journal">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Windows Phone Store and problems with payments &middot; Coding Journal">
+    <meta property="og:description" content="">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="http://localhost:1313//css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://localhost:1313//index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://localhost:1313/">Coding Journal</a></h1>
+            <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/igorkulman"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/igorkulman "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="http://localhost:1313//index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+
+<div>
+<h2>About me</h2>
+
+<p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
+<p>
+Interested in programming languages, functional programming and data science.</p>
+
+</div>
+
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                <h1 class="content-subhead">20 May 2013, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://localhost:1313/getting-paid-for-your-windows-phone-apps-is-a-real-pain/" class="post-title">Windows Phone Store and problems with payments</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://localhost:1313//categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                  
+                    <div class="post-description">
+                        <p>I have been a Windows Phone developer for over a year now and my paid apps made me some money. The small amount of money made is not interesting, more interesting is that getting the money from Microsoft has been a real pain. Maybe because I live <strong>outside the US</strong>, maybe it is a geographically independent problem. If you are a developer and live outside the US, I really want to hear your experience.</p>
+
+<p><strong>No exact info about payment rules?</strong></p>
+
+<p>First, there is no exact information about how often a developer gets paid. The <a href="http://msdn.microsoft.com/en-us/library/windowsphone/help/jj206722(v=vs.105).aspx">getting paid section</a> in the Windows Phone Dev Center only informs you about tax and bank info, that you need to provide to get paid. I remember that I once heard that developers get paid when their earnings get pass $200, but I was not able to get any official info about this. The first payment I got from Windows Phone Store was $52.50 and I know a developer with $900 earned and no money sent to him, so I guess the $200 limit is not true.</p>
+
+<p>The <a href="http://msdn.microsoft.com/en-us/library/windows/apps/jj193593.aspx">$200 limit should be true for Windows Store</a>, but Windows Phone Store is a different store with different rules.</p>
+
+<p><strong>No info about pending payments</strong></p>
+
+<p>Suppose the $200 limit is true. (Windows Store states: &#8220;To get paid from the Windows Store, you must have at least $200 in app sales pending payment&#8221;) It would be really useful to know how much money your apps have made in total and from the last payout, or in other words, the pending payments. Microsoft does not provide such info. Even the support is not able (or willing) to tell you this info.</p>
+
+<p>The only info you get is the number of paid downloads of your apps. You need to multiple this per-app numbers by the price of your apps and subtract the 30% cut that Microsoft keeps for themselves. If you changed the price of your apps at some point, or have different pricing for different countries, the math becomes really overwhelming.</p>
+
+<p><strong>Distimo to the rescue?</strong></p>
+
+<p><a href="http://www.distimo.com/">Distimo</a> is a great app analytics service that supports Windows Phone Store. You give it your credentials and it downloads and displays all the data from Windows Phone Store for you. And guess what, it can display the amount of money you made. I do not know how they do it. Maybe they use the exports that Windows Phone Store offers, but when I try to download them, they are always empty. Maybe they just do the math I mentioned&#8230; Anyway, it really sucks that you have to use a 3rd party tool to get the info that Microsoft has and should provide to a developer.</p>
+
+<p><strong>Really getting paid</strong></p>
+
+<p>Only my first payment of the strange $52.50 was automatic. When my next earnings according to my calculations crossed the limit of $200 (or $252.50 taking the $52.50 payment into account), I was expecting to get paid. The payment did not come for months. I asked my local Microsoft branch for more info, but I did not get any useful answers. So I tried another tactic.</p>
+
+<p>I made a bit of a fuss about this issue on Twitter, where many developers from my country joined with their complaints about being in the same situation, mentioning our local Microsoft evangelist in their tweets. In two weeks, we all got our payments from Microsoft (coincidence?).</p>
+
+<p>The payment did not come in $ but in CZK. Its value was approximately $240. The Windows Phone Store now shows me I received two payments in two different currencies and in some statistics adds the two payments up as they were both in CZK ($52.50 + 4,806.88 CZK = 4859.38 CZK in their world).</p>
+
+<p><strong>Answers from Microsoft</strong></p>
+
+<p>I contacted my local Microsoft branch and sent the following <strong>questions</strong>to two evangelists, hoping to get answers for me and other developers:</p>
+
+<p>When does a developer get paid from Windows Phone Store? Is there any limit that needs to be crossed (like $200 in Windows Store)?</p>
+
+<p>Are these getting paid rules officialy stated anywhere? The <a href="http://msdn.microsoft.com/en-us/library/windowsphone/help/jj206722(v=vs.105).aspx">MSDN page</a> does not contain any useful info.</p>
+
+<p>Is there a way to know how much I have made in total / since last payout? I mean other way that doing the math from app downloads and prices. (A fellow developer told me that even your support does not know / want to give the info.)</p>
+
+<p>Are payments automatic? (If there are exact rules)</p>
+
+<p>To get my last payment I needed to contact out local MS branch, do I need to do it every time I feel I made $200 since my last payment (which is now)?</p>
+
+<p>I got the following <strong>answers</strong> (after involving other developers and putting some pressure on them):</p>
+
+<p>7b of the APA: Application Proceeds will be calculated on a monthly basis by deducting the Store Fee from Net Receipts for the applicable month. If total Application Proceeds payable to you for a month exceed USD$200 (or its equivalent in local currency), then Microsoft will remit payment to you in</p>
+
+<p>accordance with this Section 7.</p>
+
+<p>Can you clarify what you mean by rules? As long as a dev has over $200, and has valid bank &amp; tax, then they will be attempted in payout.</p>
+
+<p>Currently we do not have a report that provides the total of the settled transactions for a developer.</p>
+
+<p>Payments are automatically attempted once the developer reaches the threshold</p>
+
+<p>No, payments are automatically attempted once the developer reaches the threshold</p>
+
+<p><strong>Conclusion</strong></p>
+
+<p>Microsoft confirmed the $200 limit for getting paid altough my experience does not corespond to this statement. I still wonder why this information is not available somewhere on AppHub or MSDN. They sent me a file called Windows-Phone-Store-Application-Provider-Agreement.pdf but I was not able to find any reference to it anywhere, just the whole file at a <a href="http://cmsresources.windowsphone.com/devcenter/en-us/legal/Windows-Phone-Store-Application-Provider-Agreement.pdf">strange url</a>. Having this crucial info hidden in a PDF file where no developer can ever find it does not seem ok to me. The whole payments process does not look very transparent.</p>
+
+<p>They also confirmed that there is no way to know how much money you made, so you have to rely on Distimo. They assured me that my next payment will be automatic, so I guess I just have to wait and see &#8230;</p>
+
+                    </div>
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'coudingjournal';
+    var disqus_identifier = 'http:\/\/localhost:1313\/getting-paid-for-your-windows-phone-apps-is-a-real-pain\/';
+    var disqus_title = 'Windows Phone Store and problems with payments';
+    var disqus_url = 'http:\/\/localhost:1313\/getting-paid-for-your-windows-phone-apps-is-a-real-pain\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                </section>
+            </div>
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="http://localhost:1313//js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-49528577-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

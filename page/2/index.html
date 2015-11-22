@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Journal &middot; Coding Journal</title>
+
+    <meta name="description" content="Adventures in the world of C#, F# and WinRT">
+
+    <meta name="generator" content="Hugo 0.14" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="Coding Journal &middot; Coding Journal">
+    <meta name="twitter:description" content="Adventures in the world of C#, F# and WinRT">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Coding Journal &middot; Coding Journal">
+    <meta property="og:description" content="Adventures in the world of C#, F# and WinRT">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="http://localhost:1313//css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://localhost:1313//index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://localhost:1313/">Coding Journal</a></h1>
+            <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/igorkulman"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/igorkulman "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="http://localhost:1313//index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+
+<div>
+<h2>About me</h2>
+
+<p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
+<p>
+Interested in programming languages, functional programming and data science.</p>
+
+</div>
+
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                
+                <h1 class="content-subhead">06 May 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://localhost:1313/custom-datetime-deserialization-with-json-net/" class="post-title">Custom DateTime deserialization with JSON.NET</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Programming in general" href="http://localhost:1313//categories/programming-in-general">Programming in general</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>Sometimes you cannot influence the design of the API you have to use and wonder, why the API uses so strangely serialized DateTime and how to handle it using JSON.NET.</p>
+
+<p>Luckily, JSON.NET makes plugging in custom serializers / deserializes quite easy. There are a few base classes to help you write your own converter, when dealing with DateTime you want to inherit the DateTimeConverterBase class.</p>
+
+<p>There are two methods in this class to override, WriteJson and ReadJson. All you custom serialization and deserialization logic should be placed there.</p>
+
+<p>Here is a sample implementation:</p>
+
+<script src="https://gist.github.com/igorkulman/31c91704fa93870de4ee.js?file=CustomDateTimeConverter.cs"></script>
+
+<p>If you want to use your custom converter to serialize or deserialize a property you just need to decorate it with the right attribute.</p>
+
+<script src="https://gist.github.com/igorkulman/31c91704fa93870de4ee.js?file=usage.cs"></script>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">04 May 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://localhost:1313/customizing-the-player-framework-ui/" class="post-title">Customizing the Player Framework UI</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://localhost:1313//categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://localhost:1313//categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>In my last article I gave you a tip on how to localize the Player Framework, in this article I will show you have to customize the UI of the actual player.</p>
+
+<p>The first step is to obtain the Generic.xaml file that the Player Framework uses for styling. You can find it in C:\ Program Files (x86)\ Microsoft SDKs\ Windows\ v8.0\ ExtensionSDKs\ Microsoft.PlayerFramework.Xaml\ 2.0.0.0\ Redist\ CommonConfiguration\ neutral\ Microsoft.PlayerFramework\ Themes. Copy it to your projects and rename it to something more telling, like PlayerFramework.xaml.</p>
+
+<p>You can now edit the copied XAML file and customize it any way you want. If you do the styling for a Windows Phone app, keep in mind that the ControlPanel switches to the Compact states and a few transformations are applied by default, that can interfere with your styling.</p>
+
+<p>Finally, you need to apply the style by adding it to the page with your player</p>
+
+<p><script src="https://gist.github.com/7bbbefc9a25afa07c5e1.js"></script></p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">30 Apr 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://localhost:1313/the-death-of-the-winrt-developer/" class="post-title">The death of the WinRT developer?</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://localhost:1313//categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://localhost:1313//categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>As many other Windows Phone / Windows 8 / Universal apps developers (lets just call us WinRT developers) I watched the Build 2015 keynote last night. And I did not like it. I know Microsoft does not know to communicate but the message for me was clear. We, the WinRT developer, are no longer needed.</p>
+
+<p>First, Microsoft announced that WPF apps will be allowed to be submitted to the Windows Store to be used on desktops / tablets. So why would anyone want to develop (or want to have developed) a Windows 8 (WinRT) app, when they can just use WPF and get everything done easier? I do not know.</p>
+
+<p>But allowing WPF apps to the Windows Store is a small news compared to the ability to run Android apps on Windows Phone. The first news talked about porting Android apps to the Windows Phone, but later, <a href="http://www.zdnet.com/article/heres-how-microsoft-hopes-to-get-android-and-ios-phone-apps-into-its-windows-10-store/">statements like this</a> appeared</p>
+
+<p><em>Android developers will be able to submit versions of their apps, written in Java or C++, to the Windows Store in he form of APKs and have those apps work on Windows Phone 10 devices. Android developers should be able to start submitting apps to the Windows 10 Store some time in the next few months.</em></p>
+
+<p>So let get this straight. Who would want a native mobile Windows app developed, when they can just take their Android app and use it on Windows? What company would want to keep their mobile Windows team, when they can just use their Android team to make Windows apps?</p>
+
+<blockquote class="twitter-tweet" width="550">
+  <p lang="en" dir="ltr">
+    So I can use WPF to get into the store, and Java to get onto WinPhone and Android. So why would I write a universal app???
+  </p>
+  
+  <p>
+    &mdash; Morten Nielsen (@dotMorten) <a href="https://twitter.com/dotMorten/status/593467368124379137">April 29, 2015</a>
+  </p>
+</blockquote>
+
+<p>Sure, Android apps will probably not run on XBOX and HoloLens, but I doubt Microsoft will open the XBOX store for all the developers, more likely only chosen companies will be allowed to publish apps. HoloLens will be used only by a small number of people if this price is not really low (which I doubt it will be), so only a few HoloLens apps will be needed.</p>
+
+<p>For me, the situation seems clear, it is the death of the WinRT developer.</p>
+
+<blockquote class="twitter-tweet" width="550">
+  <p lang="en" dir="ltr">
+    Can the last XAML dev to leave please turn out the lights. <a href="https://twitter.com/hashtag/Build2015?src=hash">#Build2015</a>
+  </p>
+  
+  <p>
+    &mdash; Mark Allan (@MarkXA) <a href="https://twitter.com/MarkXA/status/593468730794967043">April 29, 2015</a>
+  </p>
+</blockquote>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">27 Apr 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://localhost:1313/player-framework-localization/" class="post-title">Player Framework localization</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://localhost:1313//categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://localhost:1313//categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>In my recent universal (Windows Phone 8.1 and Windows 8.1) project I implemented PlayReady DRM protected smooth streaming movies playback using the <a href="https://playerframework.codeplex.com/">Player Framework</a>. This projects seems to be dead, but it is still the best option when implementing any kind of video playback.</p>
+
+<p>One of the first things I had to do was localize it&#8217;s controls, because the app I worked on was in Czech and Slovak, not in English (the only language the Player Framework supports out of the box). Not all the texts an be localized, but the most visible ones like button labels and error messages can.</p>
+
+<p>To create your own localization, I suggest you create a new RESW file in your project. You can use and existing one, but I prefer to separate the texts for the Player Framework from texts for the rest of the app.</p>
+
+<p>Next you have to find out the keys for the string you want to localize. You an <a href="https://playerframework.codeplex.com/SourceControl/latest#Win8.Xaml.Localize.Win81/en-US/PlayerFramework.resw">find them in the source code</a>. You can just copy the content of that RESW file to yours RESW file and localized everything.</p>
+
+<p>The last step is to let the PlayerFramework know about your RESW file using</p>
+
+<p><script src="https://gist.github.com/a5dcc1537cb977d023b4.js"></script></p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">20 Apr 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://localhost:1313/leveraging-etag-caching-in-windows-phone-and-windows-apps/" class="post-title">Leveraging ETag caching in Windows Phone and Windows apps</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://localhost:1313//categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://localhost:1313//categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>In my previous article I showed you <a href="http://blog.kulman.sk/using-etag-to-cache-responses-in-nancyfx/" title="Using ETag to cache responses in NancyFX">how to implements server side caching using ETag</a>. HTTP clients on other platforms can usually work with ETag automatically, but of course, the portable HTTP client used on Windows platforms cannot. You have to implement ETag handling yourself.</p>
+
+<p>In <a href="http://blog.kulman.sk/tvtime-track-your-favorite-tv-shows-on-windows-phone/" title="TvTime: track your favorite TV shows on Windows Phone">TvTime</a>, all the server requests are GET request, so I remember the ETag values for each Url (= each GET request). I store the ETag values in application local settings.</p>
+
+<p>When the app wants to get some data, I perform a GET request including the ETag as the If-None-Match header. If my ETag matches with the ETag on the server, the server returns HTTP 304 Not Modified and I return the cached data from disk. Otherwise I read the response body and return it.</p>
+
+<p><script src="https://gist.github.com/55fa534bdcb4ab963253.js"></script></p>
+
+<p>This approach works with the portable Http client library, that you can use with Windows Phone 8 (Silverlight), 8.1 (Sliverlight), 8.1 XAML and Windows <sup>8</sup>&frasl;<sub>8</sub>.1. If you only need to support Windows Phone 8.1 XAML and Windows 8.1, you may want to look into the Windows.Web.Http.HttpClient.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">15 Apr 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://localhost:1313/using-etag-to-cache-responses-in-nancyfx/" class="post-title">Using ETag to cache responses in NancyFX</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Azure" href="http://localhost:1313//categories/windows-azure">Windows Azure</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>Caching data is usually a good idea, especially when creating APIs for mobile clients and the user may pay for each transferred byte. There are many approaches to caching data (I recommend reading <a href="http://frontendplay.com/2013/05/22/http-caching-demystified/">this article</a>), in my last NancyFX project I used ETag.</p>
+
+<p><strong>ETag</strong></p>
+
+<p>ETag is a HTTP header that acts as a hash of the data. When the server returns a response, it computes a hash of the data and sends it to the client. When the client requests the data again, it includes the ETag in its request. The server compares the ETag with the hash of the current data and if they match (the data did not change), it returns an empty responses with a HTTP 304 status code.</p>
+
+<script src="https://gist.github.com/igorkulman/4e6d24d0fedfe8361c6b.js?file=etagresponse.cs"></script>
+
+<p><strong>NancyFX impelemntation</strong></p>
+
+<p>To implement caching using ETag in NancyFX I use a method in my base module</p>
+
+<p>There are two parameters in this method, because you may sometimes want to compute the ETag from only a part of the returned model.</p>
+
+<p>Using this method is the really simple</p>
+
+<script src="https://gist.github.com/igorkulman/4e6d24d0fedfe8361c6b.js?file=usage.cs"></script>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">30 Mar 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://localhost:1313/measuring-and-recording-the-room-temperature-with-a-raspberry-pi/" class="post-title">Measuring and recording the room temperature with a Raspberry Pi</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Raspberry Pi" href="http://localhost:1313//categories/raspberry-pi">Raspberry Pi</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>The Raspberry Pi is a small embedded computing device that you can use for <a href="http://blog.kulman.sk/my-year-with-the-raspberry-pi-and-what-i-used-it-for/" title="My year with the Raspberry Pi and what I used it for">many different software and hardware projects</a>. One of the first projects I did with the Pi was turning it into a device that would measure, record and display the room temperature.</p>
+
+<p><strong>Hadrware</strong></p>
+
+<p>To make the project, you will of course need a Raspberry Pi. I use my old Raspberry Pi model B, any newer one would also work. You also need a DS18B20 temperature sensor and a RRU 4K7 resistor. You can buy the separately, or you can buy the <a href="https://www.modmypi.com/raspberry-pi/set-up-kits/project-kits/raspberry-pi-youtube-workshop-kit">Raspberry Pi YouTube Workshop Kit</a> that also contains both parts.</p>
+
+<p>To connect the temperature sensor to the Pi, I suggest you follow the <a href="https://www.youtube.com/watch?v=S2v1VNgHnvI">YouTube tutorial for the kit</a>. You can also solder the temperature sensor and the resistor into one piece and connect it to the Pi using <a href="http://www.astromik.org/raspi/sch-2tep.gif">this schema</a>, so the result then looks like this</p>
+
+<p><img src="/images/pitherm.jpg" alt="" class="pure-img" ></p>
+
+<p><strong>Drivers</strong></p>
+
+<p>The advantage of using the DS18B20 temperature sensor is that Raspbian and all the other Raspbian based Linux distors for the Pi contain drivers for it. There are two drivers that you need to load to make it work, the w1-gpio and the w1-therm. You can load them using</p>
+
+<script src="https://gist.github.com/igorkulman/824c700681a8b6497ca8.js?file=drivers.sh"></script>
+
+<p>or just add them to /etc/modules so they autoload with each boot of the Pi.</p>
+
+<p>When the temperature sensor is connected and both drivers are loaded, a new device will appear in /sys/bus/w1/devices/. On my Pi, it is 28-000004e23e98, execute</p>
+
+<script src="https://gist.github.com/igorkulman/824c700681a8b6497ca8.js?file=id.sh"></script>
+
+<p>to find the id on yours.</p>
+
+<p><strong>Software</strong></p>
+
+<p>I am a .NET developer but running Mono on the Pi just seems strange to me, so I decided to use Node.js to create the UI. You can find the <a href="https://github.com/igorkulman/rpi-thermometer">whole project on Github</a>. It is a simple Node.js server that gets the temperature and shows it.</p>
+
+<p><img src="/images/pi-ui.png" alt="" class="pure-img" ></p>
+
+<p>Getting the temperature is a matter of a simple cat command to the right place</p>
+
+<script src="https://gist.github.com/igorkulman/824c700681a8b6497ca8.js?file=cat.sh"></script>
+
+<p>and parsing the result.</p>
+
+<p>I decided to use SQLite for storing the data and create a simple endpoint that gets the current temperature and stores it in the database. I recommend using cron to call the endpoint with the periodicity you want.</p>
+
+<p>You can then use the /history endpoint to get the temperature stats.</p>
+
+<p><img src="/images/pi-history.png" alt="" class="pure-img" ></p>
+
+<p>You can get, download, fork the whole project from <a href="https://github.com/igorkulman/rpi-thermometer">https://github.com/igorkulman/rpi-thermometer</a>.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">03 Mar 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://localhost:1313/back-navigation-on-backspace-key-press-in-windows-8-1-apps/" class="post-title">Back navigation on Backspace key press in Windows 8.1 apps</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="http://localhost:1313//categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>I am not a mouse or a touch person, I like using the keyboard and keyboard shortcuts for everything. So when I (have to) use a Windows 8.1 Metro app, I always miss when the app does not navigate back when I press the Backspace key, just like the browser does.</p>
+
+<p>Implementing this functionality is really simple, you just need to handle the KeyUp event and listen for the Backspace key. You can implement the KeyUp event handler on every View in your app, but that is not necessary. You can just hook up the global Window.Current.CoreWindow.KeyUp event after you app starts.</p>
+
+<p><script src="https://gist.github.com/b0f41a1a25acad0d17a4.js"></script></p>
+
+<p>If you implement this in your app, I am sure you will make some of your users more happy.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">13 Feb 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://localhost:1313/my-year-with-the-raspberry-pi-and-what-i-used-it-for/" class="post-title">My year with the Raspberry Pi and what I used it for</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Programming in general" href="http://localhost:1313//categories/programming-in-general">Programming in general</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>I have been owning and using a Raspberry Pi for over a year now. I started with Raspberry Pi model B and now I added Raspberry Pi 2 immediately after it was announced. Thanks to the fact that an IoT version of Windows 10 will run on the Pi, there is quite a hype about the Pi 2. Many people who did not care about the Pi before are now buying it because of that hype. And mostly they do not know what to do with it. So here is a list of things I used the Pi for, maybe you can get inspired.</p>
+
+<p><strong>Media center</strong></p>
+
+<p>I always wanted a small cheap low power media center to watch downloaded TV shows on the TV. The Pi was an ideal machine to built. I connected the Pi to a power source, ethernet, external hard drive the TV using HDMI. My distro of choice was <a href="http://www.raspbmc.com/">RaspBMC</a> at first but then I switched to <a href="http://www.xbian.org/">XBIAN</a>. Using this setup, the PI run XBMC (a media center software), that scanned the connected hard drive, found all the downloaded TV shows, and downloaded their metadata to make the experience better. Thanks to HDMI throughput I was able to control XBMC on the PI using the TV remote, not keyboard or mouse needed.</p>
+
+<p>I use torrents to get the TV shows I watch, because there is no other option in my country (no Netflix, no Amazon Prime ..). I installed a torrent client on the PI (transmission), so the PI could download the TV shows on its own. The torrent client came with a web UI, I opened a port my my router and I was able to add torrents from the office, from the phone, etc.</p>
+
+<p>So typically, on Monday, I came to the office in the morning. I realized, there was a new episode of say Top Gear last night. I opened the browser, found the right torrent and send it to the PI using the torrent clients web UI. When I came home in the afternoon, the TV shows was there, downloaded, waiting to be played on the TV.</p>
+
+<p>There is one more great thing that XMC provides and that is streaming your content to mobile devices. You just enabled uPnP in the settings and you can stream your TV shows to your phone or tablet.</p>
+
+<p><strong>Thermometer</strong></p>
+
+<p>I am not a hardware guy but I wanted to do some hardware experimenters to use the PIs GPIO ports. I found a simple thermometer scheme, bought the components (a thermometer sensor and a resistor) a made a colleague solder it for me. I connected the thermometer the PI and I was able to read the temperature in the room.</p>
+
+<p><img src="/images/pitherm.jpg" alt="" class="pure-img" ></p>
+
+<p>Reading the temperature using the command line is not really comfortable, so I created a web UI for the thermometer. I wrote it in Node.js, because it seemed like an interesting platform to try. I made the whole project open source, and you can find it at <a href="https://github.com/igorkulman/rpi-thermometer">https://github.com/igorkulman/rpi-thermometer</a>.</p>
+
+<p><img src="/images/pi-ui.png" alt="" class="pure-img" ></p>
+
+<p>Later I added a WiFi module and tried powering the PI from a battery bank. I basically created a WiFi enabled thermometer, that looked a bit strange. I think I need to get a small LCD display, so there is no need to open a browser when you just want to know the temperature.</p>
+
+<p><strong>NAS and backups</strong></p>
+
+<p>I had an external disk connected to the PI so I also ran Samba. I used it to offload some of my data to the PI. I am quite a paranoid person, so I also cloned all my personal and work Git repos to the PI and wrote a script that ran &#8220;git pull&#8221; on all of them every night.</p>
+
+<p><strong>Audio streaming in the office</strong></p>
+
+<p>Last week when I bought PI 2, I migrated my media center setup to it, leaving the old PI model B for experiments. I took the old PI to the office and finally solved a real world issue. There are speakers at the office that we use to play music. The problem is, whoever want to play the musics, needs to connect the speakers to their computer, so the speakers become exclusive and not shared.</p>
+
+<p>So I connected the PI to the speakers and found and installed <a href="http://www.woutervanwijk.nl/pimusicbox/">Music Box</a> on the PI. It is a media streaming distro that allows you to play online music from sources like Youtube, Spotify or Google Music. Music Box had a web UI, so everybody on the office network could add their favorite songs to the queue easily using a browser.</p>
+
+<p><strong>Windows 10?</strong></p>
+
+<p>Running a version of Windows 10 on the Pi is really interesting when you think about it, but everything I did with the Pi I was able to do without Windows. I could do it because there was a ton of open source ready made tools to help me. At least in the beginning, this will be a problem with Windows 10. I am sure it will take some time for people to create things like thermometer drivers, GPIO control libraries, etc.</p>
+
+<p>But there is one area I can see Windows 10 to excel on the Pi, and that is building GUI apps, especially touch enabled ones. Imagine you want to build something like a kiosk with a touchscreen and you need an app for that. Using Windows 10 instead of Linux will be much easier because building GUI app on Linux using QT or GTK is quite a pain, creating a Metro (universal) app is much easier.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">02 Feb 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://localhost:1313/automatically-push-your-git-repos-before-computer-shutdown/" class="post-title">Automatically push your Git repos before computer shutdown</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-PowerShell" href="http://localhost:1313//categories/powershell">PowerShell</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>I use two computers, my desktop computer located at home and set up for work and play and a work notebook (company provided) that I usually leave at the office. I use both computers for work and sometimes I forget to do &#8216;git push&#8217; when working at my home desktop computer. The next day, when using the work notebook, I wonder where the code from the previous day has disappeared.</p>
+
+<p>Of course, I can solve it by connecting to my home Raspberry Pi through SSH, waking the desktop computer over LAN from it, connecting to it using Remote Desktop to do the &#8216;git push&#8217; .. not really a simple solution, there must be a better way.</p>
+
+<p>So I came up with a really simple PowerShell script to iterate to a directory with git projects and execute &#8216;git push&#8217; on all of them</p>
+
+<p><script src="https://gist.github.com/275a76230757dcd48576.js"></script></p>
+
+<p>To make the script execute on each computer shutdown, run <strong>gpedit.msc</strong> and go to <strong>Computer Configuration</strong> | <strong>Windows Settings</strong> | <strong>Scripts (Startup/Shutdown)</strong> | <strong>Shutdown</strong> and add the script. Adding the script just by referencing the .ps1 file did not work for me, I had to add the path to PowerShell (%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe) with the script as a parameter.</p>
+
+                    </div>
+                </section>
+                
+            </div>
+            
+<div class="pagination">
+  <nav role="pagination" class="post-list-pagination">
+      
+      <a href="/" class="post-list-pagination-item pure-button post-list-pagination-item-prev">
+        <i class="fa fa-angle-double-left"></i>&nbsp;Newer
+      </a>
+      
+    <span class="post-list-pagination-item post-list-pagination-item-current">Page 2 of 10</span>
+    
+      <a href="/page/3/" class="post-list-pagination-item pure-button post-list-pagination-item-next">
+        Older&nbsp;<i class="fa fa-angle-double-right"></i>
+      </a>
+    
+  </nav>
+</div>
+
+
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="http://localhost:1313//js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-49528577-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>
