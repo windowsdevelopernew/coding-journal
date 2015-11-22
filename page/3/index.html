@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Journal &middot; Coding Journal</title>
+
+    <meta name="description" content="Adventures in the world of C#, F# and WinRT">
+
+    <meta name="generator" content="Hugo 0.14" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="Coding Journal &middot; Coding Journal">
+    <meta name="twitter:description" content="Adventures in the world of C#, F# and WinRT">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Coding Journal &middot; Coding Journal">
+    <meta property="og:description" content="Adventures in the world of C#, F# and WinRT">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="http://igorkulman.github.io/coding-journal/css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://igorkulman.github.io/coding-journal/index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://igorkulman.github.io/coding-journal">Coding Journal</a></h1>
+            <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/igorkulman"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/igorkulman "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="http://igorkulman.github.io/coding-journal/index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+
+<div>
+<h2>About me</h2>
+
+<p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
+<p>
+Interested in programming languages, functional programming and data science.</p>
+
+</div>
+
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                
+                <h1 class="content-subhead">12 Jan 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/nancyfx-authentication-for-rest-api/" class="post-title">NancyFX authentication for REST API</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Azure" href="http://igorkulman.github.io/coding-journal/categories/windows-azure">Windows Azure</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>NancyFX is a great .NET framework well suited for creating REST APIs. There are many ways how to approach authentication, the simplest one is the good old Forms Authentication. The idea of Forms Authentication is that the user logs in with a username and password and gets a cookie, the protected endpoints then check the cookie. NancyFX supports Forms Authentication with the <a href="https://www.nuget.org/packages/Nancy.Authentication.Forms/">Nancy.Authentication.Forms</a> package. The <a href="https://github.com/NancyFx/Nancy/wiki/Forms-Authentication">documentation describes how to use it on a web page</a>, but to use it with a REST API a few changes are needed.</p>
+
+<p><strong>Forms Authentication differences for REST API</strong></p>
+
+<p>There are things you want to do differently in a REST API than on a web page. If a user tries to access a protected endpoint, the Forms Authentication on a normal web page redirects him to the login page. In REST API, you typically want the endpoint just to return HTTP 401, no redirects. Also, when a user successfully logs in, you just typically want to return HTTP 200, no redirects.</p>
+
+<p><strong>Disabling redirects</strong></p>
+
+<p>Suppose you have Forms Authentication set up according to the documentation, with a IUserMapper and IUserIdentity implementation. Disabling the redirects is easy, just set a flag on the FormsAuthenticationConfiguration in your Bootstrapper:</p>
+
+<script src="https://gist.github.com/igorkulman/2430a948fe6c426cdd01.js?file=Bootstrapper.cs"></script>
+
+<p><strong>Changing Login and Logout methods</strong></p>
+
+<p>The login implementation from the documentation uses the LoginAndRedirect method. There is also LoginWithoutRedirect method you want to use, but I found out it does not set the authentication cookie (when it does not think the request is an AJAX request), so the login basically does not work. A workaround I found is to call the LoginAndRedirect method, but only get the authentication cookie from the response ad return it manually:</p>
+
+<script src="https://gist.github.com/igorkulman/2430a948fe6c426cdd01.js?file=login.cs"></script>
+
+<p>The logout implementation just needs to call LogoutWithoutRedirect and return HTTP 200:</p>
+
+<script src="https://gist.github.com/igorkulman/2430a948fe6c426cdd01.js?file=logout.cs"></script>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">29 Dec 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/changing-the-pivotitem-header-color-in-windows-phone-8-1-xaml/" class="post-title">Changing the PivotItem header color in Windows Phone 8.1 XAML</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>Windows Phone 8.1 XAML contains a Pivot control that looks like the one from Windows Phone <sup>7</sup>&frasl;<sub>8</sub> and also should behave the same way, but does not. You will find the first problem with the new Pivot when you want to change the PivotItem header color.</p>
+
+<p><strong>Windows Phone <sup>7</sup>&frasl;<sub>8</sub></strong></p>
+
+<p>If you want to change the PivotItem header color in Windows Phone <sup>7</sup>&frasl;<sub>8</sub>, you just define the color in the Header template:</p>
+
+<script src="https://gist.github.com/igorkulman/a49d0c7d471c4de42521.js?file=wp8.xaml"></script>
+
+<p>This works great, changing the color of the active PivotItem Header to the color you want and applying some opacity to the inactive PivotItem Headers.</p>
+
+<p><img src="/images/header78.png" alt="" class="pure-img" ></p>
+
+<p><strong>Windows Phone 8.1 XAML</strong></p>
+
+<p>If you apply the same Header template to PivotItem in Windows Phone 8.1 XAML, you will find that there is a bug in the control. The inactive PivotItem Headers do not get opacity change applied.</p>
+
+<p><img src="/images/header81.png" alt="" class="pure-img" ></p>
+
+<p>This is obviously a problem, if you do not want to do same SelectedIndex manipulation to change the color programatically for all the inactive PivotItem headers.</p>
+
+<p>Luckily, there is a way to fix this. You can redefine the PivotHeaderForegroundUnselectedBrush and PivotHeaderForegroundSelectedBrush to the active and inactive colors of your choice.</p>
+
+<script src="https://gist.github.com/igorkulman/a49d0c7d471c4de42521.js?file=wp81.xaml"></script>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">24 Dec 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/dialog-helper-for-universal-apps/" class="post-title">Dialog helper for Universal Apps the easy way</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>Today I read Joost van Schaik&#8217;s blog post called <a href="http://dotnetbyexample.blogspot.nl/2014/12/a-behavior-to-show-messagedialog-from.html">A behavior to show a MessageDialog from a MVVMLight viewmodel in Universal apps–with callbacks</a>. I am not a MVVMLight guy (I use Caliburn.Micro) and I personally use an approach that uses a little less code, employing a helper class.</p>
+
+<p><strong>Helper class</strong></p>
+
+<script src="https://gist.github.com/igorkulman/fda1860b35d5312e9157.js?file=DialogHelper.cs"></script>
+
+<p>with a simple usage in ViewModel</p>
+
+<script src="https://gist.github.com/igorkulman/fda1860b35d5312e9157.js?file=usage.cs"></script>
+
+<p>and in the View (making use of Caliburn.Micro mapping the AppBarButton with x:Name=&#8221;Message&#8221; to the Message method in the ViewModel</p>
+
+<script src="https://gist.github.com/igorkulman/fda1860b35d5312e9157.js?file=usage.xaml"></script>
+
+<p>If you want to show a dialog with just the Ok button, set cancelText to null and do not process the helper method&#8217;s result.</p>
+
+<p><strong>Simple service</strong></p>
+
+<p>If you do not like static classes, just make it service</p>
+
+<script src="https://gist.github.com/igorkulman/fda1860b35d5312e9157.js?file=DialogHelperService.cs"></script>
+
+<p>the usage in the ViewModel will change just slightly</p>
+
+<script src="https://gist.github.com/igorkulman/fda1860b35d5312e9157.js?file=usage2.cs"></script>
+
+<p>and you can easily mock the service and test the ViewModel.</p>
+
+<p>You can find the complete code in a sample solution on GitHub: <a href="https://github.com/igorkulman/SampleMessagePopup">https://github.com/igorkulman/SampleMessagePopup</a>.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">23 Dec 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/creating-a-fake-splashscreen-for-your-universal-app/" class="post-title">Creating a fake splashscreen for your Universal App</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>Sometimes you may want your app to display the startup splashscreen a bit longer, so you can initialize or fetch some data necessary for the app to run. To achieve this, you can create a fake splaschreen, a View that looks just like the splashscreen, does all the work and redirects to the real main View afterwards.</p>
+
+<p>In theory, it is quite simple:</p>
+
+<ul>
+<li>Create a SplashScreenView with just the right background and the splashscreen image</li>
+<li>Set the app to display SplashScreenView at startup</li>
+<li>Do all the initializing and data fetching in SplashScreenViewModel and redirect to there real MainView</li>
+</ul>
+
+<p>This works quite well with Windows 8.1, but on Windows Phone 8.1 there is a problem. When you run the Windows Phone 8.1 app, you will see a page transition happen between the real splashscreen and your SplashScreenView. This looks strange, so it is better to get rid of it.</p>
+
+<p><strong>Managing the Frame transitions on Windows Phone 8.1</strong></p>
+
+<p>To fix this issue, you can disable the transitions on the frame and add them manually to each View other than SplashScreenView, but there is a better way. You can disable the transitions when creating the frame and the enable them after navigating from the SplashScreenView. Do not forget the <a href="http://blog.kulman.sk/why-universal-apps-as-not-as-universal-as-you-may-think/" title="Why Universal Apps as not as universal as you may think">#ifdefs, because it is one of those many things that are Windows Phone specific in the Universal Apps</a>.</p>
+
+<p><script src="https://gist.github.com/d61c0a71e8ed0e2fbc1d.js"></script></p>
+
+<p>This makes the illusion of the fake splashscreen perfect, but I would recommend adding a ProgressBar or ProgressRing to the SplashScreenView so the users do not have the feeling that your app froze.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">18 Dec 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/why-universal-apps-as-not-as-universal-as-you-may-think/" class="post-title">Why Universal Apps as not as universal as you may think</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>I have been developing Windows Phone apps for a few years now, always sticking to Silverlight and keeping using Silverlight also after Microsoft announced the WinRT flavor of Windows Phone apps and the so called Universal Apps. The Windows Phone 8.0 and 8.1 Silverlight APIs have some limitations, but are now well known do not contain many bugs. They are the safe choice if you want to create a Windows Phone apps. And do not forget that there are still many device running Windows Phone 8 (like Verizon customers in the US) that never got the 8.1 updated promised to everyone during the summer.</p>
+
+<p><strong>Really universal?</strong></p>
+
+<p>Windows Phone 8.1 XAML and Universal Apps included WinRT APIs that have many problems, including some that there is no solution for. I used the WinRT APIs when creating first Windows 8 apps about 2 years ago, so I am not new to the APIs. I have not touched the WinRT APIs again until recently, because there was no demand for Windows 8 or Windows 8.1 apps. Why would it? People use Windows 8 or 8.1 but do not care about Metro apps, they give them no value compared to &#8220;normal&#8221; Win32 and Windows tablets are practically non-exists (expect for the Surface tablets owned by few programmers and maybe no one else).</p>
+
+<p><strong>Universal Apps</strong></p>
+
+<p>Recently, a client was thinking about adding a Windows Phone app for their service the its existing Android and iOS apps, but they did not think it was worth the money. So the local Microsoft branch told them they would pay for the app (seems like many of the app here are created this way) under two conditions. The app had to be a Universal App and had to be finished before the years end. The client agreed and I had to create a Universal App. And the problems started.</p>
+
+<p>In theory, Universal Apps are supposed to make code sharing between Windows Phone and Windows 8.1 simple and allow you to reuse as much code as possible. This works on the trivial Microsoft samples, but try to create a real world app. I have a business logic project with API calls, storage, etc. in a portable class library (like I always did before Universal Apps existed) and I created an Universal App from the template. And the #ifdef hell started.</p>
+
+<p><img src="/images/56995992.jpg" alt="" class="pure-img" ></p>
+
+<p><strong>#ifdefs everywhere</strong></p>
+
+<p>With Universal Apps you can safely share the ViewModels (I am using Caliburn.Micro) .. and that is about it. You have to create separate Views (because on phone and desktop information is typically displayed different), but the worst parts are the #ifdefs.</p>
+
+<p>You need to set some properties of the main Frame, you have to use #ifdefs because the frame is a bit different on phone and desktop (like animations). You want to reuse as much DataTemplates as possible, so add another #ifdef for adding the right resource dictionary or many #ifdefs in the data templates to tune them, because it does not matter you use GridView on phone and GridView on desktop, they behave a bit differently in some cases.</p>
+
+<p>Then you need to add audio playback to your app. There is a background audio playback API for Windows Phone 8.1 and none for Windows 8.1 In Windows 8.1 you need a global MediaElement in your Frame and handling everything differently. So add another big #ifdef. And by the way, the background audio playback API for Windows Phone 8.1 really sucks compared to the old Silverlight APIs. Just try downloading the <a href="https://code.msdn.microsoft.com/windowsapps/BackgroundAudio-63bbc319">sample form MSDN</a> and hitting Suspend and Resume in Visual Studio, the background agent crashes horribly, without any exception and takes your Visual Studio instance to hell with it. And of course, the background audio playback API does not work on some phones. <a href="https://stackoverflow.com/questions/26175599/windows-phone-8-1-rt-backgroundmediaplayer-not-working">Just does not work</a>. I confirmed this finding with other developers. Another messed up API that used to work before the whole Universal Apps hype. And explain this to the client who sees that things like this work on iOS, work on Android, hell, they even for on Windows Phone 8.0 (Slivelight) apps.</p>
+
+<p><strong>More messed up APIs</strong></p>
+
+<p>So background audio playback API for Windows Phone 8.1 is messed up, anything else? Sure. BackgroundDownloader is another example. In Silverlight, there was a BackgroundDownloader that was quite limited, but it worked. In Universal Apps, there is a new BackgroundDownloader with some new features, and some essential ones missing. For example, in Silverlight, each download could have a Tag, where you can store any data so you know something about the download when it finishes (to what business entity it belongs, etc.). Not any more in Universal Apps. There is no Tag, so you have to build and manage you own kind of index for all the downloads, so you can actually match them to your business entities. An annoyance, but nothing you cannot manage, right.</p>
+
+<p>The BackgroundDownloader in Universal Apps has a bigger problem. It sometimes crashes so horribly, that it reboots the whole device! No exception, no logs, just a reboot. The maximum limit for the BackgroundDownloader is 1000 downloads, but try adding say 300 to the queue, cancelling them after a few minutes (does not seem to matter if you use one cancellation token or give each download its own) and there is a good chance the phone or the emulator will reboot itself. Not always, but quite often. Again, try explaining this issue to the client.</p>
+
+<p><strong>Performance</strong></p>
+
+<p>In Silverlight, I commonly used the LongListSelector to display data, using it with a WrapPanel when I needed to create a two column layout. The LongListSelector is gone, in Universal Apps you have to use GridView also on Windows Phone. Or you can use the ListView with a custom wrap panel you write yourself or download somewhere, but it takes some effort to make it do virtualization properly.</p>
+
+<p>So you use GridView on both Windows Phone 8.1 and Windows 8.1 to make it consistent. Add tens f of items with images to it and the performance starts to really suffer. Gray placeholders will show up and more importantly, <a href="https://stackoverflow.com/questions/27488201/gridview-and-placeholders-that-never-disapper-in-windows-8-and-windows-phone-app">never disappears</a>. You do not event need images, just add about 300 text only items to the GridView and the gray placeholders will starts to show when scrolling.</p>
+
+<p>Need another proof that the WinRT controls are slower? Just <a href="https://www.youtube.com/watch?v=nn5hVq6Q-zo">take a look at this video comparing the media app on and old Windows Phone 7 to the media app on a much more powerful device running Windows Phone 8.1</a>. You can see that the old, single core device runs the Silverlight apps faster than the new powerful phone runs the new WinRT equivalent of the app.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">24 Nov 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/rest-service-base-class-for-windows-phone-8-1-xaml-apps/" class="post-title">REST service base class for Windows Phone 8.1 XAML apps</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>Communicating with a JSON based REST service is a task that many Windows Phone apps have to do. My apps sure do it a lot so I came up with a base class that I use in all of them, <a href="https://github.com/igorkulman/Kulman.WPA81.BaseRestService">put it on Github</a> and <a href="https://www.nuget.org/packages/Kulman.WPA81.BaseRestService/">created a Nuget package</a>, so your apps could use it to.</p>
+
+<p>The usage of this base class is simple. Create your service class and inherit from BaseRestService. The minimum you need to do to make it work is to override the GetBaseUrl() method to set the base url for all the requests. You can (but do not have to) also override the GetRequestHeaders() method to set the default request headers.</p>
+
+<script src="https://gist.github.com/igorkulman/405732bf92858dba1c3c.js?file=usage1.cs"></script>
+
+<p>and you can now use the following protected methods</p>
+
+<script src="https://gist.github.com/igorkulman/405732bf92858dba1c3c.js?file=methods.cs"></script>
+
+<p>All the JSON serialization and deserialization is automatically done for you. If you need to execute some action before every request (like checking if the OAuth token expired and refreshing it), simply override the OnBeforeRequest() method.</p>
+
+<p>Methods in your service may then look like this</p>
+
+<script src="https://gist.github.com/igorkulman/405732bf92858dba1c3c.js?file=usage2.cs"></script>
+
+<p>In case of an error, the methods throw either a DeserialziationException with the original data if deserialization failed, or a ConnectionException with the HTTP status code.</p>
+
+<p>if you need some additional features, just raise an issue in the <a href="https://github.com/igorkulman/Kulman.WPA81.BaseRestService">Github repo</a>, or create a pull request.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">03 Nov 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/visual-studio-template-for-caliburn-micro-windows-phone-apps/" class="post-title">Visual Studio template for Caliburn.Micro Windows Phone apps</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>I have been building Windows Phone apps using the <a href="https://github.com/Caliburn-Micro/Caliburn.Micro">Caliburn.Micro</a> framework for some time now. Setting up a new project takes some time and can be easily automated, so I decided to create a Visual Studio template for Windows Phone apps build with Caliburn.Micro.</p>
+
+<p>The templates can be downloaded from <a href="https://visualstudiogallery.msdn.microsoft.com/21b4568e-1fb9-4881-9d51-8e1ea0160a9f">the Visual Studio Extensions gallery</a> and used to build Windows Phone 8 and Windows Phone 8.1 Silverlight apps. It contains the basic setup with Caliburn Micro and <a href="http://blog.kulman.sk/inotifypropertychanged-the-easy-way-in-windows-phone-and-windows-8/" title="INotifyPropertyChanged the easy way in Windows Phone and Windows 8">Fody</a>, with a sample view and viewmodel.</p>
+
+<p>The <a href="https://github.com/igorkulman/CaliburnWP8AppVSIX">source code is available on GitHub</a>, so if you want to modify it to best suit your needs, feel free to do it.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">22 Sep 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/detecting-tablets-and-smartphones-in-asp-net/" class="post-title">Detecting tablets and smartphones in ASP.NET</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>I recently worked on an ASP.NET application that needed to detect if users were coming from tablets or smartphones. The project used data from <a href="http://user-agent-string.info/">http://user-agent-string.info/</a> to do this detection, but the result were not really good. We needed a better solution, so I came up with using <a href="http://wurfl.sourceforge.net/">WURFL</a>.</p>
+
+<p>WURFL, the Wireless Universal Resource FiLe, is a Device Description Repository (DDR), i.e. a software component that maps HTTP Request headers to the profile of the HTTP client (Desktop, Mobile Device, Tablet, etc.) that issued the request. Adding WURFL to your ASP.NET application is easy thanks to the <a href="https://www.nuget.org/packages/WURFL_Official_API/">WURFL_Official_API Nuget package</a>. The Nuget package also contains definition file, so you just need to update the Nuget package once in a while to get your definition file up to date.</p>
+
+<p>After installing the Nuget package, you need to setup WURLF in your Global.asax file</p>
+
+<script src="https://gist.github.com/igorkulman/dc65bf6d68aec59d57e2.js?file=wurlf_setup.cs"></script>
+
+<p>I recommend setting the match mode to accuracy instead of speed, to get the best results. Using the WURFL library is also quite easy, just pass the user agent string and get the properties you want.</p>
+
+<script src="https://gist.github.com/igorkulman/dc65bf6d68aec59d57e2.js?file=wurfl_usage.cs"></script>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">16 Sep 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/tvtime-track-your-favorite-tv-shows-on-windows-phone/" class="post-title">TvTime: track your favorite TV shows on Windows Phone</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>We have just had released a new app called TvTime. TvTime is a simple and beautiful app for tracking your favorite TV Shows. Simply add a find the TV Shows you like, add them to the list and get detailed information about actors, air times and episodes. If you decide to track unwatched episodes, you will always know what you have already seen. So get TvTime now so you never miss your favorite TV Show!</p>
+
+<p><img src="/images/tvtimepromo.jpg" alt="" class="pure-img" ></p>
+
+<p>Main features</p>
+
+<ul>
+<li>clean and simple design</li>
+<li>thousands of TV Shows to choose</li>
+<li>tracking unwatched episodes</li>
+<li>live tile</li>
+<li>show and episodes details</li>
+</ul>
+
+<p>You can download the app for free <a title="TvTime download" href="http://www.windowsphone.com/s?appid=517d314b-cf64-41ed-9407-21b2c6e546c0" target="_blank">here</a>.</p>
+
+<p><img  src="http://qrfree.kaywa.com/?l=1&#038;s=8&#038;d=http%3A%2F%2Fwww.windowsphone.com%2Fs%3Fappid%3D517d314b-cf64-41ed-9407-21b2c6e546c0" width="150" height="150" /></p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">15 Sep 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/what-to-put-on-the-about-screen-of-your-windows-phone-app/" class="post-title">What to put on the about screen of your Windows Phone app</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>The about screen of a Windows Phone app is usually the most overlooked part of the app. Sure, the users usually visit it only once, after installing the app, if ever, but it is a part of your Windows Phone app that you could put to a good use.</p>
+
+<p>If you have ever taken a DVLUP challenge you may have noticed, that they recommend you place a text describing your app on the about screen. I really do not agree with this. If users install your app, they know what the app does and if they cannot figure it out, then your UI is a failure and the about screen will not save you.</p>
+
+<p>After some trial and error I came up with a standardized about screen I now use in all my apps. It is a pivot with two tabs; About and More apps.</p>
+
+<p>The About tab is the most important. It shows the version of the app, this is important when users report problems, information about the author and the designer of the app with Twitter contacts and buttons to send feedback via email and rate the app in the Windows Phone Store. Providing a feedback mechanism is really important, the users will write you about an issue they have with the app instead of just giving you a bad review in the Windows Phone Store.</p>
+
+<p><img src="/images/about1.png" alt="" class="pure-img" ></p>
+
+<p>The screenshot shows the About page from my latest app <a href="http://blog.kulman.sk/tvtime-track-your-favorite-tv-shows-on-windows-phone/" title="TvTime: track your favorite TV shows on Windows Phone">TvTime</a>. You can easily get the app version from the manifest using the <a href="https://github.com/igorkulman/Kulman.WP8/blob/master/Kulman.WP8/Code/ManifestHelper.cs">ManifestHelper</a> from the <a href="https://www.nuget.org/packages/Kulman.WP8/">Kulman.WP8 Nuget package</a>.</p>
+
+<p>You should know that submitting an app is just a beginning, you then have to answer to user feedback, provide bug fixes, etc. In my case, the Feedback button launches an EmailComposeTask with filled in recipient and subject so the users just write what is on their minds and send it to me. I always answer each and every one of those feedback emails.</p>
+
+<p>I use the second tab, More apps, as a form of cross-promotion.</p>
+
+<p><img src="/images/about2.png" alt="" class="pure-img" ></p>
+
+<p>If the users like your app, they may also like your other apps so why not make it easier for them to get them. I have a simple XML file with names, links and icons of my apps hosted on a webserver that the app downloads and displays, of course removing itself from the list.</p>
+
+<p>To sum it all up, do not underestimate your about screen, use it to provide your users with a feedback mechanism. You will make your apps better.</p>
+
+                    </div>
+                </section>
+                
+            </div>
+            
+<div class="pagination">
+  <nav role="pagination" class="post-list-pagination">
+      
+      <a href="/page/2/" class="post-list-pagination-item pure-button post-list-pagination-item-prev">
+        <i class="fa fa-angle-double-left"></i>&nbsp;Newer
+      </a>
+      
+    <span class="post-list-pagination-item post-list-pagination-item-current">Page 3 of 10</span>
+    
+      <a href="/page/4/" class="post-list-pagination-item pure-button post-list-pagination-item-next">
+        Older&nbsp;<i class="fa fa-angle-double-right"></i>
+      </a>
+    
+  </nav>
+</div>
+
+
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="http://igorkulman.github.io/coding-journal/js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-49528577-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

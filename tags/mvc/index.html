@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mvc &middot; Coding Journal</title>
+
+    <meta name="description" content="Adventures in the world of C#, F# and WinRT">
+
+    <meta name="generator" content="Hugo 0.14" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="Mvc &middot; Coding Journal">
+    <meta name="twitter:description" content="Adventures in the world of C#, F# and WinRT">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Mvc &middot; Coding Journal">
+    <meta property="og:description" content="Adventures in the world of C#, F# and WinRT">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="http://igorkulman.github.io/coding-journal/css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://igorkulman.github.io/coding-journal/index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://igorkulman.github.io/coding-journal">Coding Journal</a></h1>
+            <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/igorkulman"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/igorkulman "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="http://igorkulman.github.io/coding-journal/index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+
+<div>
+<h2>About me</h2>
+
+<p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
+<p>
+Interested in programming languages, functional programming and data science.</p>
+
+</div>
+
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                
+                <h1 class="content-subhead">09 Jan 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/c-scripting-console-for-asp-net-mvc-application/" class="post-title">C# scripting console for ASP.NET MVC application</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Azure" href="http://igorkulman.github.io/coding-journal/categories/windows-azure">Windows Azure</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>In a recent larger ASP.NET MVC project running in Windows Azure I needed to provide the advanced users a way to execute custom scripts directly through the webbrowser. A kind of a scripting console where users can create and execute their own scripts, that interact with the project and automate some tasks (that would otherwise require too many clicks).</p>
+
+<p><strong>Choosing the language</strong></p>
+
+<p>I thought about using Lua but I needed an easy way to integrate with some classes (repositories) used in the project. I decided to use C# as the scripting language and implement the scripting console using <a href="http://msdn.microsoft.com/en-us/vstudio/roslyn.aspx">Roslyn</a>. Roslyn is a really neat project and I recommend taking a look at it, if you do not already know it.</p>
+
+<p>I extracted the main idea of my implementation of the scripting console and <a href="http://igorkulman.github.io/WebConsole/">posted it on GitHub</a>. I will walk you through it in this blog post.</p>
+
+<p><strong>Basic implementation</strong></p>
+
+<p>My basic solution consists of a Textarea the user writes the script to, the script then gets executed by Roslyn and the final result is shown. I also included a basic Repository class to show, that the scripts can use classes from the project. In the real implementation I have a logger class showing the ongoing logs and results but as I said, the Github repo is just an extracted basic idea of the scripting console.</p>
+
+<p>To execute a C# script in your ASP.NET MVC (or any other) application, you first need to install the Roslyn package and its dependencies</p>
+
+<script src="https://gist.github.com/igorkulman/8159321.js?file=roslyn-nuget.ps"></script>
+
+<p>Let&#8217;s suppose you have the C# script you want to execute in a string variable called command obtained from the mentioned Textarea. First, you need to create the scripting engine and a session</p>
+
+<p>There are ScriptEngine classes, one for C# and one for VB.NET so choose the one for C#. You can use any class as the context for the scripts. In the sample, I have a ScriptingContext class containing one public property of a type DataRepository. If you use a class as the context for the scripts, you can access all its properties (Repository of type DataRepository in my case) in the scripts.</p>
+
+<p>To use a class as the context for the scripts, just pass it to the Roslyn session</p>
+
+<script src="https://gist.github.com/igorkulman/8159321.js?file=roslyn-session.cs"></script>
+
+<p>If you want to use more than the core C# libraries, you need to do some referencing and importing. If you are using a class as the context for the scripts, you need to reference its assembly. Suppose you want to use classes and methods from System.Xml and System.Xml.Linq in your scripts. First, you need to add references to the session</p>
+
+<script src="https://gist.github.com/igorkulman/8159321.js?file=roslyn-context.cs"></script>
+
+<p>and then import them to the session</p>
+
+<script src="https://gist.github.com/igorkulman/8159321.js?file=roslyn-import.cs"></script>
+
+<p>Everything is set up now, so just execute the script and get the result</p>
+
+<script src="https://gist.github.com/igorkulman/8159321.js?file=roslyn-exec.cs"></script>
+
+<p>The result of the script is the result of the last expression of the script so I recommend using a logger class in the context if you want to get more information about the execution of your script.</p>
+
+<p><strong>Conclusion</strong></p>
+
+<p>Thanks to Roslyn, I was able to create a really usable scripting console for the project and allow users to automate many tasks using C# scripts. This article and the demo project describe just the basics, there are many ways to make the experience better. I for example use the <a href="http://codemirror.net/">CodeMirror</a> editor to provide C# syntax highlighting, to allow users to upload ZIP files they can process in their scripts, etc.</p>
+
+<p>Source code: <a href="https://github.com/igorkulman/WebConsole">WebConsole</a></p>
+
+                    </div>
+                </section>
+                
+            </div>
+            
+
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="http://igorkulman.github.io/coding-journal/js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-49528577-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

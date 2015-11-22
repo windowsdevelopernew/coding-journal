@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C# &middot; Coding Journal</title>
+
+    <meta name="description" content="Adventures in the world of C#, F# and WinRT">
+
+    <meta name="generator" content="Hugo 0.14" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="C# &middot; Coding Journal">
+    <meta name="twitter:description" content="Adventures in the world of C#, F# and WinRT">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="C# &middot; Coding Journal">
+    <meta property="og:description" content="Adventures in the world of C#, F# and WinRT">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="http://igorkulman.github.io/coding-journal/css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://igorkulman.github.io/coding-journal/index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://igorkulman.github.io/coding-journal">Coding Journal</a></h1>
+            <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/igorkulman"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/igorkulman "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="http://igorkulman.github.io/coding-journal/index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+
+<div>
+<h2>About me</h2>
+
+<p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
+<p>
+Interested in programming languages, functional programming and data science.</p>
+
+</div>
+
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                
+                <h1 class="content-subhead">30 Jan 2013, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/using-custom-fonts-in-windows-phone-apps/" class="post-title">Using custom fonts in Windows Phone apps</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>Windows Phone allows yout to use custom TTF fonts in your apps. Using a custom font from XAML or C# is easy, but your run into troubles when you want to use if from a Background Agent (e.g: for updating a Live Tile).</p>
+
+<p><strong>Adding font to solution</strong></p>
+
+<p>The custom font must be a TTF, you can also use a ZIP file with multiple TTF files. You need to know the name of the font to identify it. Add the font file to your solution and set its build action to Content.</p>
+
+<p><strong>Custom font and XAML</strong></p>
+
+<p>Using a custom font in XAML is very straightforward. You just need to set the <em>FontFamily</em> property to the font file path followed by a hash (#) and the font name:</p>
+
+<p><script src="https://gist.github.com/5849406.js"></script></p>
+
+<p><strong>Custom font and C#</strong></p>
+
+<p>Using a custom font from C# follows the same principle. You just need to set the <em>FontFamily</em> property to a new FontFamily instance created by the constructor that takes a font family name as a parameter:</p>
+
+<p><script src="https://gist.github.com/5849415.js"></script></p>
+
+<p><strong>Custom font and Background Agent</strong></p>
+
+<p>Using a custom font from a Background Agent is a bit tricky. If you want to use it to render an image for your Live Tile, you will find out, that none of the before mentioned steps work. The font just does not get rendered. I suspect that the font does not get loaded because of some bug in the Silverlight runtime.</p>
+
+<p>A possible workaround is to to read the font file as a stream and set this stream to the TextBlock&#8217;s <em>FontSource</em> property before setting the <em>FontFamily</em> property:</p>
+
+<p><script src="https://gist.github.com/5849421.js"></script></p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">08 Jan 2013, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/appharbor-great-place-to-start-your-net-project/" class="post-title">AppHarbor: great place to start your .NET project</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Programming in general" href="http://igorkulman.github.io/coding-journal/categories/programming-in-general">Programming in general</a><a class="post-category post-category-Windows Azure" href="http://igorkulman.github.io/coding-journal/categories/windows-azure">Windows Azure</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>If you want to host your .NET project on the Internet, there are classic ASP.NET webhosting on one side of the spectrum and Microsoft Azure on the other. If you are looking for something in the middle, take a look at <a href="https://appharbor.com/">AppHarbor</a>.</p>
+
+<p><strong>AppHarbor</strong></p>
+
+<p>AppHarbor is a flexible and scalable .NET Platform-as-a-Service, that you can even <a href="https://appharbor.com/pricing">use for free</a>, limited to one web or worker role. It runs in AWS and is quite similiar to Heroku.</p>
+
+<p><strong>Variety of Add-ons</strong></p>
+
+<p>There are <a href="https://appharbor.com/addons">many add-on supported by AppHarbor</a>, including SQL Server, MongoDB, RavenDB, MySQL, Memcacher &#8230; Many of these ad-ons offer free versions so you can test them for free. If you run into some problems, you can use <a href="http://support.appharbor.com/">the support forums</a> or <a href="http://stackoverflow.com/questions/tagged/appharbor">StackOverflow</a>.</p>
+
+<p><strong>Flexible deployment</strong></p>
+
+<p>The thing I like best about AppHarbor are the deployment options. You can push your .NET code to AppHarbor using Git, Mercurial, Subversion or Team Foundation Server with the complimentary Git service or through integrations offered in collaboration with <a href="http://support.appharbor.com/kb/api/integrating-with-bitbucket">Bitbucket</a>, <a href="http://support.appharbor.com/kb/api/integrating-with-codeplex">CodePlex</a> and <a href="http://blog.appharbor.com/2011/10/13/announcing-github-support">GitHub</a>.</p>
+
+<p>When AppHarbor receives your code it will be built by a platform build server. If the code compiles, any unit tests contained in the compiled assemblies will be run. If the code builds and all tests execute successfully, the application is deployed to the AppHarbor application servers.</p>
+
+<p><strong>Compatibility</strong></p>
+
+<p>The majority of .NET code runs just fine in AppHarbor without any changes. If you use Nuget, you need to enabled Nuget Package Restore for your solution.</p>
+
+<p>Let the continous deployment begin &#8230; my first AppHarbor project is hosted at <a href="http://myexpenses.apphb.com/">http://myexpenses.apphb.com</a>.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">28 Dec 2012, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/using-net-libraries-with-monotouch/" class="post-title">Using .NET libraries with MonoTouch</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Programming in general" href="http://igorkulman.github.io/coding-journal/categories/programming-in-general">Programming in general</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>I have been <a href="http://blog.kulman.sk/monotouch-ios-development-for-net-programmers/">playing with MonoTouch</a> only for a few days when I already started to miss all the .NET libraries I commonly use. The first one I needed to get working with MonoTouch was <a href="http://james.newtonking.com/projects/json-net.aspx">JSON.NET</a>.</p>
+
+<p>MonoDevelop does not support Nuget so you have to get your libaries the old way. I downloaded JSON.NET package from <a href="http://nuget.org/">Nuget.org</a>, but it does not contain a DLL built for Mono. Harldy any Nuget package does. You can reference a DLL built for .NET, MonoDevelop will recognize it and even offer you IntelliSense but your project will not get built.</p>
+
+<p>The right way to get a .NET library working with MonoTouch is downloading its source code and building it yourself. You can use MonoDevelop to build the source codes. The only think you have to do (at least for JSON.NET) is to change the .NET profile to an equivalent Mono profile in the project settings.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">19 Dec 2012, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/monotouch-ios-development-for-net-programmers/" class="post-title">MonoTouch: iOS development for .NET programmers</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Programming in general" href="http://igorkulman.github.io/coding-journal/categories/programming-in-general">Programming in general</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>Beeing <a href="http://blog.kulman.sk/why-i-do-not-like-windows-phone-programming-anymore/">quite disappointed with the Windows Phone platform recently</a> I started to look for other ways to use my .NET skills and to develop for a mobile platform at the same time. I found <a href="http://xamarin.com/monotouch">MonoTouch</a>, a product from Xamarin that allows you to build iOS apps using C# with Mono.</p>
+
+<p><strong>What is MonoTouch?</strong></p>
+
+<p>MonoTouch is a product or a framework do develop iOS apps using <a href="http://www.mono-project.com/Main_Page">Mono</a> (an open-source .NET implementation). It allows you to use C# (hopefuly also F# although I have not been able to get it to work yet) and all the .NET features libraries you use and like and of course your existing codebase. No Objective-C knowledge is required, but you will have to learn about the iOS ecosystem an iOS SDK. The iOS SDK is also needed, so you cannot do the development in Windows, you have to use a Mac. There are ways to get MacOS X working on a PC as a native install or in VMWare / VirtualBox, if you just want to try it out, but it may not be legal.</p>
+
+<p><strong>How does the development work?</strong></p>
+
+<p>When using MonoTouch you create a new project in MonoDevelop that comes with MonoTouch. The UI files (*.xib) cannot be modified using MonoDevelop so you have to use XCode. You define your UI in XCode like you would as a native developer, creating outlets and actions. MonoTouch watches the project files you make in XCode and generates matching C# files, that allow you to use all the UI elements created in XCode from your C# code. This method is prefered, but you can create the whole UI in code and never use XCode.</p>
+
+<p><img src="/images/monotocuh.png" alt="" class="pure-img" ></p>
+
+<p>The iOS development uses MVC pattern, but it does not look like the MVC pattern I am used to. It looks to me more like WinForms development than WPF or other XAML-based technology using MVVM. Just to be clear, MonoTouch would not shield you from the iOS specific stuff, it just porjects the iOS SDK methods and properties to Mono. But it still C# (check out the Write beautiful code section on the <a href="http://xamarin.com/monotouch">MonoTouch website</a>).</p>
+
+<p>The MonoTouch project compiles to native ARM code.</p>
+
+<p><strong>Should you use it?</strong></p>
+
+<p>That depends. If you are a .NET developer, MonoTouch is definitely the way to do your iOS development. If you will be in a position to decide between native iOS development and MonoTouch, definetely <a href="http://stackoverflow.com/questions/1583856/how-to-decide-between-monotouch-and-objective-c">check out this StackOverflow question</a>.</p>
+
+<p>The prices start at $399 for indie developers and companies with less then 10 employees. The evaluation version allows you to develop a full application and test it in the simulator, but you have to have a commercial license to deploy to a real device and to the AppStore.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">22 Nov 2012, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/converting-hex-color-to-solidcolorbrush/" class="post-title">Converting HEX color to SolidColorBrush</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>XAML supports stating color definitions as hexa strings (starting with #) but there is no built-in way to do it in C#, you must write your own method to do it, that might look like this</p>
+
+<p><script src="https://gist.github.com/5849452.js"></script></p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">20 Nov 2012, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/loading-xaml-components-at-runtime/" class="post-title">Loading XAML components at runtime</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>When I had to create a library to generate UI elements with animated image Ads I found out that creating complicated UI elements in code with bindings is not as easy as doing the same in XAML. A better way is to create your UI elements and bindings in a XAML file (if they are not very dynamic of course), load the XAML at runtime, parse it and set its DataContext.</p>
+
+<p>First you need to read the XAML file. You can use the standard API with Windows.ApplicationModel.Package.Current.InstalledLocation as the folder. The XAML file must be set to Build=Content in your project</p>
+
+<p><script src="https://gist.github.com/5849482.js"></script></p>
+
+<p>Once you have the XAML read as string, you can use the XamlReader and cast it to a DependencyObject.</p>
+
+<p><script src="https://gist.github.com/5849490.js"></script></p>
+
+<p>or a more concrete class like UserControl if you know what the file contains.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">15 Nov 2012, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/computing-hashes-in-winrt/" class="post-title">Computing hashes in WinRT</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>If you ever generated a MD5 or SHA hash in C# you problaby uset the classes from the System.Security.Cryptography namespace. This namespace is not available in WinRT, you have to use the Windows.Security.Cryptography.Core instead. This namespace contians a class called HashAlgorithmProvider that can be used to generate hashes using MD5 and SHA (SHA1, SHA256, SHA384, SHA512). A simple method to generate a hash for a string using a given algorithm may look like this</p>
+
+<p><script src="https://gist.github.com/5849454.js"></script></p>
+
+<p>Specifing the algoritm by its string name is not a good idea in my opinion, although you can use the names from the HashAlgorithmNames class. I would rather make the GetHash method private and create public method for all the algorithms</p>
+
+<p><script src="https://gist.github.com/5849455.js"></script></p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">08 Nov 2012, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/how-to-uniquely-identify-a-windows-8-device/" class="post-title">How to uniquely identify a Windows 8 device</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>When developing a Windows 8 app you may need to uniquely identify the device the app runs on. One reason may be the implementation of in-app purchases.</p>
+
+<p>The Windows.System.Profile namespace contains HardwareToken that you can get by calling HardwareIdentification.GetPackageSpecificToken(null)</p>
+
+<p><script src="https://gist.github.com/5849503.js"></script></p>
+
+<p>This class contains a bunch of interesting fields</p>
+
+<p><script src="https://gist.github.com/5849507.js"></script></p>
+
+<p>All of these fields are of type Windows.Storage.Stream.Ibuffer, therefore COM calls. To use a value useable with .NET you have to use the DataReader, I get the unique device identifier from the hardwareId</p>
+
+<p><script src="https://gist.github.com/5849511.js"></script></p>
+
+<p>The resulting byte array can be converted to an UTF8 string</p>
+
+<p><script src="https://gist.github.com/5849513.js"></script></p>
+
+<p>I prefer concatenating the bytes to a string</p>
+
+<p><script src="https://gist.github.com/5849515.js"></script></p>
+
+<p><strong>Update:</strong> The hardware token of a device can change with hardware changes. Even small hardware changes like disabling Bluetooth can change the hardware token. You should generate it just once and save it.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">06 Nov 2012, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/being-a-polyglot-programmer/" class="post-title">Being a polyglot programmer</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Programming in general" href="http://igorkulman.github.io/coding-journal/categories/programming-in-general">Programming in general</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>Many programmers learn one platform, one language and stay in their monoculture. Learning many different programming languages can definitely change your programming style and the way you think about problems. It was certainly beneficial for me, here is why.</p>
+
+<p>After learning Pascal, C in the first semester at the University I started be commercial programming career as a PHP developer (part time in the second semester).  It was easy to start with and in demand so finding a part time job was easy. I never liked the language, it was not &#8220;pure&#8221;, I especially hated the function naming and parameters orders inconsistencies.</p>
+
+<p>At the university I learned OOP principles and C++ and thought OOP was the answer to everything so I immediately changed my PHP programming style to incorporate it. My code became more readable and organized.  Later at the university I had to learn nonprocedural Prolog and functional Haskell. I found it very difficult because I had to think in another way and came out of my comfort zone. When I finished the course I really liked Haskell and functional programming because of its clarity, readability and the fact that I could write a very compact code. But I had no practical use for it. It did not change my Programming style but made me look for a more pure and &#8220;nicer&#8221; language to learn.</p>
+
+<p>I found .NET and C# and was amazed by the tools for ASP.NET. Comparing to PHP creating websites in ASP.NET was easier, the programming language was more comfortable. I let PHP go and found a part time job as a .NET developer. Instead of ASP.NET I was hired for I programmed a Windows Mobile app in .NET Compact Framework. It was a great experience, I discovered threads and asynchronous programming. I took a C# course at the university and then worked a few months as a part time ASP.NET developer and discovered LINQ. LINQ was great and is one of the best (if not the best) features of .NET, it makes you write compact and clear code and lets you to an extent think functional (ideal for me as a Haskell fan). I began using LINQ extensively, my code and my programming style improved a lot.</p>
+
+<p>I quickly got fed up with web development in ASP.NET, because it was not very challenging coding. I wanted to learn something new and do something more challenging. I found a part time job at Siemens that was partly analytical and partly programming and came to contact with Java. The only experience I had with Java before that was programming J2ME apps for my Siemens phone (strange coincidence).  Java felt strange, too much object oriented, no functional elements and without LINQ I felt like I was back in the stone age. But thanks to Java I discovered NoSQL databases, especially MongoDB. NoSQL databases changed my thinking about storing data, it was a great shift. They are a great fit for many project, you just need to realize that not everything must be force into a solid structure.</p>
+
+<p>Quite recently I discovered F# and I was really thrilled. It let me program completely functional and at the same time interoperate with all the existing .NET code and libraries. It changed my programming style once again to be more functional and expressing. I try to do as much coding as possible in F# but is a real shame that Microsoft does not push it and it is still not equal to C#.</p>
+
+<p>At the moment I am exploring Scala and Python through online courses at <a href="http://coursera.org">Coursera</a> and in the future I may take a look at Erlang. I strongly encourage you do the same, learn as many languages and as many programming paradigms as you can, it will widen your horizons and make you a better programmer. You do not even need to use these languages every day, your programming style will improve independently on the language you program.</p>
+
+<p>Update: After some experiments with Scala I think it is a really ugly language, compared to say Haskell. I took a look at SML, Racker and Ruby and I quite liked all of them.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">01 Nov 2012, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/processing-json-in-net/" class="post-title">Processing JSON in .NET</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>JSON is a very popular format for exchanging data, especially in the world of web technologies and JavaScript. The .NET platform contains a native support for this format but a better alternative is to use the JSON.NET library.</p>
+
+<p><strong>JSON.NET</strong></p>
+
+<p><a href="http://james.newtonking.com/projects/json-net.aspx">JSON.NET</a> is a flexible JSON serializer for .NET with LIQN support. The biggest reason for using this library is its performance in comparison to the standard DataContractJsonSerializer. The easiest way to use the library is to use the <a href="https://nuget.org/packages/Newtonsoft.Json">Nuget package</a>.</p>
+
+<p>JSON.NET is very easy to use; first you create a JObject instance</p>
+
+<p><script src="https://gist.github.com/5857544.js"></script></p>
+
+<p>from which you can get a collection (in our example of type TicketViewModel)</p>
+
+<p><script src="https://gist.github.com/5857549.js"></script></p>
+
+<p>filling the TicketViewModel instance from the JObject</p>
+
+<p><script src="https://gist.github.com/5857554.js"></script></p>
+
+<p><strong>DataContractJsonSerializer</strong></p>
+
+<p>If you do not want or cannot use JSON.NET you can use the already mentioned DataContractJsonSerializer. Before you use it, you have to create a class with the same structure as the JSON. You do not have to create it by hand; you can use the <a href="http://json2csharp.com/">json2csharp</a> utility.</p>
+
+<p>Using the DataContractJsonSerializer is a less readable than using JSON.NET</p>
+
+<p><script src="https://gist.github.com/5857558.js"></script></p>
+
+                    </div>
+                </section>
+                
+            </div>
+            
+<div class="pagination">
+  <nav role="pagination" class="post-list-pagination">
+      
+      <a href="/tags/c/page/5/" class="post-list-pagination-item pure-button post-list-pagination-item-prev">
+        <i class="fa fa-angle-double-left"></i>&nbsp;Newer
+      </a>
+      
+    <span class="post-list-pagination-item post-list-pagination-item-current">Page 6 of 7</span>
+    
+      <a href="/tags/c/page/7/" class="post-list-pagination-item pure-button post-list-pagination-item-next">
+        Older&nbsp;<i class="fa fa-angle-double-right"></i>
+      </a>
+    
+  </nav>
+</div>
+
+
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="http://igorkulman.github.io/coding-journal/js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-49528577-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

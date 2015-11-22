@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>.Net on Coding Journal</title>
+    <link>http://igorkulman.github.io/coding-journal/tags/index.net/</link>
+    <description>Recent content in .Net on Coding Journal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Sep 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://igorkulman.github.io/coding-journal/tags/.net/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Detecting tablets and smartphones in ASP.NET</title>
+      <link>http://igorkulman.github.io/coding-journal/detecting-tablets-and-smartphones-in-asp-net/</link>
+      <pubDate>Mon, 22 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://igorkulman.github.io/coding-journal/detecting-tablets-and-smartphones-in-asp-net/</guid>
+      <description>&lt;p&gt;I recently worked on an ASP.NET application that needed to detect if users were coming from tablets or smartphones. The project used data from &lt;a href=&#34;http://user-agent-string.info/&#34;&gt;http://user-agent-string.info/&lt;/a&gt; to do this detection, but the result were not really good. We needed a better solution, so I came up with using &lt;a href=&#34;http://wurfl.sourceforge.net/&#34;&gt;WURFL&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;WURFL, the Wireless Universal Resource FiLe, is a Device Description Repository (DDR), i.e. a software component that maps HTTP Request headers to the profile of the HTTP client (Desktop, Mobile Device, Tablet, etc.) that issued the request. Adding WURFL to your ASP.NET application is easy thanks to the &lt;a href=&#34;https://www.nuget.org/packages/WURFL_Official_API/&#34;&gt;WURFL_Official_API Nuget package&lt;/a&gt;. The Nuget package also contains definition file, so you just need to update the Nuget package once in a while to get your definition file up to date.&lt;/p&gt;
+
+&lt;p&gt;After installing the Nuget package, you need to setup WURLF in your Global.asax file&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/dc65bf6d68aec59d57e2.js?file=wurlf_setup.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;I recommend setting the match mode to accuracy instead of speed, to get the best results. Using the WURFL library is also quite easy, just pass the user agent string and get the properties you want.&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/dc65bf6d68aec59d57e2.js?file=wurfl_usage.cs&#34;&gt;&lt;/script&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Detecting encoding of uploaded file in ASP.NET MVC</title>
+      <link>http://igorkulman.github.io/coding-journal/detecting-encoding-of-uploaded-file-in-asp-net-mvc/</link>
+      <pubDate>Tue, 05 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://igorkulman.github.io/coding-journal/detecting-encoding-of-uploaded-file-in-asp-net-mvc/</guid>
+      <description>&lt;p&gt;Uploading a file in ASP.NET MVC is very easy, but there is no easy way to detect the encoding of a uploaded text file. However you can use the fact if you try to read the file with a wrong encoding, you get an DecoderFallbackException. So how do you put everything together?&lt;/p&gt;
+
+&lt;p&gt;First, get a stream of the uploaded file.&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849381.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Next, read the whole file to a byte array&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849384.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally the trick is to try all the encodings you think the file may be in and chech if if fails or not&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849390.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AppHarbor: great place to start your .NET project</title>
+      <link>http://igorkulman.github.io/coding-journal/appharbor-great-place-to-start-your-net-project/</link>
+      <pubDate>Tue, 08 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://igorkulman.github.io/coding-journal/appharbor-great-place-to-start-your-net-project/</guid>
+      <description>&lt;p&gt;If you want to host your .NET project on the Internet, there are classic ASP.NET webhosting on one side of the spectrum and Microsoft Azure on the other. If you are looking for something in the middle, take a look at &lt;a href=&#34;https://appharbor.com/&#34;&gt;AppHarbor&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;AppHarbor&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;AppHarbor is a flexible and scalable .NET Platform-as-a-Service, that you can even &lt;a href=&#34;https://appharbor.com/pricing&#34;&gt;use for free&lt;/a&gt;, limited to one web or worker role. It runs in AWS and is quite similiar to Heroku.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Variety of Add-ons&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;There are &lt;a href=&#34;https://appharbor.com/addons&#34;&gt;many add-on supported by AppHarbor&lt;/a&gt;, including SQL Server, MongoDB, RavenDB, MySQL, Memcacher &amp;#8230; Many of these ad-ons offer free versions so you can test them for free. If you run into some problems, you can use &lt;a href=&#34;http://support.appharbor.com/&#34;&gt;the support forums&lt;/a&gt; or &lt;a href=&#34;http://stackoverflow.com/questions/tagged/appharbor&#34;&gt;StackOverflow&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Flexible deployment&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The thing I like best about AppHarbor are the deployment options. You can push your .NET code to AppHarbor using Git, Mercurial, Subversion or Team Foundation Server with the complimentary Git service or through integrations offered in collaboration with &lt;a href=&#34;http://support.appharbor.com/kb/api/integrating-with-bitbucket&#34;&gt;Bitbucket&lt;/a&gt;, &lt;a href=&#34;http://support.appharbor.com/kb/api/integrating-with-codeplex&#34;&gt;CodePlex&lt;/a&gt; and &lt;a href=&#34;http://blog.appharbor.com/2011/10/13/announcing-github-support&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;When AppHarbor receives your code it will be built by a platform build server. If the code compiles, any unit tests contained in the compiled assemblies will be run. If the code builds and all tests execute successfully, the application is deployed to the AppHarbor application servers.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Compatibility&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The majority of .NET code runs just fine in AppHarbor without any changes. If you use Nuget, you need to enabled Nuget Package Restore for your solution.&lt;/p&gt;
+
+&lt;p&gt;Let the continous deployment begin &amp;#8230; my first AppHarbor project is hosted at &lt;a href=&#34;http://myexpenses.apphb.com/&#34;&gt;http://myexpenses.apphb.com&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

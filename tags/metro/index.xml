@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Metro on Coding Journal</title>
+    <link>http://igorkulman.github.io/coding-journal/tags/metro/</link>
+    <description>Recent content in Metro on Coding Journal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 18 Sep 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://igorkulman.github.io/coding-journal/tags/metro/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Developing Windows Store apps with Caliburn Micro Part 4: services and dependency injection</title>
+      <link>http://igorkulman.github.io/coding-journal/developing-windows-store-apps-with-caliburn-micro-part-4-services-and-dependency-injection/</link>
+      <pubDate>Wed, 18 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://igorkulman.github.io/coding-journal/developing-windows-store-apps-with-caliburn-micro-part-4-services-and-dependency-injection/</guid>
+      <description>&lt;p&gt;In this installment of the series I will show you how user data services. We will finally use the Unity DI container that is part of the project setup.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Data and Services&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In next installment we will be showing a list of products, so let&amp;#8217;s create a simple Product class first in the Data directory:&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/6606102.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;PropertyChangedBase is a base class implementing the INotifyPropertyChanged interface and the ImplementPropertyChanged attribute makes sure it&amp;#8217;s method is called for all the property changes. (More about Fody &lt;a href=&#34;http://blog.kulman.sk/inotifypropertychanged-the-easy-way-in-windows-phone-and-windows-8/&#34; title=&#34;INotifyPropertyChanged the easy way in Windows Phone and Windows 8&#34;&gt;here&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;All the operations will be handled by a service implementing the IProductService interface:&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/6606127.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;You can implement this interface any way you want. To keep things simple I chose an implementation with two hardcoded products:&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/6606170.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Registering services&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;All our services need to be registered with the Unity DI container before being used. The place to do it is the App class (App.xaml.cs file). You can override the Configure method to do it:&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/6607482.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;This registers the ProductService class to the IProductService interface. The new ContainerControlledLifetimeManager() parameter is Unity&amp;#8217;s way of setting the registration to be a singleton.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Injecting services into ViewModel&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Injecting the ProductService into our MainViewModel is very simple. Just declare a IProductService variable and initialize it from constructor. Unity will take care of the rest:&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/6607538.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Next time we will implement a typical master-detail scenario showing products usign the ProductService whe have created. All the code is again &lt;a href=&#34;https://github.com/igorkulman/CaliburnDemoWinRT&#34;&gt;available at GitHub&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to uniquely identify a Windows 8 device</title>
+      <link>http://igorkulman.github.io/coding-journal/how-to-uniquely-identify-a-windows-8-device/</link>
+      <pubDate>Thu, 08 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://igorkulman.github.io/coding-journal/how-to-uniquely-identify-a-windows-8-device/</guid>
+      <description>&lt;p&gt;When developing a Windows 8 app you may need to uniquely identify the device the app runs on. One reason may be the implementation of in-app purchases.&lt;/p&gt;
+
+&lt;p&gt;The Windows.System.Profile namespace contains HardwareToken that you can get by calling HardwareIdentification.GetPackageSpecificToken(null)&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849503.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;This class contains a bunch of interesting fields&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849507.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;All of these fields are of type Windows.Storage.Stream.Ibuffer, therefore COM calls. To use a value useable with .NET you have to use the DataReader, I get the unique device identifier from the hardwareId&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849511.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;The resulting byte array can be converted to an UTF8 string&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849513.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;I prefer concatenating the bytes to a string&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849515.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; The hardware token of a device can change with hardware changes. Even small hardware changes like disabling Bluetooth can change the hardware token. You should generate it just once and save it.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Using different data templates with GridView in Windows 8 apps</title>
+      <link>http://igorkulman.github.io/coding-journal/using-different-data-templates-with-gridview-in-windows-8-apps/</link>
+      <pubDate>Tue, 30 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://igorkulman.github.io/coding-journal/using-different-data-templates-with-gridview-in-windows-8-apps/</guid>
+      <description>&lt;p&gt;GridView and ListView are the two of the most commonly used components in Windows 8 apps. Items in these two components are displayed according to the DataTemplate give as the ItemTemplate property. If you do not want to display all the items the same way, you need to use a custom ItemTemplateSelector.&lt;/p&gt;
+
+&lt;p&gt;Using ItemTemplateSelector in Windows 8 apps is easier and more straightforward that in Windows Phone 7 (I wrote about that &lt;a href=&#34;http://www.kulman.sk/sk/content/wp7-ako-zobrazovat-objekty-roznych-typov-v-listboxe&#34;&gt;here in Slovak&lt;/a&gt;). All you need to do is to create a class inheriting from the DataTemplateSelector and set the ItemTemplateSelector property of GridView (or ListView) to this new class.&lt;/p&gt;
+
+&lt;p&gt;When inheriting from the DataTemplateSelector you need to override the SelectTemplateCore method. In this method you have accees to the binded item and and you can use it to decide which DataTemplate to return. You can define your DataTemplates in the App.xaml and access them via the Application.Current.Resources array with casting, but that is a bad habbit. A better solution would be to define public DataTemplate properties in your class and assign them in XAML.&lt;/p&gt;
+
+&lt;p&gt;A custom DataTemplateSelector class may look like this&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849469.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;This class chooses one of two DataTemplates (MagazineTemplate, BigMagazineTemplate) according to the item&amp;#8217;s IsTop boolean property.&lt;/p&gt;
+
+&lt;p&gt;In your XAML, first declare the MainGridTemplateSelector and set the DataTemplate properties class&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849474.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Where MagazineTemplate and BigMagazineTemplate are DataTemplates defined in your XAML. Then simply set the ItemTemplateSelector property of the GridView (ListView)&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849477.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Fast way to check if a file exists in WinRT</title>
+      <link>http://igorkulman.github.io/coding-journal/fast-way-to-check-if-a-file-exists-in-winrt/</link>
+      <pubDate>Fri, 26 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://igorkulman.github.io/coding-journal/fast-way-to-check-if-a-file-exists-in-winrt/</guid>
+      <description>&lt;p&gt;The StorageFolder class does not containt any method to determine if a file with given name exists in that folder. There are at least two ways how to implement such method, let us call it ContainsFileAsync.&lt;/p&gt;
+
+&lt;p&gt;The first method could take advantage of the GetFilesAsync method that returns a readonly list of all the files in a folder as StorageFile objects. The StorageFile contains a property called Name that you could compare with the given filename. The whole code would look like this&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849495.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;This method looks fairly simple, elegant and works if the folder contains only a few files. When the folder contains tens or hundreds of files, this method gets very slow. In a folder with approximately 100 files the method takes about 1.5 seconds to return the result.&lt;/p&gt;
+
+&lt;p&gt;There is faster way, that works in constant time (about 50ms) even in folders with hundred files, but it is not so elegant. The idea is simple, try to access the files and if you get an exception, just return false.&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849500.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Although I am a big fan of elegance and readability when coding, I prefer and use the second method.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Customizing semantic zoom in Windows 8 apps</title>
+      <link>http://igorkulman.github.io/coding-journal/customizing-semantic-zoom-in-windows-8-apps/</link>
+      <pubDate>Wed, 24 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://igorkulman.github.io/coding-journal/customizing-semantic-zoom-in-windows-8-apps/</guid>
+      <description>&lt;p&gt;Semantic zoom is an important part of all Windows 8 apps, it is a distinctive feature that differentiates them from other platforms. The SemanticZoom component works fine if you want the default experience, but if you want some customization you have to try a bit harder.&lt;/p&gt;
+
+&lt;p&gt;The problem with the SemanticZoom component is, that as a child of it&amp;#8217;s Semantic­Zoom.ZoomedIn­View and SemanticZoom.Zo­omedOutView elements, displaying the two states, you can use only two standard components; GridView and ListView. You cannot use the Grid and show mixed content. If you use one of these components, then clicking on any item in the zoomed out state shows you the group in the zoomed in state. You cannot implement any custom behaviour, the ItemClick event gets completely ignored. So how do you customize the SemanticZoom component?&lt;/p&gt;
+
+&lt;p&gt;The key is to notice that both the GridView and the ListView components implement the ISemanticZoomIn­formation interface. Any component implementing this interface can be used as a child of the SemanticZoom.Zo­omedInView and SemanticZoom.ZoomedOutView elements. So lets implement an component called SemanticGrid that inherits from Grid and implements ISemanticZoomInformation&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849457.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Let Visual Studio generate stubs for all the methods and properties in the ISemanticZoomIn­formation inteface. You do not need to implement them, just comment out the throw new NotImplementedException(); from all the methods and change the properties to&lt;/p&gt;
+
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849461.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;And you are done. You can use this component with the SemanticZoom component instead of the GridView or the ListView and customize the semantic zoom according to your needs. Also if you wrap a GridView in this SemanticZoomGrid and place it in the SemanticZoom.ZoomedOutView element, the ItemClick handler in the GridView will work and you can implement custom actions.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

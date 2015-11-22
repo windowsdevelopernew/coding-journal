@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Security on Coding Journal</title>
+    <link>http://igorkulman.github.io/coding-journal/tags/security/</link>
+    <description>Recent content in Security on Coding Journal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 12 Jan 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://igorkulman.github.io/coding-journal/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>NancyFX authentication for REST API</title>
+      <link>http://igorkulman.github.io/coding-journal/nancyfx-authentication-for-rest-api/</link>
+      <pubDate>Mon, 12 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://igorkulman.github.io/coding-journal/nancyfx-authentication-for-rest-api/</guid>
+      <description>&lt;p&gt;NancyFX is a great .NET framework well suited for creating REST APIs. There are many ways how to approach authentication, the simplest one is the good old Forms Authentication. The idea of Forms Authentication is that the user logs in with a username and password and gets a cookie, the protected endpoints then check the cookie. NancyFX supports Forms Authentication with the &lt;a href=&#34;https://www.nuget.org/packages/Nancy.Authentication.Forms/&#34;&gt;Nancy.Authentication.Forms&lt;/a&gt; package. The &lt;a href=&#34;https://github.com/NancyFx/Nancy/wiki/Forms-Authentication&#34;&gt;documentation describes how to use it on a web page&lt;/a&gt;, but to use it with a REST API a few changes are needed.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Forms Authentication differences for REST API&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;There are things you want to do differently in a REST API than on a web page. If a user tries to access a protected endpoint, the Forms Authentication on a normal web page redirects him to the login page. In REST API, you typically want the endpoint just to return HTTP 401, no redirects. Also, when a user successfully logs in, you just typically want to return HTTP 200, no redirects.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Disabling redirects&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Suppose you have Forms Authentication set up according to the documentation, with a IUserMapper and IUserIdentity implementation. Disabling the redirects is easy, just set a flag on the FormsAuthenticationConfiguration in your Bootstrapper:&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/2430a948fe6c426cdd01.js?file=Bootstrapper.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;Changing Login and Logout methods&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The login implementation from the documentation uses the LoginAndRedirect method. There is also LoginWithoutRedirect method you want to use, but I found out it does not set the authentication cookie (when it does not think the request is an AJAX request), so the login basically does not work. A workaround I found is to call the LoginAndRedirect method, but only get the authentication cookie from the response ad return it manually:&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/2430a948fe6c426cdd01.js?file=login.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;The logout implementation just needs to call LogoutWithoutRedirect and return HTTP 200:&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/2430a948fe6c426cdd01.js?file=logout.cs&#34;&gt;&lt;/script&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Tampering with Windows Store apps data</title>
+      <link>http://igorkulman.github.io/coding-journal/tampering-with-windows-store-apps-data/</link>
+      <pubDate>Tue, 13 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://igorkulman.github.io/coding-journal/tampering-with-windows-store-apps-data/</guid>
+      <description>&lt;p&gt;Windows Store apps run in a sandbox with their data isolated from each other. So how secure is this storage from tampering by the user? It turns out not much.&lt;/p&gt;
+
+&lt;p&gt;The only Windows Store app I use on my work notebook is WeatherFlow because of the live tile. The app allows you to add your city and view weather forecast for it. But there is now way to get rid of the default cities like New York, Tokyo, etc. that are in the app when you first run it. This realy annoyed me so I started to poke around.&lt;/p&gt;
+
+&lt;p&gt;Using the debugger and checking the value of ApplicationData.Current.LocalFolder I found out that all the data of Windows Store apps are stored in AppData\Local\Packages in your profile (for me it is C:\Users\Igor\AppData\Local\Packages). The name of the directory for the app you are lookin for usualy contain its name, it is 08C8076A.WeatherFlow_gyyqpbm0tqk6g for WeatherFlow. The directory for each app contains a few subdirectories&lt;/p&gt;
+
+&lt;p&gt;AC&lt;/p&gt;
+
+&lt;p&gt;LocalState&lt;/p&gt;
+
+&lt;p&gt;RoamingState&lt;/p&gt;
+
+&lt;p&gt;Settings&lt;/p&gt;
+
+&lt;p&gt;SystemAppData&lt;/p&gt;
+
+&lt;p&gt;TempState&lt;/p&gt;
+
+&lt;p&gt;The important directories are LocalState and RoamingState representing the local and roaming folder, where each application can store its files. WeatherFlow uses only LocalState where it stores one data.json file with its configuration. You can edit the file and remove the unwanted city, then run the application again and it still works, with the changes you made.&lt;/p&gt;
+
+&lt;p&gt;Now imaging editing files of a game, giving yourself gold coins or armor, or copying files somewhere else, sharing &amp;#8230; If you want the data of your Windows Store app to be secured, you have to do it by yourself.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

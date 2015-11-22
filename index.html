@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Journal &middot; Coding Journal</title>
+
+    <meta name="description" content="Adventures in the world of C#, F# and WinRT">
+
+    <meta name="generator" content="Hugo 0.14" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="Coding Journal &middot; Coding Journal">
+    <meta name="twitter:description" content="Adventures in the world of C#, F# and WinRT">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Coding Journal &middot; Coding Journal">
+    <meta property="og:description" content="Adventures in the world of C#, F# and WinRT">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="http://igorkulman.github.io/coding-journal/css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://igorkulman.github.io/coding-journal/index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://igorkulman.github.io/coding-journal">Coding Journal</a></h1>
+            <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/igorkulman"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/igorkulman "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="http://igorkulman.github.io/coding-journal/index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+
+<div>
+<h2>About me</h2>
+
+<p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
+<p>
+Interested in programming languages, functional programming and data science.</p>
+
+</div>
+
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                
+                <h1 class="content-subhead">06 Nov 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/enabling-and-disabling-hardware-devices-with-powershell/" class="post-title">Enabling and disabling hardware devices with PowerShell</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-PowerShell" href="http://igorkulman.github.io/coding-journal/categories/powershell">PowerShell</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>I have a built-in fingerprint reader on my Thinkpad notebook that I use for loging in almost exclusively. I say almost because since I upgraded to Windows 10 it sometimes just stops working when the computer wakes up from sleep. I found out that to make it work again I have to go to the Device Manager, find it, disable it and enabled it back again.</p>
+
+<p>Of course, I was looking for a way to automate this, because I do not think that this issue will be fixed any time soon by Microsoft or Lenovo. I found out there is a <a href="https://gallery.technet.microsoft.com/Device-Management-7fad2388">PowerShell cmdlet that expose device enumeration and management APIs</a>. Using this cmdlet I wrote a simple PowerShell script to the the work.</p>
+
+<p>It has to be run with administrator privileges to work. Maybe I will go one step further and make this script run each time the notebook wakes up, just to be sure.</p>
+
+<p><script src="https://gist.github.com/3bea04333c0b47156c68.js"></script></p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">02 Nov 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/visual-studio-extensions-to-make-your-life-easier/" class="post-title">Visual Studio extensions to make your life easier</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Programming in general" href="http://igorkulman.github.io/coding-journal/categories/programming-in-general">Programming in general</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>This blog post is inspired by the <a href="http://hmemcpy.com/2015/10/7-open-source-visual-studio-extensions-to-make-your-life-easier/">7 open-source Visual Studio Extensions to make your life easier</a> article. In the article Igal Tabachnik showed his favorite Visual Studio extensions, that were quite interesting. I also use a few Visual Studio extensions that make my life easier, so I decided to share.</p>
+
+<p><strong><a href="https://visualstudiogallery.msdn.microsoft.com/e792686d-542b-474a-8c55-630980e72c30">Indent Guides</a></strong></p>
+
+<p>Small and simple extension with just one task, displaying indent and page width guides in Visual Studio text editor windows. There are three styles of guides: solid, dotted and dashed, available in thin and thick varieties and customizable color.</p>
+
+<p><img src="/images/guides.png" alt="" class="pure-img" ></p>
+
+<p><strong><a href="https://www.visualstudiogallery.msdn.microsoft.com/f4d9c2b5-d6d7-4543-a7a5-2d7ebabc2496">VSColorOutput</a></strong></p>
+
+<p>VSColorOutput can change the color of a line emitted to the output window based on specified rules. The rules consist of regular expressions. Rules map to classifications which in turn map to colors. The default patterns will color build errors in red, warnings in yellow/gold and successful build messages in green. It also colors the output of debug messages when running an app, so you can easily sort exceptions and your custom debug messages containing certain words.</p>
+
+<p><img src="https://visualstudiogallery.msdn.microsoft.com/f4d9c2b5-d6d7-4543-a7a5-2d7ebabc2496/image/file/63101/9/screenshot.png?Id=63101" alt="VSColorOutput" />
+</p>
+
+<p><strong><a href="https://visualstudiogallery.msdn.microsoft.com/f3f23845-5b1e-4811-882f-60b7181fa6d6">Rename Visual Studio Windows Title</a></strong></p>
+
+<p>By default, Visual Studio shows the name of the opened solution name in the title. This makes it easier to navigate among multiple instances of Visual Studio. You see the solution name next to the Visual Studio icon in the taskbar and also in the task manager, when you have to (and we all sometimes have to) kill the right Visual Studio because it stopped responding. You can use it with Git and show the branch or any other info. For more information about this extension, see a <a href="http://blog.kulman.sk/quick-tip-showing-solution-branch-name-in-visual-studio-title/">separate blog post I wrote</a>.</p>
+
+<p><img src="/images/trayalya.png" alt="" class="pure-img" ></p>
+
+<p><strong><a href="https://visualstudiogallery.msdn.microsoft.com/03448836-db42-46b3-a5c7-5fc5d36a8308">AsyncFixer</a></strong></p>
+
+<p>AsyncFixer helps developers in finding and correcting 3 common async/await misuses. AsyncFixer was tested with hundreds of C# apps and successfully handles many corner cases. AsyncFixer will work just in the IDE and work as an analyzer on every project you open in Visual Studio. It can also operate in batch mode to correct all misuses in the document, project, or solution.</p>
+
+<p><img src="/images/asyncfixer-1.gif" alt="" class="pure-img" ></p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">21 Oct 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/lenovo-why-do-you-screw-thinkpads-with-every-update/" class="post-title">Lenovo, why do you screw Thinkpads with every update?</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Rants" href="http://igorkulman.github.io/coding-journal/categories/rants">Rants</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>I have a Lenovo Thinpad T440s that I got about a year ago after a great experience with a company issued Lenovo Thinkpad T420 I used for about two and half years before that. I use it daily for on-site work, not so much at home, where I have a desktop computer. The T440s is thinner and lighter than T420, but otherwise everything is just worse. You cannot change RAM or disk so easily as on the T420, the keyboard and trackpoint are worse (the trackpoint does not have physical buttons like on the T420 but <a href="http://camerongray.me/2015/02/fitting-physical-trackpoint-buttons-to-a-lenovo-thinkpad-t440s/">I had it replaced for one that does</a>).</p>
+
+<p>So why did I get the T440s? Because it seemed like a wise choice at the time, compared to the competition. It has a trackpoint, fingerprint reader, a keyboard with all the keys in the right place and it is, after all, a Thinkpad, a sturdy and reliable work machine build from good materials.</p>
+
+<p>But not really. As every Thinkpad fan can tell you, the quality of Thinkpads is declining (even when not counting the plastic Thinkpad Edge computers that are not &#8220;real&#8221; Thinkpads). It seems like Lenovo simply does not care, making the hardware worse and software even more so. Gone are the superb ThinkVantage tools, only the Thinkpad update utility remained. And it often install software and drivers that can screw up your computer. It happened to many times, this is the latest incident.</p>
+
+<p><strong>Security BIOS update</strong></p>
+
+<p>The latest problem is with a BIOS update. Lenovo releases BIOS 2.35 for my T440s, fixing a <a href="https://support.lenovo.com/us/en/product_security/smm_attack">SMM &#8220;Incursion&#8221; Attack</a>. The BIOS update as pushed to me as critical using the Thinkpad update tools and fixing security problems is always a good thing. So I installed it. And problems started.</p>
+
+<p>When I put the computer to sleep and it went from sleep to hibernation after 180 minutes (default settings), the computer started to beep madly and hung on a black screen. Not really a good sight.</p>
+
+<p>I figured it must be because of the BIOS update, so I went to the Lenovo website to download the previous BIOS update. I downloaded BIOS 2.34 and could not installed it because of I strange error. Then I noticed this note in the BIOS 2.35 changelog: <strong>&#8220;If the UEFI BIOS has been updated to version 2.35 or higher, it is no longer able to roll back to the version before 2.35 for security improvement.&#8221;</strong>. So my computer got screwed. I had a problematic BIOS and could not downgrade. Great work Lenovo.</p>
+
+<p><strong>Insecure workaround</strong></p>
+
+<p>I did some research and <a href="https://forums.lenovo.com/t5/ThinkPad-T400-T500-and-newer-T/T440s-beeps-while-putting-in-sleep-mode-and-a-blank-screen/m-p/2191866">found out that the problem is related to the TPM chip</a>. I use the TPM chip with BitLocker in Windows 10, so It looked like it maybe be the problem.</p>
+
+<p>So I turned off BitLocker, waited for my disk do get decrypted and disabled the TPM in BIOS. I put the computer to sleep, waited for it to go to hibernation, and nothing happened. No beeps, no problems, the computer woke normally.</p>
+
+<p><strong>Conclusion</strong></p>
+
+<p>So now I have a BIOS (that I cannot get rid of) with the security fix for an obscure issue but my disk is not encrypted and when I loose my computer or it gets stolen, anyone can read my data. Again, great work Lenovo. Time to install TrueCrypt I guess.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">17 Oct 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/highlighting-letters-in-textblock-in-windows-phone-8-1-and-windows-8-1/" class="post-title">Highlighting letters in TextBlock in Windows Phone 8.1 and Windows 8.1</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>In my current project I had to implement an interesting feature for both Windows Phone 8.1 and Windows 8.1 project of the Universal app. The idea is simply. The users want to search for a movie. They enter a search term into a TextBox and a list of results is shown. The results should have the search term highlighted in them.</p>
+
+<p><img src="/images/highlighting.png" alt="" class="pure-img" ></p>
+
+<p>The standard TextBlock used to display the movie titles does not support any kind of letter highlighting, so I had to write a custom one. I created a custom UserControl. The UserControl contains a few dependency properties Text, HighlightedText, HighlightBrush and a TextBlock. When Text or HighlightedText change, the Text is then split into multiple Runs that are added to the TextBlock.</p>
+
+<p><script src="https://gist.github.com/87b051f2f3a54bf895f0.js"></script></p>
+
+<p>The whole working custom control is available at Github: <a href="https://github.com/igorkulman/Kulman.WPA81.HighlightTextBox">https://github.com/igorkulman/Kulman.WPA81.HighlightTextBox</a>.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">11 Sep 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/strange-combination-of-https-and-windows-phone-8-1-that-can-make-your-app-and-phone-freeze/" class="post-title">Strange combination of HTTPS and Windows Phone 8.1 that can make your app and phone freeze</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>Last week I came upon a really bizarre problem that you may also find interesting. Lets start with a bit of context.</p>
+
+<p><strong>Tl;Dr</strong>: There seems to be a bug in Windows phone 8.1 that can make your app and the phone freezes when displaying images over HTTPS from some servers. Skip to <a href="#bug">the end of this article</a> to see a video and get the source code.</p>
+
+<p><strong>The Windows Phone app</strong></p>
+
+<p>The app is a Windows Phone 8 shopping app for the biggest Czech online retailer. The main screen of the app contains quite a bit of data, usually about ten carousel with about 10 products and the list of main categories, so about 10 more images.</p>
+
+<p>In worst case the main screen contains over 10 hundred images. It was quite a hassle to make it work well in the Windows Phone 8 SDK (no, rewriting a shopping about with about 70 screens to Windows Phone 8.1 is not feasible). But it work juts fine. Until last week.</p>
+
+<p><strong>The problem</strong></p>
+
+<p>Last week, users started to report that the app freezes on the main screen, sometime making the whole phone freeze. This was really bad. Frozen app means not only angry customers but customer that do not buy stuff. So I started to investigate.</p>
+
+<p>First I thought there may be a problem in the app, although the app was last updated more than a month ago and the problem started only last week. Everything worked fine in the emulator, the problem was reproducible only on real devices. I tried showing only one carousel to make the app render much less data, did not help. I tried making the app show only one product in the only one carousel, still a problem. So it looked like the images were the problem. I tried replacing all the real image urls with random images from <a href="http://lorempixel.com">lorempixel.com</a> and the app worked just fine.</p>
+
+<p>I determined that the source of the problems are the images on the server. Talking with the server customer&#8217;s people I found out that the images on the server were exchanged for bigger one because of the iPhones. But it did not make sense. I tried using much bigger random images and the app worked fine. I tried downloading the images and using them locally, the app worked fine.</p>
+
+<p><strong id="bug">Windows Phone 8.1 bug?</strong></p>
+
+<p>Finally I found out that the app worked the whole time on phones with Windows 10, only phones with Windows Phone 8.1 were affected. Android and iOS apps that the customer has also never experienced this problem. This make me thing that there is some kind of bug in Windows Phone 8.1 that causes this behavior, because the app does not do any image processing, it only uses an Image control and sets is Source url.</p>
+
+<p>Here is a sample app to reproduce the problem: <a href="https://github.com/igorkulman/WindowsPhoneHttpsImageBug">https://github.com/igorkulman/WindowsPhoneHttpsImageBug</a>. The solution contains a Windows Phone 8 project and a Windows Phone 8.1. Both apps suffer from the sample problem, but the problem is worse in the Silverlight app. This also makes me think that this is a Windows Phone 8.1 bug, independent on the Windows Phone SDK version.</p>
+
+<p>I made a video using the sample app showing the problem</p>
+
+<p><div class="embed video-player">
+<iframe src="http://player.vimeo.com/video/138747871" width="640" height="385" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+</div></p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">10 Sep 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/microsofts-outlook-on-android-and-ios/" class="post-title">Microsoft’s Outlook on Android and iOS</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Sponsored Content</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>To those who don’t know, Microsoft launched several months ago Outlook for Android and iOS phones and tablets. Microsoft’s new brand of Outlook have replace the failing “Outlook-branded apps” that are only available to the current subscribers of Office 365. The upheaval comes after Microsoft acquired San Francisco-based company, <a href="https://www.acompli.com/">Acompli.com</a>.</p>
+
+<p><img src="/images/Outlook-Best-New-Apps.png" alt="" class="pure-img" ></p>
+
+<p>Acompli is an “advanced email application that empowers professionals to do more with emails, full calendaring, easy file sharing and log all the important people in one email format.” The format supports Microsoft’s Office 365, Gmail and Google Apps.</p>
+
+<p>Microsoft’s plan is for both the Accompli and the new Outlook app to replace the rather dated Outlook-branded apps. The newfangled Outlook app is primarily based on the technology from the Acompli app that the company acquired for $200 million. Microsoft stated that it was a major factor in buying the app, as its staff could then make up the core group of engineers needed to drive the new Outlook app forward.</p>
+
+<p>It’s no surprise that Microsoft is shifting its focus from PC-installed base as <a href="http://www.geekwire.com/2014/flurry-report-mobile-phones-162-minutes/">GeekWire.com</a> reports that a study showed Americans spend approximately 162 minutes a day on their phones browsing. And with Gaming Realms, the developer behind the entertainment medium <a href="https://www.pocketfruity.com/casino">PocketFruity.com</a>, claiming that the global smartphone use has now reached 17%, apps are seeing a spike regarding financial investments and support.</p>
+
+<p>It will be interesting to see how well the new Outlook app is received after a year or so. With the app retaining many of the features that its recent acquisition Acompli successfully exhibited, there’s a possibility that the consumer base may just stay with the Acompli until Outlook perfects the new app further, and add features that will set it apart from other leading email applications.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">21 Jul 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/problems-getting-paid-from-the-windows-store-again/" class="post-title">Problems getting paid from the Windows Store, again</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>I do not make much money on my Windows Phone apps (who does?), but when the payout time comes every couple of months, I expect the money to be delivered. Dealing with Microsoft, I should know better.</p>
+
+<p><strong>Failed payment</strong></p>
+
+<p>Last month I looked into the Dev Center and saw that my scheduled payment failed, telling me to contact the support. So I did. The result was one moth of exchanging email without a solution.</p>
+
+<p><strong>Dealing with support</strong></p>
+
+<p>The Microsoft employee told me that I am in a small group of people with this problem. I do not know if I have such a bad look always be in a problematic supposedly small group, or that the group are not that small. He told me that Microsoft will retry the payment. The payment was supposedly retried on June 24th and succeeded. So they say.</p>
+
+<p><em>Great news, your June payout was returned due to an internal issue; however, the payout of 5264.17 CZK has been re-attempted and was successfully completed on June 24th. If you have not received the payout then please review this transaction with your bank. Please let me know if you have any further questions.</em></p>
+
+<p>I never got the money. The employee asked me a few times if I got the money and then resigned, telling me that it is my problem and I should check with my bank. Of course I checked with my bank, they do not have the money. If they had, they would transfer it to my account.</p>
+
+<p><strong>Will it happen again?</strong></p>
+
+<p>So the support is not helpful, I think I will never see this money and I can just hope the next payment in a couple of months will be successful. Will it?</p>
+
+<p>I took a look at my payout settings in the new Dev Center and it is a mess</p>
+
+<p><img src="/images/payout.png" alt="" class="pure-img" ></p>
+
+<p>It previous pages is telling my that everything is ok and my data is valid, but is it? Those four radios do not give me the confidence to believe it. Especially seeing my old account (x3168) that was there in the Windows Store and I deleted it. I used to get the payment to the x0026 account that was in my Windows Phone Store account.</p>
+
+<p>Funny thing about this form, I never found out how to delete this old account. If you select it, you can only edit it, no way to delete it. If I select the correct account and click save, nothing changes, the radios all remain unselected. I do now know it is a bug or another great Microsoft UI.</p>
+
+<p>So I guess maybe the next payment will also get lost somewhere ..</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">21 Jul 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/quick-tip-showing-solution-branch-name-in-visual-studio-title/" class="post-title">Quick Tip: Showing solution branch name in Visual Studio title</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Programming in general" href="http://igorkulman.github.io/coding-journal/categories/programming-in-general">Programming in general</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>By default, Visual Studio shows the name of the opened solution name in the title. This makes it easier to navigate among multiple instances of Visual Studio. You see the solution name next to the Visual Studio icon in the taskbar and also in the task manager, when you have to (and we all sometimes have to) kill the right Visual Studio because it stopped responding.</p>
+
+<p>I work with Git, switching branches frequently, especially working on features and bug fixes. In this situation, it would be nice if Visual Studio showed not only the solution name but also the current branch in its title. No problem, there is an extension for that.</p>
+
+<p>The extension is called <a href="https://visualstudiogallery.msdn.microsoft.com/f3f23845-5b1e-4811-882f-60b7181fa6d6">Rename Visual Studio Window</a> and it works with Visual Studio 2015, 2013, 2012, 2010. This extension supports Git, so you can easily add the branch name to the title with a config like mine using [gitBranchName].</p>
+
+<p><img src="/images/rename.png" alt="" class="pure-img" ></p>
+
+<p>Your taskbar will then look like this</p>
+
+<p><img src="/images/trayalya.png" alt="" class="pure-img" ></p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">01 Jul 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/implementing-google-login-in-universal-apps/" class="post-title">Implementing Google login in Universal Apps</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>In a recent project I had to implement Google login to an Universal App. I decided to use the native <a href="https://msdn.microsoft.com/en-us/library/windows.security.authentication.web.webauthenticationbroker.aspx">WebAuthenticationBroker</a> control and the implementation was not as straightforward as I hoped. By implementing Google login I mean getting the authentication token that you can then use with your server API.</p>
+
+<p>WebAuthenticationBroker is a good idea but it is implemented rather poorly. It works differently on Windows 8.1 and Windows Phone 8.1 due to the &#8220;AndContinue&#8221; pattern that Windows Phone 8.1 forces on you. You can solve this with <a href="http://blog.kulman.sk/why-universal-apps-as-not-as-universal-as-you-may-think/">some ifdefs and platform specific code, as always</a>.</p>
+
+<p>The real problem s that the <a href="https://code.msdn.microsoft.com/windowsapps/Web-Authentication-d0485122">MSDN sample</a> states it works with Google login but it does not. The sample thinks it gets the authentication token but it does not, it just gets the success code that you have to exchange for the authentication token yourself.</p>
+
+<p>Lets start with a basic config</p>
+
+<script src="https://gist.github.com/igorkulman/65a406f7f3cff48be3c5.js?file=config.cs"></script>
+
+<p>The important things here are your Google app id and Google app secret. The GoogleStartUri also contains permissions that you want to get (profile, <a href="https://www.googleapis.com/auth/plus.login">https://www.googleapis.com/auth/plus.login</a> and <a href="https://www.googleapis.com/auth/plus.me">https://www.googleapis.com/auth/plus.me</a> email in my case).</p>
+
+<p>You use this config with a WebAuthenticationBroker call</p>
+
+<script src="https://gist.github.com/igorkulman/65a406f7f3cff48be3c5.js?file=login.cs"></script>
+
+<p>on Windows 8.1 you get the response data immediately. On Windows Phone 8.1, you have to implement the &#8220;AndContinue&#8221; pattern.</p>
+
+<p>You use the response data to parse out the success code</p>
+
+<script src="https://gist.github.com/igorkulman/65a406f7f3cff48be3c5.js?file=GetGoogleSuccessCode.cs"></script>
+
+<p>Now that you have the success code, you can exchange it for the authentication token</p>
+
+<p>And now you finally have a way to get the authentication token and implement Google login.</p>
+
+<script src="https://gist.github.com/igorkulman/65a406f7f3cff48be3c5.js?file=GetToken.cs"></script>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">25 May 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/removing-unused-strings-from-windows-phone-8-resx-files/" class="post-title">Removing unused strings from Windows Phone 8 RESX files</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>Using RESX files is the standard approach to Windows Phone 8 app localization, it is even contained in the standard project templates. When you work on a project for a longer time, you may get to a situation that your RESX files contain strings that you no longer use. This is a problem especially when you want to add a new localization, because it is slower and kind of wasteful localizing unused strings.</p>
+
+<p>To solve this problem I have created a simple command line utility, that is <a href="https://github.com/igorkulman/RemoveUnusedResources">available at Github</a>. This utility assumes that you use the standard localization approach from the templates (AppResources.{lang}.resx and LocalizedStrings.{value} in XAML).</p>
+
+<p>The usage is really simple. Just run the utility with the path to your project as a parameter. It will detect all resources files and remove all the unused strings from them.</p>
+
+                    </div>
+                </section>
+                
+            </div>
+            
+<div class="pagination">
+  <nav role="pagination" class="post-list-pagination">
+      
+    <span class="post-list-pagination-item post-list-pagination-item-current">Page 1 of 10</span>
+    
+      <a href="/page/2/" class="post-list-pagination-item pure-button post-list-pagination-item-next">
+        Older&nbsp;<i class="fa fa-angle-double-right"></i>
+      </a>
+    
+  </nav>
+</div>
+
+
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="http://igorkulman.github.io/coding-journal/js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-49528577-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

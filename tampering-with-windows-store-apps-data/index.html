@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tampering with Windows Store apps data &middot; Coding Journal</title>
+
+    <meta name="description" content="">
+
+    <meta name="generator" content="Hugo 0.14" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="Tampering with Windows Store apps data &middot; Coding Journal">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Tampering with Windows Store apps data &middot; Coding Journal">
+    <meta property="og:description" content="">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="http://igorkulman.github.io/coding-journal/css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://igorkulman.github.io/coding-journal/index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://igorkulman.github.io/coding-journal">Coding Journal</a></h1>
+            <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/igorkulman"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/igorkulman "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="http://igorkulman.github.io/coding-journal/index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+
+<div>
+<h2>About me</h2>
+
+<p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
+<p>
+Interested in programming languages, functional programming and data science.</p>
+
+</div>
+
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                <h1 class="content-subhead">13 Nov 2012, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/tampering-with-windows-store-apps-data/" class="post-title">Tampering with Windows Store apps data</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                  
+                    <div class="post-description">
+                        <p>Windows Store apps run in a sandbox with their data isolated from each other. So how secure is this storage from tampering by the user? It turns out not much.</p>
+
+<p>The only Windows Store app I use on my work notebook is WeatherFlow because of the live tile. The app allows you to add your city and view weather forecast for it. But there is now way to get rid of the default cities like New York, Tokyo, etc. that are in the app when you first run it. This realy annoyed me so I started to poke around.</p>
+
+<p>Using the debugger and checking the value of ApplicationData.Current.LocalFolder I found out that all the data of Windows Store apps are stored in AppData\Local\Packages in your profile (for me it is C:\Users\Igor\AppData\Local\Packages). The name of the directory for the app you are lookin for usualy contain its name, it is 08C8076A.WeatherFlow_gyyqpbm0tqk6g for WeatherFlow. The directory for each app contains a few subdirectories</p>
+
+<p>AC</p>
+
+<p>LocalState</p>
+
+<p>RoamingState</p>
+
+<p>Settings</p>
+
+<p>SystemAppData</p>
+
+<p>TempState</p>
+
+<p>The important directories are LocalState and RoamingState representing the local and roaming folder, where each application can store its files. WeatherFlow uses only LocalState where it stores one data.json file with its configuration. You can edit the file and remove the unwanted city, then run the application again and it still works, with the changes you made.</p>
+
+<p>Now imaging editing files of a game, giving yourself gold coins or armor, or copying files somewhere else, sharing &#8230; If you want the data of your Windows Store app to be secured, you have to do it by yourself.</p>
+
+                    </div>
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'coudingjournal';
+    var disqus_identifier = 'http:\/\/igorkulman.github.io\/coding-journal\/tampering-with-windows-store-apps-data\/';
+    var disqus_title = 'Tampering with Windows Store apps data';
+    var disqus_url = 'http:\/\/igorkulman.github.io\/coding-journal\/tampering-with-windows-store-apps-data\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                </section>
+            </div>
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="http://igorkulman.github.io/coding-journal/js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-49528577-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

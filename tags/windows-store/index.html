@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows Store &middot; Coding Journal</title>
+
+    <meta name="description" content="Adventures in the world of C#, F# and WinRT">
+
+    <meta name="generator" content="Hugo 0.14" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="Windows Store &middot; Coding Journal">
+    <meta name="twitter:description" content="Adventures in the world of C#, F# and WinRT">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Windows Store &middot; Coding Journal">
+    <meta property="og:description" content="Adventures in the world of C#, F# and WinRT">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="http://igorkulman.github.io/coding-journal/css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://igorkulman.github.io/coding-journal/index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://igorkulman.github.io/coding-journal">Coding Journal</a></h1>
+            <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/igorkulman"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/igorkulman "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="http://igorkulman.github.io/coding-journal/index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+
+<div>
+<h2>About me</h2>
+
+<p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
+<p>
+Interested in programming languages, functional programming and data science.</p>
+
+</div>
+
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                
+                <h1 class="content-subhead">21 Jul 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/problems-getting-paid-from-the-windows-store-again/" class="post-title">Problems getting paid from the Windows Store, again</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>I do not make much money on my Windows Phone apps (who does?), but when the payout time comes every couple of months, I expect the money to be delivered. Dealing with Microsoft, I should know better.</p>
+
+<p><strong>Failed payment</strong></p>
+
+<p>Last month I looked into the Dev Center and saw that my scheduled payment failed, telling me to contact the support. So I did. The result was one moth of exchanging email without a solution.</p>
+
+<p><strong>Dealing with support</strong></p>
+
+<p>The Microsoft employee told me that I am in a small group of people with this problem. I do not know if I have such a bad look always be in a problematic supposedly small group, or that the group are not that small. He told me that Microsoft will retry the payment. The payment was supposedly retried on June 24th and succeeded. So they say.</p>
+
+<p><em>Great news, your June payout was returned due to an internal issue; however, the payout of 5264.17 CZK has been re-attempted and was successfully completed on June 24th. If you have not received the payout then please review this transaction with your bank. Please let me know if you have any further questions.</em></p>
+
+<p>I never got the money. The employee asked me a few times if I got the money and then resigned, telling me that it is my problem and I should check with my bank. Of course I checked with my bank, they do not have the money. If they had, they would transfer it to my account.</p>
+
+<p><strong>Will it happen again?</strong></p>
+
+<p>So the support is not helpful, I think I will never see this money and I can just hope the next payment in a couple of months will be successful. Will it?</p>
+
+<p>I took a look at my payout settings in the new Dev Center and it is a mess</p>
+
+<p><img src="/images/payout.png" alt="" class="pure-img" ></p>
+
+<p>It previous pages is telling my that everything is ok and my data is valid, but is it? Those four radios do not give me the confidence to believe it. Especially seeing my old account (x3168) that was there in the Windows Store and I deleted it. I used to get the payment to the x0026 account that was in my Windows Phone Store account.</p>
+
+<p>Funny thing about this form, I never found out how to delete this old account. If you select it, you can only edit it, no way to delete it. If I select the correct account and click save, nothing changes, the radios all remain unselected. I do now know it is a bug or another great Microsoft UI.</p>
+
+<p>So I guess maybe the next payment will also get lost somewhere ..</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">01 Jul 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/implementing-google-login-in-universal-apps/" class="post-title">Implementing Google login in Universal Apps</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>In a recent project I had to implement Google login to an Universal App. I decided to use the native <a href="https://msdn.microsoft.com/en-us/library/windows.security.authentication.web.webauthenticationbroker.aspx">WebAuthenticationBroker</a> control and the implementation was not as straightforward as I hoped. By implementing Google login I mean getting the authentication token that you can then use with your server API.</p>
+
+<p>WebAuthenticationBroker is a good idea but it is implemented rather poorly. It works differently on Windows 8.1 and Windows Phone 8.1 due to the &#8220;AndContinue&#8221; pattern that Windows Phone 8.1 forces on you. You can solve this with <a href="http://blog.kulman.sk/why-universal-apps-as-not-as-universal-as-you-may-think/">some ifdefs and platform specific code, as always</a>.</p>
+
+<p>The real problem s that the <a href="https://code.msdn.microsoft.com/windowsapps/Web-Authentication-d0485122">MSDN sample</a> states it works with Google login but it does not. The sample thinks it gets the authentication token but it does not, it just gets the success code that you have to exchange for the authentication token yourself.</p>
+
+<p>Lets start with a basic config</p>
+
+<script src="https://gist.github.com/igorkulman/65a406f7f3cff48be3c5.js?file=config.cs"></script>
+
+<p>The important things here are your Google app id and Google app secret. The GoogleStartUri also contains permissions that you want to get (profile, <a href="https://www.googleapis.com/auth/plus.login">https://www.googleapis.com/auth/plus.login</a> and <a href="https://www.googleapis.com/auth/plus.me">https://www.googleapis.com/auth/plus.me</a> email in my case).</p>
+
+<p>You use this config with a WebAuthenticationBroker call</p>
+
+<script src="https://gist.github.com/igorkulman/65a406f7f3cff48be3c5.js?file=login.cs"></script>
+
+<p>on Windows 8.1 you get the response data immediately. On Windows Phone 8.1, you have to implement the &#8220;AndContinue&#8221; pattern.</p>
+
+<p>You use the response data to parse out the success code</p>
+
+<script src="https://gist.github.com/igorkulman/65a406f7f3cff48be3c5.js?file=GetGoogleSuccessCode.cs"></script>
+
+<p>Now that you have the success code, you can exchange it for the authentication token</p>
+
+<p>And now you finally have a way to get the authentication token and implement Google login.</p>
+
+<script src="https://gist.github.com/igorkulman/65a406f7f3cff48be3c5.js?file=GetToken.cs"></script>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">30 Apr 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/the-death-of-the-winrt-developer/" class="post-title">The death of the WinRT developer?</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>As many other Windows Phone / Windows 8 / Universal apps developers (lets just call us WinRT developers) I watched the Build 2015 keynote last night. And I did not like it. I know Microsoft does not know to communicate but the message for me was clear. We, the WinRT developer, are no longer needed.</p>
+
+<p>First, Microsoft announced that WPF apps will be allowed to be submitted to the Windows Store to be used on desktops / tablets. So why would anyone want to develop (or want to have developed) a Windows 8 (WinRT) app, when they can just use WPF and get everything done easier? I do not know.</p>
+
+<p>But allowing WPF apps to the Windows Store is a small news compared to the ability to run Android apps on Windows Phone. The first news talked about porting Android apps to the Windows Phone, but later, <a href="http://www.zdnet.com/article/heres-how-microsoft-hopes-to-get-android-and-ios-phone-apps-into-its-windows-10-store/">statements like this</a> appeared</p>
+
+<p><em>Android developers will be able to submit versions of their apps, written in Java or C++, to the Windows Store in he form of APKs and have those apps work on Windows Phone 10 devices. Android developers should be able to start submitting apps to the Windows 10 Store some time in the next few months.</em></p>
+
+<p>So let get this straight. Who would want a native mobile Windows app developed, when they can just take their Android app and use it on Windows? What company would want to keep their mobile Windows team, when they can just use their Android team to make Windows apps?</p>
+
+<blockquote class="twitter-tweet" width="550">
+  <p lang="en" dir="ltr">
+    So I can use WPF to get into the store, and Java to get onto WinPhone and Android. So why would I write a universal app???
+  </p>
+  
+  <p>
+    &mdash; Morten Nielsen (@dotMorten) <a href="https://twitter.com/dotMorten/status/593467368124379137">April 29, 2015</a>
+  </p>
+</blockquote>
+
+<p>Sure, Android apps will probably not run on XBOX and HoloLens, but I doubt Microsoft will open the XBOX store for all the developers, more likely only chosen companies will be allowed to publish apps. HoloLens will be used only by a small number of people if this price is not really low (which I doubt it will be), so only a few HoloLens apps will be needed.</p>
+
+<p>For me, the situation seems clear, it is the death of the WinRT developer.</p>
+
+<blockquote class="twitter-tweet" width="550">
+  <p lang="en" dir="ltr">
+    Can the last XAML dev to leave please turn out the lights. <a href="https://twitter.com/hashtag/Build2015?src=hash">#Build2015</a>
+  </p>
+  
+  <p>
+    &mdash; Mark Allan (@MarkXA) <a href="https://twitter.com/MarkXA/status/593468730794967043">April 29, 2015</a>
+  </p>
+</blockquote>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">27 Apr 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/player-framework-localization/" class="post-title">Player Framework localization</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>In my recent universal (Windows Phone 8.1 and Windows 8.1) project I implemented PlayReady DRM protected smooth streaming movies playback using the <a href="https://playerframework.codeplex.com/">Player Framework</a>. This projects seems to be dead, but it is still the best option when implementing any kind of video playback.</p>
+
+<p>One of the first things I had to do was localize it&#8217;s controls, because the app I worked on was in Czech and Slovak, not in English (the only language the Player Framework supports out of the box). Not all the texts an be localized, but the most visible ones like button labels and error messages can.</p>
+
+<p>To create your own localization, I suggest you create a new RESW file in your project. You can use and existing one, but I prefer to separate the texts for the Player Framework from texts for the rest of the app.</p>
+
+<p>Next you have to find out the keys for the string you want to localize. You an <a href="https://playerframework.codeplex.com/SourceControl/latest#Win8.Xaml.Localize.Win81/en-US/PlayerFramework.resw">find them in the source code</a>. You can just copy the content of that RESW file to yours RESW file and localized everything.</p>
+
+<p>The last step is to let the PlayerFramework know about your RESW file using</p>
+
+<p><script src="https://gist.github.com/a5dcc1537cb977d023b4.js"></script></p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">20 Apr 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/leveraging-etag-caching-in-windows-phone-and-windows-apps/" class="post-title">Leveraging ETag caching in Windows Phone and Windows apps</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>In my previous article I showed you <a href="http://blog.kulman.sk/using-etag-to-cache-responses-in-nancyfx/" title="Using ETag to cache responses in NancyFX">how to implements server side caching using ETag</a>. HTTP clients on other platforms can usually work with ETag automatically, but of course, the portable HTTP client used on Windows platforms cannot. You have to implement ETag handling yourself.</p>
+
+<p>In <a href="http://blog.kulman.sk/tvtime-track-your-favorite-tv-shows-on-windows-phone/" title="TvTime: track your favorite TV shows on Windows Phone">TvTime</a>, all the server requests are GET request, so I remember the ETag values for each Url (= each GET request). I store the ETag values in application local settings.</p>
+
+<p>When the app wants to get some data, I perform a GET request including the ETag as the If-None-Match header. If my ETag matches with the ETag on the server, the server returns HTTP 304 Not Modified and I return the cached data from disk. Otherwise I read the response body and return it.</p>
+
+<p><script src="https://gist.github.com/55fa534bdcb4ab963253.js"></script></p>
+
+<p>This approach works with the portable Http client library, that you can use with Windows Phone 8 (Silverlight), 8.1 (Sliverlight), 8.1 XAML and Windows <sup>8</sup>&frasl;<sub>8</sub>.1. If you only need to support Windows Phone 8.1 XAML and Windows 8.1, you may want to look into the Windows.Web.Http.HttpClient.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">03 Mar 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/back-navigation-on-backspace-key-press-in-windows-8-1-apps/" class="post-title">Back navigation on Backspace key press in Windows 8.1 apps</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>I am not a mouse or a touch person, I like using the keyboard and keyboard shortcuts for everything. So when I (have to) use a Windows 8.1 Metro app, I always miss when the app does not navigate back when I press the Backspace key, just like the browser does.</p>
+
+<p>Implementing this functionality is really simple, you just need to handle the KeyUp event and listen for the Backspace key. You can implement the KeyUp event handler on every View in your app, but that is not necessary. You can just hook up the global Window.Current.CoreWindow.KeyUp event after you app starts.</p>
+
+<p><script src="https://gist.github.com/b0f41a1a25acad0d17a4.js"></script></p>
+
+<p>If you implement this in your app, I am sure you will make some of your users more happy.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">24 Dec 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/dialog-helper-for-universal-apps/" class="post-title">Dialog helper for Universal Apps the easy way</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>Today I read Joost van Schaik&#8217;s blog post called <a href="http://dotnetbyexample.blogspot.nl/2014/12/a-behavior-to-show-messagedialog-from.html">A behavior to show a MessageDialog from a MVVMLight viewmodel in Universal apps–with callbacks</a>. I am not a MVVMLight guy (I use Caliburn.Micro) and I personally use an approach that uses a little less code, employing a helper class.</p>
+
+<p><strong>Helper class</strong></p>
+
+<script src="https://gist.github.com/igorkulman/fda1860b35d5312e9157.js?file=DialogHelper.cs"></script>
+
+<p>with a simple usage in ViewModel</p>
+
+<script src="https://gist.github.com/igorkulman/fda1860b35d5312e9157.js?file=usage.cs"></script>
+
+<p>and in the View (making use of Caliburn.Micro mapping the AppBarButton with x:Name=&#8221;Message&#8221; to the Message method in the ViewModel</p>
+
+<script src="https://gist.github.com/igorkulman/fda1860b35d5312e9157.js?file=usage.xaml"></script>
+
+<p>If you want to show a dialog with just the Ok button, set cancelText to null and do not process the helper method&#8217;s result.</p>
+
+<p><strong>Simple service</strong></p>
+
+<p>If you do not like static classes, just make it service</p>
+
+<script src="https://gist.github.com/igorkulman/fda1860b35d5312e9157.js?file=DialogHelperService.cs"></script>
+
+<p>the usage in the ViewModel will change just slightly</p>
+
+<script src="https://gist.github.com/igorkulman/fda1860b35d5312e9157.js?file=usage2.cs"></script>
+
+<p>and you can easily mock the service and test the ViewModel.</p>
+
+<p>You can find the complete code in a sample solution on GitHub: <a href="https://github.com/igorkulman/SampleMessagePopup">https://github.com/igorkulman/SampleMessagePopup</a>.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">23 Dec 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/creating-a-fake-splashscreen-for-your-universal-app/" class="post-title">Creating a fake splashscreen for your Universal App</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>Sometimes you may want your app to display the startup splashscreen a bit longer, so you can initialize or fetch some data necessary for the app to run. To achieve this, you can create a fake splaschreen, a View that looks just like the splashscreen, does all the work and redirects to the real main View afterwards.</p>
+
+<p>In theory, it is quite simple:</p>
+
+<ul>
+<li>Create a SplashScreenView with just the right background and the splashscreen image</li>
+<li>Set the app to display SplashScreenView at startup</li>
+<li>Do all the initializing and data fetching in SplashScreenViewModel and redirect to there real MainView</li>
+</ul>
+
+<p>This works quite well with Windows 8.1, but on Windows Phone 8.1 there is a problem. When you run the Windows Phone 8.1 app, you will see a page transition happen between the real splashscreen and your SplashScreenView. This looks strange, so it is better to get rid of it.</p>
+
+<p><strong>Managing the Frame transitions on Windows Phone 8.1</strong></p>
+
+<p>To fix this issue, you can disable the transitions on the frame and add them manually to each View other than SplashScreenView, but there is a better way. You can disable the transitions when creating the frame and the enable them after navigating from the SplashScreenView. Do not forget the <a href="http://blog.kulman.sk/why-universal-apps-as-not-as-universal-as-you-may-think/" title="Why Universal Apps as not as universal as you may think">#ifdefs, because it is one of those many things that are Windows Phone specific in the Universal Apps</a>.</p>
+
+<p><script src="https://gist.github.com/d61c0a71e8ed0e2fbc1d.js"></script></p>
+
+<p>This makes the illusion of the fake splashscreen perfect, but I would recommend adding a ProgressBar or ProgressRing to the SplashScreenView so the users do not have the feeling that your app froze.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">18 Dec 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/why-universal-apps-as-not-as-universal-as-you-may-think/" class="post-title">Why Universal Apps as not as universal as you may think</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>I have been developing Windows Phone apps for a few years now, always sticking to Silverlight and keeping using Silverlight also after Microsoft announced the WinRT flavor of Windows Phone apps and the so called Universal Apps. The Windows Phone 8.0 and 8.1 Silverlight APIs have some limitations, but are now well known do not contain many bugs. They are the safe choice if you want to create a Windows Phone apps. And do not forget that there are still many device running Windows Phone 8 (like Verizon customers in the US) that never got the 8.1 updated promised to everyone during the summer.</p>
+
+<p><strong>Really universal?</strong></p>
+
+<p>Windows Phone 8.1 XAML and Universal Apps included WinRT APIs that have many problems, including some that there is no solution for. I used the WinRT APIs when creating first Windows 8 apps about 2 years ago, so I am not new to the APIs. I have not touched the WinRT APIs again until recently, because there was no demand for Windows 8 or Windows 8.1 apps. Why would it? People use Windows 8 or 8.1 but do not care about Metro apps, they give them no value compared to &#8220;normal&#8221; Win32 and Windows tablets are practically non-exists (expect for the Surface tablets owned by few programmers and maybe no one else).</p>
+
+<p><strong>Universal Apps</strong></p>
+
+<p>Recently, a client was thinking about adding a Windows Phone app for their service the its existing Android and iOS apps, but they did not think it was worth the money. So the local Microsoft branch told them they would pay for the app (seems like many of the app here are created this way) under two conditions. The app had to be a Universal App and had to be finished before the years end. The client agreed and I had to create a Universal App. And the problems started.</p>
+
+<p>In theory, Universal Apps are supposed to make code sharing between Windows Phone and Windows 8.1 simple and allow you to reuse as much code as possible. This works on the trivial Microsoft samples, but try to create a real world app. I have a business logic project with API calls, storage, etc. in a portable class library (like I always did before Universal Apps existed) and I created an Universal App from the template. And the #ifdef hell started.</p>
+
+<p><img src="/images/56995992.jpg" alt="" class="pure-img" ></p>
+
+<p><strong>#ifdefs everywhere</strong></p>
+
+<p>With Universal Apps you can safely share the ViewModels (I am using Caliburn.Micro) .. and that is about it. You have to create separate Views (because on phone and desktop information is typically displayed different), but the worst parts are the #ifdefs.</p>
+
+<p>You need to set some properties of the main Frame, you have to use #ifdefs because the frame is a bit different on phone and desktop (like animations). You want to reuse as much DataTemplates as possible, so add another #ifdef for adding the right resource dictionary or many #ifdefs in the data templates to tune them, because it does not matter you use GridView on phone and GridView on desktop, they behave a bit differently in some cases.</p>
+
+<p>Then you need to add audio playback to your app. There is a background audio playback API for Windows Phone 8.1 and none for Windows 8.1 In Windows 8.1 you need a global MediaElement in your Frame and handling everything differently. So add another big #ifdef. And by the way, the background audio playback API for Windows Phone 8.1 really sucks compared to the old Silverlight APIs. Just try downloading the <a href="https://code.msdn.microsoft.com/windowsapps/BackgroundAudio-63bbc319">sample form MSDN</a> and hitting Suspend and Resume in Visual Studio, the background agent crashes horribly, without any exception and takes your Visual Studio instance to hell with it. And of course, the background audio playback API does not work on some phones. <a href="https://stackoverflow.com/questions/26175599/windows-phone-8-1-rt-backgroundmediaplayer-not-working">Just does not work</a>. I confirmed this finding with other developers. Another messed up API that used to work before the whole Universal Apps hype. And explain this to the client who sees that things like this work on iOS, work on Android, hell, they even for on Windows Phone 8.0 (Slivelight) apps.</p>
+
+<p><strong>More messed up APIs</strong></p>
+
+<p>So background audio playback API for Windows Phone 8.1 is messed up, anything else? Sure. BackgroundDownloader is another example. In Silverlight, there was a BackgroundDownloader that was quite limited, but it worked. In Universal Apps, there is a new BackgroundDownloader with some new features, and some essential ones missing. For example, in Silverlight, each download could have a Tag, where you can store any data so you know something about the download when it finishes (to what business entity it belongs, etc.). Not any more in Universal Apps. There is no Tag, so you have to build and manage you own kind of index for all the downloads, so you can actually match them to your business entities. An annoyance, but nothing you cannot manage, right.</p>
+
+<p>The BackgroundDownloader in Universal Apps has a bigger problem. It sometimes crashes so horribly, that it reboots the whole device! No exception, no logs, just a reboot. The maximum limit for the BackgroundDownloader is 1000 downloads, but try adding say 300 to the queue, cancelling them after a few minutes (does not seem to matter if you use one cancellation token or give each download its own) and there is a good chance the phone or the emulator will reboot itself. Not always, but quite often. Again, try explaining this issue to the client.</p>
+
+<p><strong>Performance</strong></p>
+
+<p>In Silverlight, I commonly used the LongListSelector to display data, using it with a WrapPanel when I needed to create a two column layout. The LongListSelector is gone, in Universal Apps you have to use GridView also on Windows Phone. Or you can use the ListView with a custom wrap panel you write yourself or download somewhere, but it takes some effort to make it do virtualization properly.</p>
+
+<p>So you use GridView on both Windows Phone 8.1 and Windows 8.1 to make it consistent. Add tens f of items with images to it and the performance starts to really suffer. Gray placeholders will show up and more importantly, <a href="https://stackoverflow.com/questions/27488201/gridview-and-placeholders-that-never-disapper-in-windows-8-and-windows-phone-app">never disappears</a>. You do not event need images, just add about 300 text only items to the GridView and the gray placeholders will starts to show when scrolling.</p>
+
+<p>Need another proof that the WinRT controls are slower? Just <a href="https://www.youtube.com/watch?v=nn5hVq6Q-zo">take a look at this video comparing the media app on and old Windows Phone 7 to the media app on a much more powerful device running Windows Phone 8.1</a>. You can see that the old, single core device runs the Silverlight apps faster than the new powerful phone runs the new WinRT equivalent of the app.</p>
+
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">24 Nov 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/rest-service-base-class-for-windows-phone-8-1-xaml-apps/" class="post-title">REST service base class for Windows Phone 8.1 XAML apps</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>Communicating with a JSON based REST service is a task that many Windows Phone apps have to do. My apps sure do it a lot so I came up with a base class that I use in all of them, <a href="https://github.com/igorkulman/Kulman.WPA81.BaseRestService">put it on Github</a> and <a href="https://www.nuget.org/packages/Kulman.WPA81.BaseRestService/">created a Nuget package</a>, so your apps could use it to.</p>
+
+<p>The usage of this base class is simple. Create your service class and inherit from BaseRestService. The minimum you need to do to make it work is to override the GetBaseUrl() method to set the base url for all the requests. You can (but do not have to) also override the GetRequestHeaders() method to set the default request headers.</p>
+
+<script src="https://gist.github.com/igorkulman/405732bf92858dba1c3c.js?file=usage1.cs"></script>
+
+<p>and you can now use the following protected methods</p>
+
+<script src="https://gist.github.com/igorkulman/405732bf92858dba1c3c.js?file=methods.cs"></script>
+
+<p>All the JSON serialization and deserialization is automatically done for you. If you need to execute some action before every request (like checking if the OAuth token expired and refreshing it), simply override the OnBeforeRequest() method.</p>
+
+<p>Methods in your service may then look like this</p>
+
+<script src="https://gist.github.com/igorkulman/405732bf92858dba1c3c.js?file=usage2.cs"></script>
+
+<p>In case of an error, the methods throw either a DeserialziationException with the original data if deserialization failed, or a ConnectionException with the HTTP status code.</p>
+
+<p>if you need some additional features, just raise an issue in the <a href="https://github.com/igorkulman/Kulman.WPA81.BaseRestService">Github repo</a>, or create a pull request.</p>
+
+                    </div>
+                </section>
+                
+            </div>
+            
+<div class="pagination">
+  <nav role="pagination" class="post-list-pagination">
+      
+    <span class="post-list-pagination-item post-list-pagination-item-current">Page 1 of 2</span>
+    
+      <a href="/tags/windows-store/page/2/" class="post-list-pagination-item pure-button post-list-pagination-item-next">
+        Older&nbsp;<i class="fa fa-angle-double-right"></i>
+      </a>
+    
+  </nav>
+</div>
+
+
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="http://igorkulman.github.io/coding-journal/js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-49528577-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

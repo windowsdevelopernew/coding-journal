@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INotifyPropertyChanged the easy way in Windows Phone and Windows 8 &middot; Coding Journal</title>
+
+    <meta name="description" content="">
+
+    <meta name="generator" content="Hugo 0.14" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="INotifyPropertyChanged the easy way in Windows Phone and Windows 8 &middot; Coding Journal">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="INotifyPropertyChanged the easy way in Windows Phone and Windows 8 &middot; Coding Journal">
+    <meta property="og:description" content="">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="http://igorkulman.github.io/coding-journal/css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://igorkulman.github.io/coding-journal/index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://igorkulman.github.io/coding-journal">Coding Journal</a></h1>
+            <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/igorkulman"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/igorkulman "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="http://igorkulman.github.io/coding-journal/index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+
+<div>
+<h2>About me</h2>
+
+<p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
+<p>
+Interested in programming languages, functional programming and data science.</p>
+
+</div>
+
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                <h1 class="content-subhead">06 Jun 2013, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://igorkulman.github.io/coding-journal/inotifypropertychanged-the-easy-way-in-windows-phone-and-windows-8/" class="post-title">INotifyPropertyChanged the easy way in Windows Phone and Windows 8</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://igorkulman.github.io/coding-journal/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://igorkulman.github.io/coding-journal/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                  
+                    <div class="post-description">
+                        <p>If you develop Windows Phone, Windows 8, Silverlight or WPF apps using the MVVM pattern, you are familiar with the INotifyPropertyChanged interface.</p>
+
+<p><strong>Typical implementation</strong></p>
+
+<p>In a typical implementation, you usually have a base class implementing the interface, like</p>
+
+<p><script src="https://gist.github.com/5849361.js"></script></p>
+
+<p>or use a framework like MVVMLight, Prism or Caliburn Micro that provides such base class for you. In your view models you have properties using the PropertyChanged method</p>
+
+<p><script src="https://gist.github.com/5849364.js"></script></p>
+
+<p>You do not need to create such properties by hand, you can <a href="http://www.kulman.sk/data/down/propn.snippet">use a snippet</a>, but it is still a lot of code to do such a simple thing.</p>
+
+<p><strong>Meet Fody</strong></p>
+
+<p><a href="https://github.com/Fody/Fody">Fody</a> is an assembly weaver for .NET that plugs to the build process of your project and modifies the IL of your assemblies according to your needs. It supports .net 3.5, .net 4, .net 4.5, Silverlight 4, Silverlight 5, Windows Phone 7, Windows Phone 8, Metro on Windows 8, Mono, MonoTouch, MonoDroid and PCL. No installation or configuration is required, you just need to install the <a href="http://nuget.org/packages/Fody/">Fody Nuget package</a>.</p>
+
+<p><strong>INotifyPropertyChanged using Fody (80% of the time)</strong></p>
+
+<p>Fody has a <a href="https://github.com/Fody/PropertyChanged">PropertyChanged addin</a> that does all the INotifyPropertyChanged plumbing for you. If you want the same behavior as in my typical implementation example, there is no need for a base class. Install the <a href="https://github.com/Fody/PropertyChanged">PropertyChanged.Fody Nuget package</a>, decorate your view model class with the ImplementPropertyChanged attribute and use just basic properties</p>
+
+<p><script src="https://gist.github.com/5849367.js"></script></p>
+
+<p>That is it. Less code, the same behaviour. You can verify it with tools like <a href="http://www.telerik.com/justdecompile.aspx">Telerik JustDecompile</a>.</p>
+
+<p><strong>The remaining 20%</strong></p>
+
+<p>Fody does all the plumbing for you. It even knows that the FullName property uses FirstName and Surname and raises the PropertyChanged event for it when any og the two properties changes. The PropertyChanged.Fody addin <a href="https://github.com/Fody/PropertyChanged/wiki/Attributes">contains attributes</a>, that you can use to define dependencies</p>
+
+<p><script src="https://gist.github.com/5849371.js"></script></p>
+
+<p>or to raise the PropertyChanged event for any other property</p>
+
+<p><script src="https://gist.github.com/5849373.js"></script></p>
+
+<p>Sometimes you want to execute some additional code in the setter. Fody allows it, just create a method with the <a href="https://github.com/Fody/PropertyChanged/wiki/On_PropertyName_Changed">name On_PropertyName_Changed</a></p>
+
+<p><script src="https://gist.github.com/5849376.js"></script></p>
+
+<p>If you use a framework and you want to raise the PropertyChanged event through a method of this framework, it is not a problem. You just need to <a href="https://github.com/Fody/PropertyChanged/wiki/Options">set the EventInvokerNames options</a>. The Fody <a href="https://github.com/Fody/PropertyChanged/wiki/SupportedToolkits">documentation even describes what to set for some of the frameworks</a> so you do not have to figure it out for yourself.</p>
+
+                    </div>
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'coudingjournal';
+    var disqus_identifier = 'http:\/\/igorkulman.github.io\/coding-journal\/inotifypropertychanged-the-easy-way-in-windows-phone-and-windows-8\/';
+    var disqus_title = 'INotifyPropertyChanged the easy way in Windows Phone and Windows 8';
+    var disqus_url = 'http:\/\/igorkulman.github.io\/coding-journal\/inotifypropertychanged-the-easy-way-in-windows-phone-and-windows-8\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                </section>
+            </div>
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="http://igorkulman.github.io/coding-journal/js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-49528577-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
