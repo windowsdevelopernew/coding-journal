@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Windows Store on Coding Journal</title>
-    <link>https://github.com:1313/igorkulman/coding-journal/tags/windows-store/</link>
+    <link>https://github.com/igorkulman/coding-journal/tags/windows-store/</link>
     <description>Recent content in Windows Store on Coding Journal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 21 Jul 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://github.com:1313/igorkulman/coding-journal/tags/windows-store/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com/igorkulman/coding-journal/tags/windows-store/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Problems getting paid from the Windows Store, again</title>
-      <link>https://github.com:1313/igorkulman/coding-journal/problems-getting-paid-from-the-windows-store-again/</link>
+      <link>https://github.com/igorkulman/coding-journal/problems-getting-paid-from-the-windows-store-again/</link>
       <pubDate>Tue, 21 Jul 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com:1313/igorkulman/coding-journal/problems-getting-paid-from-the-windows-store-again/</guid>
+      <guid>https://github.com/igorkulman/coding-journal/problems-getting-paid-from-the-windows-store-again/</guid>
       <description>&lt;p&gt;I do not make much money on my Windows Phone apps (who does?), but when the payout time comes every couple of months, I expect the money to be delivered. Dealing with Microsoft, I should know better.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Failed payment&lt;/strong&gt;&lt;/p&gt;
@@ -35,7 +35,7 @@
 
 &lt;p&gt;I took a look at my payout settings in the new Dev Center and it is a mess&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://github.com:1313/igorkulman/coding-journal/images/payout.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/igorkulman/coding-journal/images/payout.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
 
 &lt;p&gt;It previous pages is telling my that everything is ok and my data is valid, but is it? Those four radios do not give me the confidence to believe it. Especially seeing my old account (x3168) that was there in the Windows Store and I deleted it. I used to get the payment to the x0026 account that was in my Windows Phone Store account.&lt;/p&gt;
 
@@ -47,10 +47,10 @@
     
     <item>
       <title>Implementing Google login in Universal Apps</title>
-      <link>https://github.com:1313/igorkulman/coding-journal/implementing-google-login-in-universal-apps/</link>
+      <link>https://github.com/igorkulman/coding-journal/implementing-google-login-in-universal-apps/</link>
       <pubDate>Wed, 01 Jul 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com:1313/igorkulman/coding-journal/implementing-google-login-in-universal-apps/</guid>
+      <guid>https://github.com/igorkulman/coding-journal/implementing-google-login-in-universal-apps/</guid>
       <description>&lt;p&gt;In a recent project I had to implement Google login to an Universal App. I decided to use the native &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/windows.security.authentication.web.webauthenticationbroker.aspx&#34;&gt;WebAuthenticationBroker&lt;/a&gt; control and the implementation was not as straightforward as I hoped. By implementing Google login I mean getting the authentication token that you can then use with your server API.&lt;/p&gt;
 
 &lt;p&gt;WebAuthenticationBroker is a good idea but it is implemented rather poorly. It works differently on Windows 8.1 and Windows Phone 8.1 due to the &amp;#8220;AndContinue&amp;#8221; pattern that Windows Phone 8.1 forces on you. You can solve this with &lt;a href=&#34;http://blog.kulman.sk/why-universal-apps-as-not-as-universal-as-you-may-think/&#34;&gt;some ifdefs and platform specific code, as always&lt;/a&gt;.&lt;/p&gt;
@@ -83,10 +83,10 @@
     
     <item>
       <title>The death of the WinRT developer?</title>
-      <link>https://github.com:1313/igorkulman/coding-journal/the-death-of-the-winrt-developer/</link>
+      <link>https://github.com/igorkulman/coding-journal/the-death-of-the-winrt-developer/</link>
       <pubDate>Thu, 30 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com:1313/igorkulman/coding-journal/the-death-of-the-winrt-developer/</guid>
+      <guid>https://github.com/igorkulman/coding-journal/the-death-of-the-winrt-developer/</guid>
       <description>&lt;p&gt;As many other Windows Phone / Windows 8 / Universal apps developers (lets just call us WinRT developers) I watched the Build 2015 keynote last night. And I did not like it. I know Microsoft does not know to communicate but the message for me was clear. We, the WinRT developer, are no longer needed.&lt;/p&gt;
 
 &lt;p&gt;First, Microsoft announced that WPF apps will be allowed to be submitted to the Windows Store to be used on desktops / tablets. So why would anyone want to develop (or want to have developed) a Windows 8 (WinRT) app, when they can just use WPF and get everything done easier? I do not know.&lt;/p&gt;
@@ -125,10 +125,10 @@
     
     <item>
       <title>Player Framework localization</title>
-      <link>https://github.com:1313/igorkulman/coding-journal/player-framework-localization/</link>
+      <link>https://github.com/igorkulman/coding-journal/player-framework-localization/</link>
       <pubDate>Mon, 27 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com:1313/igorkulman/coding-journal/player-framework-localization/</guid>
+      <guid>https://github.com/igorkulman/coding-journal/player-framework-localization/</guid>
       <description>&lt;p&gt;In my recent universal (Windows Phone 8.1 and Windows 8.1) project I implemented PlayReady DRM protected smooth streaming movies playback using the &lt;a href=&#34;https://playerframework.codeplex.com/&#34;&gt;Player Framework&lt;/a&gt;. This projects seems to be dead, but it is still the best option when implementing any kind of video playback.&lt;/p&gt;
 
 &lt;p&gt;One of the first things I had to do was localize it&amp;#8217;s controls, because the app I worked on was in Czech and Slovak, not in English (the only language the Player Framework supports out of the box). Not all the texts an be localized, but the most visible ones like button labels and error messages can.&lt;/p&gt;
@@ -145,10 +145,10 @@
     
     <item>
       <title>Leveraging ETag caching in Windows Phone and Windows apps</title>
-      <link>https://github.com:1313/igorkulman/coding-journal/leveraging-etag-caching-in-windows-phone-and-windows-apps/</link>
+      <link>https://github.com/igorkulman/coding-journal/leveraging-etag-caching-in-windows-phone-and-windows-apps/</link>
       <pubDate>Mon, 20 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com:1313/igorkulman/coding-journal/leveraging-etag-caching-in-windows-phone-and-windows-apps/</guid>
+      <guid>https://github.com/igorkulman/coding-journal/leveraging-etag-caching-in-windows-phone-and-windows-apps/</guid>
       <description>&lt;p&gt;In my previous article I showed you &lt;a href=&#34;http://blog.kulman.sk/using-etag-to-cache-responses-in-nancyfx/&#34; title=&#34;Using ETag to cache responses in NancyFX&#34;&gt;how to implements server side caching using ETag&lt;/a&gt;. HTTP clients on other platforms can usually work with ETag automatically, but of course, the portable HTTP client used on Windows platforms cannot. You have to implement ETag handling yourself.&lt;/p&gt;
 
 &lt;p&gt;In &lt;a href=&#34;http://blog.kulman.sk/tvtime-track-your-favorite-tv-shows-on-windows-phone/&#34; title=&#34;TvTime: track your favorite TV shows on Windows Phone&#34;&gt;TvTime&lt;/a&gt;, all the server requests are GET request, so I remember the ETag values for each Url (= each GET request). I store the ETag values in application local settings.&lt;/p&gt;
@@ -163,10 +163,10 @@
     
     <item>
       <title>Back navigation on Backspace key press in Windows 8.1 apps</title>
-      <link>https://github.com:1313/igorkulman/coding-journal/back-navigation-on-backspace-key-press-in-windows-8-1-apps/</link>
+      <link>https://github.com/igorkulman/coding-journal/back-navigation-on-backspace-key-press-in-windows-8-1-apps/</link>
       <pubDate>Tue, 03 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com:1313/igorkulman/coding-journal/back-navigation-on-backspace-key-press-in-windows-8-1-apps/</guid>
+      <guid>https://github.com/igorkulman/coding-journal/back-navigation-on-backspace-key-press-in-windows-8-1-apps/</guid>
       <description>&lt;p&gt;I am not a mouse or a touch person, I like using the keyboard and keyboard shortcuts for everything. So when I (have to) use a Windows 8.1 Metro app, I always miss when the app does not navigate back when I press the Backspace key, just like the browser does.&lt;/p&gt;
 
 &lt;p&gt;Implementing this functionality is really simple, you just need to handle the KeyUp event and listen for the Backspace key. You can implement the KeyUp event handler on every View in your app, but that is not necessary. You can just hook up the global Window.Current.CoreWindow.KeyUp event after you app starts.&lt;/p&gt;
@@ -179,10 +179,10 @@
     
     <item>
       <title>Dialog helper for Universal Apps the easy way</title>
-      <link>https://github.com:1313/igorkulman/coding-journal/dialog-helper-for-universal-apps/</link>
+      <link>https://github.com/igorkulman/coding-journal/dialog-helper-for-universal-apps/</link>
       <pubDate>Wed, 24 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com:1313/igorkulman/coding-journal/dialog-helper-for-universal-apps/</guid>
+      <guid>https://github.com/igorkulman/coding-journal/dialog-helper-for-universal-apps/</guid>
       <description>&lt;p&gt;Today I read Joost van Schaik&amp;#8217;s blog post called &lt;a href=&#34;http://dotnetbyexample.blogspot.nl/2014/12/a-behavior-to-show-messagedialog-from.html&#34;&gt;A behavior to show a MessageDialog from a MVVMLight viewmodel in Universal apps–with callbacks&lt;/a&gt;. I am not a MVVMLight guy (I use Caliburn.Micro) and I personally use an approach that uses a little less code, employing a helper class.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Helper class&lt;/strong&gt;&lt;/p&gt;
@@ -217,10 +217,10 @@
     
     <item>
       <title>Creating a fake splashscreen for your Universal App</title>
-      <link>https://github.com:1313/igorkulman/coding-journal/creating-a-fake-splashscreen-for-your-universal-app/</link>
+      <link>https://github.com/igorkulman/coding-journal/creating-a-fake-splashscreen-for-your-universal-app/</link>
       <pubDate>Tue, 23 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com:1313/igorkulman/coding-journal/creating-a-fake-splashscreen-for-your-universal-app/</guid>
+      <guid>https://github.com/igorkulman/coding-journal/creating-a-fake-splashscreen-for-your-universal-app/</guid>
       <description>&lt;p&gt;Sometimes you may want your app to display the startup splashscreen a bit longer, so you can initialize or fetch some data necessary for the app to run. To achieve this, you can create a fake splaschreen, a View that looks just like the splashscreen, does all the work and redirects to the real main View afterwards.&lt;/p&gt;
 
 &lt;p&gt;In theory, it is quite simple:&lt;/p&gt;
@@ -245,10 +245,10 @@
     
     <item>
       <title>Why Universal Apps as not as universal as you may think</title>
-      <link>https://github.com:1313/igorkulman/coding-journal/why-universal-apps-as-not-as-universal-as-you-may-think/</link>
+      <link>https://github.com/igorkulman/coding-journal/why-universal-apps-as-not-as-universal-as-you-may-think/</link>
       <pubDate>Thu, 18 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com:1313/igorkulman/coding-journal/why-universal-apps-as-not-as-universal-as-you-may-think/</guid>
+      <guid>https://github.com/igorkulman/coding-journal/why-universal-apps-as-not-as-universal-as-you-may-think/</guid>
       <description>&lt;p&gt;I have been developing Windows Phone apps for a few years now, always sticking to Silverlight and keeping using Silverlight also after Microsoft announced the WinRT flavor of Windows Phone apps and the so called Universal Apps. The Windows Phone 8.0 and 8.1 Silverlight APIs have some limitations, but are now well known do not contain many bugs. They are the safe choice if you want to create a Windows Phone apps. And do not forget that there are still many device running Windows Phone 8 (like Verizon customers in the US) that never got the 8.1 updated promised to everyone during the summer.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Really universal?&lt;/strong&gt;&lt;/p&gt;
@@ -261,7 +261,7 @@
 
 &lt;p&gt;In theory, Universal Apps are supposed to make code sharing between Windows Phone and Windows 8.1 simple and allow you to reuse as much code as possible. This works on the trivial Microsoft samples, but try to create a real world app. I have a business logic project with API calls, storage, etc. in a portable class library (like I always did before Universal Apps existed) and I created an Universal App from the template. And the #ifdef hell started.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://github.com:1313/igorkulman/coding-journal/images/56995992.jpg&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/igorkulman/coding-journal/images/56995992.jpg&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;#ifdefs everywhere&lt;/strong&gt;&lt;/p&gt;
 
@@ -289,10 +289,10 @@
     
     <item>
       <title>REST service base class for Windows Phone 8.1 XAML apps</title>
-      <link>https://github.com:1313/igorkulman/coding-journal/rest-service-base-class-for-windows-phone-8-1-xaml-apps/</link>
+      <link>https://github.com/igorkulman/coding-journal/rest-service-base-class-for-windows-phone-8-1-xaml-apps/</link>
       <pubDate>Mon, 24 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com:1313/igorkulman/coding-journal/rest-service-base-class-for-windows-phone-8-1-xaml-apps/</guid>
+      <guid>https://github.com/igorkulman/coding-journal/rest-service-base-class-for-windows-phone-8-1-xaml-apps/</guid>
       <description>&lt;p&gt;Communicating with a JSON based REST service is a task that many Windows Phone apps have to do. My apps sure do it a lot so I came up with a base class that I use in all of them, &lt;a href=&#34;https://github.com/igorkulman/Kulman.WPA81.BaseRestService&#34;&gt;put it on Github&lt;/a&gt; and &lt;a href=&#34;https://www.nuget.org/packages/Kulman.WPA81.BaseRestService/&#34;&gt;created a Nuget package&lt;/a&gt;, so your apps could use it to.&lt;/p&gt;
 
 &lt;p&gt;The usage of this base class is simple. Create your service class and inherit from BaseRestService. The minimum you need to do to make it work is to override the GetBaseUrl() method to set the base url for all the requests. You can (but do not have to) also override the GetRequestHeaders() method to set the default request headers.&lt;/p&gt;
@@ -317,13 +317,13 @@
     
     <item>
       <title>TvTime: track your favorite TV shows on Windows Phone</title>
-      <link>https://github.com:1313/igorkulman/coding-journal/tvtime-track-your-favorite-tv-shows-on-windows-phone/</link>
+      <link>https://github.com/igorkulman/coding-journal/tvtime-track-your-favorite-tv-shows-on-windows-phone/</link>
       <pubDate>Tue, 16 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com:1313/igorkulman/coding-journal/tvtime-track-your-favorite-tv-shows-on-windows-phone/</guid>
+      <guid>https://github.com/igorkulman/coding-journal/tvtime-track-your-favorite-tv-shows-on-windows-phone/</guid>
       <description>&lt;p&gt;We have just had released a new app called TvTime. TvTime is a simple and beautiful app for tracking your favorite TV Shows. Simply add a find the TV Shows you like, add them to the list and get detailed information about actors, air times and episodes. If you decide to track unwatched episodes, you will always know what you have already seen. So get TvTime now so you never miss your favorite TV Show!&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://github.com:1313/igorkulman/coding-journal/images/tvtimepromo.jpg&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/igorkulman/coding-journal/images/tvtimepromo.jpg&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
 
 &lt;p&gt;Main features&lt;/p&gt;
 
@@ -343,10 +343,10 @@
     
     <item>
       <title>What to put on the about screen of your Windows Phone app</title>
-      <link>https://github.com:1313/igorkulman/coding-journal/what-to-put-on-the-about-screen-of-your-windows-phone-app/</link>
+      <link>https://github.com/igorkulman/coding-journal/what-to-put-on-the-about-screen-of-your-windows-phone-app/</link>
       <pubDate>Mon, 15 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com:1313/igorkulman/coding-journal/what-to-put-on-the-about-screen-of-your-windows-phone-app/</guid>
+      <guid>https://github.com/igorkulman/coding-journal/what-to-put-on-the-about-screen-of-your-windows-phone-app/</guid>
       <description>&lt;p&gt;The about screen of a Windows Phone app is usually the most overlooked part of the app. Sure, the users usually visit it only once, after installing the app, if ever, but it is a part of your Windows Phone app that you could put to a good use.&lt;/p&gt;
 
 &lt;p&gt;If you have ever taken a DVLUP challenge you may have noticed, that they recommend you place a text describing your app on the about screen. I really do not agree with this. If users install your app, they know what the app does and if they cannot figure it out, then your UI is a failure and the about screen will not save you.&lt;/p&gt;
@@ -355,7 +355,7 @@
 
 &lt;p&gt;The About tab is the most important. It shows the version of the app, this is important when users report problems, information about the author and the designer of the app with Twitter contacts and buttons to send feedback via email and rate the app in the Windows Phone Store. Providing a feedback mechanism is really important, the users will write you about an issue they have with the app instead of just giving you a bad review in the Windows Phone Store.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://github.com:1313/igorkulman/coding-journal/images/about1.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/igorkulman/coding-journal/images/about1.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
 
 &lt;p&gt;The screenshot shows the About page from my latest app &lt;a href=&#34;http://blog.kulman.sk/tvtime-track-your-favorite-tv-shows-on-windows-phone/&#34; title=&#34;TvTime: track your favorite TV shows on Windows Phone&#34;&gt;TvTime&lt;/a&gt;. You can easily get the app version from the manifest using the &lt;a href=&#34;https://github.com/igorkulman/Kulman.WP8/blob/master/Kulman.WP8/Code/ManifestHelper.cs&#34;&gt;ManifestHelper&lt;/a&gt; from the &lt;a href=&#34;https://www.nuget.org/packages/Kulman.WP8/&#34;&gt;Kulman.WP8 Nuget package&lt;/a&gt;.&lt;/p&gt;
 
@@ -363,7 +363,7 @@
 
 &lt;p&gt;I use the second tab, More apps, as a form of cross-promotion.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://github.com:1313/igorkulman/coding-journal/images/about2.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/igorkulman/coding-journal/images/about2.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
 
 &lt;p&gt;If the users like your app, they may also like your other apps so why not make it easier for them to get them. I have a simple XML file with names, links and icons of my apps hosted on a webserver that the app downloads and displays, of course removing itself from the list.&lt;/p&gt;
 
@@ -373,10 +373,10 @@
     
     <item>
       <title>Automatic ViewModels and Services registration for (not only) Caliburn.Micro</title>
-      <link>https://github.com:1313/igorkulman/coding-journal/automatic-viewmodels-and-services-registration-for-not-only-caliburn-micro/</link>
+      <link>https://github.com/igorkulman/coding-journal/automatic-viewmodels-and-services-registration-for-not-only-caliburn-micro/</link>
       <pubDate>Wed, 23 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com:1313/igorkulman/coding-journal/automatic-viewmodels-and-services-registration-for-not-only-caliburn-micro/</guid>
+      <guid>https://github.com/igorkulman/coding-journal/automatic-viewmodels-and-services-registration-for-not-only-caliburn-micro/</guid>
       <description>&lt;p&gt;My MVVM framework of choice, Caliburn.Micro, provides a simple Dependency Injection container, where you have to register all your ViewModels and Services. This is done in the Bootstraper&amp;#8217;s Configure method and may look like this:&lt;/p&gt;
 
 &lt;script src=&#34;https://gist.github.com/igorkulman/0353b26073fc11d3635f.js?file=reg1.cs&#34;&gt;&lt;/script&gt;
@@ -407,10 +407,10 @@
     
     <item>
       <title>Crawling mobile app stores with F#</title>
-      <link>https://github.com:1313/igorkulman/coding-journal/crawling-mobile-app-stores-with-f/</link>
+      <link>https://github.com/igorkulman/coding-journal/crawling-mobile-app-stores-with-f/</link>
       <pubDate>Mon, 07 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com:1313/igorkulman/coding-journal/crawling-mobile-app-stores-with-f/</guid>
+      <guid>https://github.com/igorkulman/coding-journal/crawling-mobile-app-stores-with-f/</guid>
       <description>&lt;p&gt;Some time ago I needed a way to programatically search the Apple AppStore and Google Play Store to get some info about apps for a project. I decided to write an F# script for that task and later added support for Windows Phone Store.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Types&lt;/strong&gt;&lt;/p&gt;
@@ -453,10 +453,10 @@
     
     <item>
       <title>Testing in-app purchases in Windows Phone</title>
-      <link>https://github.com:1313/igorkulman/coding-journal/testing-in-app-purchases-in-windows-phone/</link>
+      <link>https://github.com/igorkulman/coding-journal/testing-in-app-purchases-in-windows-phone/</link>
       <pubDate>Mon, 17 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com:1313/igorkulman/coding-journal/testing-in-app-purchases-in-windows-phone/</guid>
+      <guid>https://github.com/igorkulman/coding-journal/testing-in-app-purchases-in-windows-phone/</guid>
       <description>&lt;p&gt;Windows Phone Store does not offer developers any sandbox to test in-app purchases in their apps, like stores on other platforms do. If you want test in-app purchases in your Windows Phone apps, you need to use other options.&lt;/p&gt;
 
 &lt;p&gt;To make in-app purchases implementation easier, I created a simple Windows Phone Store service interface in my &lt;a href=&#34;https://github.com/igorkulman/Kulman.WP8&#34;&gt;Kulman.WP8&lt;/a&gt; library (also &lt;a href=&#34;http://www.nuget.org/packages/Kulman.WP8/&#34;&gt;available on Nuget&lt;/a&gt;)&lt;/p&gt;

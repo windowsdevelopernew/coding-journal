@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Metro on Coding Journal</title>
-    <link>https://github.com:1313/igorkulman/coding-journal/tags/metro/</link>
+    <link>https://github.com/igorkulman/coding-journal/tags/metro/</link>
     <description>Recent content in Metro on Coding Journal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 18 Sep 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://github.com:1313/igorkulman/coding-journal/tags/metro/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com/igorkulman/coding-journal/tags/metro/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Developing Windows Store apps with Caliburn Micro Part 4: services and dependency injection</title>
-      <link>https://github.com:1313/igorkulman/coding-journal/developing-windows-store-apps-with-caliburn-micro-part-4-services-and-dependency-injection/</link>
+      <link>https://github.com/igorkulman/coding-journal/developing-windows-store-apps-with-caliburn-micro-part-4-services-and-dependency-injection/</link>
       <pubDate>Wed, 18 Sep 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com:1313/igorkulman/coding-journal/developing-windows-store-apps-with-caliburn-micro-part-4-services-and-dependency-injection/</guid>
+      <guid>https://github.com/igorkulman/coding-journal/developing-windows-store-apps-with-caliburn-micro-part-4-services-and-dependency-injection/</guid>
       <description>&lt;p&gt;In this installment of the series I will show you how user data services. We will finally use the Unity DI container that is part of the project setup.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Data and Services&lt;/strong&gt;&lt;/p&gt;
@@ -53,10 +53,10 @@
     
     <item>
       <title>How to uniquely identify a Windows 8 device</title>
-      <link>https://github.com:1313/igorkulman/coding-journal/how-to-uniquely-identify-a-windows-8-device/</link>
+      <link>https://github.com/igorkulman/coding-journal/how-to-uniquely-identify-a-windows-8-device/</link>
       <pubDate>Thu, 08 Nov 2012 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com:1313/igorkulman/coding-journal/how-to-uniquely-identify-a-windows-8-device/</guid>
+      <guid>https://github.com/igorkulman/coding-journal/how-to-uniquely-identify-a-windows-8-device/</guid>
       <description>&lt;p&gt;When developing a Windows 8 app you may need to uniquely identify the device the app runs on. One reason may be the implementation of in-app purchases.&lt;/p&gt;
 
 &lt;p&gt;The Windows.System.Profile namespace contains HardwareToken that you can get by calling HardwareIdentification.GetPackageSpecificToken(null)&lt;/p&gt;
@@ -85,10 +85,10 @@
     
     <item>
       <title>Using different data templates with GridView in Windows 8 apps</title>
-      <link>https://github.com:1313/igorkulman/coding-journal/using-different-data-templates-with-gridview-in-windows-8-apps/</link>
+      <link>https://github.com/igorkulman/coding-journal/using-different-data-templates-with-gridview-in-windows-8-apps/</link>
       <pubDate>Tue, 30 Oct 2012 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com:1313/igorkulman/coding-journal/using-different-data-templates-with-gridview-in-windows-8-apps/</guid>
+      <guid>https://github.com/igorkulman/coding-journal/using-different-data-templates-with-gridview-in-windows-8-apps/</guid>
       <description>&lt;p&gt;GridView and ListView are the two of the most commonly used components in Windows 8 apps. Items in these two components are displayed according to the DataTemplate give as the ItemTemplate property. If you do not want to display all the items the same way, you need to use a custom ItemTemplateSelector.&lt;/p&gt;
 
 &lt;p&gt;Using ItemTemplateSelector in Windows 8 apps is easier and more straightforward that in Windows Phone 7 (I wrote about that &lt;a href=&#34;http://www.kulman.sk/sk/content/wp7-ako-zobrazovat-objekty-roznych-typov-v-listboxe&#34;&gt;here in Slovak&lt;/a&gt;). All you need to do is to create a class inheriting from the DataTemplateSelector and set the ItemTemplateSelector property of GridView (or ListView) to this new class.&lt;/p&gt;
@@ -113,10 +113,10 @@
     
     <item>
       <title>Fast way to check if a file exists in WinRT</title>
-      <link>https://github.com:1313/igorkulman/coding-journal/fast-way-to-check-if-a-file-exists-in-winrt/</link>
+      <link>https://github.com/igorkulman/coding-journal/fast-way-to-check-if-a-file-exists-in-winrt/</link>
       <pubDate>Fri, 26 Oct 2012 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com:1313/igorkulman/coding-journal/fast-way-to-check-if-a-file-exists-in-winrt/</guid>
+      <guid>https://github.com/igorkulman/coding-journal/fast-way-to-check-if-a-file-exists-in-winrt/</guid>
       <description>&lt;p&gt;The StorageFolder class does not containt any method to determine if a file with given name exists in that folder. There are at least two ways how to implement such method, let us call it ContainsFileAsync.&lt;/p&gt;
 
 &lt;p&gt;The first method could take advantage of the GetFilesAsync method that returns a readonly list of all the files in a folder as StorageFile objects. The StorageFile contains a property called Name that you could compare with the given filename. The whole code would look like this&lt;/p&gt;
@@ -135,10 +135,10 @@
     
     <item>
       <title>Customizing semantic zoom in Windows 8 apps</title>
-      <link>https://github.com:1313/igorkulman/coding-journal/customizing-semantic-zoom-in-windows-8-apps/</link>
+      <link>https://github.com/igorkulman/coding-journal/customizing-semantic-zoom-in-windows-8-apps/</link>
       <pubDate>Wed, 24 Oct 2012 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com:1313/igorkulman/coding-journal/customizing-semantic-zoom-in-windows-8-apps/</guid>
+      <guid>https://github.com/igorkulman/coding-journal/customizing-semantic-zoom-in-windows-8-apps/</guid>
       <description>&lt;p&gt;Semantic zoom is an important part of all Windows 8 apps, it is a distinctive feature that differentiates them from other platforms. The SemanticZoom component works fine if you want the default experience, but if you want some customization you have to try a bit harder.&lt;/p&gt;
 
 &lt;p&gt;The problem with the SemanticZoom component is, that as a child of it&amp;#8217;s Semantic­Zoom.ZoomedIn­View and SemanticZoom.Zo­omedOutView elements, displaying the two states, you can use only two standard components; GridView and ListView. You cannot use the Grid and show mixed content. If you use one of these components, then clicking on any item in the zoomed out state shows you the group in the zoomed in state. You cannot implement any custom behaviour, the ItemClick event gets completely ignored. So how do you customize the SemanticZoom component?&lt;/p&gt;
