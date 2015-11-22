@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Repl on Coding Journal</title>
-    <link>http://igorkulman.github.io/coding-journal/tags/repl/</link>
+    <link>http://blog.kulman.sk/tags/repl/</link>
     <description>Recent content in Repl on Coding Journal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 15 Jan 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://igorkulman.github.io/coding-journal/tags/repl/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://blog.kulman.sk/tags/repl/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Using Sublime Text 2 as F# REPL</title>
-      <link>http://igorkulman.github.io/coding-journal/using-sublime-text-2-as-f-repl/</link>
+      <link>http://blog.kulman.sk/using-sublime-text-2-as-f-repl/</link>
       <pubDate>Tue, 15 Jan 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://igorkulman.github.io/coding-journal/using-sublime-text-2-as-f-repl/</guid>
+      <guid>http://blog.kulman.sk/using-sublime-text-2-as-f-repl/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://www.sublimetext.com/&#34;&gt;Sublime Text 2&lt;/a&gt; is a great multi-purpose text editor that you can run on Windows, MacOS and Linux. You can configure Sublime Text 2 to higlight and compile F# files and even to use F# Interactive and make it a F# REPL. Using Sublime Text 2 as F# REPL is useful when you work on MacOS and Linux (F# 3.0 works great with &lt;a href=&#34;http://www.mono-project.com/Main_Page&#34;&gt;Mono&lt;/a&gt;) and cannot use Visual Studio 2012. If you are new to Sublime Text 2, check out the &lt;a href=&#34;http://net.tutsplus.com/articles/news/perfect-workflow-in-sublime-text-free-course/&#34;&gt;Perfect Workflow in Sublime Text: Free Course&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Installing necessary packages&lt;/strong&gt;&lt;/p&gt;
