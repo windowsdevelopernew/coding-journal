@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fake on Coding Journal</title>
-    <link>http://localhost:1313/tags/fake/</link>
+    <link>https://github.com:1313/igorkulman/coding-journal/tags/fake/</link>
     <description>Recent content in Fake on Coding Journal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 31 Mar 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/fake/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com:1313/igorkulman/coding-journal/tags/fake/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Building Windows Phone apps with FAKE</title>
-      <link>http://localhost:1313/building-windows-phone-apps-with-fake/</link>
+      <link>https://github.com:1313/igorkulman/coding-journal/building-windows-phone-apps-with-fake/</link>
       <pubDate>Mon, 31 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/building-windows-phone-apps-with-fake/</guid>
+      <guid>https://github.com:1313/igorkulman/coding-journal/building-windows-phone-apps-with-fake/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://fsharp.github.io/FAKE/&#34;&gt;FAKE&lt;/a&gt; is a build automation system with capabilities which are similar to make and rake. It is using an easy domain-specific language (DSL) so that you can start using it without learning F#. If you need more than the default functionality you can either write F# or simply reference .NET assemblies.&lt;/p&gt;
 
 &lt;p&gt;I have been using FAKE for quite some time now on some fairly complex projects for not only building but also running tests and creating and pushing Nuget packages and I really like. I decided to add FAKE build scripts to my Windows Phone apps to make the process of generating a XAP file for the Windows Phone Store easier.&lt;/p&gt;

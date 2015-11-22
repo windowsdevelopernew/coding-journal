@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Security on Coding Journal</title>
-    <link>http://localhost:1313/tags/security/</link>
+    <link>https://github.com:1313/igorkulman/coding-journal/tags/security/</link>
     <description>Recent content in Security on Coding Journal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 12 Jan 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com:1313/igorkulman/coding-journal/tags/security/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>NancyFX authentication for REST API</title>
-      <link>http://localhost:1313/nancyfx-authentication-for-rest-api/</link>
+      <link>https://github.com:1313/igorkulman/coding-journal/nancyfx-authentication-for-rest-api/</link>
       <pubDate>Mon, 12 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/nancyfx-authentication-for-rest-api/</guid>
+      <guid>https://github.com:1313/igorkulman/coding-journal/nancyfx-authentication-for-rest-api/</guid>
       <description>&lt;p&gt;NancyFX is a great .NET framework well suited for creating REST APIs. There are many ways how to approach authentication, the simplest one is the good old Forms Authentication. The idea of Forms Authentication is that the user logs in with a username and password and gets a cookie, the protected endpoints then check the cookie. NancyFX supports Forms Authentication with the &lt;a href=&#34;https://www.nuget.org/packages/Nancy.Authentication.Forms/&#34;&gt;Nancy.Authentication.Forms&lt;/a&gt; package. The &lt;a href=&#34;https://github.com/NancyFx/Nancy/wiki/Forms-Authentication&#34;&gt;documentation describes how to use it on a web page&lt;/a&gt;, but to use it with a REST API a few changes are needed.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Forms Authentication differences for REST API&lt;/strong&gt;&lt;/p&gt;
@@ -41,10 +41,10 @@
     
     <item>
       <title>Tampering with Windows Store apps data</title>
-      <link>http://localhost:1313/tampering-with-windows-store-apps-data/</link>
+      <link>https://github.com:1313/igorkulman/coding-journal/tampering-with-windows-store-apps-data/</link>
       <pubDate>Tue, 13 Nov 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/tampering-with-windows-store-apps-data/</guid>
+      <guid>https://github.com:1313/igorkulman/coding-journal/tampering-with-windows-store-apps-data/</guid>
       <description>&lt;p&gt;Windows Store apps run in a sandbox with their data isolated from each other. So how secure is this storage from tampering by the user? It turns out not much.&lt;/p&gt;
 
 &lt;p&gt;The only Windows Store app I use on my work notebook is WeatherFlow because of the live tile. The app allows you to add your city and view weather forecast for it. But there is now way to get rid of the default cities like New York, Tokyo, etc. that are in the app when you first run it. This realy annoyed me so I started to poke around.&lt;/p&gt;

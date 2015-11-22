@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Functional on Coding Journal</title>
-    <link>http://localhost:1313/tags/functional/</link>
+    <link>https://github.com:1313/igorkulman/coding-journal/tags/functional/</link>
     <description>Recent content in Functional on Coding Journal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 27 Nov 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/functional/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://github.com:1313/igorkulman/coding-journal/tags/functional/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Fun with F# Type Providers: SQL</title>
-      <link>http://localhost:1313/fun-with-f-type-providers-sql/</link>
+      <link>https://github.com:1313/igorkulman/coding-journal/fun-with-f-type-providers-sql/</link>
       <pubDate>Tue, 27 Nov 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/fun-with-f-type-providers-sql/</guid>
+      <guid>https://github.com:1313/igorkulman/coding-journal/fun-with-f-type-providers-sql/</guid>
       <description>&lt;p&gt;F# is a great language with a great potential that lets you express yourself more clearly and compactly. One of the best features that comes with F# 3.0 shipped with Visual Studio 2012 is Type Providers.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;What are Type Providers?&lt;/strong&gt;&lt;/p&gt;
