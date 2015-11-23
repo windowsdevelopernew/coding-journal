@@ -66,6 +66,42 @@ Interested in programming languages, functional programming and data science.</p
             
             <div class="posts">
                 
+                <h1 class="content-subhead">06 Aug 2013</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/developing-windows-store-apps-with-caliburn-micro-part-2-navigation/" class="post-title">Developing Windows Store apps with Caliburn Micro Part 2: navigation</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>In this second part you will add another ViewModel and View and implement navigation between two ViewModels, including saving the navigation state between starts. The code is as always [available at Github][1].</p>
+
+<p><strong>Invoking ViewModel methods</strong></p>
+
+<p>If you want to test out navigation between ViewModels, you first need something that will trigger the navigation. The easiest way to do this is to use a standard Button. If you do MVVM &#8220;by hand&#8221;, you are probably used to creating ICommand properties and binding them to the Button&#8217;s Command dependency property.</p>
+
+<p>Caliburn Micro offers an easier way. If you want a Button to invoke a method on your ViewModel, just the give the button the same name as the name of the button. The method should be public void.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/developing-windows-store-apps-with-caliburn-micro-part-2-navigation/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">30 Jul 2013</h1>
                 <section class="post">
                     <header class="post-header">
@@ -380,42 +416,6 @@ Interested in programming languages, functional programming and data science.</p
                     </div>
                 </section>
                 
-                <h1 class="content-subhead">27 Mar 2013</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/displaying-pdf-files-in-windows-store-apps/" class="post-title">Displaying PDF files in Windows Store apps</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>Displaying PDF files in a mobile apps is a valid use case and there are many iOS and Android app that do it. WinRT has no APIs for displaying PDF files. The only thing you can do with a PDF in WinRT is to display it in the default PDF viewer app using the Windows.System.Launcher.LaunchFileAsync method. This is typicaly not what you want to do. This method takes the user out of your app and more importantly the PDF can be copied, shared, etc.</p>
-
-<p>There are a few 3rd party components for displaying PDF files in Windows Store apps, each has some problems and restrictions.</p>
-
-<p><strong>ComponentOne PDFViewer</strong></p>
-
-<p>[ComponentOne][1] has a [PDFViewer component][2] as part of their [Studio for WinRT XAML][3] package. This package costs $895. There are [many limitations][4] when using this component that you need to be aware of. If you want to have more control over the rendered PDF files, you can get all the pages as FrameworkElements and do not need to use the PDFViewer as one monolitic component. It does not support all the fonts and complex documents are rendered really messed up, it was not usable for me at all.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/displaying-pdf-files-in-windows-store-apps/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
             </div>
             
 <div class="pagination">
@@ -455,7 +455,7 @@ Interested in programming languages, functional programming and data science.</p
     <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">    
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="http://blog.kulman.sk/css/custom.css">
-<script src="http://blog.kulman.sk/js/all.min.js"></script>
+<script src="http://blog.kulman.sk/js/all.min.js" async></script>
         </div>
     </div>
 </div>

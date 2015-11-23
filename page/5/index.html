@@ -66,6 +66,40 @@ Interested in programming languages, functional programming and data science.</p
             
             <div class="posts">
                 
+                <h1 class="content-subhead">17 Mar 2014</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/testing-in-app-purchases-in-windows-phone/" class="post-title">Testing in-app purchases in Windows Phone</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>Windows Phone Store does not offer developers any sandbox to test in-app purchases in their apps, like stores on other platforms do. If you want test in-app purchases in your Windows Phone apps, you need to use other options.</p>
+
+<p>To make in-app purchases implementation easier, I created a simple Windows Phone Store service interface in my [Kulman.WP8][1] library (also [available on Nuget][2])</p>
+
+<script src="https://gist.github.com/igorkulman/9571908.js?file=IWindowsPhoneStoreService.cs"></script>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/testing-in-app-purchases-in-windows-phone/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">14 Mar 2014</h1>
                 <section class="post">
                     <header class="post-header">
@@ -408,42 +442,6 @@ Interested in programming languages, functional programming and data science.</p
                     </div>
                 </section>
                 
-                <h1 class="content-subhead">06 Aug 2013</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/developing-windows-store-apps-with-caliburn-micro-part-2-navigation/" class="post-title">Developing Windows Store apps with Caliburn Micro Part 2: navigation</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>In this second part you will add another ViewModel and View and implement navigation between two ViewModels, including saving the navigation state between starts. The code is as always [available at Github][1].</p>
-
-<p><strong>Invoking ViewModel methods</strong></p>
-
-<p>If you want to test out navigation between ViewModels, you first need something that will trigger the navigation. The easiest way to do this is to use a standard Button. If you do MVVM &#8220;by hand&#8221;, you are probably used to creating ICommand properties and binding them to the Button&#8217;s Command dependency property.</p>
-
-<p>Caliburn Micro offers an easier way. If you want a Button to invoke a method on your ViewModel, just the give the button the same name as the name of the button. The method should be public void.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/developing-windows-store-apps-with-caliburn-micro-part-2-navigation/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
             </div>
             
 <div class="pagination">
@@ -483,7 +481,7 @@ Interested in programming languages, functional programming and data science.</p
     <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">    
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="http://blog.kulman.sk/css/custom.css">
-<script src="http://blog.kulman.sk/js/all.min.js"></script>
+<script src="http://blog.kulman.sk/js/all.min.js" async></script>
         </div>
     </div>
 </div>

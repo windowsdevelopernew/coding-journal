@@ -66,6 +66,42 @@ Interested in programming languages, functional programming and data science.</p
             
             <div class="posts">
                 
+                <h1 class="content-subhead">27 Mar 2013</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/displaying-pdf-files-in-windows-store-apps/" class="post-title">Displaying PDF files in Windows Store apps</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>Displaying PDF files in a mobile apps is a valid use case and there are many iOS and Android app that do it. WinRT has no APIs for displaying PDF files. The only thing you can do with a PDF in WinRT is to display it in the default PDF viewer app using the Windows.System.Launcher.LaunchFileAsync method. This is typicaly not what you want to do. This method takes the user out of your app and more importantly the PDF can be copied, shared, etc.</p>
+
+<p>There are a few 3rd party components for displaying PDF files in Windows Store apps, each has some problems and restrictions.</p>
+
+<p><strong>ComponentOne PDFViewer</strong></p>
+
+<p>[ComponentOne][1] has a [PDFViewer component][2] as part of their [Studio for WinRT XAML][3] package. This package costs $895. There are [many limitations][4] when using this component that you need to be aware of. If you want to have more control over the rendered PDF files, you can get all the pages as FrameworkElements and do not need to use the PDFViewer as one monolitic component. It does not support all the fonts and complex documents are rendered really messed up, it was not usable for me at all.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/displaying-pdf-files-in-windows-store-apps/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">21 Mar 2013</h1>
                 <section class="post">
                     <header class="post-header">
@@ -398,45 +434,6 @@ Interested in programming languages, functional programming and data science.</p
                     </div>
                 </section>
                 
-                <h1 class="content-subhead">15 Jan 2013</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/using-sublime-text-2-as-f-repl/" class="post-title">Using Sublime Text 2 as F# REPL</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Functional programming" href="http://blog.kulman.sk/categories/functional-programming">Functional programming</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>[Sublime Text 2][1] is a great multi-purpose text editor that you can run on Windows, MacOS and Linux. You can configure Sublime Text 2 to higlight and compile F# files and even to use F# Interactive and make it a F# REPL. Using Sublime Text 2 as F# REPL is useful when you work on MacOS and Linux (F# 3.0 works great with [Mono][2]) and cannot use Visual Studio 2012. If you are new to Sublime Text 2, check out the [Perfect Workflow in Sublime Text: Free Course][3].</p>
-
-<p><strong>Installing necessary packages</strong></p>
-
-<p>In order to use F# Interactive in Sublime Text 2, you have to install a few packages first. All the packages can be installed using [Sublime Package Control][4]. You need to install the following packages:</p>
-
-<ul>
-<li><strong>F#</strong></li>
-<li><strong>SublimeREPL</strong></li>
-</ul>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/using-sublime-text-2-as-f-repl/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
             </div>
             
 <div class="pagination">
@@ -476,7 +473,7 @@ Interested in programming languages, functional programming and data science.</p
     <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">    
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="http://blog.kulman.sk/css/custom.css">
-<script src="http://blog.kulman.sk/js/all.min.js"></script>
+<script src="http://blog.kulman.sk/js/all.min.js" async></script>
         </div>
     </div>
 </div>
