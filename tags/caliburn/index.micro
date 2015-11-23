@@ -26,8 +26,9 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
     <!--<![endif]-->
 
-    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">    
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/custom.css">
 
     <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://blog.kulman.sk/index.xml" />
 </head>
@@ -42,7 +43,7 @@
             <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
         </hgroup>
 
-        <nav class="nav">
+        <nav class="nav wide-only">
             <ul class="nav-list">
                 
                 <li class="nav-item">
@@ -60,7 +61,7 @@
             </ul>
         </nav>
 
-<div>
+<div class="wide-only">
 <h2>About me</h2>
 
 <p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
@@ -97,7 +98,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       I have been building Windows Phone apps using the Caliburn.Micro framework for some time now. Setting up a new project takes some time and can be easily automated, so I decided to create a Visual Studio template for Windows Phone apps build with Caliburn.Micro. The templates can be downloaded from the Visual Studio Extensions gallery and used to build Windows Phone 8 and Windows Phone 8.1 Silverlight apps. It contains the basic setup with Caliburn Micro and Fody, with a sample view and viewmodel.
+                       <p>I have been building Windows Phone apps using the [Caliburn.Micro][1] framework for some time now. Setting up a new project takes some time and can be easily automated, so I decided to create a Visual Studio template for Windows Phone apps build with Caliburn.Micro.</p>
+
+<p>The templates can be downloaded from [the Visual Studio Extensions gallery][2] and used to build Windows Phone 8 and Windows Phone 8.1 Silverlight apps. It contains the basic setup with Caliburn Micro and [Fody][3], with a sample view and viewmodel.</p>
+
+<p>The [source code is available on GitHub][4], so if you want to modify it to best suit your needs, feel free to do it.</p>
+
 
                         
   <div class="read-more-link">
@@ -126,7 +132,14 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       My MVVM framework of choice, Caliburn.Micro, provides a simple Dependency Injection container, where you have to register all your ViewModels and Services. This is done in the Bootstraper&#8217;s Configure method and may look like this: where you typically register your ViewModels as per request and services as singletons. Of course this is done just once, but having to register a ViewModel each time you create a new one can be a nuisance, especially in a large project.
+                       <p>My MVVM framework of choice, Caliburn.Micro, provides a simple Dependency Injection container, where you have to register all your ViewModels and Services. This is done in the Bootstraper&#8217;s Configure method and may look like this:</p>
+
+<script src="https://gist.github.com/igorkulman/0353b26073fc11d3635f.js?file=reg1.cs"></script>
+
+<p>where you typically register your ViewModels as per request and services as singletons.</p>
+
+<p>Of course this is done just once, but having to register a ViewModel each time you create a new one can be a nuisance, especially in a large project.</p>
+
 
                         
   <div class="read-more-link">
@@ -155,7 +168,14 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Windows Phone 8.1 introduced many interesting new thing, the one I personally like the best as a developer is the Share Contract. The Share Contract allows your apps to share data using an unified and easy way and also to receive data from other apps. This functionality is important for my Pock8 app, which is a Pocket client. By making Pock8 app a Share Contract target, the app can receive links from other apps, more importantly from the built-in webrowser (IE).
+                       <p>Windows Phone 8.1 introduced many interesting new thing, the one I personally like the best as a developer is the Share Contract. The Share Contract allows your apps to share data using an unified and easy way and also to receive data from other apps. This functionality is important for my [Pock8][1] app, which is a Pocket client. By making Pock8 app a Share Contract target, the app can receive links from other apps, more importantly from the built-in webrowser (IE). This makes the app even more easy to use and valuable.</p>
+
+<p><img src="/images/wp81.png" alt="" class="pure-img" ></p>
+
+<p>The problem is that [all the documentation I found][3] and also [the sample app][4] are for Windows Runtime. Pock8 is a Silverligt app and I have no intentions to rewrite it to Windows Runtime.</p>
+
+<p>I had to make some digging and I finally found the solution in a build video called [Contracts and Pickers: Building Apps that Work Together on Windows][5].</p>
+
 
                         
   <div class="read-more-link">
@@ -184,7 +204,22 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Recently I have released a new Windows Phone app called Pock8. Pock8 is a beautiful Pocket (formerly Read It Later) client for Windows Phone. The design of the app was created by Jan Marek who worked with my on the Shopping List Simple app. Our goal was to create a Pocket client that would be really easy to use and that would have a nice and simple design. I think we have achieved our goal.
+                       <p>Recently I have released a new Windows Phone app called [Pock8][1]. Pock8 is a beautiful Pocket (formerly Read It Later) client for Windows Phone. The design of the app was created by Jan Marek who worked with my on the [Shopping List Simple][2] app.</p>
+
+<p><img src="/images/pocket.png" alt="" class="pure-img" ></p>
+
+<p>Our goal was to create a Pocket client that would be really easy to use and that would have a nice and simple design. I think we have achieved our goal. The main features of the app are</p>
+
+<ul>
+<li>clean and simple design</li>
+<li>optimized article view for comfortable reading</li>
+<li>article cache for offline reading</li>
+<li>dark theme for OLED screens or reading in the dark</li>
+<li>support for receiving articles from other apps like WPCentral</li>
+<li>listening to articles aloud</li>
+<li>sharing articles</li>
+</ul>
+
 
                         
   <div class="read-more-link">
@@ -213,7 +248,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Having a Search box in a Windows Phone app is a common use-case but it is only rarely done right. A good Search box does not have a Search button associated with it that the users have to click when they are finished typing and want to start the search. A good Search box starts the search immediately when the user stops typing (for a certain period of time). You can implement this functionality with some nasty code using a DispatcherTimer, or you can use Reactive Extensions.
+                       <p>Having a Search box in a Windows Phone app is a common use-case but it is only rarely done right. A good Search box does not have a Search button associated with it that the users have to click when they are finished typing and want to start the search. A good Search box starts the search immediately when the user stops typing (for a certain period of time).</p>
+
+<p>You can implement this functionality with some nasty code using a DispatcherTimer, or you can use [Reactive Extensions][1]. You can use Reactive Extensions directly on a TextBox representing the Search box, but if you use MVVM (and you should) you need to attach to the property associated with the Search box instead.</p>
+
+<p>Suppose the ViewModel contains a string property called SearchTerm (with two-way binding to the Search box) and an event called PropertyChanged (used for the INotifyPropertyChanged implementation). We need to observe the changes of the SearchTerm property. There is no way to do it directly, we need to observe the PropertyChanged event instead.</p>
+
 
                         
   <div class="read-more-link">
@@ -242,7 +282,16 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       In this installment of the series I will show you how user data services. We will finally use the Unity DI container that is part of the project setup. Data and Services In next installment we will be showing a list of products, so let&#8217;s create a simple Product class first in the Data directory: PropertyChangedBase is a base class implementing the INotifyPropertyChanged interface and the ImplementPropertyChanged attribute makes sure it&#8217;s method is called for all the property changes.
+                       <p>In this installment of the series I will show you how user data services. We will finally use the Unity DI container that is part of the project setup.</p>
+
+<p><strong>Data and Services</strong></p>
+
+<p>In next installment we will be showing a list of products, so let&#8217;s create a simple Product class first in the Data directory:</p>
+
+<p><script src="https://gist.github.com/6606102.js"></script></p>
+
+<p>PropertyChangedBase is a base class implementing the INotifyPropertyChanged interface and the ImplementPropertyChanged attribute makes sure it&#8217;s method is called for all the property changes. (More about Fody [here][1])</p>
+
 
                         
   <div class="read-more-link">
@@ -271,7 +320,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       In the previous post I stated that a well-behaved Windows Store app should remeber the View the user navigated to before suspension and navigate to this View upon next run. The View can contain some input that the user can fill in. A well-behaved Windows Store app should remember the user&#8217;s input and restore it after suspension. Saving and restoring state Implementation of the above-mentioned scenario is not very complicated, thanks to the project setup.
+                       <p>In the [previous post][1] I stated that a well-behaved Windows Store app should remeber the View the user navigated to before suspension and navigate to this View upon next run. The View can contain some input that the user can fill in. A well-behaved Windows Store app should remember the user&#8217;s input and restore it after suspension.</p>
+
+<p><strong>Saving and restoring state</strong></p>
+
+<p>Implementation of the above-mentioned scenario is not very complicated, thanks to the project setup. If you want your ViewModel to be able to save and restore state, implement the IHaveState interface. It contains two method that you can override; SaveState and LoadState. In bith method you have access to a page state dictionary that you can use to save and load the state.</p>
+
 
                         
   <div class="read-more-link">
@@ -300,7 +354,14 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       In this second part you will add another ViewModel and View and implement navigation between two ViewModels, including saving the navigation state between starts. The code is as always available at Github. Invoking ViewModel methods If you want to test out navigation between ViewModels, you first need something that will trigger the navigation. The easiest way to do this is to use a standard Button. If you do MVVM &#8220;by hand&#8221;, you are probably used to creating ICommand properties and binding them to the Button&#8217;s Command dependency property.
+                       <p>In this second part you will add another ViewModel and View and implement navigation between two ViewModels, including saving the navigation state between starts. The code is as always [available at Github][1].</p>
+
+<p><strong>Invoking ViewModel methods</strong></p>
+
+<p>If you want to test out navigation between ViewModels, you first need something that will trigger the navigation. The easiest way to do this is to use a standard Button. If you do MVVM &#8220;by hand&#8221;, you are probably used to creating ICommand properties and binding them to the Button&#8217;s Command dependency property.</p>
+
+<p>Caliburn Micro offers an easier way. If you want a Button to invoke a method on your ViewModel, just the give the button the same name as the name of the button. The method should be public void.</p>
+
 
                         
   <div class="read-more-link">
@@ -329,7 +390,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       I have been developing Windows Store apps for some time. I have always used MVVM, but mostly &#8220;my own&#8221; MVVM. I have finally decided to use a &#8220;real&#8221; MVVM framework and I have chosen Caliburn Micro, because I did not like MVVM very much. In this article I am going to show you how to use Caliburn Micro, Unity and Fody to develop Windows Store apps. Caliburn Micro Caliburn Micro is a small, yet powerful framework, designed for building applications across all Xaml Platforms.
+                       <p>I have been developing Windows Store apps for some time. I have always used MVVM, but mostly &#8220;my own&#8221; MVVM. I have finally decided to use a &#8220;real&#8221; MVVM framework and I have chosen Caliburn Micro, because I did not like MVVM very much. In this article I am going to show you how to use Caliburn Micro, Unity and Fody to develop Windows Store apps.</p>
+
+<p><strong>Caliburn Micro</strong></p>
+
+<p>[Caliburn Micro][1] is a small, yet powerful framework, designed for building applications across all Xaml Platforms. With strong support for MVVM and other proven UI patterns, Caliburn.Micro will enable you to build your solution quickly, without the need to sacrifice code quality or testability.</p>
+
 
                         
   <div class="read-more-link">

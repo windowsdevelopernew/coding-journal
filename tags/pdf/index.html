@@ -26,8 +26,9 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
     <!--<![endif]-->
 
-    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">    
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/custom.css">
 
     <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://blog.kulman.sk/index.xml" />
 </head>
@@ -42,7 +43,7 @@
             <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
         </hgroup>
 
-        <nav class="nav">
+        <nav class="nav wide-only">
             <ul class="nav-list">
                 
                 <li class="nav-item">
@@ -60,7 +61,7 @@
             </ul>
         </nav>
 
-<div>
+<div class="wide-only">
 <h2>About me</h2>
 
 <p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
@@ -97,7 +98,14 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Displaying PDF files in a mobile apps is a valid use case and there are many iOS and Android app that do it. WinRT has no APIs for displaying PDF files. The only thing you can do with a PDF in WinRT is to display it in the default PDF viewer app using the Windows.System.Launcher.LaunchFileAsync method. This is typicaly not what you want to do. This method takes the user out of your app and more importantly the PDF can be copied, shared, etc.
+                       <p>Displaying PDF files in a mobile apps is a valid use case and there are many iOS and Android app that do it. WinRT has no APIs for displaying PDF files. The only thing you can do with a PDF in WinRT is to display it in the default PDF viewer app using the Windows.System.Launcher.LaunchFileAsync method. This is typicaly not what you want to do. This method takes the user out of your app and more importantly the PDF can be copied, shared, etc.</p>
+
+<p>There are a few 3rd party components for displaying PDF files in Windows Store apps, each has some problems and restrictions.</p>
+
+<p><strong>ComponentOne PDFViewer</strong></p>
+
+<p>[ComponentOne][1] has a [PDFViewer component][2] as part of their [Studio for WinRT XAML][3] package. This package costs $895. There are [many limitations][4] when using this component that you need to be aware of. If you want to have more control over the rendered PDF files, you can get all the pages as FrameworkElements and do not need to use the PDFViewer as one monolitic component. It does not support all the fonts and complex documents are rendered really messed up, it was not usable for me at all.</p>
+
 
                         
   <div class="read-more-link">

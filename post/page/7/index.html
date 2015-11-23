@@ -26,8 +26,9 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
     <!--<![endif]-->
 
-    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">    
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/custom.css">
 
     <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://blog.kulman.sk/index.xml" />
 </head>
@@ -42,7 +43,7 @@
             <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
         </hgroup>
 
-        <nav class="nav">
+        <nav class="nav wide-only">
             <ul class="nav-list">
                 
                 <li class="nav-item">
@@ -60,7 +61,7 @@
             </ul>
         </nav>
 
-<div>
+<div class="wide-only">
 <h2>About me</h2>
 
 <p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
@@ -97,7 +98,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Windows 8 development has many problems and pitfalls because of WinRT. Windows Store, the only distribution channel for Windows 8 apps, has some problems too. One of them is really serious for everyone who wants to create a newspaper or newsreader app with in-app purchases. We developed a Windows 8 app for a local newspaper. The content consists of issues, there is one issue published each work day. The users can buy the issues using in-app purchases.
+                       <p>Windows 8 development has [many problems and pitfalls because of WinRT][1]. Windows Store, the only distribution channel for Windows 8 apps, has some problems too. One of them is really serious for everyone who wants to create a newspaper or newsreader app with in-app purchases.</p>
+
+<p>We developed a Windows 8 app for a local newspaper. The content consists of issues, there is one issue published each work day. The users can buy the issues using in-app purchases. The problem is that there is a limit of <del datetime="2013-05-26T14:03:17+00:00">100</del> 200 in-app purchases that can be defined for a single app in Windows Store. I really do not know what would Microsoft impose such a limit.</p>
+
+<p>As far as I know there is no way around the limit. We need to either delete in-app purchases for old issues so user will no longer be able to buy them (which is stupid and as ot turns out not possible) or create new app with a different name and in-app purchases for another time period (which is even more stupid).</p>
+
 
                         
   <div class="read-more-link">
@@ -126,7 +132,28 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       I am a big fan of open-source software. I decided to make my mini-libraries, that I use for Windows Phone and Windows 8 development, available to everyone who would be interested. Both are basically a collection of useful utilities and components that I wrote myself or found on various forums and slightly modified. Source code is available on BitBucket and packages on Nuget. Windows Phone Code: https://github.com/igorkulman/Kulman.WP7 Nuget: https://nuget.org/packages/Kulman.WP7/ Windows 8 Code: https://github.com/igorkulman/Kulman.WinRT Nuget: https://nuget.org/packages/Kulman.WinRT My Windows 8 mini-library is best used with the WinRTXAMLToolkit that I contributed to once ot twice.
+                       <p>I am a big fan of open-source software. I decided to make my mini-libraries, that I use for Windows Phone and Windows 8 development, available to everyone who would be interested. Both are basically a collection of useful utilities and components that I wrote myself or found on various forums and slightly modified. Source code is available on BitBucket and packages on Nuget.</p>
+
+<p><strong>Windows Phone</strong></p>
+
+<p>Code: <a href="https://github.com/igorkulman/Kulman.WP7">https://github.com/igorkulman/Kulman.WP7</a></p>
+
+<p>Nuget: <a href="https://nuget.org/packages/Kulman.WP7/">https://nuget.org/packages/Kulman.WP7/</a></p>
+
+<p><strong>Windows 8</strong></p>
+
+<p>Code: <a href="https://github.com/igorkulman/Kulman.WinRT">https://github.com/igorkulman/Kulman.WinRT</a></p>
+
+<p>Nuget: <a href="https://nuget.org/packages/Kulman.WinRT">https://nuget.org/packages/Kulman.WinRT</a></p>
+
+<p>My Windows 8 mini-library is best used with the [WinRTXAMLToolkit][1] that I contributed to once ot twice.</p>
+
+<p><strong>AutoCompleteBox for WinRT</strong></p>
+
+<p>Code: <a href="https://github.com/igorkulman/AutoCompleteBox">https://github.com/igorkulman/AutoCompleteBox</a></p>
+
+<p>Nuget: <a href="https://nuget.org/packages/AutoCompleteBoxWinRT/">https://nuget.org/packages/AutoCompleteBoxWinRT/</a></p>
+
 
                         
   <div class="read-more-link">
@@ -155,7 +182,16 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Let&#8217;s face it, there are no really great apps for Windows 8 and the number of trashy apps is also very low compared to the Android and iOS ecosystems. Microsoft looks really desperate to bring more apps and developers to the ecosystem. Instead of improving the API and its capabilities, Microsoft just generates desperately looking campaigns to improve the apps count. I sometimes wonder if they ever realize that the number of apps is not important when people cannot find the apps they are used to use on Android or iOS in the Windows Store.
+                       <p>Let&#8217;s face it, there are no really great apps for Windows 8 and the number of trashy apps is also very low compared to the Android and iOS ecosystems. Microsoft looks really desperate to bring more apps and developers to the ecosystem. Instead of improving the API and its capabilities, Microsoft just generates [desperately looking campaigns to improve the apps count][1]. I sometimes wonder if they ever realize that the number of apps is not important when people cannot find the apps they are used to use on Android or iOS in the Windows Store.</p>
+
+<p><img src="/images/microsoft-surface-2-650x0.jpg" alt="" class="pure-img" ></p>
+
+<p>So why are there so few Windows 8 apps? I will tell you my (and only my) opinion and experience. I developed a few Windows 8 apps, some of them fairly complex. I tried to develop a few really great apps but many of those projects never got done. The reason is the API (WinRT).</p>
+
+<p>Let&#8217;s start with something (that should be) trivial. Imagine you want to <strong>display HTML files with images, CSS, JS in a WebView</strong>. It is a common scenario for displaying downloaded manuals, interactive texts, etc. It can be done on Android, iOS and even on Windows Phone by copying the data to isolated storage and pointing the WebView there.</p>
+
+<p>This scenario is impossible in WinRT. You can reference files in Isolated Storage (Local / Roaming folders) using the ms-appdata protocol, but the WebView does not work with it. You can use the NavigateToString method to display one HTML file, but all the images, CSS, JS references must be internet URLs, you cannot reference other local files. The only way around this issue is to inline all the CSS, JS and images (as base64) to the HTML file. Really messy, painful and slow and not really an option if you have JS reading XML files and inserting external images.</p>
+
 
                         
   <div class="read-more-link">
@@ -184,7 +220,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Passing the certification in Windows Phone Store and Windows Store can be a very painful process, but after a few tries you get enough experience to pass your apps on the first try. You may sometimes get a tester who is really dumb and fails your app for a made up reason but usually it is just enough to submit it again so another testers gets to test it. Lately I have been seeing a strange shift in the testing quality done in the certification process.
+                       <p>Passing the certification in Windows Phone Store and Windows Store can be a very painful process, but after a few tries you get enough experience to pass your apps on the first try. You may sometimes get a tester who is really dumb and fails your app for a made up reason but usually it is just enough to submit it again so another testers gets to test it. Lately I have been seeing a strange shift in the testing quality done in the certification process.</p>
+
+<p><strong>Windows Phone Store</strong></p>
+
+<p>The certification process used to discover bugs I overlooked, so it was quite useful sometimes. But it is not anymore. Let me give you an example. I wanted to change one of my Windows Phone apps from free to paid with a 3 day trial. I have this functionality implemented in another of my apps so I simply copied the trial page, set is as the start page. I tested it in trial mode, it showed, in purchased mode, the app showed the real start page. I was under the impression that everything worked just fine.</p>
+
 
                         
   <div class="read-more-link">
@@ -213,7 +254,14 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Windows Azure finally has a good F# support. Creating F# Worker Roles is supported right from the wizzard in Visual Studio and you can create a F# Web Role using the F# C# MVC template. I decided to try it out and the first thing I needed to implement was logging. I decided for logging to Azure Table Storage. I assume you have a basic idea of how Azure Table Storage works.
+                       <p>Windows Azure finally has a good F# support. Creating F# Worker Roles is supported right from the wizzard in Visual Studio and you can create a F# Web Role using the [F# C# MVC template][1]. I decided to try it out and the first thing I needed to implement was logging. I decided for logging to Azure Table Storage.</p>
+
+<p>I assume you have a basic idea of how Azure Table Storage works. If not, there is a [good guide on the Windows Azure website][2].</p>
+
+<p>The first thing you need to do is to define your log entry class. You need to create a class, Azure Table Storage does not work with F# records. In my case I want to store a timestamp, message and severity.</p>
+
+<p><script src="https://gist.github.com/5822037.js"></script></p>
+
 
                         
   <div class="read-more-link">
@@ -242,7 +290,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       I needed to create an utility that would read Excel 2010 files (.xlsx) and generate XML files from them according to some specific rules. The catch was that the utility needed to run on MacOS instead of Windows. Reading and writing Excel files from .NET is very easy using the Microsoft.Office.Interop assemblies but they use Excel through COM and that makes them unusable outside of Windows. I found some 3rd party libraries for working with Excel and analzyed them with The Mono Migration Analzyer (MoMA).
+                       <p>I needed to create an utility that would read Excel 2010 files (.xlsx) and generate XML files from them according to some specific rules. The catch was that the utility needed to run on MacOS instead of Windows.</p>
+
+<p>Reading and writing Excel files from .NET is [very easy using the Microsoft.Office.Interop assemblies][1] but they use Excel through COM and that makes them unusable outside of Windows. I found some 3rd party libraries for working with Excel and analzyed them with [The Mono Migration Analzyer]<a href="MoMA">2</a>. MoMA is a handy tool that analyzes .NET assemblies and tells you if they will run on Mono. Many of the Excel libraries I found were unusable for my use-case because they were using PInvoke calls. Only the [ExcelPackage library][3] runs on Mono.</p>
+
+<p>I wanted to use the ExcelPackage from F# not C# so I wrote a [very simple F# wrapper][4], that you can freely use. For now it contains just a few methods</p>
+
 
                         
   <div class="read-more-link">
@@ -271,7 +324,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Uploading a file in ASP.NET MVC is very easy, but there is no easy way to detect the encoding of a uploaded text file. However you can use the fact if you try to read the file with a wrong encoding, you get an DecoderFallbackException. So how do you put everything together? First, get a stream of the uploaded file. Next, read the whole file to a byte array Finally
+                       <p>Uploading a file in ASP.NET MVC is very easy, but there is no easy way to detect the encoding of a uploaded text file. However you can use the fact if you try to read the file with a wrong encoding, you get an DecoderFallbackException. So how do you put everything together?</p>
+
+<p>First, get a stream of the uploaded file.</p>
+
+<p><script src="https://gist.github.com/5849381.js"></script></p>
+
 
                         
   <div class="read-more-link">
@@ -300,7 +358,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       While reading an article that had nothing in common with programming I came upon a sudden need to find a way to generate all the permutations of a list, or more exactly a string (it is just a list of characters). As lazy as I am I tried to google a few examples of C# code that does exactly that. I was horrified that programmers could come up with the complicated ways I found.
+                       <p>While reading an article that had nothing in common with programming I came upon a sudden need to find a way to generate all the permutations of a list, or more exactly a string (it is just a list of characters). As lazy as I am I tried to google a few examples of C# code that does exactly that. I was horrified that programmers could come up with the complicated ways I found. Not to mention programmers writing a ton of unit test and classes before actualy writing the code that solves to problem.</p>
+
+<p>The problem is naturally recursive. All the permutations of a list of n items consit of each of the n items combined with all the permutations of the list without the actual item. So if you have a list of let&#8217;s say items (a,b,c), all the permutations are (a+permutation((b,c)) + (b+permutations((a,c))) + (c+permutations((a,b)).</p>
+
+<p>First I came up with F# code to solve it, after some yield googling:</p>
+
 
                         
   <div class="read-more-link">
@@ -329,7 +392,16 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Windows Phone allows yout to use custom TTF fonts in your apps. Using a custom font from XAML or C# is easy, but your run into troubles when you want to use if from a Background Agent (e.g: for updating a Live Tile). Adding font to solution The custom font must be a TTF, you can also use a ZIP file with multiple TTF files. You need to know the name of the font to identify it.
+                       <p>Windows Phone allows yout to use custom TTF fonts in your apps. Using a custom font from XAML or C# is easy, but your run into troubles when you want to use if from a Background Agent (e.g: for updating a Live Tile).</p>
+
+<p><strong>Adding font to solution</strong></p>
+
+<p>The custom font must be a TTF, you can also use a ZIP file with multiple TTF files. You need to know the name of the font to identify it. Add the font file to your solution and set its build action to Content.</p>
+
+<p><strong>Custom font and XAML</strong></p>
+
+<p>Using a custom font in XAML is very straightforward. You just need to set the <em>FontFamily</em> property to the font file path followed by a hash (#) and the font name:</p>
+
 
                         
   <div class="read-more-link">
@@ -358,7 +430,17 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Sublime Text 2 is a great multi-purpose text editor that you can run on Windows, MacOS and Linux. You can configure Sublime Text 2 to higlight and compile F# files and even to use F# Interactive and make it a F# REPL. Using Sublime Text 2 as F# REPL is useful when you work on MacOS and Linux (F# 3.0 works great with Mono) and cannot use Visual Studio 2012. If you are new to Sublime Text 2, check out the Perfect Workflow in Sublime Text: Free Course.
+                       <p>[Sublime Text 2][1] is a great multi-purpose text editor that you can run on Windows, MacOS and Linux. You can configure Sublime Text 2 to higlight and compile F# files and even to use F# Interactive and make it a F# REPL. Using Sublime Text 2 as F# REPL is useful when you work on MacOS and Linux (F# 3.0 works great with [Mono][2]) and cannot use Visual Studio 2012. If you are new to Sublime Text 2, check out the [Perfect Workflow in Sublime Text: Free Course][3].</p>
+
+<p><strong>Installing necessary packages</strong></p>
+
+<p>In order to use F# Interactive in Sublime Text 2, you have to install a few packages first. All the packages can be installed using [Sublime Package Control][4]. You need to install the following packages:</p>
+
+<ul>
+<li><strong>F#</strong></li>
+<li><strong>SublimeREPL</strong></li>
+</ul>
+
 
                         
   <div class="read-more-link">

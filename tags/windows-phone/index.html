@@ -26,8 +26,9 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
     <!--<![endif]-->
 
-    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">    
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/custom.css">
 
     <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://blog.kulman.sk/index.xml" />
 </head>
@@ -42,7 +43,7 @@
             <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
         </hgroup>
 
-        <nav class="nav">
+        <nav class="nav wide-only">
             <ul class="nav-list">
                 
                 <li class="nav-item">
@@ -60,7 +61,7 @@
             </ul>
         </nav>
 
-<div>
+<div class="wide-only">
 <h2>About me</h2>
 
 <p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
@@ -199,7 +200,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       In my last article I gave you a tip on how to localize the Player Framework, in this article I will show you have to customize the UI of the actual player. The first step is to obtain the Generic.xaml file that the Player Framework uses for styling. You can find it in C:\ Program Files (x86)\ Microsoft SDKs\ Windows\ v8.0\ ExtensionSDKs\ Microsoft.PlayerFramework.Xaml\ 2.0.0.0\ Redist\ CommonConfiguration\ neutral\ Microsoft.PlayerFramework\ Themes. Copy it to your projects and rename it to something more telling, like PlayerFramework.xaml.
+                       <p>In my last article I gave you a tip on how to localize the Player Framework, in this article I will show you have to customize the UI of the actual player.</p>
+
+<p>The first step is to obtain the Generic.xaml file that the Player Framework uses for styling. You can find it in C:\ Program Files (x86)\ Microsoft SDKs\ Windows\ v8.0\ ExtensionSDKs\ Microsoft.PlayerFramework.Xaml\ 2.0.0.0\ Redist\ CommonConfiguration\ neutral\ Microsoft.PlayerFramework\ Themes. Copy it to your projects and rename it to something more telling, like PlayerFramework.xaml.</p>
+
+<p>You can now edit the copied XAML file and customize it any way you want. If you do the styling for a Windows Phone app, keep in mind that the ControlPanel switches to the Compact states and a few transformations are applied by default, that can interfere with your styling.</p>
+
 
                         
   <div class="read-more-link">
@@ -228,7 +234,14 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       As many other Windows Phone / Windows 8 / Universal apps developers (lets just call us WinRT developers) I watched the Build 2015 keynote last night. And I did not like it. I know Microsoft does not know to communicate but the message for me was clear. We, the WinRT developer, are no longer needed. First, Microsoft announced that WPF apps will be allowed to be submitted to the Windows Store to be used on desktops / tablets.
+                       <p>As many other Windows Phone / Windows 8 / Universal apps developers (lets just call us WinRT developers) I watched the Build 2015 keynote last night. And I did not like it. I know Microsoft does not know to communicate but the message for me was clear. We, the WinRT developer, are no longer needed.</p>
+
+<p>First, Microsoft announced that WPF apps will be allowed to be submitted to the Windows Store to be used on desktops / tablets. So why would anyone want to develop (or want to have developed) a Windows 8 (WinRT) app, when they can just use WPF and get everything done easier? I do not know.</p>
+
+<p>But allowing WPF apps to the Windows Store is a small news compared to the ability to run Android apps on Windows Phone. The first news talked about porting Android apps to the Windows Phone, but later, [statements like this][1] appeared</p>
+
+<p><em>Android developers will be able to submit versions of their apps, written in Java or C++, to the Windows Store in he form of APKs and have those apps work on Windows Phone 10 devices. Android developers should be able to start submitting apps to the Windows 10 Store some time in the next few months.</em></p>
+
 
                         
   <div class="read-more-link">
@@ -257,7 +270,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       In my recent universal (Windows Phone 8.1 and Windows 8.1) project I implemented PlayReady DRM protected smooth streaming movies playback using the Player Framework. This projects seems to be dead, but it is still the best option when implementing any kind of video playback. One of the first things I had to do was localize it&#8217;s controls, because the app I worked on was in Czech and Slovak, not in English (the only language the Player Framework supports out of the box).
+                       <p>In my recent universal (Windows Phone 8.1 and Windows 8.1) project I implemented PlayReady DRM protected smooth streaming movies playback using the [Player Framework][1]. This projects seems to be dead, but it is still the best option when implementing any kind of video playback.</p>
+
+<p>One of the first things I had to do was localize it&#8217;s controls, because the app I worked on was in Czech and Slovak, not in English (the only language the Player Framework supports out of the box). Not all the texts an be localized, but the most visible ones like button labels and error messages can.</p>
+
+<p>To create your own localization, I suggest you create a new RESW file in your project. You can use and existing one, but I prefer to separate the texts for the Player Framework from texts for the rest of the app.</p>
+
 
                         
   <div class="read-more-link">
@@ -286,7 +304,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       In my previous article I showed you how to implements server side caching using ETag. HTTP clients on other platforms can usually work with ETag automatically, but of course, the portable HTTP client used on Windows platforms cannot. You have to implement ETag handling yourself. In TvTime, all the server requests are GET request, so I remember the ETag values for each Url (= each GET request). I store the ETag values in application local settings.
+                       <p>In my previous article I showed you [how to implements server side caching using ETag][1]. HTTP clients on other platforms can usually work with ETag automatically, but of course, the portable HTTP client used on Windows platforms cannot. You have to implement ETag handling yourself.</p>
+
+<p>In [TvTime][2], all the server requests are GET request, so I remember the ETag values for each Url (= each GET request). I store the ETag values in application local settings.</p>
+
+<p>When the app wants to get some data, I perform a GET request including the ETag as the If-None-Match header. If my ETag matches with the ETag on the server, the server returns HTTP 304 Not Modified and I return the cached data from disk. Otherwise I read the response body and return it.</p>
+
 
                         
   <div class="read-more-link">
@@ -315,7 +338,18 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Windows Phone 8.1 XAML contains a Pivot control that looks like the one from Windows Phone 7&frasl;8 and also should behave the same way, but does not. You will find the first problem with the new Pivot when you want to change the PivotItem header color. Windows Phone 7&frasl;8 If you want to change the PivotItem header color in Windows Phone 7&frasl;8, you just define the color in the Header template: This works great, changing the color of the active PivotItem Header to the color you want and applying some opacity to the inactive PivotItem Headers.
+                       <p>Windows Phone 8.1 XAML contains a Pivot control that looks like the one from Windows Phone <sup>7</sup>&frasl;<sub>8</sub> and also should behave the same way, but does not. You will find the first problem with the new Pivot when you want to change the PivotItem header color.</p>
+
+<p><strong>Windows Phone <sup>7</sup>&frasl;<sub>8</sub></strong></p>
+
+<p>If you want to change the PivotItem header color in Windows Phone <sup>7</sup>&frasl;<sub>8</sub>, you just define the color in the Header template:</p>
+
+<script src="https://gist.github.com/igorkulman/a49d0c7d471c4de42521.js?file=wp8.xaml"></script>
+
+<p>This works great, changing the color of the active PivotItem Header to the color you want and applying some opacity to the inactive PivotItem Headers.</p>
+
+<p><img src="/images/header78.png" alt="" class="pure-img" ></p>
+
 
                         
   <div class="read-more-link">
@@ -344,7 +378,14 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Today I read Joost van Schaik&#8217;s blog post called A behavior to show a MessageDialog from a MVVMLight viewmodel in Universal apps–with callbacks. I am not a MVVMLight guy (I use Caliburn.Micro) and I personally use an approach that uses a little less code, employing a helper class. Helper class with a simple usage in ViewModel and in the View (making use of Caliburn.Micro mapping the AppBarButton with x:Name=&#8221;Message&#8221; to the Message method in the ViewModel If you want to show a dialog with just the Ok button, set cancelText to null and do not process the helper method&#8217;s result.
+                       <p>Today I read Joost van Schaik&#8217;s blog post called [A behavior to show a MessageDialog from a MVVMLight viewmodel in Universal apps–with callbacks][1]. I am not a MVVMLight guy (I use Caliburn.Micro) and I personally use an approach that uses a little less code, employing a helper class.</p>
+
+<p><strong>Helper class</strong></p>
+
+<script src="https://gist.github.com/igorkulman/fda1860b35d5312e9157.js?file=DialogHelper.cs"></script>
+
+<p>with a simple usage in ViewModel</p>
+
 
                         
   <div class="read-more-link">
@@ -373,7 +414,18 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Sometimes you may want your app to display the startup splashscreen a bit longer, so you can initialize or fetch some data necessary for the app to run. To achieve this, you can create a fake splaschreen, a View that looks just like the splashscreen, does all the work and redirects to the real main View afterwards. In theory, it is quite simple: Create a SplashScreenView with just the right background and the splashscreen image Set the app to display SplashScreenView at startup Do all the initializing and data fetching in SplashScreenViewModel and redirect to there real MainView This works quite well with Windows 8.1, but on Windows Phone 8.1 there is a problem.
+                       <p>Sometimes you may want your app to display the startup splashscreen a bit longer, so you can initialize or fetch some data necessary for the app to run. To achieve this, you can create a fake splaschreen, a View that looks just like the splashscreen, does all the work and redirects to the real main View afterwards.</p>
+
+<p>In theory, it is quite simple:</p>
+
+<ul>
+<li>Create a SplashScreenView with just the right background and the splashscreen image</li>
+<li>Set the app to display SplashScreenView at startup</li>
+<li>Do all the initializing and data fetching in SplashScreenViewModel and redirect to there real MainView</li>
+</ul>
+
+<p>This works quite well with Windows 8.1, but on Windows Phone 8.1 there is a problem. When you run the Windows Phone 8.1 app, you will see a page transition happen between the real splashscreen and your SplashScreenView. This looks strange, so it is better to get rid of it.</p>
+
 
                         
   <div class="read-more-link">

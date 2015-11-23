@@ -26,8 +26,9 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
     <!--<![endif]-->
 
-    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">    
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/custom.css">
 
     <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://blog.kulman.sk/index.xml" />
 </head>
@@ -42,7 +43,7 @@
             <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
         </hgroup>
 
-        <nav class="nav">
+        <nav class="nav wide-only">
             <ul class="nav-list">
                 
                 <li class="nav-item">
@@ -60,7 +61,7 @@
             </ul>
         </nav>
 
-<div>
+<div class="wide-only">
 <h2>About me</h2>
 
 <p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
@@ -97,7 +98,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       I have been playing with MonoTouch only for a few days when I already started to miss all the .NET libraries I commonly use. The first one I needed to get working with MonoTouch was JSON.NET. MonoDevelop does not support Nuget so you have to get your libaries the old way. I downloaded JSON.NET package from Nuget.org, but it does not contain a DLL built for Mono. Harldy any Nuget package does.
+                       <p>I have been [playing with MonoTouch][1] only for a few days when I already started to miss all the .NET libraries I commonly use. The first one I needed to get working with MonoTouch was [JSON.NET][2].</p>
+
+<p>MonoDevelop does not support Nuget so you have to get your libaries the old way. I downloaded JSON.NET package from [Nuget.org][3], but it does not contain a DLL built for Mono. Harldy any Nuget package does. You can reference a DLL built for .NET, MonoDevelop will recognize it and even offer you IntelliSense but your project will not get built.</p>
+
+<p>The right way to get a .NET library working with MonoTouch is downloading its source code and building it yourself. You can use MonoDevelop to build the source codes. The only think you have to do (at least for JSON.NET) is to change the .NET profile to an equivalent Mono profile in the project settings.</p>
+
 
                         
   <div class="read-more-link">

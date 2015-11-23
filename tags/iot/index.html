@@ -26,8 +26,9 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
     <!--<![endif]-->
 
-    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">    
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/custom.css">
 
     <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://blog.kulman.sk/index.xml" />
 </head>
@@ -42,7 +43,7 @@
             <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
         </hgroup>
 
-        <nav class="nav">
+        <nav class="nav wide-only">
             <ul class="nav-list">
                 
                 <li class="nav-item">
@@ -60,7 +61,7 @@
             </ul>
         </nav>
 
-<div>
+<div class="wide-only">
 <h2>About me</h2>
 
 <p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
@@ -97,7 +98,14 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       The Raspberry Pi is a small embedded computing device that you can use for many different software and hardware projects. One of the first projects I did with the Pi was turning it into a device that would measure, record and display the room temperature. Hadrware To make the project, you will of course need a Raspberry Pi. I use my old Raspberry Pi model B, any newer one would also work.
+                       <p>The Raspberry Pi is a small embedded computing device that you can use for [many different software and hardware projects][1]. One of the first projects I did with the Pi was turning it into a device that would measure, record and display the room temperature.</p>
+
+<p><strong>Hadrware</strong></p>
+
+<p>To make the project, you will of course need a Raspberry Pi. I use my old Raspberry Pi model B, any newer one would also work. You also need a DS18B20 temperature sensor and a RRU 4K7 resistor. You can buy the separately, or you can buy the [Raspberry Pi YouTube Workshop Kit][2] that also contains both parts.</p>
+
+<p>To connect the temperature sensor to the Pi, I suggest you follow the [YouTube tutorial for the kit][3]. You can also solder the temperature sensor and the resistor into one piece and connect it to the Pi using [this schema][4], so the result then looks like this</p>
+
 
                         
   <div class="read-more-link">

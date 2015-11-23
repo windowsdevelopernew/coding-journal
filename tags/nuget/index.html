@@ -26,8 +26,9 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
     <!--<![endif]-->
 
-    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">    
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/custom.css">
 
     <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://blog.kulman.sk/index.xml" />
 </head>
@@ -42,7 +43,7 @@
             <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
         </hgroup>
 
-        <nav class="nav">
+        <nav class="nav wide-only">
             <ul class="nav-list">
                 
                 <li class="nav-item">
@@ -60,7 +61,7 @@
             </ul>
         </nav>
 
-<div>
+<div class="wide-only">
 <h2>About me</h2>
 
 <p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
@@ -97,7 +98,14 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Communicating with a JSON based REST service is a task that many Windows Phone apps have to do. My apps sure do it a lot so I came up with a base class that I use in all of them, put it on Github and created a Nuget package, so your apps could use it to. The usage of this base class is simple. Create your service class and inherit from BaseRestService.
+                       <p>Communicating with a JSON based REST service is a task that many Windows Phone apps have to do. My apps sure do it a lot so I came up with a base class that I use in all of them, [put it on Github][1] and [created a Nuget package][2], so your apps could use it to.</p>
+
+<p>The usage of this base class is simple. Create your service class and inherit from BaseRestService. The minimum you need to do to make it work is to override the GetBaseUrl() method to set the base url for all the requests. You can (but do not have to) also override the GetRequestHeaders() method to set the default request headers.</p>
+
+<script src="https://gist.github.com/igorkulman/405732bf92858dba1c3c.js?file=usage1.cs"></script>
+
+<p>and you can now use the following protected methods</p>
+
 
                         
   <div class="read-more-link">
@@ -126,7 +134,17 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       There is no AutoCompleteBox control that can be used when building Windows Store apps in C# and XAML so I decided to create one, because I needed it for a project. Currently it supports only String collections and the selected value must be accessed using code behind, but this will hopefully change. The AutoCompleteBox uses WinRT XAML Toolkit to show the watermark and Reactive Extensions so the users does not need to press enter, the results will show after they stop typing for a second.
+                       <p>There is no AutoCompleteBox control that can be used when building Windows Store apps in C# and XAML so I decided to create one, because I needed it for a project. Currently it supports only String collections and the selected value must be accessed using code behind, but this will hopefully change.</p>
+
+<p>The AutoCompleteBox uses [WinRT XAML Toolkit][1] to show the watermark and [Reactive Extensions][2] so the users does not need to press enter, the results will show after they stop typing for a second.</p>
+
+<p>The project is hosted on my Bitbucket so you can check it out at <a href="https://github.com/igorkulman/AutoCompleteBox">https://github.com/igorkulman/AutoCompleteBox</a>, forks and code contributions are welcomed. Nuget package is available at <a href="https://nuget.org/packages/AutoCompleteBoxWinRT">https://nuget.org/packages/AutoCompleteBoxWinRT</a>.</p>
+
+<p>Installation using Nuget:</p>
+
+<pre><code>Install-Package AutoCompleteBoxWinRT
+</code></pre>
+
 
                         
   <div class="read-more-link">

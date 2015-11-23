@@ -26,8 +26,9 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
     <!--<![endif]-->
 
-    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">    
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/custom.css">
 
     <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://blog.kulman.sk/index.xml" />
 </head>
@@ -42,7 +43,7 @@
             <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
         </hgroup>
 
-        <nav class="nav">
+        <nav class="nav wide-only">
             <ul class="nav-list">
                 
                 <li class="nav-item">
@@ -60,7 +61,7 @@
             </ul>
         </nav>
 
-<div>
+<div class="wide-only">
 <h2>About me</h2>
 
 <p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
@@ -97,7 +98,16 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       If you want to host your .NET project on the Internet, there are classic ASP.NET webhosting on one side of the spectrum and Microsoft Azure on the other. If you are looking for something in the middle, take a look at AppHarbor. AppHarbor AppHarbor is a flexible and scalable .NET Platform-as-a-Service, that you can even use for free, limited to one web or worker role. It runs in AWS and is quite similiar to Heroku.
+                       <p>If you want to host your .NET project on the Internet, there are classic ASP.NET webhosting on one side of the spectrum and Microsoft Azure on the other. If you are looking for something in the middle, take a look at [AppHarbor][1].</p>
+
+<p><strong>AppHarbor</strong></p>
+
+<p>AppHarbor is a flexible and scalable .NET Platform-as-a-Service, that you can even [use for free][2], limited to one web or worker role. It runs in AWS and is quite similiar to Heroku.</p>
+
+<p><strong>Variety of Add-ons</strong></p>
+
+<p>There are [many add-on supported by AppHarbor][3], including SQL Server, MongoDB, RavenDB, MySQL, Memcacher &#8230; Many of these ad-ons offer free versions so you can test them for free. If you run into some problems, you can use [the support forums][4] or [StackOverflow][5].</p>
+
 
                         
   <div class="read-more-link">
@@ -126,7 +136,16 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Gamification is a great concept that works really well for some people, including me. Gamification may very well be the reason for success of projects like StackOveflow or Duolingo. Visual Studio Achievements Visual Studio Achievements is Visual Studio plugin that rewards you for good practices like having 1000 localized values (Localization Master) and even for bad practices like writin a single line of 300 characters long (Scroll Bar Wizard). For some of the achievements you need to have FxCop installed, but the majority get awareded without the need for it.
+                       <p>Gamification is a great concept that works really well for some people, including me. Gamification may very well be the reason for success of projects like [StackOveflow][1] or [Duolingo][2].</p>
+
+<p><strong>Visual Studio Achievements</strong></p>
+
+<p>[Visual Studio Achievements][3] is Visual Studio plugin that rewards you for good practices like having 1000 localized values ([Localization Master][4]) and even for bad practices like writin a single line of 300 characters long ([Scroll Bar Wizard][5]). For some of the achievements you need to have FxCop installed, but the majority get awareded without the need for it.</p>
+
+<p><img src="/images/VisualStudio_badges_2.jpg" alt="" class="pure-img" ></p>
+
+<p>You can find out interesting information about your programming, check out [my profile][7].</p>
+
 
                         
   <div class="read-more-link">
@@ -155,7 +174,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       I have been playing with MonoTouch only for a few days when I already started to miss all the .NET libraries I commonly use. The first one I needed to get working with MonoTouch was JSON.NET. MonoDevelop does not support Nuget so you have to get your libaries the old way. I downloaded JSON.NET package from Nuget.org, but it does not contain a DLL built for Mono. Harldy any Nuget package does.
+                       <p>I have been [playing with MonoTouch][1] only for a few days when I already started to miss all the .NET libraries I commonly use. The first one I needed to get working with MonoTouch was [JSON.NET][2].</p>
+
+<p>MonoDevelop does not support Nuget so you have to get your libaries the old way. I downloaded JSON.NET package from [Nuget.org][3], but it does not contain a DLL built for Mono. Harldy any Nuget package does. You can reference a DLL built for .NET, MonoDevelop will recognize it and even offer you IntelliSense but your project will not get built.</p>
+
+<p>The right way to get a .NET library working with MonoTouch is downloading its source code and building it yourself. You can use MonoDevelop to build the source codes. The only think you have to do (at least for JSON.NET) is to change the .NET profile to an equivalent Mono profile in the project settings.</p>
+
 
                         
   <div class="read-more-link">
@@ -184,7 +208,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Beeing quite disappointed with the Windows Phone platform recently I started to look for other ways to use my .NET skills and to develop for a mobile platform at the same time. I found MonoTouch, a product from Xamarin that allows you to build iOS apps using C# with Mono. What is MonoTouch? MonoTouch is a product or a framework do develop iOS apps using Mono (an open-source .NET implementation). It allows you to use C# (hopefuly also F# although I have not been able to get it to work yet) and all the .NET features libraries you use and like and of course your existing codebase.
+                       <p>Beeing [quite disappointed with the Windows Phone platform recently][1] I started to look for other ways to use my .NET skills and to develop for a mobile platform at the same time. I found [MonoTouch][2], a product from Xamarin that allows you to build iOS apps using C# with Mono.</p>
+
+<p><strong>What is MonoTouch?</strong></p>
+
+<p>MonoTouch is a product or a framework do develop iOS apps using [Mono]<a href="an open-source .NET implementation">3</a>. It allows you to use C# (hopefuly also F# although I have not been able to get it to work yet) and all the .NET features libraries you use and like and of course your existing codebase. No Objective-C knowledge is required, but you will have to learn about the iOS ecosystem an iOS SDK. The iOS SDK is also needed, so you cannot do the development in Windows, you have to use a Mac. There are ways to get MacOS X working on a PC as a native install or in VMWare / VirtualBox, if you just want to try it out, but it may not be legal.</p>
+
 
                         
   <div class="read-more-link">
@@ -213,7 +242,16 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Before I start with the actual arguments I feel a need to state my background first so you do not mistake me with just another hater rattling about things he does not know. I have been a long time .NET developer, I have worked with winforms, webforms, mvc, compact framework. I really like C# and love F#. In February I started to work as a full time Windows Phone developer. Although I have been programming exclusively for Windows 8 for the last few months I have a ton of experience with Windows Phone programming.
+                       <p>Before I start with the actual arguments I feel a need to state my background first so you do not mistake me with just another hater rattling about things he does not know. I have been a long time .NET developer, I have worked with winforms, webforms, mvc, compact framework. I really like C# and love F#. In February I started to work as a full time Windows Phone developer. Although I have been programming exclusively for Windows 8 for the last few months I have a ton of experience with Windows Phone programming.</p>
+
+<p><strong>Good old Windows Phone 7 times</strong></p>
+
+<p>I really like Windows Phone 7 as a programmer. Although capabilities of this mobile OS are very limited compared to other platforms, the things you can do can be done easily and reliably. The OS is based on Silverlight, which is a mature platform. Everything works as you would expect.</p>
+
+<p><strong>The abomination called Windows Phone 8</strong></p>
+
+<p>When I first got my hands on a Windows Phone 8 phone I was really disappointed. I wrote two concrete post about [troubles with Windows Phone Store region][1] and an [unaccountable approach to MP3 tags][2] but lets take it more generally. Windows Phone 8 feels like Windows Phone 7 written from scratch using another technology, visually looking nearly the same but full of bugs and unfinished things. I am really amazed at things that worked on Windows Phone 7 but work much worse on Windows Phone 8. I thought that only Czech and Slovak people suffered from the &#8220;not invented here&#8221; syndrome but clearly it might be a more widespread disease.</p>
+
 
                         
   <div class="read-more-link">
@@ -242,7 +280,10 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       When navigating in a Windows Store app, you can specify a navigation parameter. This navigation parameter can be any object but there is a problem. When the application is suspended, this navigation parameter is saved by the LayoutAwarePage. This works only with primitive data types, unless you change the implementation of the class which instances you pass as the navigation parameter. I use mainly ints (article id, gallery id &#8230;) as navigation parameters but sometimes just on int is not enough.
+                       <p>When navigating in a Windows Store app, you can specify a navigation parameter. This navigation parameter can be any object but there is a problem. When the application is suspended, this navigation parameter is saved by the LayoutAwarePage. This works only with primitive data types, unless you change the implementation of the class which instances you pass as the navigation parameter.</p>
+
+<p>I use mainly ints (article id, gallery id &#8230;) as navigation parameters but sometimes just on int is not enough. If I want to pass two int parameters, I &#8220;encode&#8221; them into an int and then &#8220;decode&#8221; back on the target page. I have a simple Utils class for this purpose.</p>
+
 
                         
   <div class="read-more-link">
@@ -271,7 +312,17 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       There is no AutoCompleteBox control that can be used when building Windows Store apps in C# and XAML so I decided to create one, because I needed it for a project. Currently it supports only String collections and the selected value must be accessed using code behind, but this will hopefully change. The AutoCompleteBox uses WinRT XAML Toolkit to show the watermark and Reactive Extensions so the users does not need to press enter, the results will show after they stop typing for a second.
+                       <p>There is no AutoCompleteBox control that can be used when building Windows Store apps in C# and XAML so I decided to create one, because I needed it for a project. Currently it supports only String collections and the selected value must be accessed using code behind, but this will hopefully change.</p>
+
+<p>The AutoCompleteBox uses [WinRT XAML Toolkit][1] to show the watermark and [Reactive Extensions][2] so the users does not need to press enter, the results will show after they stop typing for a second.</p>
+
+<p>The project is hosted on my Bitbucket so you can check it out at <a href="https://github.com/igorkulman/AutoCompleteBox">https://github.com/igorkulman/AutoCompleteBox</a>, forks and code contributions are welcomed. Nuget package is available at <a href="https://nuget.org/packages/AutoCompleteBoxWinRT">https://nuget.org/packages/AutoCompleteBoxWinRT</a>.</p>
+
+<p>Installation using Nuget:</p>
+
+<pre><code>Install-Package AutoCompleteBoxWinRT
+</code></pre>
+
 
                         
   <div class="read-more-link">
@@ -329,7 +380,10 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       I use my Nokia Lumia 800 also as a music player, with a few annoyances but nothing I could not live with. When I tried to use the HTC 8X with Windows Phone 8 as a music player, the situation was quite different. The first thing that annoys me is more of a HTC&#8217;s fault than Windows Phone&#8217;s. The HTC 8X has Beats Audio. It does not really say what it is or does, it just says it is there.
+                       <p>I use my Nokia Lumia 800 also as a music player, with a few annoyances but nothing I could not live with. When I tried to use the HTC 8X with Windows Phone 8 as a music player, the situation was quite different.</p>
+
+<p>The first thing that annoys me is more of a HTC&#8217;s fault than Windows Phone&#8217;s. The HTC 8X has Beats Audio. It does not really say what it is or does, it just says it is there. Every time you plug in your headset, a notification sound is played and a toast appears informing you that the Beats Audio is on. You can disable the sound only using the disable all other notifications option in settings, so you may loose some notifications you need. Disabling the toast is impossible. I naively thought that if I disable the Beats Audio completely the notification goes away. Silly me. The notifications just changes from Beats Audio on to Beats Audio off every damn time you plug in your headset.</p>
+
 
                         
   <div class="read-more-link">
@@ -358,7 +412,10 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       If you use Windows Phone 7, your region for the Windows Phone Store is determined by the region of your Live ID you use with the phone. The region of your Live ID cannot be changed, so if you move to another country or just want to access apps that are not available in your country there is nothing you can to about it. Changing region in your phone does not help.
+                       <p>If you use Windows Phone 7, your region for the Windows Phone Store is determined by the region of your Live ID you use with the phone. The region of your Live ID cannot be changed, so if you move to another country or just want to access apps that are not available in your country there is nothing you can to about it. Changing region in your phone does not help.</p>
+
+<p>The situation in Windows Phone 8 is different, more messed up. When I got my hands on the HTC 8X with Windows Phone 8, I logged with my Slovak LiveID. The Windows Phone Store showed apps available in Slovakia and I had no access to music or podcasts as expected. I listen to podcasts every day so I have an US Live ID I use with my Lumia 800 (and nowhere else and cannot be &#8220;merged&#8221; with my primary Live ID).</p>
+
 
                         
   <div class="read-more-link">

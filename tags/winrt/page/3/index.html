@@ -26,8 +26,9 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
     <!--<![endif]-->
 
-    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">    
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/custom.css">
 
     <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://blog.kulman.sk/index.xml" />
 </head>
@@ -42,7 +43,7 @@
             <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
         </hgroup>
 
-        <nav class="nav">
+        <nav class="nav wide-only">
             <ul class="nav-list">
                 
                 <li class="nav-item">
@@ -60,7 +61,7 @@
             </ul>
         </nav>
 
-<div>
+<div class="wide-only">
 <h2>About me</h2>
 
 <p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
@@ -97,7 +98,14 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Displaying PDF files in a mobile apps is a valid use case and there are many iOS and Android app that do it. WinRT has no APIs for displaying PDF files. The only thing you can do with a PDF in WinRT is to display it in the default PDF viewer app using the Windows.System.Launcher.LaunchFileAsync method. This is typicaly not what you want to do. This method takes the user out of your app and more importantly the PDF can be copied, shared, etc.
+                       <p>Displaying PDF files in a mobile apps is a valid use case and there are many iOS and Android app that do it. WinRT has no APIs for displaying PDF files. The only thing you can do with a PDF in WinRT is to display it in the default PDF viewer app using the Windows.System.Launcher.LaunchFileAsync method. This is typicaly not what you want to do. This method takes the user out of your app and more importantly the PDF can be copied, shared, etc.</p>
+
+<p>There are a few 3rd party components for displaying PDF files in Windows Store apps, each has some problems and restrictions.</p>
+
+<p><strong>ComponentOne PDFViewer</strong></p>
+
+<p>[ComponentOne][1] has a [PDFViewer component][2] as part of their [Studio for WinRT XAML][3] package. This package costs $895. There are [many limitations][4] when using this component that you need to be aware of. If you want to have more control over the rendered PDF files, you can get all the pages as FrameworkElements and do not need to use the PDFViewer as one monolitic component. It does not support all the fonts and complex documents are rendered really messed up, it was not usable for me at all.</p>
+
 
                         
   <div class="read-more-link">
@@ -126,7 +134,28 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       I am a big fan of open-source software. I decided to make my mini-libraries, that I use for Windows Phone and Windows 8 development, available to everyone who would be interested. Both are basically a collection of useful utilities and components that I wrote myself or found on various forums and slightly modified. Source code is available on BitBucket and packages on Nuget. Windows Phone Code: https://github.com/igorkulman/Kulman.WP7 Nuget: https://nuget.org/packages/Kulman.WP7/ Windows 8 Code: https://github.com/igorkulman/Kulman.WinRT Nuget: https://nuget.org/packages/Kulman.WinRT My Windows 8 mini-library is best used with the WinRTXAMLToolkit that I contributed to once ot twice.
+                       <p>I am a big fan of open-source software. I decided to make my mini-libraries, that I use for Windows Phone and Windows 8 development, available to everyone who would be interested. Both are basically a collection of useful utilities and components that I wrote myself or found on various forums and slightly modified. Source code is available on BitBucket and packages on Nuget.</p>
+
+<p><strong>Windows Phone</strong></p>
+
+<p>Code: <a href="https://github.com/igorkulman/Kulman.WP7">https://github.com/igorkulman/Kulman.WP7</a></p>
+
+<p>Nuget: <a href="https://nuget.org/packages/Kulman.WP7/">https://nuget.org/packages/Kulman.WP7/</a></p>
+
+<p><strong>Windows 8</strong></p>
+
+<p>Code: <a href="https://github.com/igorkulman/Kulman.WinRT">https://github.com/igorkulman/Kulman.WinRT</a></p>
+
+<p>Nuget: <a href="https://nuget.org/packages/Kulman.WinRT">https://nuget.org/packages/Kulman.WinRT</a></p>
+
+<p>My Windows 8 mini-library is best used with the [WinRTXAMLToolkit][1] that I contributed to once ot twice.</p>
+
+<p><strong>AutoCompleteBox for WinRT</strong></p>
+
+<p>Code: <a href="https://github.com/igorkulman/AutoCompleteBox">https://github.com/igorkulman/AutoCompleteBox</a></p>
+
+<p>Nuget: <a href="https://nuget.org/packages/AutoCompleteBoxWinRT/">https://nuget.org/packages/AutoCompleteBoxWinRT/</a></p>
+
 
                         
   <div class="read-more-link">
@@ -155,7 +184,16 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Let&#8217;s face it, there are no really great apps for Windows 8 and the number of trashy apps is also very low compared to the Android and iOS ecosystems. Microsoft looks really desperate to bring more apps and developers to the ecosystem. Instead of improving the API and its capabilities, Microsoft just generates desperately looking campaigns to improve the apps count. I sometimes wonder if they ever realize that the number of apps is not important when people cannot find the apps they are used to use on Android or iOS in the Windows Store.
+                       <p>Let&#8217;s face it, there are no really great apps for Windows 8 and the number of trashy apps is also very low compared to the Android and iOS ecosystems. Microsoft looks really desperate to bring more apps and developers to the ecosystem. Instead of improving the API and its capabilities, Microsoft just generates [desperately looking campaigns to improve the apps count][1]. I sometimes wonder if they ever realize that the number of apps is not important when people cannot find the apps they are used to use on Android or iOS in the Windows Store.</p>
+
+<p><img src="/images/microsoft-surface-2-650x0.jpg" alt="" class="pure-img" ></p>
+
+<p>So why are there so few Windows 8 apps? I will tell you my (and only my) opinion and experience. I developed a few Windows 8 apps, some of them fairly complex. I tried to develop a few really great apps but many of those projects never got done. The reason is the API (WinRT).</p>
+
+<p>Let&#8217;s start with something (that should be) trivial. Imagine you want to <strong>display HTML files with images, CSS, JS in a WebView</strong>. It is a common scenario for displaying downloaded manuals, interactive texts, etc. It can be done on Android, iOS and even on Windows Phone by copying the data to isolated storage and pointing the WebView there.</p>
+
+<p>This scenario is impossible in WinRT. You can reference files in Isolated Storage (Local / Roaming folders) using the ms-appdata protocol, but the WebView does not work with it. You can use the NavigateToString method to display one HTML file, but all the images, CSS, JS references must be internet URLs, you cannot reference other local files. The only way around this issue is to inline all the CSS, JS and images (as base64) to the HTML file. Really messy, painful and slow and not really an option if you have JS reading XML files and inserting external images.</p>
+
 
                         
   <div class="read-more-link">
@@ -184,7 +222,16 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Before I start with the actual arguments I feel a need to state my background first so you do not mistake me with just another hater rattling about things he does not know. I have been a long time .NET developer, I have worked with winforms, webforms, mvc, compact framework. I really like C# and love F#. In February I started to work as a full time Windows Phone developer. Although I have been programming exclusively for Windows 8 for the last few months I have a ton of experience with Windows Phone programming.
+                       <p>Before I start with the actual arguments I feel a need to state my background first so you do not mistake me with just another hater rattling about things he does not know. I have been a long time .NET developer, I have worked with winforms, webforms, mvc, compact framework. I really like C# and love F#. In February I started to work as a full time Windows Phone developer. Although I have been programming exclusively for Windows 8 for the last few months I have a ton of experience with Windows Phone programming.</p>
+
+<p><strong>Good old Windows Phone 7 times</strong></p>
+
+<p>I really like Windows Phone 7 as a programmer. Although capabilities of this mobile OS are very limited compared to other platforms, the things you can do can be done easily and reliably. The OS is based on Silverlight, which is a mature platform. Everything works as you would expect.</p>
+
+<p><strong>The abomination called Windows Phone 8</strong></p>
+
+<p>When I first got my hands on a Windows Phone 8 phone I was really disappointed. I wrote two concrete post about [troubles with Windows Phone Store region][1] and an [unaccountable approach to MP3 tags][2] but lets take it more generally. Windows Phone 8 feels like Windows Phone 7 written from scratch using another technology, visually looking nearly the same but full of bugs and unfinished things. I am really amazed at things that worked on Windows Phone 7 but work much worse on Windows Phone 8. I thought that only Czech and Slovak people suffered from the &#8220;not invented here&#8221; syndrome but clearly it might be a more widespread disease.</p>
+
 
                         
   <div class="read-more-link">
@@ -213,7 +260,10 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       When navigating in a Windows Store app, you can specify a navigation parameter. This navigation parameter can be any object but there is a problem. When the application is suspended, this navigation parameter is saved by the LayoutAwarePage. This works only with primitive data types, unless you change the implementation of the class which instances you pass as the navigation parameter. I use mainly ints (article id, gallery id &#8230;) as navigation parameters but sometimes just on int is not enough.
+                       <p>When navigating in a Windows Store app, you can specify a navigation parameter. This navigation parameter can be any object but there is a problem. When the application is suspended, this navigation parameter is saved by the LayoutAwarePage. This works only with primitive data types, unless you change the implementation of the class which instances you pass as the navigation parameter.</p>
+
+<p>I use mainly ints (article id, gallery id &#8230;) as navigation parameters but sometimes just on int is not enough. If I want to pass two int parameters, I &#8220;encode&#8221; them into an int and then &#8220;decode&#8221; back on the target page. I have a simple Utils class for this purpose.</p>
+
 
                         
   <div class="read-more-link">
@@ -242,7 +292,17 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       There is no AutoCompleteBox control that can be used when building Windows Store apps in C# and XAML so I decided to create one, because I needed it for a project. Currently it supports only String collections and the selected value must be accessed using code behind, but this will hopefully change. The AutoCompleteBox uses WinRT XAML Toolkit to show the watermark and Reactive Extensions so the users does not need to press enter, the results will show after they stop typing for a second.
+                       <p>There is no AutoCompleteBox control that can be used when building Windows Store apps in C# and XAML so I decided to create one, because I needed it for a project. Currently it supports only String collections and the selected value must be accessed using code behind, but this will hopefully change.</p>
+
+<p>The AutoCompleteBox uses [WinRT XAML Toolkit][1] to show the watermark and [Reactive Extensions][2] so the users does not need to press enter, the results will show after they stop typing for a second.</p>
+
+<p>The project is hosted on my Bitbucket so you can check it out at <a href="https://github.com/igorkulman/AutoCompleteBox">https://github.com/igorkulman/AutoCompleteBox</a>, forks and code contributions are welcomed. Nuget package is available at <a href="https://nuget.org/packages/AutoCompleteBoxWinRT">https://nuget.org/packages/AutoCompleteBoxWinRT</a>.</p>
+
+<p>Installation using Nuget:</p>
+
+<pre><code>Install-Package AutoCompleteBoxWinRT
+</code></pre>
+
 
                         
   <div class="read-more-link">
@@ -271,7 +331,10 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       XAML supports stating color definitions as hexa strings (starting with #) but there is no built-in way to do it in C#, you must write your own method to do it, that might look like this
+                       <p>XAML supports stating color definitions as hexa strings (starting with #) but there is no built-in way to do it in C#, you must write your own method to do it, that might look like this</p>
+
+<p><script src="https://gist.github.com/5849452.js"></script></p>
+
 
                         
                     </div>
@@ -296,7 +359,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       When I had to create a library to generate UI elements with animated image Ads I found out that creating complicated UI elements in code with bindings is not as easy as doing the same in XAML. A better way is to create your UI elements and bindings in a XAML file (if they are not very dynamic of course), load the XAML at runtime, parse it and set its DataContext.
+                       <p>When I had to create a library to generate UI elements with animated image Ads I found out that creating complicated UI elements in code with bindings is not as easy as doing the same in XAML. A better way is to create your UI elements and bindings in a XAML file (if they are not very dynamic of course), load the XAML at runtime, parse it and set its DataContext.</p>
+
+<p>First you need to read the XAML file. You can use the standard API with Windows.ApplicationModel.Package.Current.InstalledLocation as the folder. The XAML file must be set to Build=Content in your project</p>
+
+<p><script src="https://gist.github.com/5849482.js"></script></p>
+
 
                         
   <div class="read-more-link">
@@ -325,7 +393,10 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       If you ever generated a MD5 or SHA hash in C# you problaby uset the classes from the System.Security.Cryptography namespace. This namespace is not available in WinRT, you have to use the Windows.Security.Cryptography.Core instead. This namespace contians a class called HashAlgorithmProvider that can be used to generate hashes using MD5 and SHA (SHA1, SHA256, SHA384, SHA512). A simple method to generate a hash for a string using a given algorithm may look like this Specifing the algoritm by its string name is not a good idea in my opinion, although you can use the names from the HashAlgorithmNames class.
+                       <p>If you ever generated a MD5 or SHA hash in C# you problaby uset the classes from the System.Security.Cryptography namespace. This namespace is not available in WinRT, you have to use the Windows.Security.Cryptography.Core instead. This namespace contians a class called HashAlgorithmProvider that can be used to generate hashes using MD5 and SHA (SHA1, SHA256, SHA384, SHA512). A simple method to generate a hash for a string using a given algorithm may look like this</p>
+
+<p><script src="https://gist.github.com/5849454.js"></script></p>
+
 
                         
   <div class="read-more-link">
@@ -354,7 +425,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Windows Store apps run in a sandbox with their data isolated from each other. So how secure is this storage from tampering by the user? It turns out not much. The only Windows Store app I use on my work notebook is WeatherFlow because of the live tile. The app allows you to add your city and view weather forecast for it. But there is now way to get rid of the default cities like New York, Tokyo, etc.
+                       <p>Windows Store apps run in a sandbox with their data isolated from each other. So how secure is this storage from tampering by the user? It turns out not much.</p>
+
+<p>The only Windows Store app I use on my work notebook is WeatherFlow because of the live tile. The app allows you to add your city and view weather forecast for it. But there is now way to get rid of the default cities like New York, Tokyo, etc. that are in the app when you first run it. This realy annoyed me so I started to poke around.</p>
+
+<p>Using the debugger and checking the value of ApplicationData.Current.LocalFolder I found out that all the data of Windows Store apps are stored in AppData\Local\Packages in your profile (for me it is C:\Users\Igor\AppData\Local\Packages). The name of the directory for the app you are lookin for usualy contain its name, it is 08C8076A.WeatherFlow_gyyqpbm0tqk6g for WeatherFlow. The directory for each app contains a few subdirectories</p>
+
 
                         
   <div class="read-more-link">

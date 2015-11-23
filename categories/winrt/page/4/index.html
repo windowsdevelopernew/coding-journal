@@ -26,8 +26,9 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
     <!--<![endif]-->
 
-    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">    
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/custom.css">
 
     <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://blog.kulman.sk/index.xml" />
 </head>
@@ -42,7 +43,7 @@
             <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
         </hgroup>
 
-        <nav class="nav">
+        <nav class="nav wide-only">
             <ul class="nav-list">
                 
                 <li class="nav-item">
@@ -60,7 +61,7 @@
             </ul>
         </nav>
 
-<div>
+<div class="wide-only">
 <h2>About me</h2>
 
 <p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
@@ -97,7 +98,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Windows Store apps run in a sandbox with their data isolated from each other. So how secure is this storage from tampering by the user? It turns out not much. The only Windows Store app I use on my work notebook is WeatherFlow because of the live tile. The app allows you to add your city and view weather forecast for it. But there is now way to get rid of the default cities like New York, Tokyo, etc.
+                       <p>Windows Store apps run in a sandbox with their data isolated from each other. So how secure is this storage from tampering by the user? It turns out not much.</p>
+
+<p>The only Windows Store app I use on my work notebook is WeatherFlow because of the live tile. The app allows you to add your city and view weather forecast for it. But there is now way to get rid of the default cities like New York, Tokyo, etc. that are in the app when you first run it. This realy annoyed me so I started to poke around.</p>
+
+<p>Using the debugger and checking the value of ApplicationData.Current.LocalFolder I found out that all the data of Windows Store apps are stored in AppData\Local\Packages in your profile (for me it is C:\Users\Igor\AppData\Local\Packages). The name of the directory for the app you are lookin for usualy contain its name, it is 08C8076A.WeatherFlow_gyyqpbm0tqk6g for WeatherFlow. The directory for each app contains a few subdirectories</p>
+
 
                         
   <div class="read-more-link">
@@ -126,7 +132,16 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       When developing a Windows 8 app you may need to uniquely identify the device the app runs on. One reason may be the implementation of in-app purchases. The Windows.System.Profile namespace contains HardwareToken that you can get by calling HardwareIdentification.GetPackageSpecificToken(null) This class contains a bunch of interesting fields All of these fields are of type Windows.Storage.Stream.Ibuffer, therefore COM calls. To use a value useable with .NET you have to use the DataReader, I get the unique device identifier from the hardwareId The resulting byte array can be converted to an UTF8 string I prefer concatenating the bytes to a string Update: The hardware token of a device can change with hardware changes.
+                       <p>When developing a Windows 8 app you may need to uniquely identify the device the app runs on. One reason may be the implementation of in-app purchases.</p>
+
+<p>The Windows.System.Profile namespace contains HardwareToken that you can get by calling HardwareIdentification.GetPackageSpecificToken(null)</p>
+
+<p><script src="https://gist.github.com/5849503.js"></script></p>
+
+<p>This class contains a bunch of interesting fields</p>
+
+<p><script src="https://gist.github.com/5849507.js"></script></p>
+
 
                         
   <div class="read-more-link">
@@ -155,7 +170,16 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       JSON is a very popular format for exchanging data, especially in the world of web technologies and JavaScript. The .NET platform contains a native support for this format but a better alternative is to use the JSON.NET library. JSON.NET JSON.NET is a flexible JSON serializer for .NET with LIQN support. The biggest reason for using this library is its performance in comparison to the standard DataContractJsonSerializer. The easiest way to use the library is to use the Nuget package.
+                       <p>JSON is a very popular format for exchanging data, especially in the world of web technologies and JavaScript. The .NET platform contains a native support for this format but a better alternative is to use the JSON.NET library.</p>
+
+<p><strong>JSON.NET</strong></p>
+
+<p>[JSON.NET][1] is a flexible JSON serializer for .NET with LIQN support. The biggest reason for using this library is its performance in comparison to the standard DataContractJsonSerializer. The easiest way to use the library is to use the [Nuget package][2].</p>
+
+<p>JSON.NET is very easy to use; first you create a JObject instance</p>
+
+<p><script src="https://gist.github.com/5857544.js"></script></p>
+
 
                         
   <div class="read-more-link">
@@ -184,7 +208,10 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       GridView and ListView are the two of the most commonly used components in Windows 8 apps. Items in these two components are displayed according to the DataTemplate give as the ItemTemplate property. If you do not want to display all the items the same way, you need to use a custom ItemTemplateSelector. Using ItemTemplateSelector in Windows 8 apps is easier and more straightforward that in Windows Phone 7 (I wrote about that here in Slovak).
+                       <p>GridView and ListView are the two of the most commonly used components in Windows 8 apps. Items in these two components are displayed according to the DataTemplate give as the ItemTemplate property. If you do not want to display all the items the same way, you need to use a custom ItemTemplateSelector.</p>
+
+<p>Using ItemTemplateSelector in Windows 8 apps is easier and more straightforward that in Windows Phone 7 (I wrote about that [here in Slovak][1]). All you need to do is to create a class inheriting from the DataTemplateSelector and set the ItemTemplateSelector property of GridView (or ListView) to this new class.</p>
+
 
                         
   <div class="read-more-link">
@@ -213,7 +240,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       The StorageFolder class does not containt any method to determine if a file with given name exists in that folder. There are at least two ways how to implement such method, let us call it ContainsFileAsync. The first method could take advantage of the GetFilesAsync method that returns a readonly list of all the files in a folder as StorageFile objects. The StorageFile contains a property called Name that you could compare with the given filename.
+                       <p>The StorageFolder class does not containt any method to determine if a file with given name exists in that folder. There are at least two ways how to implement such method, let us call it ContainsFileAsync.</p>
+
+<p>The first method could take advantage of the GetFilesAsync method that returns a readonly list of all the files in a folder as StorageFile objects. The StorageFile contains a property called Name that you could compare with the given filename. The whole code would look like this</p>
+
+<p><script src="https://gist.github.com/5849495.js"></script></p>
+
 
                         
   <div class="read-more-link">
@@ -242,7 +274,10 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Semantic zoom is an important part of all Windows 8 apps, it is a distinctive feature that differentiates them from other platforms. The SemanticZoom component works fine if you want the default experience, but if you want some customization you have to try a bit harder. The problem with the SemanticZoom component is, that as a child of it&#8217;s Semantic­Zoom.ZoomedIn­View and SemanticZoom.Zo­omedOutView elements, displaying the two states, you can use only two standard components; GridView and ListView.
+                       <p>Semantic zoom is an important part of all Windows 8 apps, it is a distinctive feature that differentiates them from other platforms. The SemanticZoom component works fine if you want the default experience, but if you want some customization you have to try a bit harder.</p>
+
+<p>The problem with the SemanticZoom component is, that as a child of it&#8217;s Semantic­Zoom.ZoomedIn­View and SemanticZoom.Zo­omedOutView elements, displaying the two states, you can use only two standard components; GridView and ListView. You cannot use the Grid and show mixed content. If you use one of these components, then clicking on any item in the zoomed out state shows you the group in the zoomed in state. You cannot implement any custom behaviour, the ItemClick event gets completely ignored. So how do you customize the SemanticZoom component?</p>
+
 
                         
   <div class="read-more-link">
@@ -271,7 +306,10 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       I have been playing with the idea of having a coding blog in English for some time now. I have written some posts about programming in C# and Windows Phone 7 on my Slovak web, but I wanted to address a wider audience. I plan to publish one post per week, mainly about WinRT programming. I want the posts to be useful and solve a particular problem I stumble upon in my work developing Windows Store apps.
+                       <p>I have been playing with the idea of having a coding blog in English for some time now. I have written some posts about programming in C# and Windows Phone 7 on my Slovak web, but I wanted to address a wider audience. I plan to publish one post per week, mainly about WinRT programming. I want the posts to be useful and solve a particular problem I stumble upon in my work developing Windows Store apps.</p>
+
+<p>If you understand Slovak, definetely check my web [www.kulman.sk][1]</p>
+
 
                         
   <div class="read-more-link">

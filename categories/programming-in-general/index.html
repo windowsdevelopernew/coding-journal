@@ -26,8 +26,9 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
     <!--<![endif]-->
 
-    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">    
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/custom.css">
 
     <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://blog.kulman.sk/index.xml" />
 </head>
@@ -42,7 +43,7 @@
             <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
         </hgroup>
 
-        <nav class="nav">
+        <nav class="nav wide-only">
             <ul class="nav-list">
                 
                 <li class="nav-item">
@@ -60,7 +61,7 @@
             </ul>
         </nav>
 
-<div>
+<div class="wide-only">
 <h2>About me</h2>
 
 <p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
@@ -169,7 +170,10 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Sometimes you cannot influence the design of the API you have to use and wonder, why the API uses so strangely serialized DateTime and how to handle it using JSON.NET. Luckily, JSON.NET makes plugging in custom serializers / deserializes quite easy. There are a few base classes to help you write your own converter, when dealing with DateTime you want to inherit the DateTimeConverterBase class. There are two methods in this class to override, WriteJson and ReadJson.
+                       <p>Sometimes you cannot influence the design of the API you have to use and wonder, why the API uses so strangely serialized DateTime and how to handle it using JSON.NET.</p>
+
+<p>Luckily, JSON.NET makes plugging in custom serializers / deserializes quite easy. There are a few base classes to help you write your own converter, when dealing with DateTime you want to inherit the DateTimeConverterBase class.</p>
+
 
                         
   <div class="read-more-link">
@@ -198,7 +202,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       I have been owning and using a Raspberry Pi for over a year now. I started with Raspberry Pi model B and now I added Raspberry Pi 2 immediately after it was announced. Thanks to the fact that an IoT version of Windows 10 will run on the Pi, there is quite a hype about the Pi 2. Many people who did not care about the Pi before are now buying it because of that hype.
+                       <p>I have been owning and using a Raspberry Pi for over a year now. I started with Raspberry Pi model B and now I added Raspberry Pi 2 immediately after it was announced. Thanks to the fact that an IoT version of Windows 10 will run on the Pi, there is quite a hype about the Pi 2. Many people who did not care about the Pi before are now buying it because of that hype. And mostly they do not know what to do with it. So here is a list of things I used the Pi for, maybe you can get inspired.</p>
+
+<p><strong>Media center</strong></p>
+
+<p>I always wanted a small cheap low power media center to watch downloaded TV shows on the TV. The Pi was an ideal machine to built. I connected the Pi to a power source, ethernet, external hard drive the TV using HDMI. My distro of choice was [RaspBMC][1] at first but then I switched to [XBIAN][2]. Using this setup, the PI run XBMC (a media center software), that scanned the connected hard drive, found all the downloaded TV shows, and downloaded their metadata to make the experience better. Thanks to HDMI throughput I was able to control XBMC on the PI using the TV remote, not keyboard or mouse needed.</p>
+
 
                         
   <div class="read-more-link">
@@ -227,7 +236,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       When debugging a C# program in Visual Studio, I tend to always hover over the variables to glance at their values and structure instead of explicitly writing their names into the watch window. If I want to explore say a collection, I need to unfold each of the items using the + button to get an idea about the data: This is not very comfortable, so thankfully, there is a way to make this experience better, using the DebuggerDisplay attribute.
+                       <p>When debugging a C# program in Visual Studio, I tend to always hover over the variables to glance at their values and structure instead of explicitly writing their names into the watch window. If I want to explore say a collection, I need to unfold each of the items using the + button to get an idea about the data:</p>
+
+<p><img src="/images/debug1.png" alt="" class="pure-img" ></p>
+
+<p>This is not very comfortable, so thankfully, there is a way to make this experience better, using the [DebuggerDisplay][2] attribute. This attribute can be applied to any class (and struct, enum, property, field, delegate, assembly) and allows you to define the information about the class you wanto to see in the debugger.</p>
+
 
                         
   <div class="read-more-link">
@@ -256,7 +270,28 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       I have recently come across an intreresting project by Syncfusion, a company providing software components for the Microsoft platform. The have created a series of books for programmes called the Succinctly series. The goal of the series is to create 50-100 pages ebooks covering various topics. Each book should give you an introduction to the topic inc a succint way, so you do not have to read thick books or spend time finding relevant blog post covering the selected topic.
+                       <p>I have recently come across an intreresting project by [Syncfusion][1], a company providing software components for the Microsoft platform.</p>
+
+<table style="margin-bottom:20px;">
+  <tr>
+    <td width="200">
+      <img src="http://www.syncfusion.com/Content/en-US/Downloads/Images/Ebooks/git_img.PNG" width="120" height="160" />
+    </td>
+    
+    <td width="200">
+      <img src="http://www.syncfusion.com/Content/en-US/Downloads/Images/Ebooks/fsharp-succinctly.PNG" width="120" height="160" />
+    </td>
+    
+    <td>
+      <img src="http://www.syncfusion.com/Content/en-US/Downloads/Images/Ebooks/iOS_succinctly.PNG" width="120" height="160" class="alignnone" />
+    </td>
+  </tr>
+</table>
+
+<p>The have created a series of books for programmes called the [Succinctly series][2]. The goal of the series is to create 50-100 pages ebooks covering various topics. Each book should give you an introduction to the topic inc a succint way, so you do not have to read thick books or spend time finding relevant blog post covering the selected topic.</p>
+
+<p>All the 20 books covering topics like Data Structures, iOS, Windows Store apps, F#, Git, Gis, HTTP, JQuery, Knockout.js ann many more ale completely free and promise to stay free forever, including all the updates. They are all available in PDF and Kindle format.</p>
+
 
                         
   <div class="read-more-link">
@@ -285,7 +320,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Uploading a file in ASP.NET MVC is very easy, but there is no easy way to detect the encoding of a uploaded text file. However you can use the fact if you try to read the file with a wrong encoding, you get an DecoderFallbackException. So how do you put everything together? First, get a stream of the uploaded file. Next, read the whole file to a byte array Finally
+                       <p>Uploading a file in ASP.NET MVC is very easy, but there is no easy way to detect the encoding of a uploaded text file. However you can use the fact if you try to read the file with a wrong encoding, you get an DecoderFallbackException. So how do you put everything together?</p>
+
+<p>First, get a stream of the uploaded file.</p>
+
+<p><script src="https://gist.github.com/5849381.js"></script></p>
+
 
                         
   <div class="read-more-link">
@@ -314,7 +354,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       While reading an article that had nothing in common with programming I came upon a sudden need to find a way to generate all the permutations of a list, or more exactly a string (it is just a list of characters). As lazy as I am I tried to google a few examples of C# code that does exactly that. I was horrified that programmers could come up with the complicated ways I found.
+                       <p>While reading an article that had nothing in common with programming I came upon a sudden need to find a way to generate all the permutations of a list, or more exactly a string (it is just a list of characters). As lazy as I am I tried to google a few examples of C# code that does exactly that. I was horrified that programmers could come up with the complicated ways I found. Not to mention programmers writing a ton of unit test and classes before actualy writing the code that solves to problem.</p>
+
+<p>The problem is naturally recursive. All the permutations of a list of n items consit of each of the n items combined with all the permutations of the list without the actual item. So if you have a list of let&#8217;s say items (a,b,c), all the permutations are (a+permutation((b,c)) + (b+permutations((a,c))) + (c+permutations((a,b)).</p>
+
+<p>First I came up with F# code to solve it, after some yield googling:</p>
+
 
                         
   <div class="read-more-link">
@@ -343,7 +388,16 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       If you want to host your .NET project on the Internet, there are classic ASP.NET webhosting on one side of the spectrum and Microsoft Azure on the other. If you are looking for something in the middle, take a look at AppHarbor. AppHarbor AppHarbor is a flexible and scalable .NET Platform-as-a-Service, that you can even use for free, limited to one web or worker role. It runs in AWS and is quite similiar to Heroku.
+                       <p>If you want to host your .NET project on the Internet, there are classic ASP.NET webhosting on one side of the spectrum and Microsoft Azure on the other. If you are looking for something in the middle, take a look at [AppHarbor][1].</p>
+
+<p><strong>AppHarbor</strong></p>
+
+<p>AppHarbor is a flexible and scalable .NET Platform-as-a-Service, that you can even [use for free][2], limited to one web or worker role. It runs in AWS and is quite similiar to Heroku.</p>
+
+<p><strong>Variety of Add-ons</strong></p>
+
+<p>There are [many add-on supported by AppHarbor][3], including SQL Server, MongoDB, RavenDB, MySQL, Memcacher &#8230; Many of these ad-ons offer free versions so you can test them for free. If you run into some problems, you can use [the support forums][4] or [StackOverflow][5].</p>
+
 
                         
   <div class="read-more-link">
@@ -372,7 +426,16 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Gamification is a great concept that works really well for some people, including me. Gamification may very well be the reason for success of projects like StackOveflow or Duolingo. Visual Studio Achievements Visual Studio Achievements is Visual Studio plugin that rewards you for good practices like having 1000 localized values (Localization Master) and even for bad practices like writin a single line of 300 characters long (Scroll Bar Wizard). For some of the achievements you need to have FxCop installed, but the majority get awareded without the need for it.
+                       <p>Gamification is a great concept that works really well for some people, including me. Gamification may very well be the reason for success of projects like [StackOveflow][1] or [Duolingo][2].</p>
+
+<p><strong>Visual Studio Achievements</strong></p>
+
+<p>[Visual Studio Achievements][3] is Visual Studio plugin that rewards you for good practices like having 1000 localized values ([Localization Master][4]) and even for bad practices like writin a single line of 300 characters long ([Scroll Bar Wizard][5]). For some of the achievements you need to have FxCop installed, but the majority get awareded without the need for it.</p>
+
+<p><img src="/images/VisualStudio_badges_2.jpg" alt="" class="pure-img" ></p>
+
+<p>You can find out interesting information about your programming, check out [my profile][7].</p>
+
 
                         
   <div class="read-more-link">

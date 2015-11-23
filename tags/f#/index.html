@@ -26,8 +26,9 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
     <!--<![endif]-->
 
-    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">    
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/custom.css">
 
     <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://blog.kulman.sk/index.xml" />
 </head>
@@ -42,7 +43,7 @@
             <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
         </hgroup>
 
-        <nav class="nav">
+        <nav class="nav wide-only">
             <ul class="nav-list">
                 
                 <li class="nav-item">
@@ -60,7 +61,7 @@
             </ul>
         </nav>
 
-<div>
+<div class="wide-only">
 <h2>About me</h2>
 
 <p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
@@ -97,7 +98,16 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Some time ago I needed a way to programatically search the Apple AppStore and Google Play Store to get some info about apps for a project. I decided to write an F# script for that task and later added support for Windows Phone Store. Types I wanted the script to be easily usable from outside of F# so first I created a type for the app. I also needed a helper function to download data from the web.
+                       <p>Some time ago I needed a way to programatically search the Apple AppStore and Google Play Store to get some info about apps for a project. I decided to write an F# script for that task and later added support for Windows Phone Store.</p>
+
+<p><strong>Types</strong></p>
+
+<p>I wanted the script to be easily usable from outside of F# so first I created a type for the app.</p>
+
+<script src="https://gist.github.com/igorkulman/10019990.js?file=types.fs"></script>
+
+<p>I also needed a helper function to download data from the web. I used a classic WebClient with user agent set to Chrome, because the Windows Phone Store API requires a user agent header</p>
+
 
                         
   <div class="read-more-link">
@@ -126,7 +136,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       FAKE is a build automation system with capabilities which are similar to make and rake. It is using an easy domain-specific language (DSL) so that you can start using it without learning F#. If you need more than the default functionality you can either write F# or simply reference .NET assemblies. I have been using FAKE for quite some time now on some fairly complex projects for not only building but also running tests and creating and pushing Nuget packages and I really like.
+                       <p>[FAKE][1] is a build automation system with capabilities which are similar to make and rake. It is using an easy domain-specific language (DSL) so that you can start using it without learning F#. If you need more than the default functionality you can either write F# or simply reference .NET assemblies.</p>
+
+<p>I have been using FAKE for quite some time now on some fairly complex projects for not only building but also running tests and creating and pushing Nuget packages and I really like. I decided to add FAKE build scripts to my Windows Phone apps to make the process of generating a XAP file for the Windows Phone Store easier.</p>
+
+<p>The FAKE script I use can by used with any Windows Phone app, it will build all the projects and copy the XAP file to a release directory.</p>
+
 
                         
   <div class="read-more-link">
@@ -155,7 +170,14 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Windows Azure finally has a good F# support. Creating F# Worker Roles is supported right from the wizzard in Visual Studio and you can create a F# Web Role using the F# C# MVC template. I decided to try it out and the first thing I needed to implement was logging. I decided for logging to Azure Table Storage. I assume you have a basic idea of how Azure Table Storage works.
+                       <p>Windows Azure finally has a good F# support. Creating F# Worker Roles is supported right from the wizzard in Visual Studio and you can create a F# Web Role using the [F# C# MVC template][1]. I decided to try it out and the first thing I needed to implement was logging. I decided for logging to Azure Table Storage.</p>
+
+<p>I assume you have a basic idea of how Azure Table Storage works. If not, there is a [good guide on the Windows Azure website][2].</p>
+
+<p>The first thing you need to do is to define your log entry class. You need to create a class, Azure Table Storage does not work with F# records. In my case I want to store a timestamp, message and severity.</p>
+
+<p><script src="https://gist.github.com/5822037.js"></script></p>
+
 
                         
   <div class="read-more-link">
@@ -184,7 +206,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       I needed to create an utility that would read Excel 2010 files (.xlsx) and generate XML files from them according to some specific rules. The catch was that the utility needed to run on MacOS instead of Windows. Reading and writing Excel files from .NET is very easy using the Microsoft.Office.Interop assemblies but they use Excel through COM and that makes them unusable outside of Windows. I found some 3rd party libraries for working with Excel and analzyed them with The Mono Migration Analzyer (MoMA).
+                       <p>I needed to create an utility that would read Excel 2010 files (.xlsx) and generate XML files from them according to some specific rules. The catch was that the utility needed to run on MacOS instead of Windows.</p>
+
+<p>Reading and writing Excel files from .NET is [very easy using the Microsoft.Office.Interop assemblies][1] but they use Excel through COM and that makes them unusable outside of Windows. I found some 3rd party libraries for working with Excel and analzyed them with [The Mono Migration Analzyer]<a href="MoMA">2</a>. MoMA is a handy tool that analyzes .NET assemblies and tells you if they will run on Mono. Many of the Excel libraries I found were unusable for my use-case because they were using PInvoke calls. Only the [ExcelPackage library][3] runs on Mono.</p>
+
+<p>I wanted to use the ExcelPackage from F# not C# so I wrote a [very simple F# wrapper][4], that you can freely use. For now it contains just a few methods</p>
+
 
                         
   <div class="read-more-link">
@@ -213,7 +240,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       While reading an article that had nothing in common with programming I came upon a sudden need to find a way to generate all the permutations of a list, or more exactly a string (it is just a list of characters). As lazy as I am I tried to google a few examples of C# code that does exactly that. I was horrified that programmers could come up with the complicated ways I found.
+                       <p>While reading an article that had nothing in common with programming I came upon a sudden need to find a way to generate all the permutations of a list, or more exactly a string (it is just a list of characters). As lazy as I am I tried to google a few examples of C# code that does exactly that. I was horrified that programmers could come up with the complicated ways I found. Not to mention programmers writing a ton of unit test and classes before actualy writing the code that solves to problem.</p>
+
+<p>The problem is naturally recursive. All the permutations of a list of n items consit of each of the n items combined with all the permutations of the list without the actual item. So if you have a list of let&#8217;s say items (a,b,c), all the permutations are (a+permutation((b,c)) + (b+permutations((a,c))) + (c+permutations((a,b)).</p>
+
+<p>First I came up with F# code to solve it, after some yield googling:</p>
+
 
                         
   <div class="read-more-link">
@@ -242,7 +274,17 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Sublime Text 2 is a great multi-purpose text editor that you can run on Windows, MacOS and Linux. You can configure Sublime Text 2 to higlight and compile F# files and even to use F# Interactive and make it a F# REPL. Using Sublime Text 2 as F# REPL is useful when you work on MacOS and Linux (F# 3.0 works great with Mono) and cannot use Visual Studio 2012. If you are new to Sublime Text 2, check out the Perfect Workflow in Sublime Text: Free Course.
+                       <p>[Sublime Text 2][1] is a great multi-purpose text editor that you can run on Windows, MacOS and Linux. You can configure Sublime Text 2 to higlight and compile F# files and even to use F# Interactive and make it a F# REPL. Using Sublime Text 2 as F# REPL is useful when you work on MacOS and Linux (F# 3.0 works great with [Mono][2]) and cannot use Visual Studio 2012. If you are new to Sublime Text 2, check out the [Perfect Workflow in Sublime Text: Free Course][3].</p>
+
+<p><strong>Installing necessary packages</strong></p>
+
+<p>In order to use F# Interactive in Sublime Text 2, you have to install a few packages first. All the packages can be installed using [Sublime Package Control][4]. You need to install the following packages:</p>
+
+<ul>
+<li><strong>F#</strong></li>
+<li><strong>SublimeREPL</strong></li>
+</ul>
+
 
                         
   <div class="read-more-link">
@@ -300,7 +342,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Many programmers learn one platform, one language and stay in their monoculture. Learning many different programming languages can definitely change your programming style and the way you think about problems. It was certainly beneficial for me, here is why. After learning Pascal, C in the first semester at the University I started be commercial programming career as a PHP developer (part time in the second semester). It was easy to start with and in demand so finding a part time job was easy.
+                       <p>Many programmers learn one platform, one language and stay in their monoculture. Learning many different programming languages can definitely change your programming style and the way you think about problems. It was certainly beneficial for me, here is why.</p>
+
+<p>After learning Pascal, C in the first semester at the University I started be commercial programming career as a PHP developer (part time in the second semester).  It was easy to start with and in demand so finding a part time job was easy. I never liked the language, it was not &#8220;pure&#8221;, I especially hated the function naming and parameters orders inconsistencies.</p>
+
+<p>At the university I learned OOP principles and C++ and thought OOP was the answer to everything so I immediately changed my PHP programming style to incorporate it. My code became more readable and organized.  Later at the university I had to learn nonprocedural Prolog and functional Haskell. I found it very difficult because I had to think in another way and came out of my comfort zone. When I finished the course I really liked Haskell and functional programming because of its clarity, readability and the fact that I could write a very compact code. But I had no practical use for it. It did not change my Programming style but made me look for a more pure and &#8220;nicer&#8221; language to learn.</p>
+
 
                         
   <div class="read-more-link">

@@ -26,8 +26,9 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
     <!--<![endif]-->
 
-    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">    
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/custom.css">
 
     <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://blog.kulman.sk/index.xml" />
 </head>
@@ -42,7 +43,7 @@
             <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
         </hgroup>
 
-        <nav class="nav">
+        <nav class="nav wide-only">
             <ul class="nav-list">
                 
                 <li class="nav-item">
@@ -60,7 +61,7 @@
             </ul>
         </nav>
 
-<div>
+<div class="wide-only">
 <h2>About me</h2>
 
 <p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
@@ -169,7 +170,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       When debugging a C# program in Visual Studio, I tend to always hover over the variables to glance at their values and structure instead of explicitly writing their names into the watch window. If I want to explore say a collection, I need to unfold each of the items using the + button to get an idea about the data: This is not very comfortable, so thankfully, there is a way to make this experience better, using the DebuggerDisplay attribute.
+                       <p>When debugging a C# program in Visual Studio, I tend to always hover over the variables to glance at their values and structure instead of explicitly writing their names into the watch window. If I want to explore say a collection, I need to unfold each of the items using the + button to get an idea about the data:</p>
+
+<p><img src="/images/debug1.png" alt="" class="pure-img" ></p>
+
+<p>This is not very comfortable, so thankfully, there is a way to make this experience better, using the [DebuggerDisplay][2] attribute. This attribute can be applied to any class (and struct, enum, property, field, delegate, assembly) and allows you to define the information about the class you wanto to see in the debugger.</p>
+
 
                         
   <div class="read-more-link">
@@ -198,7 +204,16 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Gamification is a great concept that works really well for some people, including me. Gamification may very well be the reason for success of projects like StackOveflow or Duolingo. Visual Studio Achievements Visual Studio Achievements is Visual Studio plugin that rewards you for good practices like having 1000 localized values (Localization Master) and even for bad practices like writin a single line of 300 characters long (Scroll Bar Wizard). For some of the achievements you need to have FxCop installed, but the majority get awareded without the need for it.
+                       <p>Gamification is a great concept that works really well for some people, including me. Gamification may very well be the reason for success of projects like [StackOveflow][1] or [Duolingo][2].</p>
+
+<p><strong>Visual Studio Achievements</strong></p>
+
+<p>[Visual Studio Achievements][3] is Visual Studio plugin that rewards you for good practices like having 1000 localized values ([Localization Master][4]) and even for bad practices like writin a single line of 300 characters long ([Scroll Bar Wizard][5]). For some of the achievements you need to have FxCop installed, but the majority get awareded without the need for it.</p>
+
+<p><img src="/images/VisualStudio_badges_2.jpg" alt="" class="pure-img" ></p>
+
+<p>You can find out interesting information about your programming, check out [my profile][7].</p>
+
 
                         
   <div class="read-more-link">
@@ -227,13 +242,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       From time to time I need to develop or maintain a small Windows Azure project. This time I wanted to create the whole project in F#. The first thing I needed to to was to update the Azure toolkit 1.8 (October 2012) but updating Azure Toolkit is always a pain. I started Web Platform Installer, selected Azure Toolkit 1.8, Azure Tools 1.8 for VS2012 and installed everything including the dependencies. What was the result?
+                       <p>From time to time I need to develop or maintain a small Windows Azure project. This time I wanted to create the whole project in F#. The first thing I needed to to was to update the Azure toolkit 1.8 (October 2012) but updating Azure Toolkit is always a pain. I started Web Platform Installer, selected Azure Toolkit 1.8, Azure Tools 1.8 for VS2012 and installed everything including the dependencies. What was the result? The whole Azure integration in Visual Studio 2012 stopped working. The Azure templates completely disappeared and Visual Studio only offered me downloading the Azure Toolkit, which failed, because it was already installed. I ended up completely uninstalling everything with the name containing Azure and installing the Azure toolkit again using the link from Visual Studio.</p>
+
+<p>Why cannot this work better?</p>
+
 
                         
-  <div class="read-more-link">
-    <a href="/updating-azure-toolkit-is-always-a-pain/">Read More…</a>
-  </div>
-  
                     </div>
                 </section>
                 

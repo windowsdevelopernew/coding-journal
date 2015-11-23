@@ -21,7 +21,7 @@
 
 &lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849356.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
-&lt;p&gt;Your background agent gets executed every minute! I &lt;a href=&#34;http://blog.kulman.sk/wp-content/uploads/2013/06/CSWP7ScheduledTaskAgent.zip&#34;&gt;created a simple demo&lt;/a&gt; so you can see for yourself.&lt;/p&gt;
+&lt;p&gt;Your background agent gets executed every minute!&lt;/p&gt;
 
 &lt;p&gt;I wonder if this code would pass certification. Has anyone tried to use it?&lt;/p&gt;
 

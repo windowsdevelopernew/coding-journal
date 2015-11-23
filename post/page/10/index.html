@@ -26,8 +26,9 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
     <!--<![endif]-->
 
-    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">    
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/custom.css">
 
     <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://blog.kulman.sk/index.xml" />
 </head>
@@ -42,7 +43,7 @@
             <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
         </hgroup>
 
-        <nav class="nav">
+        <nav class="nav wide-only">
             <ul class="nav-list">
                 
                 <li class="nav-item">
@@ -60,7 +61,7 @@
             </ul>
         </nav>
 
-<div>
+<div class="wide-only">
 <h2>About me</h2>
 
 <p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
@@ -97,7 +98,10 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Semantic zoom is an important part of all Windows 8 apps, it is a distinctive feature that differentiates them from other platforms. The SemanticZoom component works fine if you want the default experience, but if you want some customization you have to try a bit harder. The problem with the SemanticZoom component is, that as a child of it&#8217;s Semantic­Zoom.ZoomedIn­View and SemanticZoom.Zo­omedOutView elements, displaying the two states, you can use only two standard components; GridView and ListView.
+                       <p>Semantic zoom is an important part of all Windows 8 apps, it is a distinctive feature that differentiates them from other platforms. The SemanticZoom component works fine if you want the default experience, but if you want some customization you have to try a bit harder.</p>
+
+<p>The problem with the SemanticZoom component is, that as a child of it&#8217;s Semantic­Zoom.ZoomedIn­View and SemanticZoom.Zo­omedOutView elements, displaying the two states, you can use only two standard components; GridView and ListView. You cannot use the Grid and show mixed content. If you use one of these components, then clicking on any item in the zoomed out state shows you the group in the zoomed in state. You cannot implement any custom behaviour, the ItemClick event gets completely ignored. So how do you customize the SemanticZoom component?</p>
+
 
                         
   <div class="read-more-link">
@@ -126,7 +130,10 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       I have been playing with the idea of having a coding blog in English for some time now. I have written some posts about programming in C# and Windows Phone 7 on my Slovak web, but I wanted to address a wider audience. I plan to publish one post per week, mainly about WinRT programming. I want the posts to be useful and solve a particular problem I stumble upon in my work developing Windows Store apps.
+                       <p>I have been playing with the idea of having a coding blog in English for some time now. I have written some posts about programming in C# and Windows Phone 7 on my Slovak web, but I wanted to address a wider audience. I plan to publish one post per week, mainly about WinRT programming. I want the posts to be useful and solve a particular problem I stumble upon in my work developing Windows Store apps.</p>
+
+<p>If you understand Slovak, definetely check my web [www.kulman.sk][1]</p>
+
 
                         
   <div class="read-more-link">

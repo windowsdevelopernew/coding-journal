@@ -26,8 +26,9 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
     <!--<![endif]-->
 
-    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">    
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://blog.kulman.sk/css/custom.css">
 
     <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://blog.kulman.sk/index.xml" />
 </head>
@@ -42,7 +43,7 @@
             <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
         </hgroup>
 
-        <nav class="nav">
+        <nav class="nav wide-only">
             <ul class="nav-list">
                 
                 <li class="nav-item">
@@ -60,7 +61,7 @@
             </ul>
         </nav>
 
-<div>
+<div class="wide-only">
 <h2>About me</h2>
 
 <p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
@@ -97,7 +98,10 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       XAML supports stating color definitions as hexa strings (starting with #) but there is no built-in way to do it in C#, you must write your own method to do it, that might look like this
+                       <p>XAML supports stating color definitions as hexa strings (starting with #) but there is no built-in way to do it in C#, you must write your own method to do it, that might look like this</p>
+
+<p><script src="https://gist.github.com/5849452.js"></script></p>
+
 
                         
                     </div>
@@ -122,7 +126,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       When I had to create a library to generate UI elements with animated image Ads I found out that creating complicated UI elements in code with bindings is not as easy as doing the same in XAML. A better way is to create your UI elements and bindings in a XAML file (if they are not very dynamic of course), load the XAML at runtime, parse it and set its DataContext.
+                       <p>When I had to create a library to generate UI elements with animated image Ads I found out that creating complicated UI elements in code with bindings is not as easy as doing the same in XAML. A better way is to create your UI elements and bindings in a XAML file (if they are not very dynamic of course), load the XAML at runtime, parse it and set its DataContext.</p>
+
+<p>First you need to read the XAML file. You can use the standard API with Windows.ApplicationModel.Package.Current.InstalledLocation as the folder. The XAML file must be set to Build=Content in your project</p>
+
+<p><script src="https://gist.github.com/5849482.js"></script></p>
+
 
                         
   <div class="read-more-link">
@@ -151,7 +160,10 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       If you ever generated a MD5 or SHA hash in C# you problaby uset the classes from the System.Security.Cryptography namespace. This namespace is not available in WinRT, you have to use the Windows.Security.Cryptography.Core instead. This namespace contians a class called HashAlgorithmProvider that can be used to generate hashes using MD5 and SHA (SHA1, SHA256, SHA384, SHA512). A simple method to generate a hash for a string using a given algorithm may look like this Specifing the algoritm by its string name is not a good idea in my opinion, although you can use the names from the HashAlgorithmNames class.
+                       <p>If you ever generated a MD5 or SHA hash in C# you problaby uset the classes from the System.Security.Cryptography namespace. This namespace is not available in WinRT, you have to use the Windows.Security.Cryptography.Core instead. This namespace contians a class called HashAlgorithmProvider that can be used to generate hashes using MD5 and SHA (SHA1, SHA256, SHA384, SHA512). A simple method to generate a hash for a string using a given algorithm may look like this</p>
+
+<p><script src="https://gist.github.com/5849454.js"></script></p>
+
 
                         
   <div class="read-more-link">
@@ -180,7 +192,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Windows Store apps run in a sandbox with their data isolated from each other. So how secure is this storage from tampering by the user? It turns out not much. The only Windows Store app I use on my work notebook is WeatherFlow because of the live tile. The app allows you to add your city and view weather forecast for it. But there is now way to get rid of the default cities like New York, Tokyo, etc.
+                       <p>Windows Store apps run in a sandbox with their data isolated from each other. So how secure is this storage from tampering by the user? It turns out not much.</p>
+
+<p>The only Windows Store app I use on my work notebook is WeatherFlow because of the live tile. The app allows you to add your city and view weather forecast for it. But there is now way to get rid of the default cities like New York, Tokyo, etc. that are in the app when you first run it. This realy annoyed me so I started to poke around.</p>
+
+<p>Using the debugger and checking the value of ApplicationData.Current.LocalFolder I found out that all the data of Windows Store apps are stored in AppData\Local\Packages in your profile (for me it is C:\Users\Igor\AppData\Local\Packages). The name of the directory for the app you are lookin for usualy contain its name, it is 08C8076A.WeatherFlow_gyyqpbm0tqk6g for WeatherFlow. The directory for each app contains a few subdirectories</p>
+
 
                         
   <div class="read-more-link">
@@ -209,7 +226,16 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       When developing a Windows 8 app you may need to uniquely identify the device the app runs on. One reason may be the implementation of in-app purchases. The Windows.System.Profile namespace contains HardwareToken that you can get by calling HardwareIdentification.GetPackageSpecificToken(null) This class contains a bunch of interesting fields All of these fields are of type Windows.Storage.Stream.Ibuffer, therefore COM calls. To use a value useable with .NET you have to use the DataReader, I get the unique device identifier from the hardwareId The resulting byte array can be converted to an UTF8 string I prefer concatenating the bytes to a string Update: The hardware token of a device can change with hardware changes.
+                       <p>When developing a Windows 8 app you may need to uniquely identify the device the app runs on. One reason may be the implementation of in-app purchases.</p>
+
+<p>The Windows.System.Profile namespace contains HardwareToken that you can get by calling HardwareIdentification.GetPackageSpecificToken(null)</p>
+
+<p><script src="https://gist.github.com/5849503.js"></script></p>
+
+<p>This class contains a bunch of interesting fields</p>
+
+<p><script src="https://gist.github.com/5849507.js"></script></p>
+
 
                         
   <div class="read-more-link">
@@ -238,7 +264,12 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       Many programmers learn one platform, one language and stay in their monoculture. Learning many different programming languages can definitely change your programming style and the way you think about problems. It was certainly beneficial for me, here is why. After learning Pascal, C in the first semester at the University I started be commercial programming career as a PHP developer (part time in the second semester). It was easy to start with and in demand so finding a part time job was easy.
+                       <p>Many programmers learn one platform, one language and stay in their monoculture. Learning many different programming languages can definitely change your programming style and the way you think about problems. It was certainly beneficial for me, here is why.</p>
+
+<p>After learning Pascal, C in the first semester at the University I started be commercial programming career as a PHP developer (part time in the second semester).  It was easy to start with and in demand so finding a part time job was easy. I never liked the language, it was not &#8220;pure&#8221;, I especially hated the function naming and parameters orders inconsistencies.</p>
+
+<p>At the university I learned OOP principles and C++ and thought OOP was the answer to everything so I immediately changed my PHP programming style to incorporate it. My code became more readable and organized.  Later at the university I had to learn nonprocedural Prolog and functional Haskell. I found it very difficult because I had to think in another way and came out of my comfort zone. When I finished the course I really liked Haskell and functional programming because of its clarity, readability and the fact that I could write a very compact code. But I had no practical use for it. It did not change my Programming style but made me look for a more pure and &#8220;nicer&#8221; language to learn.</p>
+
 
                         
   <div class="read-more-link">
@@ -267,7 +298,16 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       JSON is a very popular format for exchanging data, especially in the world of web technologies and JavaScript. The .NET platform contains a native support for this format but a better alternative is to use the JSON.NET library. JSON.NET JSON.NET is a flexible JSON serializer for .NET with LIQN support. The biggest reason for using this library is its performance in comparison to the standard DataContractJsonSerializer. The easiest way to use the library is to use the Nuget package.
+                       <p>JSON is a very popular format for exchanging data, especially in the world of web technologies and JavaScript. The .NET platform contains a native support for this format but a better alternative is to use the JSON.NET library.</p>
+
+<p><strong>JSON.NET</strong></p>
+
+<p>[JSON.NET][1] is a flexible JSON serializer for .NET with LIQN support. The biggest reason for using this library is its performance in comparison to the standard DataContractJsonSerializer. The easiest way to use the library is to use the [Nuget package][2].</p>
+
+<p>JSON.NET is very easy to use; first you create a JObject instance</p>
+
+<p><script src="https://gist.github.com/5857544.js"></script></p>
+
 
                         
   <div class="read-more-link">
@@ -296,40 +336,14 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       GridView and ListView are the two of the most commonly used components in Windows 8 apps. Items in these two components are displayed according to the DataTemplate give as the ItemTemplate property. If you do not want to display all the items the same way, you need to use a custom ItemTemplateSelector. Using ItemTemplateSelector in Windows 8 apps is easier and more straightforward that in Windows Phone 7 (I wrote about that here in Slovak).
+                       <p>GridView and ListView are the two of the most commonly used components in Windows 8 apps. Items in these two components are displayed according to the DataTemplate give as the ItemTemplate property. If you do not want to display all the items the same way, you need to use a custom ItemTemplateSelector.</p>
+
+<p>Using ItemTemplateSelector in Windows 8 apps is easier and more straightforward that in Windows Phone 7 (I wrote about that [here in Slovak][1]). All you need to do is to create a class inheriting from the DataTemplateSelector and set the ItemTemplateSelector property of GridView (or ListView) to this new class.</p>
+
 
                         
   <div class="read-more-link">
     <a href="/using-different-data-templates-with-gridview-in-windows-8-apps/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">26 Oct 2012</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/updating-azure-toolkit-is-always-a-pain/" class="post-title">Updating Azure Toolkit is always a pain</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Azure" href="http://blog.kulman.sk/categories/windows-azure">Windows Azure</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       From time to time I need to develop or maintain a small Windows Azure project. This time I wanted to create the whole project in F#. The first thing I needed to to was to update the Azure toolkit 1.8 (October 2012) but updating Azure Toolkit is always a pain. I started Web Platform Installer, selected Azure Toolkit 1.8, Azure Tools 1.8 for VS2012 and installed everything including the dependencies. What was the result?
-
-                        
-  <div class="read-more-link">
-    <a href="/updating-azure-toolkit-is-always-a-pain/">Read More…</a>
   </div>
   
                     </div>
@@ -354,13 +368,46 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                       The StorageFolder class does not containt any method to determine if a file with given name exists in that folder. There are at least two ways how to implement such method, let us call it ContainsFileAsync. The first method could take advantage of the GetFilesAsync method that returns a readonly list of all the files in a folder as StorageFile objects. The StorageFile contains a property called Name that you could compare with the given filename.
+                       <p>The StorageFolder class does not containt any method to determine if a file with given name exists in that folder. There are at least two ways how to implement such method, let us call it ContainsFileAsync.</p>
+
+<p>The first method could take advantage of the GetFilesAsync method that returns a readonly list of all the files in a folder as StorageFile objects. The StorageFile contains a property called Name that you could compare with the given filename. The whole code would look like this</p>
+
+<p><script src="https://gist.github.com/5849495.js"></script></p>
+
 
                         
   <div class="read-more-link">
     <a href="/fast-way-to-check-if-a-file-exists-in-winrt/">Read More…</a>
   </div>
   
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">26 Oct 2012</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/updating-azure-toolkit-is-always-a-pain/" class="post-title">Updating Azure Toolkit is always a pain</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Azure" href="http://blog.kulman.sk/categories/windows-azure">Windows Azure</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>From time to time I need to develop or maintain a small Windows Azure project. This time I wanted to create the whole project in F#. The first thing I needed to to was to update the Azure toolkit 1.8 (October 2012) but updating Azure Toolkit is always a pain. I started Web Platform Installer, selected Azure Toolkit 1.8, Azure Tools 1.8 for VS2012 and installed everything including the dependencies. What was the result? The whole Azure integration in Visual Studio 2012 stopped working. The Azure templates completely disappeared and Visual Studio only offered me downloading the Azure Toolkit, which failed, because it was already installed. I ended up completely uninstalling everything with the name containing Azure and installing the Azure toolkit again using the link from Visual Studio.</p>
+
+<p>Why cannot this work better?</p>
+
+
+                        
                     </div>
                 </section>
                 
