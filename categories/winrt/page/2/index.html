@@ -97,42 +97,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>I have been developing Windows Phone apps for a few years now, always sticking to Silverlight and keeping using Silverlight also after Microsoft announced the WinRT flavor of Windows Phone apps and the so called Universal Apps. The Windows Phone 8.0 and 8.1 Silverlight APIs have some limitations, but are now well known do not contain many bugs. They are the safe choice if you want to create a Windows Phone apps. And do not forget that there are still many device running Windows Phone 8 (like Verizon customers in the US) that never got the 8.1 updated promised to everyone during the summer.</p>
+                       I have been developing Windows Phone apps for a few years now, always sticking to Silverlight and keeping using Silverlight also after Microsoft announced the WinRT flavor of Windows Phone apps and the so called Universal Apps. The Windows Phone 8.0 and 8.1 Silverlight APIs have some limitations, but are now well known do not contain many bugs. They are the safe choice if you want to create a Windows Phone apps.
 
-<p><strong>Really universal?</strong></p>
-
-<p>Windows Phone 8.1 XAML and Universal Apps included WinRT APIs that have many problems, including some that there is no solution for. I used the WinRT APIs when creating first Windows 8 apps about 2 years ago, so I am not new to the APIs. I have not touched the WinRT APIs again until recently, because there was no demand for Windows 8 or Windows 8.1 apps. Why would it? People use Windows 8 or 8.1 but do not care about Metro apps, they give them no value compared to &#8220;normal&#8221; Win32 and Windows tablets are practically non-exists (expect for the Surface tablets owned by few programmers and maybe no one else).</p>
-
-<p><strong>Universal Apps</strong></p>
-
-<p>Recently, a client was thinking about adding a Windows Phone app for their service the its existing Android and iOS apps, but they did not think it was worth the money. So the local Microsoft branch told them they would pay for the app (seems like many of the app here are created this way) under two conditions. The app had to be a Universal App and had to be finished before the years end. The client agreed and I had to create a Universal App. And the problems started.</p>
-
-<p>In theory, Universal Apps are supposed to make code sharing between Windows Phone and Windows 8.1 simple and allow you to reuse as much code as possible. This works on the trivial Microsoft samples, but try to create a real world app. I have a business logic project with API calls, storage, etc. in a portable class library (like I always did before Universal Apps existed) and I created an Universal App from the template. And the #ifdef hell started.</p>
-
-<p><img src="/images/56995992.jpg" alt="" class="pure-img" ></p>
-
-<p><strong>#ifdefs everywhere</strong></p>
-
-<p>With Universal Apps you can safely share the ViewModels (I am using Caliburn.Micro) .. and that is about it. You have to create separate Views (because on phone and desktop information is typically displayed different), but the worst parts are the #ifdefs.</p>
-
-<p>You need to set some properties of the main Frame, you have to use #ifdefs because the frame is a bit different on phone and desktop (like animations). You want to reuse as much DataTemplates as possible, so add another #ifdef for adding the right resource dictionary or many #ifdefs in the data templates to tune them, because it does not matter you use GridView on phone and GridView on desktop, they behave a bit differently in some cases.</p>
-
-<p>Then you need to add audio playback to your app. There is a background audio playback API for Windows Phone 8.1 and none for Windows 8.1 In Windows 8.1 you need a global MediaElement in your Frame and handling everything differently. So add another big #ifdef. And by the way, the background audio playback API for Windows Phone 8.1 really sucks compared to the old Silverlight APIs. Just try downloading the <a href="https://code.msdn.microsoft.com/windowsapps/BackgroundAudio-63bbc319">sample form MSDN</a> and hitting Suspend and Resume in Visual Studio, the background agent crashes horribly, without any exception and takes your Visual Studio instance to hell with it. And of course, the background audio playback API does not work on some phones. <a href="https://stackoverflow.com/questions/26175599/windows-phone-8-1-rt-backgroundmediaplayer-not-working">Just does not work</a>. I confirmed this finding with other developers. Another messed up API that used to work before the whole Universal Apps hype. And explain this to the client who sees that things like this work on iOS, work on Android, hell, they even for on Windows Phone 8.0 (Slivelight) apps.</p>
-
-<p><strong>More messed up APIs</strong></p>
-
-<p>So background audio playback API for Windows Phone 8.1 is messed up, anything else? Sure. BackgroundDownloader is another example. In Silverlight, there was a BackgroundDownloader that was quite limited, but it worked. In Universal Apps, there is a new BackgroundDownloader with some new features, and some essential ones missing. For example, in Silverlight, each download could have a Tag, where you can store any data so you know something about the download when it finishes (to what business entity it belongs, etc.). Not any more in Universal Apps. There is no Tag, so you have to build and manage you own kind of index for all the downloads, so you can actually match them to your business entities. An annoyance, but nothing you cannot manage, right.</p>
-
-<p>The BackgroundDownloader in Universal Apps has a bigger problem. It sometimes crashes so horribly, that it reboots the whole device! No exception, no logs, just a reboot. The maximum limit for the BackgroundDownloader is 1000 downloads, but try adding say 300 to the queue, cancelling them after a few minutes (does not seem to matter if you use one cancellation token or give each download its own) and there is a good chance the phone or the emulator will reboot itself. Not always, but quite often. Again, try explaining this issue to the client.</p>
-
-<p><strong>Performance</strong></p>
-
-<p>In Silverlight, I commonly used the LongListSelector to display data, using it with a WrapPanel when I needed to create a two column layout. The LongListSelector is gone, in Universal Apps you have to use GridView also on Windows Phone. Or you can use the ListView with a custom wrap panel you write yourself or download somewhere, but it takes some effort to make it do virtualization properly.</p>
-
-<p>So you use GridView on both Windows Phone 8.1 and Windows 8.1 to make it consistent. Add tens f of items with images to it and the performance starts to really suffer. Gray placeholders will show up and more importantly, <a href="https://stackoverflow.com/questions/27488201/gridview-and-placeholders-that-never-disapper-in-windows-8-and-windows-phone-app">never disappears</a>. You do not event need images, just add about 300 text only items to the GridView and the gray placeholders will starts to show when scrolling.</p>
-
-<p>Need another proof that the WinRT controls are slower? Just <a href="https://www.youtube.com/watch?v=nn5hVq6Q-zo">take a look at this video comparing the media app on and old Windows Phone 7 to the media app on a much more powerful device running Windows Phone 8.1</a>. You can see that the old, single core device runs the Silverlight apps faster than the new powerful phone runs the new WinRT equivalent of the app.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/why-universal-apps-as-not-as-universal-as-you-may-think/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -155,26 +126,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>Communicating with a JSON based REST service is a task that many Windows Phone apps have to do. My apps sure do it a lot so I came up with a base class that I use in all of them, <a href="https://github.com/igorkulman/Kulman.WPA81.BaseRestService">put it on Github</a> and <a href="https://www.nuget.org/packages/Kulman.WPA81.BaseRestService/">created a Nuget package</a>, so your apps could use it to.</p>
+                       Communicating with a JSON based REST service is a task that many Windows Phone apps have to do. My apps sure do it a lot so I came up with a base class that I use in all of them, put it on Github and created a Nuget package, so your apps could use it to. The usage of this base class is simple. Create your service class and inherit from BaseRestService.
 
-<p>The usage of this base class is simple. Create your service class and inherit from BaseRestService. The minimum you need to do to make it work is to override the GetBaseUrl() method to set the base url for all the requests. You can (but do not have to) also override the GetRequestHeaders() method to set the default request headers.</p>
-
-<script src="https://gist.github.com/igorkulman/405732bf92858dba1c3c.js?file=usage1.cs"></script>
-
-<p>and you can now use the following protected methods</p>
-
-<script src="https://gist.github.com/igorkulman/405732bf92858dba1c3c.js?file=methods.cs"></script>
-
-<p>All the JSON serialization and deserialization is automatically done for you. If you need to execute some action before every request (like checking if the OAuth token expired and refreshing it), simply override the OnBeforeRequest() method.</p>
-
-<p>Methods in your service may then look like this</p>
-
-<script src="https://gist.github.com/igorkulman/405732bf92858dba1c3c.js?file=usage2.cs"></script>
-
-<p>In case of an error, the methods throw either a DeserialziationException with the original data if deserialization failed, or a ConnectionException with the HTTP status code.</p>
-
-<p>if you need some additional features, just raise an issue in the <a href="https://github.com/igorkulman/Kulman.WPA81.BaseRestService">Github repo</a>, or create a pull request.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/rest-service-base-class-for-windows-phone-8-1-xaml-apps/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -197,18 +155,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>I recently worked on an ASP.NET application that needed to detect if users were coming from tablets or smartphones. The project used data from <a href="http://user-agent-string.info/">http://user-agent-string.info/</a> to do this detection, but the result were not really good. We needed a better solution, so I came up with using <a href="http://wurfl.sourceforge.net/">WURFL</a>.</p>
+                       I recently worked on an ASP.NET application that needed to detect if users were coming from tablets or smartphones. The project used data from http://user-agent-string.info/ to do this detection, but the result were not really good. We needed a better solution, so I came up with using WURFL. WURFL, the Wireless Universal Resource FiLe, is a Device Description Repository (DDR), i.e. a software component that maps HTTP Request headers to the profile of the HTTP client (Desktop, Mobile Device, Tablet, etc.) that issued the request.
 
-<p>WURFL, the Wireless Universal Resource FiLe, is a Device Description Repository (DDR), i.e. a software component that maps HTTP Request headers to the profile of the HTTP client (Desktop, Mobile Device, Tablet, etc.) that issued the request. Adding WURFL to your ASP.NET application is easy thanks to the <a href="https://www.nuget.org/packages/WURFL_Official_API/">WURFL_Official_API Nuget package</a>. The Nuget package also contains definition file, so you just need to update the Nuget package once in a while to get your definition file up to date.</p>
-
-<p>After installing the Nuget package, you need to setup WURLF in your Global.asax file</p>
-
-<script src="https://gist.github.com/igorkulman/dc65bf6d68aec59d57e2.js?file=wurlf_setup.cs"></script>
-
-<p>I recommend setting the match mode to accuracy instead of speed, to get the best results. Using the WURFL library is also quite easy, just pass the user agent string and get the properties you want.</p>
-
-<script src="https://gist.github.com/igorkulman/dc65bf6d68aec59d57e2.js?file=wurfl_usage.cs"></script>
-
+                        
+  <div class="read-more-link">
+    <a href="/detecting-tablets-and-smartphones-in-asp-net/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -231,33 +184,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>In my current project I needed to solve one quite interesting problem. Imagine you have a map with some pins representing points of interest. If the user taps on a pin, a label with the place title is shown like on this image (that is not from the real project, obviously).</p>
+                       In my current project I needed to solve one quite interesting problem. Imagine you have a map with some pins representing points of interest. If the user taps on a pin, a label with the place title is shown like on this image (that is not from the real project, obviously). The client had an interesting requirement. When the user taps the pin and the label is shown, they wanted the label to be centered on the map (basically move the map so the label appears in the middle of the map).
 
-<p><img src="/images/image_thumb_4_4.png" alt="" class="pure-img" ></p>
-
-<p>The client had an interesting requirement. When the user taps the pin and the label is shown, they wanted the label to be centered on the map (basically move the map so the label appears in the middle of the map).</p>
-
-<p>In Windows Phone you can only center the map to a GeoCoordinate. If you center the map to the tapped pin&#8217;s coordinate, it is not quite right, you also need to move it by half the width of the label to the left (and half of the height down). So the solution consists of two steps</p>
-
-<ol>
-<li>Convert half of the label width in pixels to meters for a given zoom level (pixels -&gt; meters conversion)</li>
-<li>Subtract the result from the pin&#8217;s coordinate (meters -&gt; degrees conversion)</li>
-</ol>
-
-<p>(and the same for height)</p>
-
-<p>The map component in Windows Phone 8 and 8.1 has quite a <a href="http://msdn.microsoft.com/en-us/library/aa940990.aspx">nice documentation</a>, so the first step requires some math but is not so difficult.</p>
-
-<p>I created two helper functions to take care of this first conversion</p>
-
-<script src="https://gist.github.com/igorkulman/9fa0a229b9c2db57a172.js?file=meters.cs"></script>
-
-<p>The second conversion is more difficult, especially if you want to do it really well. I found a <a href="https://gis.stackexchange.com/questions/2951/algorithm-for-offsetting-a-latitude-longitude-by-some-amount-of-meters">simple solution that works quite ok when you are not right at the poles</a> and used it. The helper function looks like this.</p>
-
-<script src="https://gist.github.com/igorkulman/9fa0a229b9c2db57a172.js?file=coords.cs"></script>
-
-<p>Now you just need to put it all together and you are done.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/converting-between-pixels-meters-and-map-coordinates-in-windows-phone/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -280,40 +213,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>In this installment of the series I will show you how user data services. We will finally use the Unity DI container that is part of the project setup.</p>
+                       In this installment of the series I will show you how user data services. We will finally use the Unity DI container that is part of the project setup. Data and Services In next installment we will be showing a list of products, so let&#8217;s create a simple Product class first in the Data directory: PropertyChangedBase is a base class implementing the INotifyPropertyChanged interface and the ImplementPropertyChanged attribute makes sure it&#8217;s method is called for all the property changes.
 
-<p><strong>Data and Services</strong></p>
-
-<p>In next installment we will be showing a list of products, so let&#8217;s create a simple Product class first in the Data directory:</p>
-
-<p><script src="https://gist.github.com/6606102.js"></script></p>
-
-<p>PropertyChangedBase is a base class implementing the INotifyPropertyChanged interface and the ImplementPropertyChanged attribute makes sure it&#8217;s method is called for all the property changes. (More about Fody <a href="http://blog.kulman.sk/inotifypropertychanged-the-easy-way-in-windows-phone-and-windows-8/" title="INotifyPropertyChanged the easy way in Windows Phone and Windows 8">here</a>)</p>
-
-<p>All the operations will be handled by a service implementing the IProductService interface:</p>
-
-<p><script src="https://gist.github.com/6606127.js"></script></p>
-
-<p>You can implement this interface any way you want. To keep things simple I chose an implementation with two hardcoded products:</p>
-
-<p><script src="https://gist.github.com/6606170.js"></script></p>
-
-<p><strong>Registering services</strong></p>
-
-<p>All our services need to be registered with the Unity DI container before being used. The place to do it is the App class (App.xaml.cs file). You can override the Configure method to do it:</p>
-
-<p><script src="https://gist.github.com/6607482.js"></script></p>
-
-<p>This registers the ProductService class to the IProductService interface. The new ContainerControlledLifetimeManager() parameter is Unity&#8217;s way of setting the registration to be a singleton.</p>
-
-<p><strong>Injecting services into ViewModel</strong></p>
-
-<p>Injecting the ProductService into our MainViewModel is very simple. Just declare a IProductService variable and initialize it from constructor. Unity will take care of the rest:</p>
-
-<p><script src="https://gist.github.com/6607538.js"></script></p>
-
-<p>Next time we will implement a typical master-detail scenario showing products usign the ProductService whe have created. All the code is again <a href="https://github.com/igorkulman/CaliburnDemoWinRT">available at GitHub</a>.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/developing-windows-store-apps-with-caliburn-micro-part-4-services-and-dependency-injection/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -336,24 +242,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>In the <a href="http://blog.kulman.sk/developing-windows-store-apps-with-caliburn-micro-part-2-navigation/" title="Developing Windows Store apps with Caliburn Micro Part 2: navigation">previous post</a> I stated that a well-behaved Windows Store app should remeber the View the user navigated to before suspension and navigate to this View upon next run. The View can contain some input that the user can fill in. A well-behaved Windows Store app should remember the user&#8217;s input and restore it after suspension.</p>
+                       In the previous post I stated that a well-behaved Windows Store app should remeber the View the user navigated to before suspension and navigate to this View upon next run. The View can contain some input that the user can fill in. A well-behaved Windows Store app should remember the user&#8217;s input and restore it after suspension. Saving and restoring state Implementation of the above-mentioned scenario is not very complicated, thanks to the project setup.
 
-<p><strong>Saving and restoring state</strong></p>
-
-<p>Implementation of the above-mentioned scenario is not very complicated, thanks to the project setup. If you want your ViewModel to be able to save and restore state, implement the IHaveState interface. It contains two method that you can override; SaveState and LoadState. In bith method you have access to a page state dictionary that you can use to save and load the state.</p>
-
-<p>Let us reuse the SecondPageViewModel from the last post. Implement IHaveState, add two string properties and use the SaveState and LoadState method to save and load them using the page state dictionary</p>
-
-<p><script src="https://gist.github.com/6173564.js"></script></p>
-
-<p>To test it, first add two TextBoxes to the SecondPageView with two-way binding</p>
-
-<p><script src="https://gist.github.com/6173636.js"></script></p>
-
-<p>Now run the application, navigate to the SecondPageViewModel and fill in the TextBoxes. Switch to Visual Studio and invoke the Suspend and Shutdown command. When you run the application again, you will see the SecondPageViewModel with TextBoxes with the same values as before the suspension.</p>
-
-<p>The code is again <a href="https://github.com/igorkulman/CaliburnDemoWinRT">available at Github</a>. If you are interested in the implementation of saving and loading state, read <a href="http://nybbles.blogspot.cz/2013/02/winrt-caliburnmicro-and-ioc-part-3.html">this article</a>.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/developing-windows-store-apps-with-caliburn-micro-part-3-saving-and-restoring-state/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -376,58 +271,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>In this second part you will add another ViewModel and View and implement navigation between two ViewModels, including saving the navigation state between starts. The code is as always <a href="https://github.com/igorkulman/CaliburnDemoWinRT">available at Github</a>.</p>
+                       In this second part you will add another ViewModel and View and implement navigation between two ViewModels, including saving the navigation state between starts. The code is as always available at Github. Invoking ViewModel methods If you want to test out navigation between ViewModels, you first need something that will trigger the navigation. The easiest way to do this is to use a standard Button. If you do MVVM &#8220;by hand&#8221;, you are probably used to creating ICommand properties and binding them to the Button&#8217;s Command dependency property.
 
-<p><strong>Invoking ViewModel methods</strong></p>
-
-<p>If you want to test out navigation between ViewModels, you first need something that will trigger the navigation. The easiest way to do this is to use a standard Button. If you do MVVM &#8220;by hand&#8221;, you are probably used to creating ICommand properties and binding them to the Button&#8217;s Command dependency property.</p>
-
-<p>Caliburn Micro offers an easier way. If you want a Button to invoke a method on your ViewModel, just the give the button the same name as the name of the button. The method should be public void.</p>
-
-<p>On the MainViewModel, create a public void GoToSecondPage method:</p>
-
-<p><script src="https://gist.github.com/6103983.js"></script></p>
-
-<p>In the MainView create a Button with x:Name=&#8221;GoToSecondPage&#8221;. When you start the application and click the button, a message dialog is shown, so you know the autobinding beetween your Button and your GoToSecondPage method works.</p>
-
-<p><strong>Navigation</strong></p>
-
-<p>As you may have noticed, a INavigationService is injected into the MainViewModel&#8217;s constructor. You can use this INavigationService to navigate between ViewModels.</p>
-
-<p>In the ViewModels folder create a new ViewModel called SecondPageViewModel with one string property Title (exactly the same as the MainViewModel):</p>
-
-<p><script src="https://gist.github.com/6103938.js"></script></p>
-
-<p>In the Views folder, create a new View called SecondPageView as a Blank Page. Give it some colorful background so it is clearly distinguishable from the MainView:</p>
-
-<p><script src="https://gist.github.com/6104005.js"></script></p>
-
-<p>Now you can finally make the GoToSecondPage method navigate the user to the SecondPageViewModel. To do this, first get the Uri from the INavigationService using the strongly typed UriFor&lt;.&gt; method and then call the Navigate method:</p>
-
-<p><script src="https://gist.github.com/6104023.js"></script></p>
-
-<p><strong>Navigation with parameters</strong></p>
-
-<p>In many cases you need to navigate to a ViewModel passing the ViewModel some parameters. This is as easy as adding a call to WithParam to your navigation code:</p>
-
-<p><script src="https://gist.github.com/6104042.js"></script></p>
-
-<p>You can use the WithParam method to give the ViewModel as many parameters as you want.</p>
-
-<p><strong>Saving and loading navigation state</strong></p>
-
-<p>A well-behaved Windows Store application should remember the last ViewModel active when the user exited the app and load this ViewModel when the user starts the application again. In our demo, this is not the case. You can test it by navigating to the SecondPageViewModel, switching to Visual Studio, using the Suspend and Shutdown option and starting the application again.</p>
-
-<p>You need to fix this so when the suspended application starts again, it will show the SecondPageViewModel (unless the MainViewModel was active when the application was suspended). The Caliburn.Micro.Unity.WinRT package already contains the support for saving and restoring state.</p>
-
-<p>First you need to make the Views inherit from the Caliburn.Micro.Unity.WinRT.Code.AppPage insted of Page and delete theirs OnNavigateTo methods. Then you need to explicitly save the state when the application starts. Open the App.xaml.cs and add the following method:</p>
-
-<p><script src="https://gist.github.com/6104122.js"></script></p>
-
-<p>If you now navigate to second page, suspend and shutdown the application and start it again, you will see the second page.</p>
-
-<p>There is currently no way to navigate back from the SecondPageViewModel to the MianViewModel. I am fairly confident you can implement it by yourself using the INavigationService&#8217;s GoBack method.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/developing-windows-store-apps-with-caliburn-micro-part-2-navigation/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -450,73 +300,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>I have been developing Windows Store apps for some time. I have always used MVVM, but mostly &#8220;my own&#8221; MVVM. I have finally decided to use a &#8220;real&#8221; MVVM framework and I have chosen Caliburn Micro, because I did not like MVVM very much. In this article I am going to show you how to use Caliburn Micro, Unity and Fody to develop Windows Store apps.</p>
+                       I have been developing Windows Store apps for some time. I have always used MVVM, but mostly &#8220;my own&#8221; MVVM. I have finally decided to use a &#8220;real&#8221; MVVM framework and I have chosen Caliburn Micro, because I did not like MVVM very much. In this article I am going to show you how to use Caliburn Micro, Unity and Fody to develop Windows Store apps. Caliburn Micro Caliburn Micro is a small, yet powerful framework, designed for building applications across all Xaml Platforms.
 
-<p><strong>Caliburn Micro</strong></p>
-
-<p><a href="https://caliburnmicro.codeplex.com/">Caliburn Micro</a> is a small, yet powerful framework, designed for building applications across all Xaml Platforms. With strong support for MVVM and other proven UI patterns, Caliburn.Micro will enable you to build your solution quickly, without the need to sacrifice code quality or testability.</p>
-
-<p><strong>Unity</strong></p>
-
-<p>When I started with Calibun Micro I discovered an <a href="http://nybbles.blogspot.cz/2013/02/winrt-caliburnmicro-and-ioc-part-3.html">article by Thomas Baker about using Unity as DI container with Caliburn Micro</a>. His article also contains code that makes it easy for you to save and load state when the app gets suspended. With his permission, I have <a href="https://nuget.org/packages/Caliburn.Micro.Unity.WinRT/">created a Nuget package</a> from his code, this article is going to use this package.</p>
-
-<p><strong>Fody</strong></p>
-
-<p>I have been using <a href="https://github.com/Fody/Fody">Fody</a> with Windows Phone and Windows Store apps for some time now. I especially use the <a href="https://github.com/Fody/PropertyChanged">INotifyPropertyChanged weaver</a> I <a href="http://blog.kulman.sk/inotifypropertychanged-the-easy-way-in-windows-phone-and-windows-8/" title="INotifyPropertyChanged the easy way in Windows Phone and Windows 8">wrote about earlier</a>. Check the article for more information if you are not already familliar with Fody.</p>
-
-<p><strong>Application setup</strong></p>
-
-<p>Let&#8217;s start buidling a simple demo application. This demo application will show you how little code you need to write to get something done when using the mentioned libraries.</p>
-
-<p>Create a Blank App. Add the <a href="http://www.nuget.org/packages/Caliburn.Micro.Unity.WinRT/">Caliburn.Micro.Unity.WinRT</a> package from Nuget. It will install all the dependencies you need. Install <a href="http://www.nuget.org/packages/PropertyChanged.Fody/">PropertyChanged.Fody</a> from Nuget. Next you need to hook up PropertyChanged.Fody with Fody. Open FodyWeavers.xml and change it to</p>
-
-<p><script src="https://gist.github.com/6088620.js"></script></p>
-
-<p>PropertyChanged.Fody now knows that it should call the NotifyOfPropertyChange method from Caliburn Micro when a property gets changed. Let&#8217;s do some cleanup next. Delete MainPage.xaml, rename the Common folder to Resources and create a few additional folders:</p>
-
-<ul>
-<li>Views</li>
-<li>ViewModels</li>
-<li>Data</li>
-<li>Converters</li>
-<li>Services</li>
-<li>Code</li>
-</ul>
-
-<p>Next make you app inherit from CaliburnUnityApplication by changing App.xaml to</p>
-
-<p><script src="https://gist.github.com/6088861.js"></script></p>
-
-<p>and cleaning up and changing App.xaml.cs to</p>
-
-<p><script src="https://gist.github.com/6088871.js"></script></p>
-
-<p><strong>First ViewModel</strong></p>
-
-<p>Now you can create your first ViewModel and your first View. Caliburn Micro uses a naming convention to pair a ViewModel and a View. Create a new class called MainViewModel in the ViewModels folder. Make the class inherit from ViewModelBase and implement the default constructor:</p>
-
-<p>create a new string property called Title. Add the ImplementPropertyChanged attribute to the class. This makes NotifyPropertyChanged.Fody call the NotifyOfPropertyChange whenever any of the properties (just Title for now) changes. Assing some text to the Title property in the constructor:</p>
-
-<p><script src="https://gist.github.com/6088988.js"></script></p>
-
-<p><strong>First View</strong></p>
-
-<p>Now create a view for the MainViewModel as a Blank Page. According to the naming conventions, it needs to be called MainView and created in the Views folder. Add a TextBlock to the View. To bind the text of this TextBlock to the Title property, you could use Text=&#8221;{Binding Title}&#8221;. This works just fine but you do not have to do it. Just name the TextBlock the same as the property you want it to bind to (in our case Title):</p>
-
-<p><script src="https://gist.github.com/6089012.js"></script></p>
-
-<p><strong>Navigating to the view</strong></p>
-
-<p>There is only one more thing left to do. You need to tell the framework to navigate to the MainView when the app starts. This is done in the OnLaunched method in App.xaml.cs</p>
-
-<p><script src="https://gist.github.com/6089032.js"></script></p>
-
-<p><strong>Run you app</strong></p>
-
-<p>Hit F5 and you will see your app start, navigate to MainView and show the text from the Title property in this view.</p>
-
-<p>You can find the <a href="https://github.com/igorkulman/CaliburnDemoWinRT">code on Github</a> and stay tuned for Part 2!</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/developing-windows-store-apps-with-caliburn-micro-part-1-setup-and-first-view/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -539,32 +329,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>I often wonder how can something as crucial as in-app purchases be so badly implemented in Windows Store. I really do not recommend anyone to use Windows Store&#8217;s built in in-app purchases. Use a third party provider or implement your own purchase mechanism, Microsoft is ok with that. You will be better of than using the built-in one. Here is why.</p>
+                       I often wonder how can something as crucial as in-app purchases be so badly implemented in Windows Store. I really do not recommend anyone to use Windows Store&#8217;s built in in-app purchases. Use a third party provider or implement your own purchase mechanism, Microsoft is ok with that. You will be better of than using the built-in one. Here is why. Limited number of in-app purchases per app I previously wrote about the fact that Windows Store limits the number of in-app purchases you can define for an app.
 
-<p><strong>Limited number of in-app purchases per app</strong></p>
-
-<p>I previously wrote about the fact that <a href="http://blog.kulman.sk/windows-store-limits-the-number-of-in-app-purchases-for-an-app/">Windows Store limits the number of in-app purchases you can define for an app</a>. The current limit is 200. If you need more, say you sell a daily newspaper, you are out of luck and Windows Store&#8217;s in app-purchases are not for you.</p>
-
-<p><strong>Complicated receipt validation outside of .NET</strong></p>
-
-<p>If you use in-app purchases you surely want to validate them on your server, especially considering the very weak security that Windows 8 offers to Windows Store apps. If you are not using .NET on your server, there is no guide on how to do it. Microsoft only offers a code sample in C#, nothing else. Good luck finding a solution for say PHP, I could not find any.</p>
-
-<p><strong>Half-baked purchases restoration</strong></p>
-
-<p>If a user uninstalls your app and installs it again you typically do not want him to need to buy everything again. You need a way to restore the purchases. If you do not use server-side receipt validation, it is trivial, even more trivial than cracking your application and getting everything for free. If you use server-side receipt validation, things get complicated.</p>
-
-<p>Restoring purchases is typically done in a very simple way. You request all the receipts from the app store and send them to your server for validation. The server then enables the bought items for the user. I would not be Windows Store if there were no catch.</p>
-
-<p>The problem is that you can get the receipt just once, when the users makes the in-app purchase. There is no way to get the receipt at any later time. There is a method called <a href="http://msdn.microsoft.com/en-us/library/windows/apps/windows.applicationmodel.store.currentapp.getproductreceiptasync.aspx">GetProductReceiptAsync</a> but it throws an NotImplementedException. Looks like Microsoft did not really think that anyone would want to restore purchases in combination with server-side validation (Typical use-case in say AppStore).</p>
-
-<p>The only way to implement this is storing all the receipts on the server and sending the server receipt ids when restoring purchases. You can get the receipt ids from <a href="http://msdn.microsoft.com/en-us/library/windows/apps/windows.applicationmodel.store.currentapp.getappreceiptasync.aspx">GetAppReceiptAsync</a> after some XML parsing. Just make sure the receipt gets to the server after the purchase, because there is no way to get it again.</p>
-
-<p><strong>No sandbox for testing</strong></p>
-
-<p>You cannot do any &#8220;real&#8221; testing with Windows Store. It does not provide any sanbox. The only way to test the in-app purchases is to use the primitive <a href="http://msdn.microsoft.com/en-us/library/windows/apps/windows.applicationmodel.store.currentappsimulator">CurrentAppSimulator</a> that can basically just simulate if the users cliked ok or cancel in the buy dialog or if there was an error. You cannot use it to test you server-side receipt validation.</p>
-
-<p>There is no way to &#8220;pair&#8221; your app running form Visual Studio to you app defined in Windows Store for testing purposes. You really need to trust your implementation and you can test it only after the app is published and live in Windows Store.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/why-you-should-not-use-windows-store-for-in-app-purchases/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -587,48 +358,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>If you develop Windows Phone, Windows 8, Silverlight or WPF apps using the MVVM pattern, you are familiar with the INotifyPropertyChanged interface.</p>
+                       If you develop Windows Phone, Windows 8, Silverlight or WPF apps using the MVVM pattern, you are familiar with the INotifyPropertyChanged interface. Typical implementation In a typical implementation, you usually have a base class implementing the interface, like or use a framework like MVVMLight, Prism or Caliburn Micro that provides such base class for you. In your view models you have properties using the PropertyChanged method You do not need to create such properties by hand, you can use a snippet, but it is still a lot of code to do such a simple thing.
 
-<p><strong>Typical implementation</strong></p>
-
-<p>In a typical implementation, you usually have a base class implementing the interface, like</p>
-
-<p><script src="https://gist.github.com/5849361.js"></script></p>
-
-<p>or use a framework like MVVMLight, Prism or Caliburn Micro that provides such base class for you. In your view models you have properties using the PropertyChanged method</p>
-
-<p><script src="https://gist.github.com/5849364.js"></script></p>
-
-<p>You do not need to create such properties by hand, you can <a href="http://www.kulman.sk/data/down/propn.snippet">use a snippet</a>, but it is still a lot of code to do such a simple thing.</p>
-
-<p><strong>Meet Fody</strong></p>
-
-<p><a href="https://github.com/Fody/Fody">Fody</a> is an assembly weaver for .NET that plugs to the build process of your project and modifies the IL of your assemblies according to your needs. It supports .net 3.5, .net 4, .net 4.5, Silverlight 4, Silverlight 5, Windows Phone 7, Windows Phone 8, Metro on Windows 8, Mono, MonoTouch, MonoDroid and PCL. No installation or configuration is required, you just need to install the <a href="http://nuget.org/packages/Fody/">Fody Nuget package</a>.</p>
-
-<p><strong>INotifyPropertyChanged using Fody (80% of the time)</strong></p>
-
-<p>Fody has a <a href="https://github.com/Fody/PropertyChanged">PropertyChanged addin</a> that does all the INotifyPropertyChanged plumbing for you. If you want the same behavior as in my typical implementation example, there is no need for a base class. Install the <a href="https://github.com/Fody/PropertyChanged">PropertyChanged.Fody Nuget package</a>, decorate your view model class with the ImplementPropertyChanged attribute and use just basic properties</p>
-
-<p><script src="https://gist.github.com/5849367.js"></script></p>
-
-<p>That is it. Less code, the same behaviour. You can verify it with tools like <a href="http://www.telerik.com/justdecompile.aspx">Telerik JustDecompile</a>.</p>
-
-<p><strong>The remaining 20%</strong></p>
-
-<p>Fody does all the plumbing for you. It even knows that the FullName property uses FirstName and Surname and raises the PropertyChanged event for it when any og the two properties changes. The PropertyChanged.Fody addin <a href="https://github.com/Fody/PropertyChanged/wiki/Attributes">contains attributes</a>, that you can use to define dependencies</p>
-
-<p><script src="https://gist.github.com/5849371.js"></script></p>
-
-<p>or to raise the PropertyChanged event for any other property</p>
-
-<p><script src="https://gist.github.com/5849373.js"></script></p>
-
-<p>Sometimes you want to execute some additional code in the setter. Fody allows it, just create a method with the <a href="https://github.com/Fody/PropertyChanged/wiki/On_PropertyName_Changed">name On_PropertyName_Changed</a></p>
-
-<p><script src="https://gist.github.com/5849376.js"></script></p>
-
-<p>If you use a framework and you want to raise the PropertyChanged event through a method of this framework, it is not a problem. You just need to <a href="https://github.com/Fody/PropertyChanged/wiki/Options">set the EventInvokerNames options</a>. The Fody <a href="https://github.com/Fody/PropertyChanged/wiki/SupportedToolkits">documentation even describes what to set for some of the frameworks</a> so you do not have to figure it out for yourself.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/inotifypropertychanged-the-easy-way-in-windows-phone-and-windows-8/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 

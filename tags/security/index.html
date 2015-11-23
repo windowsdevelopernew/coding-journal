@@ -97,28 +97,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>NancyFX is a great .NET framework well suited for creating REST APIs. There are many ways how to approach authentication, the simplest one is the good old Forms Authentication. The idea of Forms Authentication is that the user logs in with a username and password and gets a cookie, the protected endpoints then check the cookie. NancyFX supports Forms Authentication with the <a href="https://www.nuget.org/packages/Nancy.Authentication.Forms/">Nancy.Authentication.Forms</a> package. The <a href="https://github.com/NancyFx/Nancy/wiki/Forms-Authentication">documentation describes how to use it on a web page</a>, but to use it with a REST API a few changes are needed.</p>
+                       NancyFX is a great .NET framework well suited for creating REST APIs. There are many ways how to approach authentication, the simplest one is the good old Forms Authentication. The idea of Forms Authentication is that the user logs in with a username and password and gets a cookie, the protected endpoints then check the cookie. NancyFX supports Forms Authentication with the Nancy.Authentication.Forms package. The documentation describes how to use it on a web page, but to use it with a REST API a few changes are needed.
 
-<p><strong>Forms Authentication differences for REST API</strong></p>
-
-<p>There are things you want to do differently in a REST API than on a web page. If a user tries to access a protected endpoint, the Forms Authentication on a normal web page redirects him to the login page. In REST API, you typically want the endpoint just to return HTTP 401, no redirects. Also, when a user successfully logs in, you just typically want to return HTTP 200, no redirects.</p>
-
-<p><strong>Disabling redirects</strong></p>
-
-<p>Suppose you have Forms Authentication set up according to the documentation, with a IUserMapper and IUserIdentity implementation. Disabling the redirects is easy, just set a flag on the FormsAuthenticationConfiguration in your Bootstrapper:</p>
-
-<script src="https://gist.github.com/igorkulman/2430a948fe6c426cdd01.js?file=Bootstrapper.cs"></script>
-
-<p><strong>Changing Login and Logout methods</strong></p>
-
-<p>The login implementation from the documentation uses the LoginAndRedirect method. There is also LoginWithoutRedirect method you want to use, but I found out it does not set the authentication cookie (when it does not think the request is an AJAX request), so the login basically does not work. A workaround I found is to call the LoginAndRedirect method, but only get the authentication cookie from the response ad return it manually:</p>
-
-<script src="https://gist.github.com/igorkulman/2430a948fe6c426cdd01.js?file=login.cs"></script>
-
-<p>The logout implementation just needs to call LogoutWithoutRedirect and return HTTP 200:</p>
-
-<script src="https://gist.github.com/igorkulman/2430a948fe6c426cdd01.js?file=logout.cs"></script>
-
+                        
+  <div class="read-more-link">
+    <a href="/nancyfx-authentication-for-rest-api/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -141,28 +126,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>Windows Store apps run in a sandbox with their data isolated from each other. So how secure is this storage from tampering by the user? It turns out not much.</p>
+                       Windows Store apps run in a sandbox with their data isolated from each other. So how secure is this storage from tampering by the user? It turns out not much. The only Windows Store app I use on my work notebook is WeatherFlow because of the live tile. The app allows you to add your city and view weather forecast for it. But there is now way to get rid of the default cities like New York, Tokyo, etc.
 
-<p>The only Windows Store app I use on my work notebook is WeatherFlow because of the live tile. The app allows you to add your city and view weather forecast for it. But there is now way to get rid of the default cities like New York, Tokyo, etc. that are in the app when you first run it. This realy annoyed me so I started to poke around.</p>
-
-<p>Using the debugger and checking the value of ApplicationData.Current.LocalFolder I found out that all the data of Windows Store apps are stored in AppData\Local\Packages in your profile (for me it is C:\Users\Igor\AppData\Local\Packages). The name of the directory for the app you are lookin for usualy contain its name, it is 08C8076A.WeatherFlow_gyyqpbm0tqk6g for WeatherFlow. The directory for each app contains a few subdirectories</p>
-
-<p>AC</p>
-
-<p>LocalState</p>
-
-<p>RoamingState</p>
-
-<p>Settings</p>
-
-<p>SystemAppData</p>
-
-<p>TempState</p>
-
-<p>The important directories are LocalState and RoamingState representing the local and roaming folder, where each application can store its files. WeatherFlow uses only LocalState where it stores one data.json file with its configuration. You can edit the file and remove the unwanted city, then run the application again and it still works, with the changes you made.</p>
-
-<p>Now imaging editing files of a game, giving yourself gold coins or armor, or copying files somewhere else, sharing &#8230; If you want the data of your Windows Store app to be secured, you have to do it by yourself.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/tampering-with-windows-store-apps-data/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 

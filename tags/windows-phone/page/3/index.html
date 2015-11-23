@@ -97,44 +97,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>Some time ago I needed a way to programatically search the Apple AppStore and Google Play Store to get some info about apps for a project. I decided to write an F# script for that task and later added support for Windows Phone Store.</p>
+                       Some time ago I needed a way to programatically search the Apple AppStore and Google Play Store to get some info about apps for a project. I decided to write an F# script for that task and later added support for Windows Phone Store. Types I wanted the script to be easily usable from outside of F# so first I created a type for the app. I also needed a helper function to download data from the web.
 
-<p><strong>Types</strong></p>
-
-<p>I wanted the script to be easily usable from outside of F# so first I created a type for the app.</p>
-
-<script src="https://gist.github.com/igorkulman/10019990.js?file=types.fs"></script>
-
-<p>I also needed a helper function to download data from the web. I used a classic WebClient with user agent set to Chrome, because the Windows Phone Store API requires a user agent header</p>
-
-<script src="https://gist.github.com/igorkulman/10019990.js?file=net.fs"></script>
-
-<p><strong>Apple AppStore</strong></p>
-
-<p>Searching in Apple AppStore is easy, because Apple provides a simple search API that returns JSON. Thanks to the JsonProvider from FSharp.Data, the code is really simple</p>
-
-<script src="https://gist.github.com/igorkulman/10019990.js?file=AppStore.fs"></script>
-
-<p>Just downloading the JSON transforming the data to our type.</p>
-
-<p><strong>Google Play Store</strong></p>
-
-<p>Searching in Google Play Store is a bit more of a challenge. There is no API I could found so I had to parse the html returned from the web version of Google Play Store. The web can change at any time so I need to be aware of this fact and fix the method if it happens.</p>
-
-<script src="https://gist.github.com/igorkulman/10019990.js?file=PlayStore.fs"></script>
-
-<p>Another problem with parsing the web is that there is no way to return search result for a specific country like for Apple AppStore. The web always shows results according to your IP address.</p>
-
-<p><strong>Windows Phone Store</strong></p>
-
-<p>There is no official API for searching the Windows Phone Store but I was given a tip obtained after sniffing the traffic from a Windows Phone, so I did not have to parse the web. The code is as simple as for Apple AppStore thanks to XmlProvider.</p>
-
-<script src="https://gist.github.com/igorkulman/10019990.js?file=WindowsPhoneStore.fs"></script>
-
-<p><strong>Conclusion</strong></p>
-
-<p>Using F# is fun and processing data is really simple thanks to type provides. You can find it whole code at <a href="https://github.com/igorkulman/AppStoreCrawler">https://github.com/igorkulman/AppStoreCrawler</a>.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/crawling-mobile-app-stores-with-f/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -157,20 +126,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p><a href="http://fsharp.github.io/FAKE/">FAKE</a> is a build automation system with capabilities which are similar to make and rake. It is using an easy domain-specific language (DSL) so that you can start using it without learning F#. If you need more than the default functionality you can either write F# or simply reference .NET assemblies.</p>
+                       FAKE is a build automation system with capabilities which are similar to make and rake. It is using an easy domain-specific language (DSL) so that you can start using it without learning F#. If you need more than the default functionality you can either write F# or simply reference .NET assemblies. I have been using FAKE for quite some time now on some fairly complex projects for not only building but also running tests and creating and pushing Nuget packages and I really like.
 
-<p>I have been using FAKE for quite some time now on some fairly complex projects for not only building but also running tests and creating and pushing Nuget packages and I really like. I decided to add FAKE build scripts to my Windows Phone apps to make the process of generating a XAP file for the Windows Phone Store easier.</p>
-
-<p>The FAKE script I use can by used with any Windows Phone app, it will build all the projects and copy the XAP file to a release directory.</p>
-
-<script src="https://gist.github.com/igorkulman/9842235.js?file=build.fsx"></script>
-
-<p>To get the script started, you need a batch file</p>
-
-<script src="https://gist.github.com/igorkulman/9842235.js?file=build.bat"></script>
-
-<p>and Nuget.exe in tools\NuGet directory.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/building-windows-phone-apps-with-fake/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -193,22 +155,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>If you create an Windows Phone 8 app and test it only on WVGA and 720p devices or emulators, you may be surprised how you app looks on a WXGA device (or emulator).</p>
+                       If you create an Windows Phone 8 app and test it only on WVGA and 720p devices or emulators, you may be surprised how you app looks on a WXGA device (or emulator). I have not been able the reason why this happens but the solution is quite simple. Set your page&#8217;s top border to -1. Doing this in XAML for every page is not very convenient, a better solution
 
-<p><img src="/images/line.png" alt="" class="pure-img" ></p>
-
-<p>I have not been able the reason why this happens but the solution is quite simple. Set your page&#8217;s top border to -1.</p>
-
-<script src="https://gist.github.com/igorkulman/9572347.js?file=line.xaml"></script>
-
-<p>Doing this in XAML for every page is not very convenient, a better solution would be to set the negative top margin on the whole application frame</p>
-
-<script src="https://gist.github.com/igorkulman/9572347.js?file=line.cs"></script>
-
-<p>If you use Caliburn.Micro, you need to override the CreatePhoneApplicationFrame in the Bootstrapper instead</p>
-
-<script src="https://gist.github.com/igorkulman/9572347.js?file=line.caliburn.cs"></script>
-
+                        
+  <div class="read-more-link">
+    <a href="/how-to-get-rid-of-the-strange-line-under-systray-in-windows-phone-8/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -231,16 +184,9 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>Getting contacts info on Windows Phone means using a callback based API provided by the Windows Phone SDK</p>
+                       Getting contacts info on Windows Phone means using a callback based API provided by the Windows Phone SDK I really dislike all the callback-based API so I was looking for a way to convert it to an async/await based API. And it is quite easy to do so You can find this implementation in my Kulman.WP8 library (also available on Nuget)
 
-<script src="https://gist.github.com/igorkulman/9572748.js?file=Contacts.Standard.cs"></script>
-
-<p>I really dislike all the callback-based API so I was looking for a way to convert it to an async/await based API. And it is quite easy to do so</p>
-
-<script src="https://gist.github.com/igorkulman/9572748.js?file=AddressBookService.cs"></script>
-
-<p>You can find this implementation in my <a href="https://github.com/igorkulman/Kulman.WP8">Kulman.WP8</a> library (also <a href="http://www.nuget.org/packages/Kulman.WP8/">available on Nuget</a>)</p>
-
+                        
                     </div>
                 </section>
                 
@@ -263,34 +209,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>Windows Phone Store does not offer developers any sandbox to test in-app purchases in their apps, like stores on other platforms do. If you want test in-app purchases in your Windows Phone apps, you need to use other options.</p>
+                       Windows Phone Store does not offer developers any sandbox to test in-app purchases in their apps, like stores on other platforms do. If you want test in-app purchases in your Windows Phone apps, you need to use other options. To make in-app purchases implementation easier, I created a simple Windows Phone Store service interface in my Kulman.WP8 library (also available on Nuget) Private beta If you publish your app as a private beta and add the in-app products, you can test them.
 
-<p>To make in-app purchases implementation easier, I created a simple Windows Phone Store service interface in my <a href="https://github.com/igorkulman/Kulman.WP8">Kulman.WP8</a> library (also <a href="http://www.nuget.org/packages/Kulman.WP8/">available on Nuget</a>)</p>
-
-<script src="https://gist.github.com/igorkulman/9571908.js?file=IWindowsPhoneStoreService.cs"></script>
-
-<p><strong>Private beta</strong></p>
-
-<p>If you publish your app as a private beta and add the in-app products, you can test them. All the in-app purchases are always free in this scenario. The disadvantage is that you cannot debug anything, it either works or it does not (if you use my <a href="https://github.com/igorkulman/Kulman.WP8/blob/master/Kulman.WP8/Services/WindowsPhoneStoreService.cs">implementation from Kulman.WP8</a>, it should :).</p>
-
-<p><strong>Real app testing</strong></p>
-
-<p>If your app is already in the Windows Phone Store, create an in-app product and try to buy it from your app run from Visual Studio, you may be wondering, why you are getting an error. The problem is that the app run from Visual Studio has a different app id from the app in Windows Phone Store. If you change the app id in the manifest to the app id state in Windows Phone Store (the details view), you will be able to make a real in-app purchase.</p>
-
-<p><strong>Mocking library</strong></p>
-
-<p>To mock in-app purchases you can use the <a href="http://code.msdn.microsoft.com/wpapps/Mock-In-App-Purchase-33080f0c">Mock In-App Purchase Library</a>. To make testing easier, implement my interface using this library</p>
-
-<p><script src="https://gist.github.com/9571846.js"></script></p>
-
-<p>And setup the products you want to use at your app startup</p>
-
-<script src="https://gist.github.com/igorkulman/9571908.js?file=SetupMockIAP.cs"></script>
-
-<p>The advantage of this approach is that you just switch the IWindowsStoreService implementation between then mock on and the <a href="https://github.com/igorkulman/Kulman.WP8/blob/master/Kulman.WP8/Services/WindowsPhoneStoreService.cs">real one</a>, depending on the situation. For example (Caliburn.Micro Bootstrapper)</p>
-
-<script src="https://gist.github.com/igorkulman/9571908.js?file=IAP.cs"></script>
-
+                        
+  <div class="read-more-link">
+    <a href="/testing-in-app-purchases-in-windows-phone/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -313,30 +238,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>Recently I have released a new Windows Phone app called <a href="http://t.co/YMtrM84rwI">Pock8</a>. Pock8 is a beautiful Pocket (formerly Read It Later) client for Windows Phone. The design of the app was created by Jan Marek who worked with my on the <a href="http://windowsphone.com/s?appid=b2667b3c-9272-4416-b0be-c8adadc651e4">Shopping List Simple</a> app.</p>
+                       Recently I have released a new Windows Phone app called Pock8. Pock8 is a beautiful Pocket (formerly Read It Later) client for Windows Phone. The design of the app was created by Jan Marek who worked with my on the Shopping List Simple app. Our goal was to create a Pocket client that would be really easy to use and that would have a nice and simple design. I think we have achieved our goal.
 
-<p><img src="/images/pocket.png" alt="" class="pure-img" ></p>
-
-<p>Our goal was to create a Pocket client that would be really easy to use and that would have a nice and simple design. I think we have achieved our goal. The main features of the app are</p>
-
-<ul>
-<li>clean and simple design</li>
-<li>optimized article view for comfortable reading</li>
-<li>article cache for offline reading</li>
-<li>dark theme for OLED screens or reading in the dark</li>
-<li>support for receiving articles from other apps like WPCentral</li>
-<li>listening to articles aloud</li>
-<li>sharing articles</li>
-</ul>
-
-<p>In version 1.2 we really concentrated on user feedback and added many features that our users requested. We love and users and want to make them happy.</p>
-
-<p>The app is free to use with one limitation, all the list display just 5 articles at any time. You can use an in-app purchase to get rid of the limitation and support further development of the app.</p>
-
-<p>For more info about <a href="http://t.co/YMtrM84rwI">Pock8</a>, follow the app on Twitter at <a href="https://twitter.com/pock8app">@pock8app</a>.</p>
-
-<p><img src="http://qrcode.kaywa.com/img.php?s=6&#038;d=http%3A%2F%2Fwindowsphone.com%2Fs%3Fappid%3Dc00715a7-d2d4-48c1-94e2-2ecc7c1b798b" alt="Pock8" style="max-width:100px" /></p>
-
+                        
+  <div class="read-more-link">
+    <a href="/pock8-beautiful-pocket-client-for-windows-phone/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -359,26 +267,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>If you develop mobile or any other kinds of apps, you need to have your source code versioned and stored in a safe place, cooperate with other people, track information about the usage of your apps and track all the errors that may occur. There are many free services that may help you with those tasks. In this article I will give you a list of the ones I use when developing <a href="http://www.windowsphone.com/en-US/store/publishers?publisherId=Igor%2BKulman&amp;appId=c00715a7-d2d4-48c1-94e2-2ecc7c1b798b">my apps</a>.</p>
+                       If you develop mobile or any other kinds of apps, you need to have your source code versioned and stored in a safe place, cooperate with other people, track information about the usage of your apps and track all the errors that may occur. There are many free services that may help you with those tasks. In this article I will give you a list of the ones I use when developing my apps.
 
-<p><strong>Bitbucket: source control and issue tracker</strong></p>
-
-<p>I use Git as my source control system and all my private repos are stored at <a href="http://bitbucket.org/">Bitbucket</a> (public at <a href="http://github.com/igorkulman">GitHub</a>). Bitbucket offers unlimited number of private repos and cooperation with up to 5 other people for free.</p>
-
-<p>For each private repo you can create a private issue tracker also for free, so all your code and issues are at the same place. The main advantage is that source control and issue tracker are connected, so you can comment or close issues directly from Git commits.</p>
-
-<p><strong>Flurry: mobile analytics</strong></p>
-
-<p>I use <a href="http://www.flurry.com/flurry-analytics.html">Flurry Analytics</a> to track the usage of my apps. Flurry supports Android, iOS, Windows Phone 8 and Blackberry. The tool is completely free and allows you to track events like app runs, unique users, page views or custom events with parameters. Tracking custom events with parameters is really handy, for example thanks to it I know how many users use which color theme in my Shopping List Simple app.</p>
-
-<p><strong>BugSense: bug tracking</strong></p>
-
-<p>Flurry also offers bug tracking, it is no very well done and you cannot get much use of it. To track application crashes and caught exceptions I use <a href="http://bugsense.com/">BugSense</a>. BugSense supports Android, iOS, HTML5, Windows Phone and Windows 8 apps.</p>
-
-<p>Each logged error (exception) provides a complete stracktrace, number of occurrences and detailed info about each instance, like app version, phone model, country, etc. BugSense can be connected to GitHub, Bitbucket is no supported. Maybe in the future.</p>
-
-<p>BugSense is a really useful service that can help you easily identify problems in your apps. Free version offers you 7 days bug info retention for up to 500 different errors for unlimited amount of apps.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/free-services-to-help-you-develop-mobile-apps/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -401,28 +296,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>Having a Search box in a Windows Phone app is a common use-case but it is only rarely done right. A good Search box does not have a Search button associated with it that the users have to click when they are finished typing and want to start the search. A good Search box starts the search immediately when the user stops typing (for a certain period of time).</p>
+                       Having a Search box in a Windows Phone app is a common use-case but it is only rarely done right. A good Search box does not have a Search button associated with it that the users have to click when they are finished typing and want to start the search. A good Search box starts the search immediately when the user stops typing (for a certain period of time). You can implement this functionality with some nasty code using a DispatcherTimer, or you can use Reactive Extensions.
 
-<p>You can implement this functionality with some nasty code using a DispatcherTimer, or you can use <a href="http://msdn.microsoft.com/en-us/data/gg577609.aspx">Reactive Extensions</a>. You can use Reactive Extensions directly on a TextBox representing the Search box, but if you use MVVM (and you should) you need to attach to the property associated with the Search box instead.</p>
-
-<p>Suppose the ViewModel contains a string property called SearchTerm (with two-way binding to the Search box) and an event called PropertyChanged (used for the INotifyPropertyChanged implementation). We need to observe the changes of the SearchTerm property. There is no way to do it directly, we need to observe the PropertyChanged event instead.</p>
-
-<p>We need to create an observable from the PropertyChanged event, subscribe to it filtering only the PropertyChanged calls regarding the SearchTerm property, throttling for 0.5 seconds</p>
-
-<p>Using the throttle operator we will get exactly the desired behaviour of executing the Search method 0.5 seconds after the user stopped typing.</p>
-
-<p><script src="https://gist.github.com/7657908.js"></script></p>
-
-<p>However, there is a small problem. The SearchTerm property changes (and fires the PropertyChanged event) only when the Search box loses focus. We need to make the SearchTerm property change after each letter typed instead. In WPF that would be trivial using UpdateTrigger, but Windows Phone does not support UpdateTrigger.</p>
-
-<p>We need to create a custom binding utility</p>
-
-<p><script src="https://gist.github.com/7657969.js"></script></p>
-
-<p>and apply it to the Search box</p>
-
-<p><script src="https://gist.github.com/7658031.js"></script></p>
-
+                        
+  <div class="read-more-link">
+    <a href="/creating-a-search-box-with-reactive-extensions-and-mvvm/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -445,12 +325,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>When I released version 2.0 of my app <a href="http://phototimeline.kulman.sk/">Photo Timeline</a>, some users reported updating problems. I finally found out what caused the problem and submited a new build to the Windows Phone store.</p>
+                       When I released version 2.0 of my app Photo Timeline, some users reported updating problems. I finally found out what caused the problem and submited a new build to the Windows Phone store. In my app I had three localizations: en-US (default), en and cs. I do not exactly remember why I had English twice as localization. I decided to remove the en localization thinking that nothing will break and that was a mistake.
 
-<p>In my app I had three localizations: en-US (default), en and cs. I do not exactly remember why I had English twice as localization. I decided to remove the en localization thinking that nothing will break and that was a mistake.</p>
-
-<p><strong>Once you add a localization to your app, never remove it!</strong> If you do so, all the users who use your app with that localization will have update problems.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/beware-of-removing-localizations-from-your-windows-phone-apps/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -473,66 +354,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>I have been a Windows Phone developer for over a year now and my paid apps made me some money. The small amount of money made is not interesting, more interesting is that getting the money from Microsoft has been a real pain. Maybe because I live <strong>outside the US</strong>, maybe it is a geographically independent problem. If you are a developer and live outside the US, I really want to hear your experience.</p>
+                       I have been a Windows Phone developer for over a year now and my paid apps made me some money. The small amount of money made is not interesting, more interesting is that getting the money from Microsoft has been a real pain. Maybe because I live outside the US, maybe it is a geographically independent problem. If you are a developer and live outside the US, I really want to hear your experience.
 
-<p><strong>No exact info about payment rules?</strong></p>
-
-<p>First, there is no exact information about how often a developer gets paid. The <a href="http://msdn.microsoft.com/en-us/library/windowsphone/help/jj206722(v=vs.105).aspx">getting paid section</a> in the Windows Phone Dev Center only informs you about tax and bank info, that you need to provide to get paid. I remember that I once heard that developers get paid when their earnings get pass $200, but I was not able to get any official info about this. The first payment I got from Windows Phone Store was $52.50 and I know a developer with $900 earned and no money sent to him, so I guess the $200 limit is not true.</p>
-
-<p>The <a href="http://msdn.microsoft.com/en-us/library/windows/apps/jj193593.aspx">$200 limit should be true for Windows Store</a>, but Windows Phone Store is a different store with different rules.</p>
-
-<p><strong>No info about pending payments</strong></p>
-
-<p>Suppose the $200 limit is true. (Windows Store states: &#8220;To get paid from the Windows Store, you must have at least $200 in app sales pending payment&#8221;) It would be really useful to know how much money your apps have made in total and from the last payout, or in other words, the pending payments. Microsoft does not provide such info. Even the support is not able (or willing) to tell you this info.</p>
-
-<p>The only info you get is the number of paid downloads of your apps. You need to multiple this per-app numbers by the price of your apps and subtract the 30% cut that Microsoft keeps for themselves. If you changed the price of your apps at some point, or have different pricing for different countries, the math becomes really overwhelming.</p>
-
-<p><strong>Distimo to the rescue?</strong></p>
-
-<p><a href="http://www.distimo.com/">Distimo</a> is a great app analytics service that supports Windows Phone Store. You give it your credentials and it downloads and displays all the data from Windows Phone Store for you. And guess what, it can display the amount of money you made. I do not know how they do it. Maybe they use the exports that Windows Phone Store offers, but when I try to download them, they are always empty. Maybe they just do the math I mentioned&#8230; Anyway, it really sucks that you have to use a 3rd party tool to get the info that Microsoft has and should provide to a developer.</p>
-
-<p><strong>Really getting paid</strong></p>
-
-<p>Only my first payment of the strange $52.50 was automatic. When my next earnings according to my calculations crossed the limit of $200 (or $252.50 taking the $52.50 payment into account), I was expecting to get paid. The payment did not come for months. I asked my local Microsoft branch for more info, but I did not get any useful answers. So I tried another tactic.</p>
-
-<p>I made a bit of a fuss about this issue on Twitter, where many developers from my country joined with their complaints about being in the same situation, mentioning our local Microsoft evangelist in their tweets. In two weeks, we all got our payments from Microsoft (coincidence?).</p>
-
-<p>The payment did not come in $ but in CZK. Its value was approximately $240. The Windows Phone Store now shows me I received two payments in two different currencies and in some statistics adds the two payments up as they were both in CZK ($52.50 + 4,806.88 CZK = 4859.38 CZK in their world).</p>
-
-<p><strong>Answers from Microsoft</strong></p>
-
-<p>I contacted my local Microsoft branch and sent the following <strong>questions</strong>to two evangelists, hoping to get answers for me and other developers:</p>
-
-<p>When does a developer get paid from Windows Phone Store? Is there any limit that needs to be crossed (like $200 in Windows Store)?</p>
-
-<p>Are these getting paid rules officialy stated anywhere? The <a href="http://msdn.microsoft.com/en-us/library/windowsphone/help/jj206722(v=vs.105).aspx">MSDN page</a> does not contain any useful info.</p>
-
-<p>Is there a way to know how much I have made in total / since last payout? I mean other way that doing the math from app downloads and prices. (A fellow developer told me that even your support does not know / want to give the info.)</p>
-
-<p>Are payments automatic? (If there are exact rules)</p>
-
-<p>To get my last payment I needed to contact out local MS branch, do I need to do it every time I feel I made $200 since my last payment (which is now)?</p>
-
-<p>I got the following <strong>answers</strong> (after involving other developers and putting some pressure on them):</p>
-
-<p>7b of the APA: Application Proceeds will be calculated on a monthly basis by deducting the Store Fee from Net Receipts for the applicable month. If total Application Proceeds payable to you for a month exceed USD$200 (or its equivalent in local currency), then Microsoft will remit payment to you in</p>
-
-<p>accordance with this Section 7.</p>
-
-<p>Can you clarify what you mean by rules? As long as a dev has over $200, and has valid bank &amp; tax, then they will be attempted in payout.</p>
-
-<p>Currently we do not have a report that provides the total of the settled transactions for a developer.</p>
-
-<p>Payments are automatically attempted once the developer reaches the threshold</p>
-
-<p>No, payments are automatically attempted once the developer reaches the threshold</p>
-
-<p><strong>Conclusion</strong></p>
-
-<p>Microsoft confirmed the $200 limit for getting paid altough my experience does not corespond to this statement. I still wonder why this information is not available somewhere on AppHub or MSDN. They sent me a file called Windows-Phone-Store-Application-Provider-Agreement.pdf but I was not able to find any reference to it anywhere, just the whole file at a <a href="http://cmsresources.windowsphone.com/devcenter/en-us/legal/Windows-Phone-Store-Application-Provider-Agreement.pdf">strange url</a>. Having this crucial info hidden in a PDF file where no developer can ever find it does not seem ok to me. The whole payments process does not look very transparent.</p>
-
-<p>They also confirmed that there is no way to know how much money you made, so you have to rely on Distimo. They assured me that my next payment will be automatic, so I guess I just have to wait and see &#8230;</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/getting-paid-for-your-windows-phone-apps-is-a-real-pain/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 

@@ -97,16 +97,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>I recently discovered two really neet tools that helped me with Windows Store app development.</p>
+                       I recently discovered two really neet tools that helped me with Windows Store app development. Windows Store Icon Maker When creating a Windows Store or Windows 8 apps, there are many icon sizes you have to provide. If you do nont wat to do all the resizing by yourself, you can use the Windows Store Icon Maker. It is a fork of the Windows Phone Icons Maker with added support for Windows Store apps.
 
-<p><strong>Windows Store Icon Maker</strong></p>
-
-<p>When creating a Windows Store or Windows 8 apps, there are many icon sizes you have to provide. If you do nont wat to do all the resizing by yourself, you can use the <a href="https://github.com/DavidBurela/WindowsMarketplaceIconMaker">Windows Store Icon Maker</a>. It is a fork of the <a href="http://wpiconmaker.codeplex.com/">Windows Phone Icons Maker</a> with added support for Windows Store apps. It takes a 300x300px icon as input and outputs all the square icons you need.</p>
-
-<p><strong>HAMMER.Pants</strong></p>
-
-<p>To brand Windows Store apps written in XAML, you need to override all the control styles. This sucks if you just want to change the colours to match your theme. <a href="https://github.com/Code52/HAMMER">HAMMER.Pants</a> solves this, by auto-modifying all the coloured brushes so you don&#8217;t have to pick through them. Currently, you provide a &#8220;base&#8221; colour, and HAMMER.Pants modifies that based on the luminance variation found in the original styles. That is, if you pick red, all the purples will be replaced with reds, but they&#8217;ll change in brightness slightly just like the default purples do.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/useful-tools-for-windows-store-developers/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -129,18 +126,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>When I had to create a library to generate UI elements with animated image Ads I found out that creating complicated UI elements in code with bindings is not as easy as doing the same in XAML. A better way is to create your UI elements and bindings in a XAML file (if they are not very dynamic of course), load the XAML at runtime, parse it and set its DataContext.</p>
+                       When I had to create a library to generate UI elements with animated image Ads I found out that creating complicated UI elements in code with bindings is not as easy as doing the same in XAML. A better way is to create your UI elements and bindings in a XAML file (if they are not very dynamic of course), load the XAML at runtime, parse it and set its DataContext.
 
-<p>First you need to read the XAML file. You can use the standard API with Windows.ApplicationModel.Package.Current.InstalledLocation as the folder. The XAML file must be set to Build=Content in your project</p>
-
-<p><script src="https://gist.github.com/5849482.js"></script></p>
-
-<p>Once you have the XAML read as string, you can use the XamlReader and cast it to a DependencyObject.</p>
-
-<p><script src="https://gist.github.com/5849490.js"></script></p>
-
-<p>or a more concrete class like UserControl if you know what the file contains.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/loading-xaml-components-at-runtime/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 

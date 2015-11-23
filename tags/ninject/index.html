@@ -97,38 +97,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>I am currently working on a fairly large Windows Azure projects that among other things conatins a Web Role where I use <a href="http://www.ninject.org/">Ninject</a> as a dependency container. As the business logic library grew larger I found myself writing a lot of repeating boiler plate code to log exceptions in many important methods. I wantet to remove all the boiler plate code and create a custom attribute, say LogErrorAttribute with one simple goal: each method decorated woth this attribute should log info about any occuring exception.</p>
+                       I am currently working on a fairly large Windows Azure projects that among other things conatins a Web Role where I use Ninject as a dependency container. As the business logic library grew larger I found myself writing a lot of repeating boiler plate code to log exceptions in many important methods. I wantet to remove all the boiler plate code and create a custom attribute, say LogErrorAttribute with one simple goal: each method decorated woth this attribute should log info about any occuring exception.
 
-<p><strong>IL weaving?</strong></p>
-
-<p>I have been using <a href="https://github.com/Fody/Fody">Fody</a> for some time to <a href="http://blog.kulman.sk/inotifypropertychanged-the-easy-way-in-windows-phone-and-windows-8/" title="INotifyPropertyChanged the easy way in Windows Phone and Windows 8">implement the INotifyPropertyChanged calls for me in Windows Phone and Windows 8 projects</a> so it was my first choice.</p>
-
-<p>There is a <a href="https://github.com/Fody/MethodDecorator">Fody.MethodDecorator</a> extensions that allows you to execute your code on a methods start, exit and exception. Writing the exception to Console is trivial, but I wanted to use a implementation of my custom ILogFactory.</p>
-
-<p>There was no way to inject a ILogFactory implementation into the InterceptorAttribute. The only way that could work would be to use a ServiceLocator and I did not want to do it.</p>
-
-<p><strong>Dynamic proxy!</strong></p>
-
-<p>I came across <a href="http://www.castleproject.org/projects/dynamicproxy/">Castle Dynamic Proxy</a> and realized that there are Ninject extensions that allow you to easily use it.</p>
-
-<p>First you need to install <a href="http://www.nuget.org/packages/Ninject.Extensions.Interception/3.0.0.8">Ninject.Extensions.Interception</a>. It has no depedencies other that Ninject, but you also have to install <a href="http://www.nuget.org/packages/Ninject.Extensions.Interception.DynamicProxy/3.0.0.8">Ninject.Extensions.Interception.DynamicProxy</a> (and <a href="http://www.nuget.org/packages/Castle.Core/">Castle.Core</a> as a dependency) otherwise it will not work.</p>
-
-<p>First, create a class implementing the IInterceptor interface</p>
-
-<p><script src="https://gist.github.com/6045777.js"></script></p>
-
-<p>This class wraps the intercepted method invocation into a try..catch block and logs any occuring exception using my custom ILogFactory, including parameter values.</p>
-
-<p>Next, create a class implementing the InterceptAttribute</p>
-
-<p><script src="https://gist.github.com/6045812.js"></script></p>
-
-<p>This attribute uses the Ninject kernel to get an instance of the ErrorLoggingInterceptor so you do not have to concern yourself explictily with providing an ILogFactory implementation, Ninject will do all the work.</p>
-
-<p>Now you can use the LogErrorAttribute to mark any method, but keep in mind that all the marked methods must be virtual</p>
-
-<p><script src="https://gist.github.com/6045825.js"></script></p>
-
+                        
+  <div class="read-more-link">
+    <a href="/intercepting-methods-with-ninject-for-error-logging/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 

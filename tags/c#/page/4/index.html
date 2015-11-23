@@ -97,28 +97,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>Having a Search box in a Windows Phone app is a common use-case but it is only rarely done right. A good Search box does not have a Search button associated with it that the users have to click when they are finished typing and want to start the search. A good Search box starts the search immediately when the user stops typing (for a certain period of time).</p>
+                       Having a Search box in a Windows Phone app is a common use-case but it is only rarely done right. A good Search box does not have a Search button associated with it that the users have to click when they are finished typing and want to start the search. A good Search box starts the search immediately when the user stops typing (for a certain period of time). You can implement this functionality with some nasty code using a DispatcherTimer, or you can use Reactive Extensions.
 
-<p>You can implement this functionality with some nasty code using a DispatcherTimer, or you can use <a href="http://msdn.microsoft.com/en-us/data/gg577609.aspx">Reactive Extensions</a>. You can use Reactive Extensions directly on a TextBox representing the Search box, but if you use MVVM (and you should) you need to attach to the property associated with the Search box instead.</p>
-
-<p>Suppose the ViewModel contains a string property called SearchTerm (with two-way binding to the Search box) and an event called PropertyChanged (used for the INotifyPropertyChanged implementation). We need to observe the changes of the SearchTerm property. There is no way to do it directly, we need to observe the PropertyChanged event instead.</p>
-
-<p>We need to create an observable from the PropertyChanged event, subscribe to it filtering only the PropertyChanged calls regarding the SearchTerm property, throttling for 0.5 seconds</p>
-
-<p>Using the throttle operator we will get exactly the desired behaviour of executing the Search method 0.5 seconds after the user stopped typing.</p>
-
-<p><script src="https://gist.github.com/7657908.js"></script></p>
-
-<p>However, there is a small problem. The SearchTerm property changes (and fires the PropertyChanged event) only when the Search box loses focus. We need to make the SearchTerm property change after each letter typed instead. In WPF that would be trivial using UpdateTrigger, but Windows Phone does not support UpdateTrigger.</p>
-
-<p>We need to create a custom binding utility</p>
-
-<p><script src="https://gist.github.com/7657969.js"></script></p>
-
-<p>and apply it to the Search box</p>
-
-<p><script src="https://gist.github.com/7658031.js"></script></p>
-
+                        
+  <div class="read-more-link">
+    <a href="/creating-a-search-box-with-reactive-extensions-and-mvvm/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -141,24 +126,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>When debugging a C# program in Visual Studio, I tend to always hover over the variables to glance at their values and structure instead of explicitly writing their names into the watch window. If I want to explore say a collection, I need to unfold each of the items using the + button to get an idea about the data:</p>
+                       When debugging a C# program in Visual Studio, I tend to always hover over the variables to glance at their values and structure instead of explicitly writing their names into the watch window. If I want to explore say a collection, I need to unfold each of the items using the + button to get an idea about the data: This is not very comfortable, so thankfully, there is a way to make this experience better, using the DebuggerDisplay attribute.
 
-<p><img src="/images/debug1.png" alt="" class="pure-img" ></p>
-
-<p>This is not very comfortable, so thankfully, there is a way to make this experience better, using the <a href="http://msdn.microsoft.com/en-us/library/system.diagnostics.debuggerdisplayattribute(v=vs.110).aspx">DebuggerDisplay</a> attribute. This attribute can be applied to any class (and struct, enum, property, field, delegate, assembly) and allows you to define the information about the class you wanto to see in the debugger.</p>
-
-<p>Give the attribute a string to be displayed and in this string you can reference any data from the class:</p>
-
-<p><script src="https://gist.github.com/7640468.js"></script></p>
-
-<p>When you hover over the data now, you will see a nice readable &#8220;labels&#8221;:</p>
-
-<p><img src="/images/debug2.png" alt="" class="pure-img" ></p>
-
-<p>If you do not want to add the DebuggerDisplay attribute to all your classes manually, you can use the <a href="https://github.com/Fody/Visualize">Visualize</a> addin for <a href="https://github.com/Fody/Fody">Fody</a>. Visualize will add the DebuggerDisplay atribute to all your classes, using all the classe&#8217;s properties in the &#8220;label&#8221;.</p>
-
-<p><strong>Warning</strong>: showing this &#8220;labels&#8221; takes some time, so do not reference to many data fields.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/using-the-debuggerdisplay-attribute-for-better-debugging-experience/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -181,14 +155,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>In my current project, I have chosen <a href="http://nancyfx.org/">NancyFx</a> to implement a REST API. NancyFx is a .NET framework known for its &#8220;<a href="https://github.com/NancyFx/Nancy/wiki/Introduction#the-super-duper-happy-path">super-duper-happy-path</a>&#8220;.</p>
+                       In my current project, I have chosen NancyFx to implement a REST API. NancyFx is a .NET framework known for its &#8220;super-duper-happy-path&#8220;. In one use case I generate a ZIP file in the temp folder and I want the API to return this ZIP file. NancyFx contains a Responses.AsFile helper but it works only with paths relative to the application. If you have an absolute path of a file, you cannot use it.
 
-<p>In one use case I generate a ZIP file in the temp folder and I want the API to return this ZIP file. NancyFx contains a Responses.AsFile helper but it works only with paths relative to the application.</p>
-
-<p>If you have an absolute path of a file, you cannot use it. You need to create a StreamResponse and return the file as an attachment</p>
-
-<p><script src="https://gist.github.com/6791265.js"></script></p>
-
+                        
+  <div class="read-more-link">
+    <a href="/returning-files-in-nancyfx/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -211,40 +184,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>In this installment of the series I will show you how user data services. We will finally use the Unity DI container that is part of the project setup.</p>
+                       In this installment of the series I will show you how user data services. We will finally use the Unity DI container that is part of the project setup. Data and Services In next installment we will be showing a list of products, so let&#8217;s create a simple Product class first in the Data directory: PropertyChangedBase is a base class implementing the INotifyPropertyChanged interface and the ImplementPropertyChanged attribute makes sure it&#8217;s method is called for all the property changes.
 
-<p><strong>Data and Services</strong></p>
-
-<p>In next installment we will be showing a list of products, so let&#8217;s create a simple Product class first in the Data directory:</p>
-
-<p><script src="https://gist.github.com/6606102.js"></script></p>
-
-<p>PropertyChangedBase is a base class implementing the INotifyPropertyChanged interface and the ImplementPropertyChanged attribute makes sure it&#8217;s method is called for all the property changes. (More about Fody <a href="http://blog.kulman.sk/inotifypropertychanged-the-easy-way-in-windows-phone-and-windows-8/" title="INotifyPropertyChanged the easy way in Windows Phone and Windows 8">here</a>)</p>
-
-<p>All the operations will be handled by a service implementing the IProductService interface:</p>
-
-<p><script src="https://gist.github.com/6606127.js"></script></p>
-
-<p>You can implement this interface any way you want. To keep things simple I chose an implementation with two hardcoded products:</p>
-
-<p><script src="https://gist.github.com/6606170.js"></script></p>
-
-<p><strong>Registering services</strong></p>
-
-<p>All our services need to be registered with the Unity DI container before being used. The place to do it is the App class (App.xaml.cs file). You can override the Configure method to do it:</p>
-
-<p><script src="https://gist.github.com/6607482.js"></script></p>
-
-<p>This registers the ProductService class to the IProductService interface. The new ContainerControlledLifetimeManager() parameter is Unity&#8217;s way of setting the registration to be a singleton.</p>
-
-<p><strong>Injecting services into ViewModel</strong></p>
-
-<p>Injecting the ProductService into our MainViewModel is very simple. Just declare a IProductService variable and initialize it from constructor. Unity will take care of the rest:</p>
-
-<p><script src="https://gist.github.com/6607538.js"></script></p>
-
-<p>Next time we will implement a typical master-detail scenario showing products usign the ProductService whe have created. All the code is again <a href="https://github.com/igorkulman/CaliburnDemoWinRT">available at GitHub</a>.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/developing-windows-store-apps-with-caliburn-micro-part-4-services-and-dependency-injection/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -267,24 +213,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>In the <a href="http://blog.kulman.sk/developing-windows-store-apps-with-caliburn-micro-part-2-navigation/" title="Developing Windows Store apps with Caliburn Micro Part 2: navigation">previous post</a> I stated that a well-behaved Windows Store app should remeber the View the user navigated to before suspension and navigate to this View upon next run. The View can contain some input that the user can fill in. A well-behaved Windows Store app should remember the user&#8217;s input and restore it after suspension.</p>
+                       In the previous post I stated that a well-behaved Windows Store app should remeber the View the user navigated to before suspension and navigate to this View upon next run. The View can contain some input that the user can fill in. A well-behaved Windows Store app should remember the user&#8217;s input and restore it after suspension. Saving and restoring state Implementation of the above-mentioned scenario is not very complicated, thanks to the project setup.
 
-<p><strong>Saving and restoring state</strong></p>
-
-<p>Implementation of the above-mentioned scenario is not very complicated, thanks to the project setup. If you want your ViewModel to be able to save and restore state, implement the IHaveState interface. It contains two method that you can override; SaveState and LoadState. In bith method you have access to a page state dictionary that you can use to save and load the state.</p>
-
-<p>Let us reuse the SecondPageViewModel from the last post. Implement IHaveState, add two string properties and use the SaveState and LoadState method to save and load them using the page state dictionary</p>
-
-<p><script src="https://gist.github.com/6173564.js"></script></p>
-
-<p>To test it, first add two TextBoxes to the SecondPageView with two-way binding</p>
-
-<p><script src="https://gist.github.com/6173636.js"></script></p>
-
-<p>Now run the application, navigate to the SecondPageViewModel and fill in the TextBoxes. Switch to Visual Studio and invoke the Suspend and Shutdown command. When you run the application again, you will see the SecondPageViewModel with TextBoxes with the same values as before the suspension.</p>
-
-<p>The code is again <a href="https://github.com/igorkulman/CaliburnDemoWinRT">available at Github</a>. If you are interested in the implementation of saving and loading state, read <a href="http://nybbles.blogspot.cz/2013/02/winrt-caliburnmicro-and-ioc-part-3.html">this article</a>.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/developing-windows-store-apps-with-caliburn-micro-part-3-saving-and-restoring-state/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -307,58 +242,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>In this second part you will add another ViewModel and View and implement navigation between two ViewModels, including saving the navigation state between starts. The code is as always <a href="https://github.com/igorkulman/CaliburnDemoWinRT">available at Github</a>.</p>
+                       In this second part you will add another ViewModel and View and implement navigation between two ViewModels, including saving the navigation state between starts. The code is as always available at Github. Invoking ViewModel methods If you want to test out navigation between ViewModels, you first need something that will trigger the navigation. The easiest way to do this is to use a standard Button. If you do MVVM &#8220;by hand&#8221;, you are probably used to creating ICommand properties and binding them to the Button&#8217;s Command dependency property.
 
-<p><strong>Invoking ViewModel methods</strong></p>
-
-<p>If you want to test out navigation between ViewModels, you first need something that will trigger the navigation. The easiest way to do this is to use a standard Button. If you do MVVM &#8220;by hand&#8221;, you are probably used to creating ICommand properties and binding them to the Button&#8217;s Command dependency property.</p>
-
-<p>Caliburn Micro offers an easier way. If you want a Button to invoke a method on your ViewModel, just the give the button the same name as the name of the button. The method should be public void.</p>
-
-<p>On the MainViewModel, create a public void GoToSecondPage method:</p>
-
-<p><script src="https://gist.github.com/6103983.js"></script></p>
-
-<p>In the MainView create a Button with x:Name=&#8221;GoToSecondPage&#8221;. When you start the application and click the button, a message dialog is shown, so you know the autobinding beetween your Button and your GoToSecondPage method works.</p>
-
-<p><strong>Navigation</strong></p>
-
-<p>As you may have noticed, a INavigationService is injected into the MainViewModel&#8217;s constructor. You can use this INavigationService to navigate between ViewModels.</p>
-
-<p>In the ViewModels folder create a new ViewModel called SecondPageViewModel with one string property Title (exactly the same as the MainViewModel):</p>
-
-<p><script src="https://gist.github.com/6103938.js"></script></p>
-
-<p>In the Views folder, create a new View called SecondPageView as a Blank Page. Give it some colorful background so it is clearly distinguishable from the MainView:</p>
-
-<p><script src="https://gist.github.com/6104005.js"></script></p>
-
-<p>Now you can finally make the GoToSecondPage method navigate the user to the SecondPageViewModel. To do this, first get the Uri from the INavigationService using the strongly typed UriFor&lt;.&gt; method and then call the Navigate method:</p>
-
-<p><script src="https://gist.github.com/6104023.js"></script></p>
-
-<p><strong>Navigation with parameters</strong></p>
-
-<p>In many cases you need to navigate to a ViewModel passing the ViewModel some parameters. This is as easy as adding a call to WithParam to your navigation code:</p>
-
-<p><script src="https://gist.github.com/6104042.js"></script></p>
-
-<p>You can use the WithParam method to give the ViewModel as many parameters as you want.</p>
-
-<p><strong>Saving and loading navigation state</strong></p>
-
-<p>A well-behaved Windows Store application should remember the last ViewModel active when the user exited the app and load this ViewModel when the user starts the application again. In our demo, this is not the case. You can test it by navigating to the SecondPageViewModel, switching to Visual Studio, using the Suspend and Shutdown option and starting the application again.</p>
-
-<p>You need to fix this so when the suspended application starts again, it will show the SecondPageViewModel (unless the MainViewModel was active when the application was suspended). The Caliburn.Micro.Unity.WinRT package already contains the support for saving and restoring state.</p>
-
-<p>First you need to make the Views inherit from the Caliburn.Micro.Unity.WinRT.Code.AppPage insted of Page and delete theirs OnNavigateTo methods. Then you need to explicitly save the state when the application starts. Open the App.xaml.cs and add the following method:</p>
-
-<p><script src="https://gist.github.com/6104122.js"></script></p>
-
-<p>If you now navigate to second page, suspend and shutdown the application and start it again, you will see the second page.</p>
-
-<p>There is currently no way to navigate back from the SecondPageViewModel to the MianViewModel. I am fairly confident you can implement it by yourself using the INavigationService&#8217;s GoBack method.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/developing-windows-store-apps-with-caliburn-micro-part-2-navigation/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -381,73 +271,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>I have been developing Windows Store apps for some time. I have always used MVVM, but mostly &#8220;my own&#8221; MVVM. I have finally decided to use a &#8220;real&#8221; MVVM framework and I have chosen Caliburn Micro, because I did not like MVVM very much. In this article I am going to show you how to use Caliburn Micro, Unity and Fody to develop Windows Store apps.</p>
+                       I have been developing Windows Store apps for some time. I have always used MVVM, but mostly &#8220;my own&#8221; MVVM. I have finally decided to use a &#8220;real&#8221; MVVM framework and I have chosen Caliburn Micro, because I did not like MVVM very much. In this article I am going to show you how to use Caliburn Micro, Unity and Fody to develop Windows Store apps. Caliburn Micro Caliburn Micro is a small, yet powerful framework, designed for building applications across all Xaml Platforms.
 
-<p><strong>Caliburn Micro</strong></p>
-
-<p><a href="https://caliburnmicro.codeplex.com/">Caliburn Micro</a> is a small, yet powerful framework, designed for building applications across all Xaml Platforms. With strong support for MVVM and other proven UI patterns, Caliburn.Micro will enable you to build your solution quickly, without the need to sacrifice code quality or testability.</p>
-
-<p><strong>Unity</strong></p>
-
-<p>When I started with Calibun Micro I discovered an <a href="http://nybbles.blogspot.cz/2013/02/winrt-caliburnmicro-and-ioc-part-3.html">article by Thomas Baker about using Unity as DI container with Caliburn Micro</a>. His article also contains code that makes it easy for you to save and load state when the app gets suspended. With his permission, I have <a href="https://nuget.org/packages/Caliburn.Micro.Unity.WinRT/">created a Nuget package</a> from his code, this article is going to use this package.</p>
-
-<p><strong>Fody</strong></p>
-
-<p>I have been using <a href="https://github.com/Fody/Fody">Fody</a> with Windows Phone and Windows Store apps for some time now. I especially use the <a href="https://github.com/Fody/PropertyChanged">INotifyPropertyChanged weaver</a> I <a href="http://blog.kulman.sk/inotifypropertychanged-the-easy-way-in-windows-phone-and-windows-8/" title="INotifyPropertyChanged the easy way in Windows Phone and Windows 8">wrote about earlier</a>. Check the article for more information if you are not already familliar with Fody.</p>
-
-<p><strong>Application setup</strong></p>
-
-<p>Let&#8217;s start buidling a simple demo application. This demo application will show you how little code you need to write to get something done when using the mentioned libraries.</p>
-
-<p>Create a Blank App. Add the <a href="http://www.nuget.org/packages/Caliburn.Micro.Unity.WinRT/">Caliburn.Micro.Unity.WinRT</a> package from Nuget. It will install all the dependencies you need. Install <a href="http://www.nuget.org/packages/PropertyChanged.Fody/">PropertyChanged.Fody</a> from Nuget. Next you need to hook up PropertyChanged.Fody with Fody. Open FodyWeavers.xml and change it to</p>
-
-<p><script src="https://gist.github.com/6088620.js"></script></p>
-
-<p>PropertyChanged.Fody now knows that it should call the NotifyOfPropertyChange method from Caliburn Micro when a property gets changed. Let&#8217;s do some cleanup next. Delete MainPage.xaml, rename the Common folder to Resources and create a few additional folders:</p>
-
-<ul>
-<li>Views</li>
-<li>ViewModels</li>
-<li>Data</li>
-<li>Converters</li>
-<li>Services</li>
-<li>Code</li>
-</ul>
-
-<p>Next make you app inherit from CaliburnUnityApplication by changing App.xaml to</p>
-
-<p><script src="https://gist.github.com/6088861.js"></script></p>
-
-<p>and cleaning up and changing App.xaml.cs to</p>
-
-<p><script src="https://gist.github.com/6088871.js"></script></p>
-
-<p><strong>First ViewModel</strong></p>
-
-<p>Now you can create your first ViewModel and your first View. Caliburn Micro uses a naming convention to pair a ViewModel and a View. Create a new class called MainViewModel in the ViewModels folder. Make the class inherit from ViewModelBase and implement the default constructor:</p>
-
-<p>create a new string property called Title. Add the ImplementPropertyChanged attribute to the class. This makes NotifyPropertyChanged.Fody call the NotifyOfPropertyChange whenever any of the properties (just Title for now) changes. Assing some text to the Title property in the constructor:</p>
-
-<p><script src="https://gist.github.com/6088988.js"></script></p>
-
-<p><strong>First View</strong></p>
-
-<p>Now create a view for the MainViewModel as a Blank Page. According to the naming conventions, it needs to be called MainView and created in the Views folder. Add a TextBlock to the View. To bind the text of this TextBlock to the Title property, you could use Text=&#8221;{Binding Title}&#8221;. This works just fine but you do not have to do it. Just name the TextBlock the same as the property you want it to bind to (in our case Title):</p>
-
-<p><script src="https://gist.github.com/6089012.js"></script></p>
-
-<p><strong>Navigating to the view</strong></p>
-
-<p>There is only one more thing left to do. You need to tell the framework to navigate to the MainView when the app starts. This is done in the OnLaunched method in App.xaml.cs</p>
-
-<p><script src="https://gist.github.com/6089032.js"></script></p>
-
-<p><strong>Run you app</strong></p>
-
-<p>Hit F5 and you will see your app start, navigate to MainView and show the text from the Title property in this view.</p>
-
-<p>You can find the <a href="https://github.com/igorkulman/CaliburnDemoWinRT">code on Github</a> and stay tuned for Part 2!</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/developing-windows-store-apps-with-caliburn-micro-part-1-setup-and-first-view/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -470,38 +300,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>I am currently working on a fairly large Windows Azure projects that among other things conatins a Web Role where I use <a href="http://www.ninject.org/">Ninject</a> as a dependency container. As the business logic library grew larger I found myself writing a lot of repeating boiler plate code to log exceptions in many important methods. I wantet to remove all the boiler plate code and create a custom attribute, say LogErrorAttribute with one simple goal: each method decorated woth this attribute should log info about any occuring exception.</p>
+                       I am currently working on a fairly large Windows Azure projects that among other things conatins a Web Role where I use Ninject as a dependency container. As the business logic library grew larger I found myself writing a lot of repeating boiler plate code to log exceptions in many important methods. I wantet to remove all the boiler plate code and create a custom attribute, say LogErrorAttribute with one simple goal: each method decorated woth this attribute should log info about any occuring exception.
 
-<p><strong>IL weaving?</strong></p>
-
-<p>I have been using <a href="https://github.com/Fody/Fody">Fody</a> for some time to <a href="http://blog.kulman.sk/inotifypropertychanged-the-easy-way-in-windows-phone-and-windows-8/" title="INotifyPropertyChanged the easy way in Windows Phone and Windows 8">implement the INotifyPropertyChanged calls for me in Windows Phone and Windows 8 projects</a> so it was my first choice.</p>
-
-<p>There is a <a href="https://github.com/Fody/MethodDecorator">Fody.MethodDecorator</a> extensions that allows you to execute your code on a methods start, exit and exception. Writing the exception to Console is trivial, but I wanted to use a implementation of my custom ILogFactory.</p>
-
-<p>There was no way to inject a ILogFactory implementation into the InterceptorAttribute. The only way that could work would be to use a ServiceLocator and I did not want to do it.</p>
-
-<p><strong>Dynamic proxy!</strong></p>
-
-<p>I came across <a href="http://www.castleproject.org/projects/dynamicproxy/">Castle Dynamic Proxy</a> and realized that there are Ninject extensions that allow you to easily use it.</p>
-
-<p>First you need to install <a href="http://www.nuget.org/packages/Ninject.Extensions.Interception/3.0.0.8">Ninject.Extensions.Interception</a>. It has no depedencies other that Ninject, but you also have to install <a href="http://www.nuget.org/packages/Ninject.Extensions.Interception.DynamicProxy/3.0.0.8">Ninject.Extensions.Interception.DynamicProxy</a> (and <a href="http://www.nuget.org/packages/Castle.Core/">Castle.Core</a> as a dependency) otherwise it will not work.</p>
-
-<p>First, create a class implementing the IInterceptor interface</p>
-
-<p><script src="https://gist.github.com/6045777.js"></script></p>
-
-<p>This class wraps the intercepted method invocation into a try..catch block and logs any occuring exception using my custom ILogFactory, including parameter values.</p>
-
-<p>Next, create a class implementing the InterceptAttribute</p>
-
-<p><script src="https://gist.github.com/6045812.js"></script></p>
-
-<p>This attribute uses the Ninject kernel to get an instance of the ErrorLoggingInterceptor so you do not have to concern yourself explictily with providing an ILogFactory implementation, Ninject will do all the work.</p>
-
-<p>Now you can use the LogErrorAttribute to mark any method, but keep in mind that all the marked methods must be virtual</p>
-
-<p><script src="https://gist.github.com/6045825.js"></script></p>
-
+                        
+  <div class="read-more-link">
+    <a href="/intercepting-methods-with-ninject-for-error-logging/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -524,32 +329,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>I often wonder how can something as crucial as in-app purchases be so badly implemented in Windows Store. I really do not recommend anyone to use Windows Store&#8217;s built in in-app purchases. Use a third party provider or implement your own purchase mechanism, Microsoft is ok with that. You will be better of than using the built-in one. Here is why.</p>
+                       I often wonder how can something as crucial as in-app purchases be so badly implemented in Windows Store. I really do not recommend anyone to use Windows Store&#8217;s built in in-app purchases. Use a third party provider or implement your own purchase mechanism, Microsoft is ok with that. You will be better of than using the built-in one. Here is why. Limited number of in-app purchases per app I previously wrote about the fact that Windows Store limits the number of in-app purchases you can define for an app.
 
-<p><strong>Limited number of in-app purchases per app</strong></p>
-
-<p>I previously wrote about the fact that <a href="http://blog.kulman.sk/windows-store-limits-the-number-of-in-app-purchases-for-an-app/">Windows Store limits the number of in-app purchases you can define for an app</a>. The current limit is 200. If you need more, say you sell a daily newspaper, you are out of luck and Windows Store&#8217;s in app-purchases are not for you.</p>
-
-<p><strong>Complicated receipt validation outside of .NET</strong></p>
-
-<p>If you use in-app purchases you surely want to validate them on your server, especially considering the very weak security that Windows 8 offers to Windows Store apps. If you are not using .NET on your server, there is no guide on how to do it. Microsoft only offers a code sample in C#, nothing else. Good luck finding a solution for say PHP, I could not find any.</p>
-
-<p><strong>Half-baked purchases restoration</strong></p>
-
-<p>If a user uninstalls your app and installs it again you typically do not want him to need to buy everything again. You need a way to restore the purchases. If you do not use server-side receipt validation, it is trivial, even more trivial than cracking your application and getting everything for free. If you use server-side receipt validation, things get complicated.</p>
-
-<p>Restoring purchases is typically done in a very simple way. You request all the receipts from the app store and send them to your server for validation. The server then enables the bought items for the user. I would not be Windows Store if there were no catch.</p>
-
-<p>The problem is that you can get the receipt just once, when the users makes the in-app purchase. There is no way to get the receipt at any later time. There is a method called <a href="http://msdn.microsoft.com/en-us/library/windows/apps/windows.applicationmodel.store.currentapp.getproductreceiptasync.aspx">GetProductReceiptAsync</a> but it throws an NotImplementedException. Looks like Microsoft did not really think that anyone would want to restore purchases in combination with server-side validation (Typical use-case in say AppStore).</p>
-
-<p>The only way to implement this is storing all the receipts on the server and sending the server receipt ids when restoring purchases. You can get the receipt ids from <a href="http://msdn.microsoft.com/en-us/library/windows/apps/windows.applicationmodel.store.currentapp.getappreceiptasync.aspx">GetAppReceiptAsync</a> after some XML parsing. Just make sure the receipt gets to the server after the purchase, because there is no way to get it again.</p>
-
-<p><strong>No sandbox for testing</strong></p>
-
-<p>You cannot do any &#8220;real&#8221; testing with Windows Store. It does not provide any sanbox. The only way to test the in-app purchases is to use the primitive <a href="http://msdn.microsoft.com/en-us/library/windows/apps/windows.applicationmodel.store.currentappsimulator">CurrentAppSimulator</a> that can basically just simulate if the users cliked ok or cancel in the buy dialog or if there was an error. You cannot use it to test you server-side receipt validation.</p>
-
-<p>There is no way to &#8220;pair&#8221; your app running form Visual Studio to you app defined in Windows Store for testing purposes. You really need to trust your implementation and you can test it only after the app is published and live in Windows Store.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/why-you-should-not-use-windows-store-for-in-app-purchases/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -572,18 +358,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>In both Windows Phone 7 and Windows Phone 8 the background agent is executed approximately every 30 minutes. If you want to run your code more often, for example to create an app showing actual time on the live tile, you are out of luck. Are you?</p>
+                       In both Windows Phone 7 and Windows Phone 8 the background agent is executed approximately every 30 minutes. If you want to run your code more often, for example to create an app showing actual time on the live tile, you are out of luck. Are you? You can use ScheduledActionService.LaunchForTest to test your background agent without waiting 30 minutes for the system to run it. What if you use this method in the OnInvoke method of your background agent?
 
-<p>You can use <a href="http://msdn.microsoft.com/en-US/library/windowsphone/develop/microsoft.phone.scheduler.scheduledactionservice.launchfortest(v=vs.105).aspx">ScheduledActionService.LaunchForTest</a> to test your background agent without waiting 30 minutes for the system to run it. What if you use this method in the OnInvoke method of your background agent?</p>
-
-<p><script src="https://gist.github.com/5849356.js"></script></p>
-
-<p>Your background agent gets executed every minute! I <a href="http://blog.kulman.sk/wp-content/uploads/2013/06/CSWP7ScheduledTaskAgent.zip">created a simple demo</a> so you can see for yourself.</p>
-
-<p>I wonder if this code would pass certification. Has anyone tried to use it?</p>
-
-<p><strong>Update:</strong> it will <strong>not</strong> work, see <a href="http://blog.mjfnet.com/2013/01/10/windows-phone-dont-call-launchfortest-in-release/">Windows Phone: Don’t call LaunchForTest in Release</a>.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/windows-phone-run-background-agent-every-minute/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 

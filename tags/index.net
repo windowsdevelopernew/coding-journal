@@ -97,18 +97,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>I recently worked on an ASP.NET application that needed to detect if users were coming from tablets or smartphones. The project used data from <a href="http://user-agent-string.info/">http://user-agent-string.info/</a> to do this detection, but the result were not really good. We needed a better solution, so I came up with using <a href="http://wurfl.sourceforge.net/">WURFL</a>.</p>
+                       I recently worked on an ASP.NET application that needed to detect if users were coming from tablets or smartphones. The project used data from http://user-agent-string.info/ to do this detection, but the result were not really good. We needed a better solution, so I came up with using WURFL. WURFL, the Wireless Universal Resource FiLe, is a Device Description Repository (DDR), i.e. a software component that maps HTTP Request headers to the profile of the HTTP client (Desktop, Mobile Device, Tablet, etc.) that issued the request.
 
-<p>WURFL, the Wireless Universal Resource FiLe, is a Device Description Repository (DDR), i.e. a software component that maps HTTP Request headers to the profile of the HTTP client (Desktop, Mobile Device, Tablet, etc.) that issued the request. Adding WURFL to your ASP.NET application is easy thanks to the <a href="https://www.nuget.org/packages/WURFL_Official_API/">WURFL_Official_API Nuget package</a>. The Nuget package also contains definition file, so you just need to update the Nuget package once in a while to get your definition file up to date.</p>
-
-<p>After installing the Nuget package, you need to setup WURLF in your Global.asax file</p>
-
-<script src="https://gist.github.com/igorkulman/dc65bf6d68aec59d57e2.js?file=wurlf_setup.cs"></script>
-
-<p>I recommend setting the match mode to accuracy instead of speed, to get the best results. Using the WURFL library is also quite easy, just pass the user agent string and get the properties you want.</p>
-
-<script src="https://gist.github.com/igorkulman/dc65bf6d68aec59d57e2.js?file=wurfl_usage.cs"></script>
-
+                        
+  <div class="read-more-link">
+    <a href="/detecting-tablets-and-smartphones-in-asp-net/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -131,20 +126,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>Uploading a file in ASP.NET MVC is very easy, but there is no easy way to detect the encoding of a uploaded text file. However you can use the fact if you try to read the file with a wrong encoding, you get an DecoderFallbackException. So how do you put everything together?</p>
+                       Uploading a file in ASP.NET MVC is very easy, but there is no easy way to detect the encoding of a uploaded text file. However you can use the fact if you try to read the file with a wrong encoding, you get an DecoderFallbackException. So how do you put everything together? First, get a stream of the uploaded file. Next, read the whole file to a byte array Finally
 
-<p>First, get a stream of the uploaded file.</p>
-
-<p><script src="https://gist.github.com/5849381.js"></script></p>
-
-<p>Next, read the whole file to a byte array</p>
-
-<p><script src="https://gist.github.com/5849384.js"></script></p>
-
-<p>Finally the trick is to try all the encodings you think the file may be in and chech if if fails or not</p>
-
-<p><script src="https://gist.github.com/5849390.js"></script></p>
-
+                        
+  <div class="read-more-link">
+    <a href="/detecting-encoding-of-uploaded-file-in-asp-net-mvc/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -167,28 +155,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>If you want to host your .NET project on the Internet, there are classic ASP.NET webhosting on one side of the spectrum and Microsoft Azure on the other. If you are looking for something in the middle, take a look at <a href="https://appharbor.com/">AppHarbor</a>.</p>
+                       If you want to host your .NET project on the Internet, there are classic ASP.NET webhosting on one side of the spectrum and Microsoft Azure on the other. If you are looking for something in the middle, take a look at AppHarbor. AppHarbor AppHarbor is a flexible and scalable .NET Platform-as-a-Service, that you can even use for free, limited to one web or worker role. It runs in AWS and is quite similiar to Heroku.
 
-<p><strong>AppHarbor</strong></p>
-
-<p>AppHarbor is a flexible and scalable .NET Platform-as-a-Service, that you can even <a href="https://appharbor.com/pricing">use for free</a>, limited to one web or worker role. It runs in AWS and is quite similiar to Heroku.</p>
-
-<p><strong>Variety of Add-ons</strong></p>
-
-<p>There are <a href="https://appharbor.com/addons">many add-on supported by AppHarbor</a>, including SQL Server, MongoDB, RavenDB, MySQL, Memcacher &#8230; Many of these ad-ons offer free versions so you can test them for free. If you run into some problems, you can use <a href="http://support.appharbor.com/">the support forums</a> or <a href="http://stackoverflow.com/questions/tagged/appharbor">StackOverflow</a>.</p>
-
-<p><strong>Flexible deployment</strong></p>
-
-<p>The thing I like best about AppHarbor are the deployment options. You can push your .NET code to AppHarbor using Git, Mercurial, Subversion or Team Foundation Server with the complimentary Git service or through integrations offered in collaboration with <a href="http://support.appharbor.com/kb/api/integrating-with-bitbucket">Bitbucket</a>, <a href="http://support.appharbor.com/kb/api/integrating-with-codeplex">CodePlex</a> and <a href="http://blog.appharbor.com/2011/10/13/announcing-github-support">GitHub</a>.</p>
-
-<p>When AppHarbor receives your code it will be built by a platform build server. If the code compiles, any unit tests contained in the compiled assemblies will be run. If the code builds and all tests execute successfully, the application is deployed to the AppHarbor application servers.</p>
-
-<p><strong>Compatibility</strong></p>
-
-<p>The majority of .NET code runs just fine in AppHarbor without any changes. If you use Nuget, you need to enabled Nuget Package Restore for your solution.</p>
-
-<p>Let the continous deployment begin &#8230; my first AppHarbor project is hosted at <a href="http://myexpenses.apphb.com/">http://myexpenses.apphb.com</a>.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/appharbor-great-place-to-start-your-net-project/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 

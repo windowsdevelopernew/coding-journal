@@ -97,28 +97,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>Windows Store apps run in a sandbox with their data isolated from each other. So how secure is this storage from tampering by the user? It turns out not much.</p>
+                       Windows Store apps run in a sandbox with their data isolated from each other. So how secure is this storage from tampering by the user? It turns out not much. The only Windows Store app I use on my work notebook is WeatherFlow because of the live tile. The app allows you to add your city and view weather forecast for it. But there is now way to get rid of the default cities like New York, Tokyo, etc.
 
-<p>The only Windows Store app I use on my work notebook is WeatherFlow because of the live tile. The app allows you to add your city and view weather forecast for it. But there is now way to get rid of the default cities like New York, Tokyo, etc. that are in the app when you first run it. This realy annoyed me so I started to poke around.</p>
-
-<p>Using the debugger and checking the value of ApplicationData.Current.LocalFolder I found out that all the data of Windows Store apps are stored in AppData\Local\Packages in your profile (for me it is C:\Users\Igor\AppData\Local\Packages). The name of the directory for the app you are lookin for usualy contain its name, it is 08C8076A.WeatherFlow_gyyqpbm0tqk6g for WeatherFlow. The directory for each app contains a few subdirectories</p>
-
-<p>AC</p>
-
-<p>LocalState</p>
-
-<p>RoamingState</p>
-
-<p>Settings</p>
-
-<p>SystemAppData</p>
-
-<p>TempState</p>
-
-<p>The important directories are LocalState and RoamingState representing the local and roaming folder, where each application can store its files. WeatherFlow uses only LocalState where it stores one data.json file with its configuration. You can edit the file and remove the unwanted city, then run the application again and it still works, with the changes you made.</p>
-
-<p>Now imaging editing files of a game, giving yourself gold coins or armor, or copying files somewhere else, sharing &#8230; If you want the data of your Windows Store app to be secured, you have to do it by yourself.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/tampering-with-windows-store-apps-data/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -141,30 +126,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>When developing a Windows 8 app you may need to uniquely identify the device the app runs on. One reason may be the implementation of in-app purchases.</p>
+                       When developing a Windows 8 app you may need to uniquely identify the device the app runs on. One reason may be the implementation of in-app purchases. The Windows.System.Profile namespace contains HardwareToken that you can get by calling HardwareIdentification.GetPackageSpecificToken(null) This class contains a bunch of interesting fields All of these fields are of type Windows.Storage.Stream.Ibuffer, therefore COM calls. To use a value useable with .NET you have to use the DataReader, I get the unique device identifier from the hardwareId The resulting byte array can be converted to an UTF8 string I prefer concatenating the bytes to a string Update: The hardware token of a device can change with hardware changes.
 
-<p>The Windows.System.Profile namespace contains HardwareToken that you can get by calling HardwareIdentification.GetPackageSpecificToken(null)</p>
-
-<p><script src="https://gist.github.com/5849503.js"></script></p>
-
-<p>This class contains a bunch of interesting fields</p>
-
-<p><script src="https://gist.github.com/5849507.js"></script></p>
-
-<p>All of these fields are of type Windows.Storage.Stream.Ibuffer, therefore COM calls. To use a value useable with .NET you have to use the DataReader, I get the unique device identifier from the hardwareId</p>
-
-<p><script src="https://gist.github.com/5849511.js"></script></p>
-
-<p>The resulting byte array can be converted to an UTF8 string</p>
-
-<p><script src="https://gist.github.com/5849513.js"></script></p>
-
-<p>I prefer concatenating the bytes to a string</p>
-
-<p><script src="https://gist.github.com/5849515.js"></script></p>
-
-<p><strong>Update:</strong> The hardware token of a device can change with hardware changes. Even small hardware changes like disabling Bluetooth can change the hardware token. You should generate it just once and save it.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/how-to-uniquely-identify-a-windows-8-device/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -187,32 +155,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>JSON is a very popular format for exchanging data, especially in the world of web technologies and JavaScript. The .NET platform contains a native support for this format but a better alternative is to use the JSON.NET library.</p>
+                       JSON is a very popular format for exchanging data, especially in the world of web technologies and JavaScript. The .NET platform contains a native support for this format but a better alternative is to use the JSON.NET library. JSON.NET JSON.NET is a flexible JSON serializer for .NET with LIQN support. The biggest reason for using this library is its performance in comparison to the standard DataContractJsonSerializer. The easiest way to use the library is to use the Nuget package.
 
-<p><strong>JSON.NET</strong></p>
-
-<p><a href="http://james.newtonking.com/projects/json-net.aspx">JSON.NET</a> is a flexible JSON serializer for .NET with LIQN support. The biggest reason for using this library is its performance in comparison to the standard DataContractJsonSerializer. The easiest way to use the library is to use the <a href="https://nuget.org/packages/Newtonsoft.Json">Nuget package</a>.</p>
-
-<p>JSON.NET is very easy to use; first you create a JObject instance</p>
-
-<p><script src="https://gist.github.com/5857544.js"></script></p>
-
-<p>from which you can get a collection (in our example of type TicketViewModel)</p>
-
-<p><script src="https://gist.github.com/5857549.js"></script></p>
-
-<p>filling the TicketViewModel instance from the JObject</p>
-
-<p><script src="https://gist.github.com/5857554.js"></script></p>
-
-<p><strong>DataContractJsonSerializer</strong></p>
-
-<p>If you do not want or cannot use JSON.NET you can use the already mentioned DataContractJsonSerializer. Before you use it, you have to create a class with the same structure as the JSON. You do not have to create it by hand; you can use the <a href="http://json2csharp.com/">json2csharp</a> utility.</p>
-
-<p>Using the DataContractJsonSerializer is a less readable than using JSON.NET</p>
-
-<p><script src="https://gist.github.com/5857558.js"></script></p>
-
+                        
+  <div class="read-more-link">
+    <a href="/processing-json-in-net/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -235,26 +184,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>GridView and ListView are the two of the most commonly used components in Windows 8 apps. Items in these two components are displayed according to the DataTemplate give as the ItemTemplate property. If you do not want to display all the items the same way, you need to use a custom ItemTemplateSelector.</p>
+                       GridView and ListView are the two of the most commonly used components in Windows 8 apps. Items in these two components are displayed according to the DataTemplate give as the ItemTemplate property. If you do not want to display all the items the same way, you need to use a custom ItemTemplateSelector. Using ItemTemplateSelector in Windows 8 apps is easier and more straightforward that in Windows Phone 7 (I wrote about that here in Slovak).
 
-<p>Using ItemTemplateSelector in Windows 8 apps is easier and more straightforward that in Windows Phone 7 (I wrote about that <a href="http://www.kulman.sk/sk/content/wp7-ako-zobrazovat-objekty-roznych-typov-v-listboxe">here in Slovak</a>). All you need to do is to create a class inheriting from the DataTemplateSelector and set the ItemTemplateSelector property of GridView (or ListView) to this new class.</p>
-
-<p>When inheriting from the DataTemplateSelector you need to override the SelectTemplateCore method. In this method you have accees to the binded item and and you can use it to decide which DataTemplate to return. You can define your DataTemplates in the App.xaml and access them via the Application.Current.Resources array with casting, but that is a bad habbit. A better solution would be to define public DataTemplate properties in your class and assign them in XAML.</p>
-
-<p>A custom DataTemplateSelector class may look like this</p>
-
-<p><script src="https://gist.github.com/5849469.js"></script></p>
-
-<p>This class chooses one of two DataTemplates (MagazineTemplate, BigMagazineTemplate) according to the item&#8217;s IsTop boolean property.</p>
-
-<p>In your XAML, first declare the MainGridTemplateSelector and set the DataTemplate properties class</p>
-
-<p><script src="https://gist.github.com/5849474.js"></script></p>
-
-<p>Where MagazineTemplate and BigMagazineTemplate are DataTemplates defined in your XAML. Then simply set the ItemTemplateSelector property of the GridView (ListView)</p>
-
-<p><script src="https://gist.github.com/5849477.js"></script></p>
-
+                        
+  <div class="read-more-link">
+    <a href="/using-different-data-templates-with-gridview-in-windows-8-apps/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -277,20 +213,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>The StorageFolder class does not containt any method to determine if a file with given name exists in that folder. There are at least two ways how to implement such method, let us call it ContainsFileAsync.</p>
+                       The StorageFolder class does not containt any method to determine if a file with given name exists in that folder. There are at least two ways how to implement such method, let us call it ContainsFileAsync. The first method could take advantage of the GetFilesAsync method that returns a readonly list of all the files in a folder as StorageFile objects. The StorageFile contains a property called Name that you could compare with the given filename.
 
-<p>The first method could take advantage of the GetFilesAsync method that returns a readonly list of all the files in a folder as StorageFile objects. The StorageFile contains a property called Name that you could compare with the given filename. The whole code would look like this</p>
-
-<p><script src="https://gist.github.com/5849495.js"></script></p>
-
-<p>This method looks fairly simple, elegant and works if the folder contains only a few files. When the folder contains tens or hundreds of files, this method gets very slow. In a folder with approximately 100 files the method takes about 1.5 seconds to return the result.</p>
-
-<p>There is faster way, that works in constant time (about 50ms) even in folders with hundred files, but it is not so elegant. The idea is simple, try to access the files and if you get an exception, just return false.</p>
-
-<p><script src="https://gist.github.com/5849500.js"></script></p>
-
-<p>Although I am a big fan of elegance and readability when coding, I prefer and use the second method.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/fast-way-to-check-if-a-file-exists-in-winrt/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -313,20 +242,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>Semantic zoom is an important part of all Windows 8 apps, it is a distinctive feature that differentiates them from other platforms. The SemanticZoom component works fine if you want the default experience, but if you want some customization you have to try a bit harder.</p>
+                       Semantic zoom is an important part of all Windows 8 apps, it is a distinctive feature that differentiates them from other platforms. The SemanticZoom component works fine if you want the default experience, but if you want some customization you have to try a bit harder. The problem with the SemanticZoom component is, that as a child of it&#8217;s Semantic­Zoom.ZoomedIn­View and SemanticZoom.Zo­omedOutView elements, displaying the two states, you can use only two standard components; GridView and ListView.
 
-<p>The problem with the SemanticZoom component is, that as a child of it&#8217;s Semantic­Zoom.ZoomedIn­View and SemanticZoom.Zo­omedOutView elements, displaying the two states, you can use only two standard components; GridView and ListView. You cannot use the Grid and show mixed content. If you use one of these components, then clicking on any item in the zoomed out state shows you the group in the zoomed in state. You cannot implement any custom behaviour, the ItemClick event gets completely ignored. So how do you customize the SemanticZoom component?</p>
-
-<p>The key is to notice that both the GridView and the ListView components implement the ISemanticZoomIn­formation interface. Any component implementing this interface can be used as a child of the SemanticZoom.Zo­omedInView and SemanticZoom.ZoomedOutView elements. So lets implement an component called SemanticGrid that inherits from Grid and implements ISemanticZoomInformation</p>
-
-<p><script src="https://gist.github.com/5849457.js"></script></p>
-
-<p>Let Visual Studio generate stubs for all the methods and properties in the ISemanticZoomIn­formation inteface. You do not need to implement them, just comment out the throw new NotImplementedException(); from all the methods and change the properties to</p>
-
-<p><script src="https://gist.github.com/5849461.js"></script></p>
-
-<p>And you are done. You can use this component with the SemanticZoom component instead of the GridView or the ListView and customize the semantic zoom according to your needs. Also if you wrap a GridView in this SemanticZoomGrid and place it in the SemanticZoom.ZoomedOutView element, the ItemClick handler in the GridView will work and you can implement custom actions.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/customizing-semantic-zoom-in-windows-8-apps/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -349,10 +271,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>I have been playing with the idea of having a coding blog in English for some time now. I have written some posts about programming in C# and Windows Phone 7 on my Slovak web, but I wanted to address a wider audience. I plan to publish one post per week, mainly about WinRT programming. I want the posts to be useful and solve a particular problem I stumble upon in my work developing Windows Store apps.</p>
+                       I have been playing with the idea of having a coding blog in English for some time now. I have written some posts about programming in C# and Windows Phone 7 on my Slovak web, but I wanted to address a wider audience. I plan to publish one post per week, mainly about WinRT programming. I want the posts to be useful and solve a particular problem I stumble upon in my work developing Windows Store apps.
 
-<p>If you understand Slovak, definetely check my web <a href="http://www.kulman.sk">www.kulman.sk</a></p>
-
+                        
+  <div class="read-more-link">
+    <a href="/welcome/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 

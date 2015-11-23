@@ -97,34 +97,18 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>In a recent project I had to implement Google login to an Universal App. I decided to use the native <a href="https://msdn.microsoft.com/en-us/library/windows.security.authentication.web.webauthenticationbroker.aspx">WebAuthenticationBroker</a> control and the implementation was not as straightforward as I hoped. By implementing Google login I mean getting the authentication token that you can then use with your server API.</p>
+                       <p>In a recent project I had to implement Google login to an Universal App. I decided to use the native [WebAuthenticationBroker][1] control and the implementation was not as straightforward as I hoped. By implementing Google login I mean getting the authentication token that you can then use with your server API.</p>
 
-<p>WebAuthenticationBroker is a good idea but it is implemented rather poorly. It works differently on Windows 8.1 and Windows Phone 8.1 due to the &#8220;AndContinue&#8221; pattern that Windows Phone 8.1 forces on you. You can solve this with <a href="http://blog.kulman.sk/why-universal-apps-as-not-as-universal-as-you-may-think/">some ifdefs and platform specific code, as always</a>.</p>
+<p>WebAuthenticationBroker is a good idea but it is implemented rather poorly. It works differently on Windows 8.1 and Windows Phone 8.1 due to the &#8220;AndContinue&#8221; pattern that Windows Phone 8.1 forces on you. You can solve this with [some ifdefs and platform specific code, as always][2].</p>
 
-<p>The real problem s that the <a href="https://code.msdn.microsoft.com/windowsapps/Web-Authentication-d0485122">MSDN sample</a> states it works with Google login but it does not. The sample thinks it gets the authentication token but it does not, it just gets the success code that you have to exchange for the authentication token yourself.</p>
+<p>The real problem s that the [MSDN sample][3] states it works with Google login but it does not. The sample thinks it gets the authentication token but it does not, it just gets the success code that you have to exchange for the authentication token yourself.</p>
 
-<p>Lets start with a basic config</p>
 
-<script src="https://gist.github.com/igorkulman/65a406f7f3cff48be3c5.js?file=config.cs"></script>
-
-<p>The important things here are your Google app id and Google app secret. The GoogleStartUri also contains permissions that you want to get (profile, <a href="https://www.googleapis.com/auth/plus.login">https://www.googleapis.com/auth/plus.login</a> and <a href="https://www.googleapis.com/auth/plus.me">https://www.googleapis.com/auth/plus.me</a> email in my case).</p>
-
-<p>You use this config with a WebAuthenticationBroker call</p>
-
-<script src="https://gist.github.com/igorkulman/65a406f7f3cff48be3c5.js?file=login.cs"></script>
-
-<p>on Windows 8.1 you get the response data immediately. On Windows Phone 8.1, you have to implement the &#8220;AndContinue&#8221; pattern.</p>
-
-<p>You use the response data to parse out the success code</p>
-
-<script src="https://gist.github.com/igorkulman/65a406f7f3cff48be3c5.js?file=GetGoogleSuccessCode.cs"></script>
-
-<p>Now that you have the success code, you can exchange it for the authentication token</p>
-
-<p>And now you finally have a way to get the authentication token and implement Google login.</p>
-
-<script src="https://gist.github.com/igorkulman/65a406f7f3cff48be3c5.js?file=GetToken.cs"></script>
-
+                        
+  <div class="read-more-link">
+    <a href="/implementing-google-login-in-universal-apps/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 

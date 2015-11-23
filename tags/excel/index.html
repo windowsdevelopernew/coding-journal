@@ -97,37 +97,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>I needed to create an utility that would read Excel 2010 files (.xlsx) and generate XML files from them according to some specific rules. The catch was that the utility needed to run on MacOS instead of Windows.</p>
+                       I needed to create an utility that would read Excel 2010 files (.xlsx) and generate XML files from them according to some specific rules. The catch was that the utility needed to run on MacOS instead of Windows. Reading and writing Excel files from .NET is very easy using the Microsoft.Office.Interop assemblies but they use Excel through COM and that makes them unusable outside of Windows. I found some 3rd party libraries for working with Excel and analzyed them with The Mono Migration Analzyer (MoMA).
 
-<p>Reading and writing Excel files from .NET is <a href="http://blogs.msdn.com/b/jackhu/archive/2011/04/19/fsharp-amp-excel-io-reading-and-writeing-to-excel.aspx">very easy using the Microsoft.Office.Interop assemblies</a> but they use Excel through COM and that makes them unusable outside of Windows. I found some 3rd party libraries for working with Excel and analzyed them with <a href="http://www.mono-project.com/MoMA">The Mono Migration Analzyer</a> (MoMA). MoMA is a handy tool that analyzes .NET assemblies and tells you if they will run on Mono. Many of the Excel libraries I found were unusable for my use-case because they were using PInvoke calls. Only the <a href="http://excelpackage.codeplex.com/">ExcelPackage library</a> runs on Mono.</p>
-
-<p>I wanted to use the ExcelPackage from F# not C# so I wrote a <a href="https://github.com/igorkulman/ExcelPackageF">very simple F# wrapper</a>, that you can freely use. For now it contains just a few methods</p>
-
-<p>Excel.getWorksheets</p>
-
-<p>Excel.getWorksheetByIndex</p>
-
-<p>Excel.getWorksheetByName</p>
-
-<p>Excel.getMaxRowNumber</p>
-
-<p>Excel.getMaxColNumber</p>
-
-<p>Excel.getContent</p>
-
-<p>Excel.getColumn</p>
-
-<p>Excel.getRow</p>
-
-<p>but I will be adding a few more soon. The usage is really simple. For example, if you want to read the whole sheet number 1 from a file called text.xlsx, use</p>
-
-<p><script src="https://gist.github.com/5822019.js"></script></p>
-
-<p><strong>EDIT</strong>: Now available as a Nuget package:</p>
-
-<pre><code class="language-fsharp">PM&gt; Install-Package ExcelPackageF
-</code></pre>
-
+                        
+  <div class="read-more-link">
+    <a href="/reading-excel-sheets-using-f-without-com/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 

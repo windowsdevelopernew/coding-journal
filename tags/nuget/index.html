@@ -97,26 +97,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>Communicating with a JSON based REST service is a task that many Windows Phone apps have to do. My apps sure do it a lot so I came up with a base class that I use in all of them, <a href="https://github.com/igorkulman/Kulman.WPA81.BaseRestService">put it on Github</a> and <a href="https://www.nuget.org/packages/Kulman.WPA81.BaseRestService/">created a Nuget package</a>, so your apps could use it to.</p>
+                       Communicating with a JSON based REST service is a task that many Windows Phone apps have to do. My apps sure do it a lot so I came up with a base class that I use in all of them, put it on Github and created a Nuget package, so your apps could use it to. The usage of this base class is simple. Create your service class and inherit from BaseRestService.
 
-<p>The usage of this base class is simple. Create your service class and inherit from BaseRestService. The minimum you need to do to make it work is to override the GetBaseUrl() method to set the base url for all the requests. You can (but do not have to) also override the GetRequestHeaders() method to set the default request headers.</p>
-
-<script src="https://gist.github.com/igorkulman/405732bf92858dba1c3c.js?file=usage1.cs"></script>
-
-<p>and you can now use the following protected methods</p>
-
-<script src="https://gist.github.com/igorkulman/405732bf92858dba1c3c.js?file=methods.cs"></script>
-
-<p>All the JSON serialization and deserialization is automatically done for you. If you need to execute some action before every request (like checking if the OAuth token expired and refreshing it), simply override the OnBeforeRequest() method.</p>
-
-<p>Methods in your service may then look like this</p>
-
-<script src="https://gist.github.com/igorkulman/405732bf92858dba1c3c.js?file=usage2.cs"></script>
-
-<p>In case of an error, the methods throw either a DeserialziationException with the original data if deserialization failed, or a ConnectionException with the HTTP status code.</p>
-
-<p>if you need some additional features, just raise an issue in the <a href="https://github.com/igorkulman/Kulman.WPA81.BaseRestService">Github repo</a>, or create a pull request.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/rest-service-base-class-for-windows-phone-8-1-xaml-apps/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
@@ -139,17 +126,13 @@ Interested in programming languages, functional programming and data science.</p
                     </header>
 
                     <div class="post-description">
-                        <p>There is no AutoCompleteBox control that can be used when building Windows Store apps in C# and XAML so I decided to create one, because I needed it for a project. Currently it supports only String collections and the selected value must be accessed using code behind, but this will hopefully change.</p>
+                       There is no AutoCompleteBox control that can be used when building Windows Store apps in C# and XAML so I decided to create one, because I needed it for a project. Currently it supports only String collections and the selected value must be accessed using code behind, but this will hopefully change. The AutoCompleteBox uses WinRT XAML Toolkit to show the watermark and Reactive Extensions so the users does not need to press enter, the results will show after they stop typing for a second.
 
-<p>The AutoCompleteBox uses <a href="http://winrtxamltoolkit.codeplex.com/">WinRT XAML Toolkit</a> to show the watermark and <a href="http://msdn.microsoft.com/en-us/data/gg577609.aspx">Reactive Extensions</a> so the users does not need to press enter, the results will show after they stop typing for a second.</p>
-
-<p>The project is hosted on my Bitbucket so you can check it out at <a href="https://github.com/igorkulman/AutoCompleteBox">https://github.com/igorkulman/AutoCompleteBox</a>, forks and code contributions are welcomed. Nuget package is available at <a href="https://nuget.org/packages/AutoCompleteBoxWinRT">https://nuget.org/packages/AutoCompleteBoxWinRT</a>.</p>
-
-<p>Installation using Nuget:</p>
-
-<pre><code>Install-Package AutoCompleteBoxWinRT
-</code></pre>
-
+                        
+  <div class="read-more-link">
+    <a href="/autocompletebox-for-windows-store-apps/">Read More…</a>
+  </div>
+  
                     </div>
                 </section>
                 
