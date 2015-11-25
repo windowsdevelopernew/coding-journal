@@ -3,8 +3,13 @@
   
   <url>
     <loc>http://blog.kulman.sk/</loc>
-    <lastmod>2015-11-23T13:13:55+01:00</lastmod>
+    <lastmod>2015-11-25T12:41:12+01:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://blog.kulman.sk/the-sad-state-of-dvlup-ms-tech-rewards/</loc>
+    <lastmod>2015-11-25T12:41:12+01:00</lastmod>
   </url>
   
   <url>
@@ -453,12 +458,12 @@
   </url>
   
   <url>
-    <loc>http://blog.kulman.sk/updating-azure-toolkit-is-always-a-pain/</loc>
+    <loc>http://blog.kulman.sk/fast-way-to-check-if-a-file-exists-in-winrt/</loc>
     <lastmod>2012-10-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.kulman.sk/fast-way-to-check-if-a-file-exists-in-winrt/</loc>
+    <loc>http://blog.kulman.sk/updating-azure-toolkit-is-always-a-pain/</loc>
     <lastmod>2012-10-26T00:00:00+00:00</lastmod>
   </url>
   

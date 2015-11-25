@@ -79,6 +79,42 @@ Interested in programming languages, functional programming and data science.</p
             
             <div class="posts">
                 
+                <h1 class="content-subhead">25 Nov 2015</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/the-sad-state-of-dvlup-ms-tech-rewards/" class="post-title">The sad state of DVLUP (MS Tech Rewards)</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Rants" href="http://blog.kulman.sk/categories/rants">Rants</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>If you are a Windows Phone developer you must know DVLUP. It was a program for developers developed by Nokia. The idea was simple. Do Windows Phone development related challenges, make your apps better thanks to them, get points, exchange points for rewards. Sounds good, does it not?</p>
+
+<p><strong>Interesting, but location dependent</strong></p>
+
+<p>The problem with DVLUP was that it was location dependent. It opened in my countries maybe two years after US and developers from other &ldquo;more important&rdquo; countries could participate. The challenges were also location dependent, showing me only a small subset in my country. But they were interesting. They made me implement some new stuff into my apps that I would not do otherwise. And I got points for doing them. When I wanted to exchange the points for some rewards, there were not that many available in my country. No phones or other hardware like in the US. A Steam gift card was the only useful think that I could get. But I did not mind, I liked doing the challenges.</p>
+
+<p>And then Microsoft bought Nokia and slowly DVLUP turned into MS Tech Rewards.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/the-sad-state-of-dvlup-ms-tech-rewards/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">23 Nov 2015</h1>
                 <section class="post">
                     <header class="post-header">
@@ -386,40 +422,6 @@ Interested in programming languages, functional programming and data science.</p
                         
   <div class="read-more-link">
     <a href="/quick-tip-showing-solution-branch-name-in-visual-studio-title/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">01 Jul 2015</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/implementing-google-login-in-universal-apps/" class="post-title">Implementing Google login in Universal Apps</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>In a recent project I had to implement Google login to an Universal App. I decided to use the native [WebAuthenticationBroker][1] control and the implementation was not as straightforward as I hoped. By implementing Google login I mean getting the authentication token that you can then use with your server API.</p>
-
-<p>WebAuthenticationBroker is a good idea but it is implemented rather poorly. It works differently on Windows 8.1 and Windows Phone 8.1 due to the &#8220;AndContinue&#8221; pattern that Windows Phone 8.1 forces on you. You can solve this with [some ifdefs and platform specific code, as always][2].</p>
-
-<p>The real problem s that the [MSDN sample][3] states it works with Google login but it does not. The sample thinks it gets the authentication token but it does not, it just gets the success code that you have to exchange for the authentication token yourself.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/implementing-google-login-in-universal-apps/">Read More…</a>
   </div>
   
                     </div>

@@ -79,6 +79,42 @@ Interested in programming languages, functional programming and data science.</p
             
             <div class="posts">
                 
+                <h1 class="content-subhead">15 Apr 2013, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/do-you-need-to-create-a-special-windows-phone-8-build-of-your-windows-phone-app/" class="post-title">Do you need to create a special Windows Phone 8 build of your Windows Phone app?</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>If you create a Windows Phone app and you want it to be able to run on both Windows Phone 7 and Windows Phone 8, you target Windows Phone 7 and the app runs on Windows Phone 8 automatically. But is it really enough to create a Windows Phone 7 buíld? Not if you want to create a really well designed app.</p>
+
+<p>The problem with Windows Phone 8 from a designers point of view is that it introduces two new display resolutions. Windows Phone 7 supports just one resolution, WVGA of 800x480px. Windows Phone 8 adds WXGA (1280&#215;768) and 720p (1280&#215;720). If you run your Windows Phone 7 app on a WXGA device, the app is proportionally scaled by a factor of 1.6 to fill out the whole screen. As long as you provide all your images scaled by the same factor, the app looks ok.</p>
+
+<p>The problem is 720p, because it is a different aspect ratio (16:9 vs 15:9). Your Windows Phone 7 app running on a 720p app is first scaled by a factor of 1.5 to 1200&#215;720 and the rest of the display (80px) is padded on top or bottom, depending on the VerticalAlignment. By default, the padding is added to the top of your app making your header 80px higher:</p>
+
+<p><img src="/images/wp7header.png" alt="" class="pure-img" ></p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/do-you-need-to-create-a-special-windows-phone-8-build-of-your-windows-phone-app/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">27 Mar 2013, 00:00</h1>
                 <section class="post">
                     <header class="post-header">
@@ -404,44 +440,6 @@ Interested in programming languages, functional programming and data science.</p
                         
   <div class="read-more-link">
     <a href="/generating-all-permutations-of-a-list-how-hard-can-that-be/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">30 Jan 2013, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/using-custom-fonts-in-windows-phone-apps/" class="post-title">Using custom fonts in Windows Phone apps</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>Windows Phone allows yout to use custom TTF fonts in your apps. Using a custom font from XAML or C# is easy, but your run into troubles when you want to use if from a Background Agent (e.g: for updating a Live Tile).</p>
-
-<p><strong>Adding font to solution</strong></p>
-
-<p>The custom font must be a TTF, you can also use a ZIP file with multiple TTF files. You need to know the name of the font to identify it. Add the font file to your solution and set its build action to Content.</p>
-
-<p><strong>Custom font and XAML</strong></p>
-
-<p>Using a custom font in XAML is very straightforward. You just need to set the <em>FontFamily</em> property to the font file path followed by a hash (#) and the font name:</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/using-custom-fonts-in-windows-phone-apps/">Read More…</a>
   </div>
   
                     </div>
