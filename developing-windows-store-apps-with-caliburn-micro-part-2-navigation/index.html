@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Developing Windows Store apps with Caliburn Micro Part 2: navigation &middot; Coding Journal">
@@ -98,7 +98,7 @@ Interested in programming languages, functional programming and data science.</p
 
                   
                     <div class="post-description">
-                        <p>In this second part you will add another ViewModel and View and implement navigation between two ViewModels, including saving the navigation state between starts. The code is as always <a href="https://github.com/igorkulman/CaliburnDemoWinRT">available at Github</a>.</p>
+                        <p>In this second part you will add another ViewModel and View and implement navigation between two ViewModels, including saving the navigation state between starts. The code is as always [available at Github][1].</p>
 
 <p><strong>Invoking ViewModel methods</strong></p>
 
@@ -108,7 +108,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>On the MainViewModel, create a public void GoToSecondPage method:</p>
 
-<p><script src="https://gist.github.com/6103983.js"></script></p>
+<script src="https://gist.github.com/6103983.js"></script>
 
 <p>In the MainView create a Button with x:Name=&#8221;GoToSecondPage&#8221;. When you start the application and click the button, a message dialog is shown, so you know the autobinding beetween your Button and your GoToSecondPage method works.</p>
 
@@ -118,21 +118,21 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>In the ViewModels folder create a new ViewModel called SecondPageViewModel with one string property Title (exactly the same as the MainViewModel):</p>
 
-<p><script src="https://gist.github.com/6103938.js"></script></p>
+<script src="https://gist.github.com/6103938.js"></script>
 
 <p>In the Views folder, create a new View called SecondPageView as a Blank Page. Give it some colorful background so it is clearly distinguishable from the MainView:</p>
 
-<p><script src="https://gist.github.com/6104005.js"></script></p>
+<script src="https://gist.github.com/6104005.js"></script>
 
 <p>Now you can finally make the GoToSecondPage method navigate the user to the SecondPageViewModel. To do this, first get the Uri from the INavigationService using the strongly typed UriFor&lt;.&gt; method and then call the Navigate method:</p>
 
-<p><script src="https://gist.github.com/6104023.js"></script></p>
+<script src="https://gist.github.com/6104023.js"></script>
 
 <p><strong>Navigation with parameters</strong></p>
 
 <p>In many cases you need to navigate to a ViewModel passing the ViewModel some parameters. This is as easy as adding a call to WithParam to your navigation code:</p>
 
-<p><script src="https://gist.github.com/6104042.js"></script></p>
+<script src="https://gist.github.com/6104042.js"></script>
 
 <p>You can use the WithParam method to give the ViewModel as many parameters as you want.</p>
 
@@ -144,11 +144,13 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>First you need to make the Views inherit from the Caliburn.Micro.Unity.WinRT.Code.AppPage insted of Page and delete theirs OnNavigateTo methods. Then you need to explicitly save the state when the application starts. Open the App.xaml.cs and add the following method:</p>
 
-<p><script src="https://gist.github.com/6104122.js"></script></p>
+<script src="https://gist.github.com/6104122.js"></script>
 
 <p>If you now navigate to second page, suspend and shutdown the application and start it again, you will see the second page.</p>
 
 <p>There is currently no way to navigate back from the SecondPageViewModel to the MianViewModel. I am fairly confident you can implement it by yourself using the INavigationService&#8217;s GoBack method.</p>
+
+<p>[1]: <a href="https://github.com/igorkulman/CaliburnDemoWinRT">https://github.com/igorkulman/CaliburnDemoWinRT</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>

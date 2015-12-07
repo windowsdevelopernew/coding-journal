@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Developing Windows Store apps with Caliburn Micro Part 3: saving and restoring state &middot; Coding Journal">
@@ -106,15 +106,17 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>Let us reuse the SecondPageViewModel from the last post. Implement IHaveState, add two string properties and use the SaveState and LoadState method to save and load them using the page state dictionary</p>
 
-<p><script src="https://gist.github.com/6173564.js"></script></p>
+<script src="https://gist.github.com/6173564.js"></script>
 
 <p>To test it, first add two TextBoxes to the SecondPageView with two-way binding</p>
 
-<p><script src="https://gist.github.com/6173636.js"></script></p>
+<script src="https://gist.github.com/6173636.js"></script>
 
 <p>Now run the application, navigate to the SecondPageViewModel and fill in the TextBoxes. Switch to Visual Studio and invoke the Suspend and Shutdown command. When you run the application again, you will see the SecondPageViewModel with TextBoxes with the same values as before the suspension.</p>
 
-<p>The code is again <a href="https://github.com/igorkulman/CaliburnDemoWinRT">available at Github</a>. If you are interested in the implementation of saving and loading state, read <a href="http://nybbles.blogspot.cz/2013/02/winrt-caliburnmicro-and-ioc-part-3.html">this article</a>.</p>
+<p>The code is again <a href="https://github.com/igorkulman/CaliburnDemoWinRT">available at Github</a>. If you are interested in the implementation of saving and loading state, read [this article][3].</p>
+
+<p>[3]: <a href="http://nybbles.blogspot.cz/2013/02/winrt-caliburnmicro-and-ioc-part-3.html">http://nybbles.blogspot.cz/2013/02/winrt-caliburnmicro-and-ioc-part-3.html</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>

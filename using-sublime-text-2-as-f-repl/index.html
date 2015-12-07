@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Using Sublime Text 2 as F# REPL &middot; Coding Journal">
@@ -102,7 +102,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p><strong>Installing necessary packages</strong></p>
 
-<p>In order to use F# Interactive in Sublime Text 2, you have to install a few packages first. All the packages can be installed using <a href="http://wbond.net/sublime_packages/package_control">Sublime Package Control</a>. You need to install the following packages:</p>
+<p>In order to use F# Interactive in Sublime Text 2, you have to install a few packages first. All the packages can be installed using [Sublime Package Control][4]. You need to install the following packages:</p>
 
 <ul>
 <li><strong>F#</strong></li>
@@ -119,15 +119,17 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>You can configure Sublime Text 2 to run F# REPL when you invoke a shortcut like <em>Ctrl+Alt+F</em> (Visual Studio 2012 default shortcut for FSI) instead of going to <em>Tools | SublimeREPL | F#</em>. Go to <em>Preferences | Key bindings &#8211; user</em> and change it to</p>
 
-<p><script src="https://gist.github.com/5849427.js"></script></p>
+<script src="https://gist.github.com/5849427.js"></script>
 
 <p>You can also configure Sublime Text 2 to set selected code to the F# REPL (<em>Tools | SublimeREPL | Eval in REPL | Selection</em>) when you press Ctrl+Shift+Enter just like in Visual Studio 2012 by adding</p>
 
-<p><script src="https://gist.github.com/5849431.js"></script></p>
+<script src="https://gist.github.com/5849431.js"></script>
 
 <p>to the <em>Preferences | Key bindings &#8211; user</em>. All the settings files in Sublime Text 2 are JSON, so you need to paste this code into the array, just after the shortcut for F# REPL, separating them by a comma</p>
 
-<p><script src="https://gist.github.com/5849442.js"></script></p>
+<script src="https://gist.github.com/5849442.js"></script>
+
+<p>[4]: <a href="http://wbond.net/sublime_packages/package_control">http://wbond.net/sublime_packages/package_control</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>

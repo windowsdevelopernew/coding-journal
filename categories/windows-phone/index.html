@@ -7,7 +7,7 @@
 
     <meta name="description" content="Adventures in the world of C#, F# and WinRT">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Windows Phone &middot; Coding Journal">
@@ -79,6 +79,38 @@ Interested in programming languages, functional programming and data science.</p
             
             <div class="posts">
                 
+                <h1 class="content-subhead">07 Dec 2015, 09:29</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/detecting-gestures-over-webview-on-windows-phone/" class="post-title">Detecting gestures over WebView on Windows Phone</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WINRT" href="http://blog.kulman.sk/categories/winrt">WINRT</a><a class="post-category post-category-XAML" href="http://blog.kulman.sk/categories/xaml">XAML</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>If you develop Windows Phone apps, you surely had to use the WebView component at least once. Any you must have realized, that it kind of sucks. One of the problems is that it swallows all the gestures and manipulation events. This means you cannot put it into a Pivot, you cannot detect swipe left or right events to navigate to next or previous article .. or can you?</p>
+
+<p>In a recent project, I had to implement exactly the mentioned functionality, swiping between articles displayed in a WebView. I did some research and I could not find any solution. So I had to get creative and I find a way involving JavaScript.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/detecting-gestures-over-webview-on-windows-phone/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">17 Oct 2015, 00:00</h1>
                 <section class="post">
                     <header class="post-header">
@@ -100,7 +132,7 @@ Interested in programming languages, functional programming and data science.</p
                     <div class="post-description">
                        <p>In my current project I had to implement an interesting feature for both Windows Phone 8.1 and Windows 8.1 project of the Universal app. The idea is simply. The users want to search for a movie. They enter a search term into a TextBox and a list of results is shown. The results should have the search term highlighted in them.</p>
 
-<p><img src="/images/highlighting.png" alt="" class="pure-img" ></p>
+<img src="/images/highlighting.png" alt="" class="pure-img" >
 
 
                         
@@ -170,7 +202,7 @@ Interested in programming languages, functional programming and data science.</p
                     <div class="post-description">
                        <p>To those who don’t know, Microsoft launched several months ago Outlook for Android and iOS phones and tablets. Microsoft’s new brand of Outlook have replace the failing “Outlook-branded apps” that are only available to the current subscribers of Office 365. The upheaval comes after Microsoft acquired San Francisco-based company, [Acompli.com][1].</p>
 
-<p><img src="/images/Outlook-Best-New-Apps.png" alt="" class="pure-img" ></p>
+<img src="/images/Outlook-Best-New-Apps.png" alt="" class="pure-img" >
 
 <p>Acompli is an “advanced email application that empowers professionals to do more with emails, full calendaring, easy file sharing and log all the important people in one email format.” The format supports Microsoft’s Office 365, Gmail and Google Apps.</p>
 
@@ -390,46 +422,6 @@ Interested in programming languages, functional programming and data science.</p
                         
   <div class="read-more-link">
     <a href="/leveraging-etag-caching-in-windows-phone-and-windows-apps/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">29 Dec 2014, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/changing-the-pivotitem-header-color-in-windows-phone-8-1-xaml/" class="post-title">Changing the PivotItem header color in Windows Phone 8.1 XAML</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>Windows Phone 8.1 XAML contains a Pivot control that looks like the one from Windows Phone <sup>7</sup>&frasl;<sub>8</sub> and also should behave the same way, but does not. You will find the first problem with the new Pivot when you want to change the PivotItem header color.</p>
-
-<p><strong>Windows Phone <sup>7</sup>&frasl;<sub>8</sub></strong></p>
-
-<p>If you want to change the PivotItem header color in Windows Phone <sup>7</sup>&frasl;<sub>8</sub>, you just define the color in the Header template:</p>
-
-<script src="https://gist.github.com/igorkulman/a49d0c7d471c4de42521.js?file=wp8.xaml"></script>
-
-<p>This works great, changing the color of the active PivotItem Header to the color you want and applying some opacity to the inactive PivotItem Headers.</p>
-
-<p><img src="/images/header78.png" alt="" class="pure-img" ></p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/changing-the-pivotitem-header-color-in-windows-phone-8-1-xaml/">Read More…</a>
   </div>
   
                     </div>

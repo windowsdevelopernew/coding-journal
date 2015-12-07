@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Automatically push your Git repos before computer shutdown &middot; Coding Journal">
@@ -104,7 +104,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>So I came up with a really simple PowerShell script to iterate to a directory with git projects and execute &#8216;git push&#8217; on all of them</p>
 
-<p><script src="https://gist.github.com/275a76230757dcd48576.js"></script></p>
+<script src="https://gist.github.com/275a76230757dcd48576.js"></script>
 
 <p>To make the script execute on each computer shutdown, run <strong>gpedit.msc</strong> and go to <strong>Computer Configuration</strong> | <strong>Windows Settings</strong> | <strong>Scripts (Startup/Shutdown)</strong> | <strong>Shutdown</strong> and add the script. Adding the script just by referencing the .ps1 file did not work for me, I had to add the path to PowerShell (%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe) with the script as a parameter.</p>
 

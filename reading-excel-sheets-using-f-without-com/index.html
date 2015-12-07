@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Reading Excel sheets using F# without COM &middot; Coding Journal">
@@ -102,7 +102,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>Reading and writing Excel files from .NET is <a href="http://blogs.msdn.com/b/jackhu/archive/2011/04/19/fsharp-amp-excel-io-reading-and-writeing-to-excel.aspx">very easy using the Microsoft.Office.Interop assemblies</a> but they use Excel through COM and that makes them unusable outside of Windows. I found some 3rd party libraries for working with Excel and analzyed them with <a href="http://www.mono-project.com/MoMA">The Mono Migration Analzyer</a> (MoMA). MoMA is a handy tool that analyzes .NET assemblies and tells you if they will run on Mono. Many of the Excel libraries I found were unusable for my use-case because they were using PInvoke calls. Only the <a href="http://excelpackage.codeplex.com/">ExcelPackage library</a> runs on Mono.</p>
 
-<p>I wanted to use the ExcelPackage from F# not C# so I wrote a <a href="https://github.com/igorkulman/ExcelPackageF">very simple F# wrapper</a>, that you can freely use. For now it contains just a few methods</p>
+<p>I wanted to use the ExcelPackage from F# not C# so I wrote a [very simple F# wrapper][4], that you can freely use. For now it contains just a few methods</p>
 
 <p>Excel.getWorksheets</p>
 
@@ -122,12 +122,14 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>but I will be adding a few more soon. The usage is really simple. For example, if you want to read the whole sheet number 1 from a file called text.xlsx, use</p>
 
-<p><script src="https://gist.github.com/5822019.js"></script></p>
+<script src="https://gist.github.com/5822019.js"></script>
 
 <p><strong>EDIT</strong>: Now available as a Nuget package:</p>
 
 <pre><code class="language-fsharp">PM&gt; Install-Package ExcelPackageF
 </code></pre>
+
+<p>[4]: <a href="https://github.com/igorkulman/ExcelPackageF">https://github.com/igorkulman/ExcelPackageF</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>

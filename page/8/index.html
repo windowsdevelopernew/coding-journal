@@ -7,7 +7,7 @@
 
     <meta name="description" content="Adventures in the world of C#, F# and WinRT">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Coding Journal &middot; Coding Journal">
@@ -78,6 +78,40 @@ Interested in programming languages, functional programming and data science.</p
         <div>
             
             <div class="posts">
+                
+                <h1 class="content-subhead">01 Feb 2013</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/generating-all-permutations-of-a-list-how-hard-can-that-be/" class="post-title">Generating all permutations of a list … how hard can that be?</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Functional programming" href="http://blog.kulman.sk/categories/functional-programming">Functional programming</a><a class="post-category post-category-Programming in general" href="http://blog.kulman.sk/categories/programming-in-general">Programming in general</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>While reading an article that had nothing in common with programming I came upon a sudden need to find a way to generate all the permutations of a list, or more exactly a string (it is just a list of characters). As lazy as I am I tried to google a few examples of C# code that does exactly that. I was horrified that programmers could come up with the complicated ways I found. Not to mention programmers writing a ton of unit test and classes before actualy writing the code that solves to problem.</p>
+
+<p>The problem is naturally recursive. All the permutations of a list of n items consit of each of the n items combined with all the permutations of the list without the actual item. So if you have a list of let&#8217;s say items (a,b,c), all the permutations are (a+permutation((b,c)) + (b+permutations((a,c))) + (c+permutations((a,b)).</p>
+
+<p>First I came up with F# code to solve it, after some yield googling:</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/generating-all-permutations-of-a-list-how-hard-can-that-be/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
                 
                 <h1 class="content-subhead">30 Jan 2013</h1>
                 <section class="post">
@@ -219,7 +253,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>[Visual Studio Achievements][3] is Visual Studio plugin that rewards you for good practices like having 1000 localized values ([Localization Master][4]) and even for bad practices like writin a single line of 300 characters long ([Scroll Bar Wizard][5]). For some of the achievements you need to have FxCop installed, but the majority get awareded without the need for it.</p>
 
-<p><img src="/images/VisualStudio_badges_2.jpg" alt="" class="pure-img" ></p>
+<img src="/images/VisualStudio_badges_2.jpg" alt="" class="pure-img" >
 
 <p>You can find out interesting information about your programming, check out [my profile][7].</p>
 
@@ -404,35 +438,6 @@ Interested in programming languages, functional programming and data science.</p
                         
   <div class="read-more-link">
     <a href="/autocompletebox-for-windows-store-apps/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">27 Nov 2012</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/fun-with-f-type-providers-sql/" class="post-title">Fun with F# Type Providers: SQL</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Functional programming" href="http://blog.kulman.sk/categories/functional-programming">Functional programming</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       F# is a great language with a great potential that lets you express yourself more clearly and compactly. One of the best features that comes with F# 3.0 shipped with Visual Studio 2012 is Type Providers. What are Type Providers? According to MSDN documentation, an F# type provider is a component that provides types, properties, and methods for use in your program. Type providers are a significant part of F# 3.0 support for information-rich programming.
-
-                        
-  <div class="read-more-link">
-    <a href="/fun-with-f-type-providers-sql/">Read More…</a>
   </div>
   
                     </div>

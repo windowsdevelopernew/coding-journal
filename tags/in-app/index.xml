@@ -31,9 +31,9 @@
 
 &lt;p&gt;&lt;strong&gt;Mocking library&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;To mock in-app purchases you can use the &lt;a href=&#34;http://code.msdn.microsoft.com/wpapps/Mock-In-App-Purchase-33080f0c&#34;&gt;Mock In-App Purchase Library&lt;/a&gt;. To make testing easier, implement my interface using this library&lt;/p&gt;
+&lt;p&gt;To mock in-app purchases you can use the [Mock In-App Purchase Library][4]. To make testing easier, implement my interface using this library&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/9571846.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/9571846.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;And setup the products you want to use at your app startup&lt;/p&gt;
 
@@ -42,6 +42,8 @@
 &lt;p&gt;The advantage of this approach is that you just switch the IWindowsStoreService implementation between then mock on and the &lt;a href=&#34;https://github.com/igorkulman/Kulman.WP8/blob/master/Kulman.WP8/Services/WindowsPhoneStoreService.cs&#34;&gt;real one&lt;/a&gt;, depending on the situation. For example (Caliburn.Micro Bootstrapper)&lt;/p&gt;
 
 &lt;script src=&#34;https://gist.github.com/igorkulman/9571908.js?file=IAP.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;[4]: &lt;a href=&#34;http://code.msdn.microsoft.com/wpapps/Mock-In-App-Purchase-33080f0c&#34;&gt;http://code.msdn.microsoft.com/wpapps/Mock-In-App-Purchase-33080f0c&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

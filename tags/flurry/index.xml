@@ -29,11 +29,13 @@
 
 &lt;p&gt;&lt;strong&gt;BugSense: bug tracking&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Flurry also offers bug tracking, it is no very well done and you cannot get much use of it. To track application crashes and caught exceptions I use &lt;a href=&#34;http://bugsense.com/&#34;&gt;BugSense&lt;/a&gt;. BugSense supports Android, iOS, HTML5, Windows Phone and Windows 8 apps.&lt;/p&gt;
+&lt;p&gt;Flurry also offers bug tracking, it is no very well done and you cannot get much use of it. To track application crashes and caught exceptions I use [BugSense][5]. BugSense supports Android, iOS, HTML5, Windows Phone and Windows 8 apps.&lt;/p&gt;
 
 &lt;p&gt;Each logged error (exception) provides a complete stracktrace, number of occurrences and detailed info about each instance, like app version, phone model, country, etc. BugSense can be connected to GitHub, Bitbucket is no supported. Maybe in the future.&lt;/p&gt;
 
 &lt;p&gt;BugSense is a really useful service that can help you easily identify problems in your apps. Free version offers you 7 days bug info retention for up to 500 different errors for unlimited amount of apps.&lt;/p&gt;
+
+&lt;p&gt;[5]: &lt;a href=&#34;http://bugsense.com/&#34;&gt;http://bugsense.com/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

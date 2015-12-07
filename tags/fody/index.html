@@ -7,7 +7,7 @@
 
     <meta name="description" content="Adventures in the world of C#, F# and WinRT">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Fody &middot; Coding Journal">
@@ -100,7 +100,7 @@ Interested in programming languages, functional programming and data science.</p
                     <div class="post-description">
                        <p>Recently I have released a new Windows Phone app called [Pock8][1]. Pock8 is a beautiful Pocket (formerly Read It Later) client for Windows Phone. The design of the app was created by Jan Marek who worked with my on the [Shopping List Simple][2] app.</p>
 
-<p><img src="/images/pocket.png" alt="" class="pure-img" ></p>
+<img src="/images/pocket.png" alt="" class="pure-img" >
 
 <p>Our goal was to create a Pocket client that would be really easy to use and that would have a nice and simple design. I think we have achieved our goal. The main features of the app are</p>
 
@@ -148,7 +148,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>In next installment we will be showing a list of products, so let&#8217;s create a simple Product class first in the Data directory:</p>
 
-<p><script src="https://gist.github.com/6606102.js"></script></p>
+<script src="https://gist.github.com/6606102.js"></script>
 
 <p>PropertyChangedBase is a base class implementing the INotifyPropertyChanged interface and the ImplementPropertyChanged attribute makes sure it&#8217;s method is called for all the property changes. (More about Fody [here][1])</p>
 
@@ -220,7 +220,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>In a typical implementation, you usually have a base class implementing the interface, like</p>
 
-<p><script src="https://gist.github.com/5849361.js"></script></p>
+<script src="https://gist.github.com/5849361.js"></script>
 
 <p>or use a framework like MVVMLight, Prism or Caliburn Micro that provides such base class for you. In your view models you have properties using the PropertyChanged method</p>
 

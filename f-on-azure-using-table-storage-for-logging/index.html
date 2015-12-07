@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="F# on Azure: using Table Storage for logging &middot; Coding Journal">
@@ -104,33 +104,35 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>The first thing you need to do is to define your log entry class. You need to create a class, Azure Table Storage does not work with F# records. In my case I want to store a timestamp, message and severity.</p>
 
-<p><script src="https://gist.github.com/5822037.js"></script></p>
+<script src="https://gist.github.com/5822037.js"></script>
 
 <p>Alternatively you can make your class inherit from TableEntity that already contains the PartitionKey and RowKey properties. The Severity property is in my case just a simple discriminated union</p>
 
-<p><script src="https://gist.github.com/5822042.js"></script></p>
+<script src="https://gist.github.com/5822042.js"></script>
 
-<p>You can access the Azure API in C# way but you do not need to, there is a great library called <a href="http://dmohl.github.com/Fog/">Fog by Dan Mohl</a> that makes using Azure API from F# more comfortable.</p>
+<p>You can access the Azure API in C# way but you do not need to, there is a great library called [Fog by Dan Mohl][3] that makes using Azure API from F# more comfortable.</p>
 
 <p>First you create a Azure Table Storage client using a connection string defined in the Windows Azure Cloud Service Configuration file for a role</p>
 
-<p><script src="https://gist.github.com/5822066.js"></script></p>
+<script src="https://gist.github.com/5822066.js"></script>
 
 <p>Saving a log entry is then very simple thanks to Fog</p>
 
-<p><script src="https://gist.github.com/5822061.js"></script></p>
+<script src="https://gist.github.com/5822061.js"></script>
 
 <p>Saving data to Azure Table Storage may be a slow operation if you do it a lot, so you may want to log asynchronously</p>
 
-<p><script src="https://gist.github.com/5822056.js"></script></p>
+<script src="https://gist.github.com/5822056.js"></script>
 
 <p>As you may have noticed, I use the date as the partiotion key. The thing with Azure Table Storage is, that you can get the data by partition key, row key, or all the data. The log date seems like a reasonable partition key that allows you to get log by days</p>
 
-<p><script src="https://gist.github.com/5822053.js"></script></p>
+<script src="https://gist.github.com/5822053.js"></script>
 
 <p><strong>Update:</strong> there is a more way to create the LogEntity using the CLIMuttableAttribte</p>
 
 <p><script src="https://gist.github.com/5822050.js"></script></p>
+
+<p>[3]: <a href="http://dmohl.github.com/Fog/">http://dmohl.github.com/Fog/</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>

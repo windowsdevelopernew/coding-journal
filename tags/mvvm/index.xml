@@ -21,11 +21,11 @@
 
 &lt;p&gt;In a typical implementation, you usually have a base class implementing the interface, like&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849361.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/5849361.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;or use a framework like MVVMLight, Prism or Caliburn Micro that provides such base class for you. In your view models you have properties using the PropertyChanged method&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849364.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/5849364.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;You do not need to create such properties by hand, you can &lt;a href=&#34;http://www.kulman.sk/data/down/propn.snippet&#34;&gt;use a snippet&lt;/a&gt;, but it is still a lot of code to do such a simple thing.&lt;/p&gt;
 
@@ -37,7 +37,7 @@
 
 &lt;p&gt;Fody has a &lt;a href=&#34;https://github.com/Fody/PropertyChanged&#34;&gt;PropertyChanged addin&lt;/a&gt; that does all the INotifyPropertyChanged plumbing for you. If you want the same behavior as in my typical implementation example, there is no need for a base class. Install the &lt;a href=&#34;https://github.com/Fody/PropertyChanged&#34;&gt;PropertyChanged.Fody Nuget package&lt;/a&gt;, decorate your view model class with the ImplementPropertyChanged attribute and use just basic properties&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849367.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/5849367.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;That is it. Less code, the same behaviour. You can verify it with tools like &lt;a href=&#34;http://www.telerik.com/justdecompile.aspx&#34;&gt;Telerik JustDecompile&lt;/a&gt;.&lt;/p&gt;
 
@@ -45,17 +45,19 @@
 
 &lt;p&gt;Fody does all the plumbing for you. It even knows that the FullName property uses FirstName and Surname and raises the PropertyChanged event for it when any og the two properties changes. The PropertyChanged.Fody addin &lt;a href=&#34;https://github.com/Fody/PropertyChanged/wiki/Attributes&#34;&gt;contains attributes&lt;/a&gt;, that you can use to define dependencies&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849371.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/5849371.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;or to raise the PropertyChanged event for any other property&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849373.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/5849373.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;Sometimes you want to execute some additional code in the setter. Fody allows it, just create a method with the &lt;a href=&#34;https://github.com/Fody/PropertyChanged/wiki/On_PropertyName_Changed&#34;&gt;name On_PropertyName_Changed&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849376.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/5849376.js&#34;&gt;&lt;/script&gt;
 
-&lt;p&gt;If you use a framework and you want to raise the PropertyChanged event through a method of this framework, it is not a problem. You just need to &lt;a href=&#34;https://github.com/Fody/PropertyChanged/wiki/Options&#34;&gt;set the EventInvokerNames options&lt;/a&gt;. The Fody &lt;a href=&#34;https://github.com/Fody/PropertyChanged/wiki/SupportedToolkits&#34;&gt;documentation even describes what to set for some of the frameworks&lt;/a&gt; so you do not have to figure it out for yourself.&lt;/p&gt;
+&lt;p&gt;If you use a framework and you want to raise the PropertyChanged event through a method of this framework, it is not a problem. You just need to &lt;a href=&#34;https://github.com/Fody/PropertyChanged/wiki/Options&#34;&gt;set the EventInvokerNames options&lt;/a&gt;. The Fody [documentation even describes what to set for some of the frameworks][9] so you do not have to figure it out for yourself.&lt;/p&gt;
+
+&lt;p&gt;[9]: &lt;a href=&#34;https://github.com/Fody/PropertyChanged/wiki/SupportedToolkits&#34;&gt;https://github.com/Fody/PropertyChanged/wiki/SupportedToolkits&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Measuring and recording the room temperature with a Raspberry Pi &middot; Coding Journal">
@@ -106,7 +106,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>To connect the temperature sensor to the Pi, I suggest you follow the <a href="https://www.youtube.com/watch?v=S2v1VNgHnvI">YouTube tutorial for the kit</a>. You can also solder the temperature sensor and the resistor into one piece and connect it to the Pi using <a href="http://www.astromik.org/raspi/sch-2tep.gif">this schema</a>, so the result then looks like this</p>
 
-<p><img src="/images/pitherm.jpg" alt="" class="pure-img" ></p>
+<img src="/images/pitherm.jpg" alt="" class="pure-img" >
 
 <p><strong>Drivers</strong></p>
 
@@ -126,7 +126,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>I am a .NET developer but running Mono on the Pi just seems strange to me, so I decided to use Node.js to create the UI. You can find the <a href="https://github.com/igorkulman/rpi-thermometer">whole project on Github</a>. It is a simple Node.js server that gets the temperature and shows it.</p>
 
-<p><img src="/images/pi-ui.png" alt="" class="pure-img" ></p>
+<img src="/images/pi-ui.png" alt="" class="pure-img" >
 
 <p>Getting the temperature is a matter of a simple cat command to the right place</p>
 
@@ -138,9 +138,11 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>You can then use the /history endpoint to get the temperature stats.</p>
 
-<p><img src="/images/pi-history.png" alt="" class="pure-img" ></p>
+<img src="/images/pi-history.png" alt="" class="pure-img" >
 
 <p>You can get, download, fork the whole project from <a href="https://github.com/igorkulman/rpi-thermometer">https://github.com/igorkulman/rpi-thermometer</a>.</p>
+
+<p>[8]: <a href="https://camo.githubusercontent.com/e34f5c0247b592e874f2864e75e184570b181993/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f37333634322f61727469636c65732f72706974656d702e706e67">https://camo.githubusercontent.com/e34f5c0247b592e874f2864e75e184570b181993/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f37333634322f61727469636c65732f72706974656d702e706e67</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>

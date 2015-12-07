@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Why Universal Apps as not as universal as you may think &middot; Coding Journal">
@@ -110,7 +110,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>In theory, Universal Apps are supposed to make code sharing between Windows Phone and Windows 8.1 simple and allow you to reuse as much code as possible. This works on the trivial Microsoft samples, but try to create a real world app. I have a business logic project with API calls, storage, etc. in a portable class library (like I always did before Universal Apps existed) and I created an Universal App from the template. And the #ifdef hell started.</p>
 
-<p><img src="/images/56995992.jpg" alt="" class="pure-img" ></p>
+<img src="/images/56995992.jpg" alt="" class="pure-img" >
 
 <p><strong>#ifdefs everywhere</strong></p>
 
@@ -132,7 +132,9 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>So you use GridView on both Windows Phone 8.1 and Windows 8.1 to make it consistent. Add tens f of items with images to it and the performance starts to really suffer. Gray placeholders will show up and more importantly, <a href="https://stackoverflow.com/questions/27488201/gridview-and-placeholders-that-never-disapper-in-windows-8-and-windows-phone-app">never disappears</a>. You do not event need images, just add about 300 text only items to the GridView and the gray placeholders will starts to show when scrolling.</p>
 
-<p>Need another proof that the WinRT controls are slower? Just <a href="https://www.youtube.com/watch?v=nn5hVq6Q-zo">take a look at this video comparing the media app on and old Windows Phone 7 to the media app on a much more powerful device running Windows Phone 8.1</a>. You can see that the old, single core device runs the Silverlight apps faster than the new powerful phone runs the new WinRT equivalent of the app.</p>
+<p>Need another proof that the WinRT controls are slower? Just [take a look at this video comparing the media app on and old Windows Phone 7 to the media app on a much more powerful device running Windows Phone 8.1][5]. You can see that the old, single core device runs the Silverlight apps faster than the new powerful phone runs the new WinRT equivalent of the app.</p>
+
+<p>[5]: <a href="https://www.youtube.com/watch?v=nn5hVq6Q-zo">https://www.youtube.com/watch?v=nn5hVq6Q-zo</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>

@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="REST service base class for Windows Phone 8.1 XAML apps &middot; Coding Journal">
@@ -98,7 +98,7 @@ Interested in programming languages, functional programming and data science.</p
 
                   
                     <div class="post-description">
-                        <p>Communicating with a JSON based REST service is a task that many Windows Phone apps have to do. My apps sure do it a lot so I came up with a base class that I use in all of them, <a href="https://github.com/igorkulman/Kulman.WPA81.BaseRestService">put it on Github</a> and <a href="https://www.nuget.org/packages/Kulman.WPA81.BaseRestService/">created a Nuget package</a>, so your apps could use it to.</p>
+                        <p>Communicating with a JSON based REST service is a task that many Windows Phone apps have to do. My apps sure do it a lot so I came up with a base class that I use in all of them, <a href="https://github.com/igorkulman/Kulman.WPA81.BaseRestService">put it on Github</a> and [created a Nuget package][2], so your apps could use it to.</p>
 
 <p>The usage of this base class is simple. Create your service class and inherit from BaseRestService. The minimum you need to do to make it work is to override the GetBaseUrl() method to set the base url for all the requests. You can (but do not have to) also override the GetRequestHeaders() method to set the default request headers.</p>
 
@@ -117,6 +117,8 @@ Interested in programming languages, functional programming and data science.</p
 <p>In case of an error, the methods throw either a DeserialziationException with the original data if deserialization failed, or a ConnectionException with the HTTP status code.</p>
 
 <p>if you need some additional features, just raise an issue in the <a href="https://github.com/igorkulman/Kulman.WPA81.BaseRestService">Github repo</a>, or create a pull request.</p>
+
+<p>[2]: <a href="https://www.nuget.org/packages/Kulman.WPA81.BaseRestService/">https://www.nuget.org/packages/Kulman.WPA81.BaseRestService/</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>

@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="How to uniquely identify a Windows 8 device &middot; Coding Journal">
@@ -102,23 +102,23 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>The Windows.System.Profile namespace contains HardwareToken that you can get by calling HardwareIdentification.GetPackageSpecificToken(null)</p>
 
-<p><script src="https://gist.github.com/5849503.js"></script></p>
+<script src="https://gist.github.com/5849503.js"></script>
 
 <p>This class contains a bunch of interesting fields</p>
 
-<p><script src="https://gist.github.com/5849507.js"></script></p>
+<script src="https://gist.github.com/5849507.js"></script>
 
 <p>All of these fields are of type Windows.Storage.Stream.Ibuffer, therefore COM calls. To use a value useable with .NET you have to use the DataReader, I get the unique device identifier from the hardwareId</p>
 
-<p><script src="https://gist.github.com/5849511.js"></script></p>
+<script src="https://gist.github.com/5849511.js"></script>
 
 <p>The resulting byte array can be converted to an UTF8 string</p>
 
-<p><script src="https://gist.github.com/5849513.js"></script></p>
+<script src="https://gist.github.com/5849513.js"></script>
 
 <p>I prefer concatenating the bytes to a string</p>
 
-<p><script src="https://gist.github.com/5849515.js"></script></p>
+<script src="https://gist.github.com/5849515.js"></script>
 
 <p><strong>Update:</strong> The hardware token of a device can change with hardware changes. Even small hardware changes like disabling Bluetooth can change the hardware token. You should generate it just once and save it.</p>
 

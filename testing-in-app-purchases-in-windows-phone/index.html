@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Testing in-app purchases in Windows Phone &middot; Coding Journal">
@@ -114,9 +114,9 @@ Interested in programming languages, functional programming and data science.</p
 
 <p><strong>Mocking library</strong></p>
 
-<p>To mock in-app purchases you can use the <a href="http://code.msdn.microsoft.com/wpapps/Mock-In-App-Purchase-33080f0c">Mock In-App Purchase Library</a>. To make testing easier, implement my interface using this library</p>
+<p>To mock in-app purchases you can use the [Mock In-App Purchase Library][4]. To make testing easier, implement my interface using this library</p>
 
-<p><script src="https://gist.github.com/9571846.js"></script></p>
+<script src="https://gist.github.com/9571846.js"></script>
 
 <p>And setup the products you want to use at your app startup</p>
 
@@ -125,6 +125,8 @@ Interested in programming languages, functional programming and data science.</p
 <p>The advantage of this approach is that you just switch the IWindowsStoreService implementation between then mock on and the <a href="https://github.com/igorkulman/Kulman.WP8/blob/master/Kulman.WP8/Services/WindowsPhoneStoreService.cs">real one</a>, depending on the situation. For example (Caliburn.Micro Bootstrapper)</p>
 
 <script src="https://gist.github.com/igorkulman/9571908.js?file=IAP.cs"></script>
+
+<p>[4]: <a href="http://code.msdn.microsoft.com/wpapps/Mock-In-App-Purchase-33080f0c">http://code.msdn.microsoft.com/wpapps/Mock-In-App-Purchase-33080f0c</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>

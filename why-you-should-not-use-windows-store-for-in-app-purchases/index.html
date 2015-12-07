@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Why you should not use Windows Store for in-app purchases &middot; Coding Journal">
@@ -120,9 +120,11 @@ Interested in programming languages, functional programming and data science.</p
 
 <p><strong>No sandbox for testing</strong></p>
 
-<p>You cannot do any &#8220;real&#8221; testing with Windows Store. It does not provide any sanbox. The only way to test the in-app purchases is to use the primitive <a href="http://msdn.microsoft.com/en-us/library/windows/apps/windows.applicationmodel.store.currentappsimulator">CurrentAppSimulator</a> that can basically just simulate if the users cliked ok or cancel in the buy dialog or if there was an error. You cannot use it to test you server-side receipt validation.</p>
+<p>You cannot do any &#8220;real&#8221; testing with Windows Store. It does not provide any sanbox. The only way to test the in-app purchases is to use the primitive [CurrentAppSimulator][4] that can basically just simulate if the users cliked ok or cancel in the buy dialog or if there was an error. You cannot use it to test you server-side receipt validation.</p>
 
 <p>There is no way to &#8220;pair&#8221; your app running form Visual Studio to you app defined in Windows Store for testing purposes. You really need to trust your implementation and you can test it only after the app is published and live in Windows Store.</p>
+
+<p>[4]: <a href="http://msdn.microsoft.com/en-us/library/windows/apps/windows.applicationmodel.store.currentappsimulator">http://msdn.microsoft.com/en-us/library/windows/apps/windows.applicationmodel.store.currentappsimulator</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>

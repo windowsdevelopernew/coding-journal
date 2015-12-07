@@ -7,7 +7,7 @@
 
     <meta name="description" content="Adventures in the world of C#, F# and WinRT">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Winrt &middot; Coding Journal">
@@ -79,6 +79,38 @@ Interested in programming languages, functional programming and data science.</p
             
             <div class="posts">
                 
+                <h1 class="content-subhead">15 Nov 2012, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/computing-hashes-in-winrt/" class="post-title">Computing hashes in WinRT</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>If you ever generated a MD5 or SHA hash in C# you problaby uset the classes from the System.Security.Cryptography namespace. This namespace is not available in WinRT, you have to use the Windows.Security.Cryptography.Core instead. This namespace contians a class called HashAlgorithmProvider that can be used to generate hashes using MD5 and SHA (SHA1, SHA256, SHA384, SHA512). A simple method to generate a hash for a string using a given algorithm may look like this</p>
+
+<script src="https://gist.github.com/5849454.js"></script>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/computing-hashes-in-winrt/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">13 Nov 2012, 00:00</h1>
                 <section class="post">
                     <header class="post-header">
@@ -136,7 +168,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>The Windows.System.Profile namespace contains HardwareToken that you can get by calling HardwareIdentification.GetPackageSpecificToken(null)</p>
 
-<p><script src="https://gist.github.com/5849503.js"></script></p>
+<script src="https://gist.github.com/5849503.js"></script>
 
 <p>This class contains a bunch of interesting fields</p>
 
@@ -178,7 +210,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>JSON.NET is very easy to use; first you create a JObject instance</p>
 
-<p><script src="https://gist.github.com/5857544.js"></script></p>
+<script src="https://gist.github.com/5857544.js"></script>
 
 
                         
@@ -244,7 +276,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>The first method could take advantage of the GetFilesAsync method that returns a readonly list of all the files in a folder as StorageFile objects. The StorageFile contains a property called Name that you could compare with the given filename. The whole code would look like this</p>
 
-<p><script src="https://gist.github.com/5849495.js"></script></p>
+<script src="https://gist.github.com/5849495.js"></script>
 
 
                         

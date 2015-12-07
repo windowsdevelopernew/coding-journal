@@ -19,7 +19,7 @@
 
 &lt;p&gt;WebAuthenticationBroker is a good idea but it is implemented rather poorly. It works differently on Windows 8.1 and Windows Phone 8.1 due to the &amp;#8220;AndContinue&amp;#8221; pattern that Windows Phone 8.1 forces on you. You can solve this with &lt;a href=&#34;http://blog.kulman.sk/why-universal-apps-as-not-as-universal-as-you-may-think/&#34;&gt;some ifdefs and platform specific code, as always&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;The real problem s that the &lt;a href=&#34;https://code.msdn.microsoft.com/windowsapps/Web-Authentication-d0485122&#34;&gt;MSDN sample&lt;/a&gt; states it works with Google login but it does not. The sample thinks it gets the authentication token but it does not, it just gets the success code that you have to exchange for the authentication token yourself.&lt;/p&gt;
+&lt;p&gt;The real problem s that the [MSDN sample][3] states it works with Google login but it does not. The sample thinks it gets the authentication token but it does not, it just gets the success code that you have to exchange for the authentication token yourself.&lt;/p&gt;
 
 &lt;p&gt;Lets start with a basic config&lt;/p&gt;
 
@@ -42,6 +42,8 @@
 &lt;p&gt;And now you finally have a way to get the authentication token and implement Google login.&lt;/p&gt;
 
 &lt;script src=&#34;https://gist.github.com/igorkulman/65a406f7f3cff48be3c5.js?file=GetToken.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;[3]: &lt;a href=&#34;https://code.msdn.microsoft.com/windowsapps/Web-Authentication-d0485122&#34;&gt;https://code.msdn.microsoft.com/windowsapps/Web-Authentication-d0485122&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

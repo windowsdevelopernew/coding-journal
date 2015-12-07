@@ -7,7 +7,7 @@
 
     <meta name="description" content="Adventures in the world of C#, F# and WinRT">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Posts &middot; Coding Journal">
@@ -79,6 +79,38 @@ Interested in programming languages, functional programming and data science.</p
             
             <div class="posts">
                 
+                <h1 class="content-subhead">30 Oct 2012, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/using-different-data-templates-with-gridview-in-windows-8-apps/" class="post-title">Using different data templates with GridView in Windows 8 apps</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>GridView and ListView are the two of the most commonly used components in Windows 8 apps. Items in these two components are displayed according to the DataTemplate give as the ItemTemplate property. If you do not want to display all the items the same way, you need to use a custom ItemTemplateSelector.</p>
+
+<p>Using ItemTemplateSelector in Windows 8 apps is easier and more straightforward that in Windows Phone 7 (I wrote about that [here in Slovak][1]). All you need to do is to create a class inheriting from the DataTemplateSelector and set the ItemTemplateSelector property of GridView (or ListView) to this new class.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/using-different-data-templates-with-gridview-in-windows-8-apps/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">26 Oct 2012, 00:00</h1>
                 <section class="post">
                     <header class="post-header">
@@ -102,7 +134,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>The first method could take advantage of the GetFilesAsync method that returns a readonly list of all the files in a folder as StorageFile objects. The StorageFile contains a property called Name that you could compare with the given filename. The whole code would look like this</p>
 
-<p><script src="https://gist.github.com/5849495.js"></script></p>
+<script src="https://gist.github.com/5849495.js"></script>
 
 
                         

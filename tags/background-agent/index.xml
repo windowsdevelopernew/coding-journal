@@ -19,13 +19,15 @@
 
 &lt;p&gt;You can use &lt;a href=&#34;http://msdn.microsoft.com/en-US/library/windowsphone/develop/microsoft.phone.scheduler.scheduledactionservice.launchfortest(v=vs.105).aspx&#34;&gt;ScheduledActionService.LaunchForTest&lt;/a&gt; to test your background agent without waiting 30 minutes for the system to run it. What if you use this method in the OnInvoke method of your background agent?&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849356.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/5849356.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;Your background agent gets executed every minute!&lt;/p&gt;
 
 &lt;p&gt;I wonder if this code would pass certification. Has anyone tried to use it?&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; it will &lt;strong&gt;not&lt;/strong&gt; work, see &lt;a href=&#34;http://blog.mjfnet.com/2013/01/10/windows-phone-dont-call-launchfortest-in-release/&#34;&gt;Windows Phone: Don’t call LaunchForTest in Release&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; it will &lt;strong&gt;not&lt;/strong&gt; work, see [Windows Phone: Don’t call LaunchForTest in Release][3].&lt;/p&gt;
+
+&lt;p&gt;[3]: &lt;a href=&#34;http://blog.mjfnet.com/2013/01/10/windows-phone-dont-call-launchfortest-in-release/&#34;&gt;http://blog.mjfnet.com/2013/01/10/windows-phone-dont-call-launchfortest-in-release/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

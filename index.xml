@@ -6,8 +6,28 @@
     <description>Recent content on Coding Journal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Nov 2015 12:41:12 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 07 Dec 2015 09:29:12 +0100</lastBuildDate>
     <atom:link href="http://blog.kulman.sk/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Detecting gestures over WebView on Windows Phone</title>
+      <link>http://blog.kulman.sk/detecting-gestures-over-webview-on-windows-phone/</link>
+      <pubDate>Mon, 07 Dec 2015 09:29:12 +0100</pubDate>
+      
+      <guid>http://blog.kulman.sk/detecting-gestures-over-webview-on-windows-phone/</guid>
+      <description>&lt;p&gt;If you develop Windows Phone apps, you surely had to use the WebView component at least once. Any you must have realized, that it kind of sucks. One of the problems is that it swallows all the gestures and manipulation events. This means you cannot put it into a Pivot, you cannot detect swipe left or right events to navigate to next or previous article .. or can you?&lt;/p&gt;
+
+&lt;p&gt;In a recent project, I had to implement exactly the mentioned functionality, swiping between articles displayed in a WebView. I did some research and I could not find any solution. So I had to get creative and I find a way involving JavaScript.&lt;/p&gt;
+
+&lt;p&gt;The idea was simple. If you cannot recognize the swipe event over the WebView in your C#/XAML, why not try to recognize them in the WebView? I did some research and found a JavaScript library that works on Windows Phone. The library is &lt;a href=&#34;https://hammerjs.github.io/&#34;&gt;Hammer&lt;/a&gt; and it recognizes all the basic gestures, including swiping left and right.&lt;/p&gt;
+
+&lt;p&gt;First you include Hammer into your HTML, then you set it up to listen over an HTML element and lastly you subscribe to events you are interested in. The only reasonable action you can execute is notify the WebView using the &lt;code&gt;window.external.notify&lt;/code&gt; function.&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/f7c559775ef3e57906ed.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;The C#/XAML part of the solution consists just of handling the WebView&amp;rsquo;s &lt;code&gt;ScriptNotify&lt;/code&gt; event and implementing your action according to the value you receive.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>The sad state of DVLUP (MS Tech Rewards)</title>
@@ -80,7 +100,7 @@
 
 &lt;p&gt;It has to be run with administrator privileges to work. Maybe I will go one step further and make this script run each time the notebook wakes up, just to be sure.&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/3bea04333c0b47156c68.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/3bea04333c0b47156c68.js&#34;&gt;&lt;/script&gt;
 </description>
     </item>
     
@@ -96,25 +116,27 @@
 
 &lt;p&gt;Small and simple extension with just one task, displaying indent and page width guides in Visual Studio text editor windows. There are three styles of guides: solid, dotted and dashed, available in thin and thick varieties and customizable color.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.kulman.sk/images/guides.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
+&lt;img src=&#34;http://blog.kulman.sk/images/guides.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.visualstudiogallery.msdn.microsoft.com/f4d9c2b5-d6d7-4543-a7a5-2d7ebabc2496&#34;&gt;VSColorOutput&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;VSColorOutput can change the color of a line emitted to the output window based on specified rules. The rules consist of regular expressions. Rules map to classifications which in turn map to colors. The default patterns will color build errors in red, warnings in yellow/gold and successful build messages in green. It also colors the output of debug messages when running an app, so you can easily sort exceptions and your custom debug messages containing certain words.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.kulman.sk/images/vscoloroutput.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
+&lt;img src=&#34;http://blog.kulman.sk/images/vscoloroutput.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://visualstudiogallery.msdn.microsoft.com/f3f23845-5b1e-4811-882f-60b7181fa6d6&#34;&gt;Rename Visual Studio Windows Title&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;By default, Visual Studio shows the name of the opened solution name in the title. This makes it easier to navigate among multiple instances of Visual Studio. You see the solution name next to the Visual Studio icon in the taskbar and also in the task manager, when you have to (and we all sometimes have to) kill the right Visual Studio because it stopped responding. You can use it with Git and show the branch or any other info. For more information about this extension, see a &lt;a href=&#34;http://blog.kulman.sk/quick-tip-showing-solution-branch-name-in-visual-studio-title/&#34;&gt;separate blog post I wrote&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.kulman.sk/images/trayalya.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
+&lt;img src=&#34;http://blog.kulman.sk/images/trayalya.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://visualstudiogallery.msdn.microsoft.com/03448836-db42-46b3-a5c7-5fc5d36a8308&#34;&gt;AsyncFixer&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;AsyncFixer helps developers in finding and correcting 3 common async/await misuses. AsyncFixer was tested with hundreds of C# apps and successfully handles many corner cases. AsyncFixer will work just in the IDE and work as an analyzer on every project you open in Visual Studio. It can also operate in batch mode to correct all misuses in the document, project, or solution.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.kulman.sk/images/asyncfixer-1.gif&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
+&lt;img src=&#34;http://blog.kulman.sk/images/asyncfixer-1.gif&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+
+&lt;p&gt;[10]: &lt;a href=&#34;https://i1.visualstudiogallery.msdn.s-msft.com/03448836-db42-46b3-a5c7-5fc5d36a8308/image/file/154241/1/asyncfixer-1.gif&#34;&gt;https://i1.visualstudiogallery.msdn.s-msft.com/03448836-db42-46b3-a5c7-5fc5d36a8308/image/file/154241/1/asyncfixer-1.gif&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -140,13 +162,15 @@
 
 &lt;p&gt;&lt;strong&gt;Insecure workaround&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;I did some research and &lt;a href=&#34;https://forums.lenovo.com/t5/ThinkPad-T400-T500-and-newer-T/T440s-beeps-while-putting-in-sleep-mode-and-a-blank-screen/m-p/2191866&#34;&gt;found out that the problem is related to the TPM chip&lt;/a&gt;. I use the TPM chip with BitLocker in Windows 10, so It looked like it maybe be the problem.&lt;/p&gt;
+&lt;p&gt;I did some research and [found out that the problem is related to the TPM chip][3]. I use the TPM chip with BitLocker in Windows 10, so It looked like it maybe be the problem.&lt;/p&gt;
 
 &lt;p&gt;So I turned off BitLocker, waited for my disk do get decrypted and disabled the TPM in BIOS. I put the computer to sleep, waited for it to go to hibernation, and nothing happened. No beeps, no problems, the computer woke normally.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Conclusion&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;So now I have a BIOS (that I cannot get rid of) with the security fix for an obscure issue but my disk is not encrypted and when I loose my computer or it gets stolen, anyone can read my data. Again, great work Lenovo. Time to install TrueCrypt I guess.&lt;/p&gt;
+
+&lt;p&gt;[3]: &lt;a href=&#34;https://forums.lenovo.com/t5/ThinkPad-T400-T500-and-newer-T/T440s-beeps-while-putting-in-sleep-mode-and-a-blank-screen/m-p/2191866&#34;&gt;https://forums.lenovo.com/t5/ThinkPad-T400-T500-and-newer-T/T440s-beeps-while-putting-in-sleep-mode-and-a-blank-screen/m-p/2191866&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -158,11 +182,11 @@
       <guid>http://blog.kulman.sk/highlighting-letters-in-textblock-in-windows-phone-8-1-and-windows-8-1/</guid>
       <description>&lt;p&gt;In my current project I had to implement an interesting feature for both Windows Phone 8.1 and Windows 8.1 project of the Universal app. The idea is simply. The users want to search for a movie. They enter a search term into a TextBox and a list of results is shown. The results should have the search term highlighted in them.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.kulman.sk/images/highlighting.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
+&lt;img src=&#34;http://blog.kulman.sk/images/highlighting.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
 &lt;p&gt;The standard TextBlock used to display the movie titles does not support any kind of letter highlighting, so I had to write a custom one. I created a custom UserControl. The UserControl contains a few dependency properties Text, HighlightedText, HighlightBrush and a TextBlock. When Text or HighlightedText change, the Text is then split into multiple Runs that are added to the TextBlock.&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/87b051f2f3a54bf895f0.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/87b051f2f3a54bf895f0.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;The whole working custom control is available at Github: &lt;a href=&#34;https://github.com/igorkulman/Kulman.WPA81.HighlightTextBox&#34;&gt;https://github.com/igorkulman/Kulman.WPA81.HighlightTextBox&lt;/a&gt;.&lt;/p&gt;
 </description>
@@ -188,7 +212,7 @@
 
 &lt;p&gt;Last week, users started to report that the app freezes on the main screen, sometime making the whole phone freeze. This was really bad. Frozen app means not only angry customers but customer that do not buy stuff. So I started to investigate.&lt;/p&gt;
 
-&lt;p&gt;First I thought there may be a problem in the app, although the app was last updated more than a month ago and the problem started only last week. Everything worked fine in the emulator, the problem was reproducible only on real devices. I tried showing only one carousel to make the app render much less data, did not help. I tried making the app show only one product in the only one carousel, still a problem. So it looked like the images were the problem. I tried replacing all the real image urls with random images from &lt;a href=&#34;http://lorempixel.com&#34;&gt;lorempixel.com&lt;/a&gt; and the app worked just fine.&lt;/p&gt;
+&lt;p&gt;First I thought there may be a problem in the app, although the app was last updated more than a month ago and the problem started only last week. Everything worked fine in the emulator, the problem was reproducible only on real devices. I tried showing only one carousel to make the app render much less data, did not help. I tried making the app show only one product in the only one carousel, still a problem. So it looked like the images were the problem. I tried replacing all the real image urls with random images from [lorempixel.com][2] and the app worked just fine.&lt;/p&gt;
 
 &lt;p&gt;I determined that the source of the problems are the images on the server. Talking with the server customer&amp;#8217;s people I found out that the images on the server were exchanged for bigger one because of the iPhones. But it did not make sense. I tried using much bigger random images and the app worked fine. I tried downloading the images and using them locally, the app worked fine.&lt;/p&gt;
 
@@ -200,9 +224,11 @@
 
 &lt;p&gt;I made a video using the sample app showing the problem&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;div class=&#34;embed video-player&#34;&gt;
 &lt;iframe src=&#34;http://player.vimeo.com/video/138747871&#34; width=&#34;640&#34; height=&#34;385&#34; frameborder=&#34;0&#34; webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;[2]: &lt;a href=&#34;http://lorempixel.com&#34;&gt;http://lorempixel.com&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -214,15 +240,17 @@
       <guid>http://blog.kulman.sk/microsofts-outlook-on-android-and-ios/</guid>
       <description>&lt;p&gt;To those who don’t know, Microsoft launched several months ago Outlook for Android and iOS phones and tablets. Microsoft’s new brand of Outlook have replace the failing “Outlook-branded apps” that are only available to the current subscribers of Office 365. The upheaval comes after Microsoft acquired San Francisco-based company, &lt;a href=&#34;https://www.acompli.com/&#34;&gt;Acompli.com&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.kulman.sk/images/Outlook-Best-New-Apps.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
+&lt;img src=&#34;http://blog.kulman.sk/images/Outlook-Best-New-Apps.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
 &lt;p&gt;Acompli is an “advanced email application that empowers professionals to do more with emails, full calendaring, easy file sharing and log all the important people in one email format.” The format supports Microsoft’s Office 365, Gmail and Google Apps.&lt;/p&gt;
 
 &lt;p&gt;Microsoft’s plan is for both the Accompli and the new Outlook app to replace the rather dated Outlook-branded apps. The newfangled Outlook app is primarily based on the technology from the Acompli app that the company acquired for $200 million. Microsoft stated that it was a major factor in buying the app, as its staff could then make up the core group of engineers needed to drive the new Outlook app forward.&lt;/p&gt;
 
-&lt;p&gt;It’s no surprise that Microsoft is shifting its focus from PC-installed base as &lt;a href=&#34;http://www.geekwire.com/2014/flurry-report-mobile-phones-162-minutes/&#34;&gt;GeekWire.com&lt;/a&gt; reports that a study showed Americans spend approximately 162 minutes a day on their phones browsing. And with Gaming Realms, the developer behind the entertainment medium &lt;a href=&#34;https://www.pocketfruity.com/casino&#34;&gt;PocketFruity.com&lt;/a&gt;, claiming that the global smartphone use has now reached 17%, apps are seeing a spike regarding financial investments and support.&lt;/p&gt;
+&lt;p&gt;It’s no surprise that Microsoft is shifting its focus from PC-installed base as &lt;a href=&#34;http://www.geekwire.com/2014/flurry-report-mobile-phones-162-minutes/&#34;&gt;GeekWire.com&lt;/a&gt; reports that a study showed Americans spend approximately 162 minutes a day on their phones browsing. And with Gaming Realms, the developer behind the entertainment medium [PocketFruity.com][4], claiming that the global smartphone use has now reached 17%, apps are seeing a spike regarding financial investments and support.&lt;/p&gt;
 
 &lt;p&gt;It will be interesting to see how well the new Outlook app is received after a year or so. With the app retaining many of the features that its recent acquisition Acompli successfully exhibited, there’s a possibility that the consumer base may just stay with the Acompli until Outlook perfects the new app further, and add features that will set it apart from other leading email applications.&lt;/p&gt;
+
+&lt;p&gt;[4]: &lt;a href=&#34;https://www.pocketfruity.com/casino&#34;&gt;https://www.pocketfruity.com/casino&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -252,7 +280,7 @@
 
 &lt;p&gt;I took a look at my payout settings in the new Dev Center and it is a mess&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.kulman.sk/images/payout.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
+&lt;img src=&#34;http://blog.kulman.sk/images/payout.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
 &lt;p&gt;It previous pages is telling my that everything is ok and my data is valid, but is it? Those four radios do not give me the confidence to believe it. Especially seeing my old account (x3168) that was there in the Windows Store and I deleted it. I used to get the payment to the x0026 account that was in my Windows Phone Store account.&lt;/p&gt;
 
@@ -272,13 +300,15 @@
 
 &lt;p&gt;I work with Git, switching branches frequently, especially working on features and bug fixes. In this situation, it would be nice if Visual Studio showed not only the solution name but also the current branch in its title. No problem, there is an extension for that.&lt;/p&gt;
 
-&lt;p&gt;The extension is called &lt;a href=&#34;https://visualstudiogallery.msdn.microsoft.com/f3f23845-5b1e-4811-882f-60b7181fa6d6&#34;&gt;Rename Visual Studio Window&lt;/a&gt; and it works with Visual Studio 2015, 2013, 2012, 2010. This extension supports Git, so you can easily add the branch name to the title with a config like mine using [gitBranchName].&lt;/p&gt;
+&lt;p&gt;The extension is called [Rename Visual Studio Window][1] and it works with Visual Studio 2015, 2013, 2012, 2010. This extension supports Git, so you can easily add the branch name to the title with a config like mine using [gitBranchName].&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.kulman.sk/images/rename.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
+&lt;img src=&#34;http://blog.kulman.sk/images/rename.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
 &lt;p&gt;Your taskbar will then look like this&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.kulman.sk/images/trayalya.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
+&lt;img src=&#34;http://blog.kulman.sk/images/trayalya.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+
+&lt;p&gt;[1]: &lt;a href=&#34;https://visualstudiogallery.msdn.microsoft.com/f3f23845-5b1e-4811-882f-60b7181fa6d6&#34;&gt;https://visualstudiogallery.msdn.microsoft.com/f3f23845-5b1e-4811-882f-60b7181fa6d6&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -292,7 +322,7 @@
 
 &lt;p&gt;WebAuthenticationBroker is a good idea but it is implemented rather poorly. It works differently on Windows 8.1 and Windows Phone 8.1 due to the &amp;#8220;AndContinue&amp;#8221; pattern that Windows Phone 8.1 forces on you. You can solve this with &lt;a href=&#34;http://blog.kulman.sk/why-universal-apps-as-not-as-universal-as-you-may-think/&#34;&gt;some ifdefs and platform specific code, as always&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;The real problem s that the &lt;a href=&#34;https://code.msdn.microsoft.com/windowsapps/Web-Authentication-d0485122&#34;&gt;MSDN sample&lt;/a&gt; states it works with Google login but it does not. The sample thinks it gets the authentication token but it does not, it just gets the success code that you have to exchange for the authentication token yourself.&lt;/p&gt;
+&lt;p&gt;The real problem s that the [MSDN sample][3] states it works with Google login but it does not. The sample thinks it gets the authentication token but it does not, it just gets the success code that you have to exchange for the authentication token yourself.&lt;/p&gt;
 
 &lt;p&gt;Lets start with a basic config&lt;/p&gt;
 
@@ -315,6 +345,8 @@
 &lt;p&gt;And now you finally have a way to get the authentication token and implement Google login.&lt;/p&gt;
 
 &lt;script src=&#34;https://gist.github.com/igorkulman/65a406f7f3cff48be3c5.js?file=GetToken.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;[3]: &lt;a href=&#34;https://code.msdn.microsoft.com/windowsapps/Web-Authentication-d0485122&#34;&gt;https://code.msdn.microsoft.com/windowsapps/Web-Authentication-d0485122&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -326,9 +358,11 @@
       <guid>http://blog.kulman.sk/removing-unused-strings-from-windows-phone-8-resx-files/</guid>
       <description>&lt;p&gt;Using RESX files is the standard approach to Windows Phone 8 app localization, it is even contained in the standard project templates. When you work on a project for a longer time, you may get to a situation that your RESX files contain strings that you no longer use. This is a problem especially when you want to add a new localization, because it is slower and kind of wasteful localizing unused strings.&lt;/p&gt;
 
-&lt;p&gt;To solve this problem I have created a simple command line utility, that is &lt;a href=&#34;https://github.com/igorkulman/RemoveUnusedResources&#34;&gt;available at Github&lt;/a&gt;. This utility assumes that you use the standard localization approach from the templates (AppResources.{lang}.resx and LocalizedStrings.{value} in XAML).&lt;/p&gt;
+&lt;p&gt;To solve this problem I have created a simple command line utility, that is [available at Github][1]. This utility assumes that you use the standard localization approach from the templates (AppResources.{lang}.resx and LocalizedStrings.{value} in XAML).&lt;/p&gt;
 
 &lt;p&gt;The usage is really simple. Just run the utility with the path to your project as a parameter. It will detect all resources files and remove all the unused strings from them.&lt;/p&gt;
+
+&lt;p&gt;[1]: &lt;a href=&#34;https://github.com/igorkulman/RemoveUnusedResources&#34;&gt;https://github.com/igorkulman/RemoveUnusedResources&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -368,49 +402,7 @@
 
 &lt;p&gt;Finally, you need to apply the style by adding it to the page with your player&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/7bbbefc9a25afa07c5e1.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>The death of the WinRT developer?</title>
-      <link>http://blog.kulman.sk/the-death-of-the-winrt-developer/</link>
-      <pubDate>Thu, 30 Apr 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://blog.kulman.sk/the-death-of-the-winrt-developer/</guid>
-      <description>&lt;p&gt;As many other Windows Phone / Windows 8 / Universal apps developers (lets just call us WinRT developers) I watched the Build 2015 keynote last night. And I did not like it. I know Microsoft does not know to communicate but the message for me was clear. We, the WinRT developer, are no longer needed.&lt;/p&gt;
-
-&lt;p&gt;First, Microsoft announced that WPF apps will be allowed to be submitted to the Windows Store to be used on desktops / tablets. So why would anyone want to develop (or want to have developed) a Windows 8 (WinRT) app, when they can just use WPF and get everything done easier? I do not know.&lt;/p&gt;
-
-&lt;p&gt;But allowing WPF apps to the Windows Store is a small news compared to the ability to run Android apps on Windows Phone. The first news talked about porting Android apps to the Windows Phone, but later, &lt;a href=&#34;http://www.zdnet.com/article/heres-how-microsoft-hopes-to-get-android-and-ios-phone-apps-into-its-windows-10-store/&#34;&gt;statements like this&lt;/a&gt; appeared&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Android developers will be able to submit versions of their apps, written in Java or C++, to the Windows Store in he form of APKs and have those apps work on Windows Phone 10 devices. Android developers should be able to start submitting apps to the Windows 10 Store some time in the next few months.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;So let get this straight. Who would want a native mobile Windows app developed, when they can just take their Android app and use it on Windows? What company would want to keep their mobile Windows team, when they can just use their Android team to make Windows apps?&lt;/p&gt;
-
-&lt;blockquote class=&#34;twitter-tweet&#34; width=&#34;550&#34;&gt;
-  &lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;
-    So I can use WPF to get into the store, and Java to get onto WinPhone and Android. So why would I write a universal app???
-  &lt;/p&gt;
-  
-  &lt;p&gt;
-    &amp;mdash; Morten Nielsen (@dotMorten) &lt;a href=&#34;https://twitter.com/dotMorten/status/593467368124379137&#34;&gt;April 29, 2015&lt;/a&gt;
-  &lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Sure, Android apps will probably not run on XBOX and HoloLens, but I doubt Microsoft will open the XBOX store for all the developers, more likely only chosen companies will be allowed to publish apps. HoloLens will be used only by a small number of people if this price is not really low (which I doubt it will be), so only a few HoloLens apps will be needed.&lt;/p&gt;
-
-&lt;p&gt;For me, the situation seems clear, it is the death of the WinRT developer.&lt;/p&gt;
-
-&lt;blockquote class=&#34;twitter-tweet&#34; width=&#34;550&#34;&gt;
-  &lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;
-    Can the last XAML dev to leave please turn out the lights. &lt;a href=&#34;https://twitter.com/hashtag/Build2015?src=hash&#34;&gt;#Build2015&lt;/a&gt;
-  &lt;/p&gt;
-  
-  &lt;p&gt;
-    &amp;mdash; Mark Allan (@MarkXA) &lt;a href=&#34;https://twitter.com/MarkXA/status/593468730794967043&#34;&gt;April 29, 2015&lt;/a&gt;
-  &lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;script src=&#34;https://gist.github.com/7bbbefc9a25afa07c5e1.js&#34;&gt;&lt;/script&gt;
 </description>
     </item>
     

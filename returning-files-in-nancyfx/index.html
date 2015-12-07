@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Returning files in NancyFX &middot; Coding Journal">
@@ -98,13 +98,15 @@ Interested in programming languages, functional programming and data science.</p
 
                   
                     <div class="post-description">
-                        <p>In my current project, I have chosen <a href="http://nancyfx.org/">NancyFx</a> to implement a REST API. NancyFx is a .NET framework known for its &#8220;<a href="https://github.com/NancyFx/Nancy/wiki/Introduction#the-super-duper-happy-path">super-duper-happy-path</a>&#8220;.</p>
+                        <p>In my current project, I have chosen <a href="http://nancyfx.org/">NancyFx</a> to implement a REST API. NancyFx is a .NET framework known for its &#8220;[super-duper-happy-path][2]&#8220;.</p>
 
 <p>In one use case I generate a ZIP file in the temp folder and I want the API to return this ZIP file. NancyFx contains a Responses.AsFile helper but it works only with paths relative to the application.</p>
 
 <p>If you have an absolute path of a file, you cannot use it. You need to create a StreamResponse and return the file as an attachment</p>
 
-<p><script src="https://gist.github.com/6791265.js"></script></p>
+<script src="https://gist.github.com/6791265.js"></script>
+
+<p>[2]: <a href="https://github.com/NancyFx/Nancy/wiki/Introduction#the-super-duper-happy-path">https://github.com/NancyFx/Nancy/wiki/Introduction#the-super-duper-happy-path</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>

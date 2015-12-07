@@ -35,7 +35,7 @@
 
 &lt;p&gt;Create a Blank App. Add the &lt;a href=&#34;http://www.nuget.org/packages/Caliburn.Micro.Unity.WinRT/&#34;&gt;Caliburn.Micro.Unity.WinRT&lt;/a&gt; package from Nuget. It will install all the dependencies you need. Install &lt;a href=&#34;http://www.nuget.org/packages/PropertyChanged.Fody/&#34;&gt;PropertyChanged.Fody&lt;/a&gt; from Nuget. Next you need to hook up PropertyChanged.Fody with Fody. Open FodyWeavers.xml and change it to&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/6088620.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/6088620.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;PropertyChanged.Fody now knows that it should call the NotifyOfPropertyChange method from Caliburn Micro when a property gets changed. Let&amp;#8217;s do some cleanup next. Delete MainPage.xaml, rename the Common folder to Resources and create a few additional folders:&lt;/p&gt;
 
@@ -50,11 +50,11 @@
 
 &lt;p&gt;Next make you app inherit from CaliburnUnityApplication by changing App.xaml to&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/6088861.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/6088861.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;and cleaning up and changing App.xaml.cs to&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/6088871.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/6088871.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;&lt;strong&gt;First ViewModel&lt;/strong&gt;&lt;/p&gt;
 
@@ -62,25 +62,27 @@
 
 &lt;p&gt;create a new string property called Title. Add the ImplementPropertyChanged attribute to the class. This makes NotifyPropertyChanged.Fody call the NotifyOfPropertyChange whenever any of the properties (just Title for now) changes. Assing some text to the Title property in the constructor:&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/6088988.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/6088988.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;&lt;strong&gt;First View&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Now create a view for the MainViewModel as a Blank Page. According to the naming conventions, it needs to be called MainView and created in the Views folder. Add a TextBlock to the View. To bind the text of this TextBlock to the Title property, you could use Text=&amp;#8221;{Binding Title}&amp;#8221;. This works just fine but you do not have to do it. Just name the TextBlock the same as the property you want it to bind to (in our case Title):&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/6089012.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/6089012.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;&lt;strong&gt;Navigating to the view&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;There is only one more thing left to do. You need to tell the framework to navigate to the MainView when the app starts. This is done in the OnLaunched method in App.xaml.cs&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/6089032.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/6089032.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;&lt;strong&gt;Run you app&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Hit F5 and you will see your app start, navigate to MainView and show the text from the Title property in this view.&lt;/p&gt;
 
-&lt;p&gt;You can find the &lt;a href=&#34;https://github.com/igorkulman/CaliburnDemoWinRT&#34;&gt;code on Github&lt;/a&gt; and stay tuned for Part 2!&lt;/p&gt;
+&lt;p&gt;You can find the [code on Github][9] and stay tuned for Part 2!&lt;/p&gt;
+
+&lt;p&gt;[9]: &lt;a href=&#34;https://github.com/igorkulman/CaliburnDemoWinRT&#34;&gt;https://github.com/igorkulman/CaliburnDemoWinRT&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

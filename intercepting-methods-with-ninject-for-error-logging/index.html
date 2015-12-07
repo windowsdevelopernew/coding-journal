@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Intercepting methods with Ninject for error logging &middot; Coding Journal">
@@ -112,23 +112,25 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>I came across <a href="http://www.castleproject.org/projects/dynamicproxy/">Castle Dynamic Proxy</a> and realized that there are Ninject extensions that allow you to easily use it.</p>
 
-<p>First you need to install <a href="http://www.nuget.org/packages/Ninject.Extensions.Interception/3.0.0.8">Ninject.Extensions.Interception</a>. It has no depedencies other that Ninject, but you also have to install <a href="http://www.nuget.org/packages/Ninject.Extensions.Interception.DynamicProxy/3.0.0.8">Ninject.Extensions.Interception.DynamicProxy</a> (and <a href="http://www.nuget.org/packages/Castle.Core/">Castle.Core</a> as a dependency) otherwise it will not work.</p>
+<p>First you need to install <a href="http://www.nuget.org/packages/Ninject.Extensions.Interception/3.0.0.8">Ninject.Extensions.Interception</a>. It has no depedencies other that Ninject, but you also have to install <a href="http://www.nuget.org/packages/Ninject.Extensions.Interception.DynamicProxy/3.0.0.8">Ninject.Extensions.Interception.DynamicProxy</a> (and [Castle.Core][8] as a dependency) otherwise it will not work.</p>
 
 <p>First, create a class implementing the IInterceptor interface</p>
 
-<p><script src="https://gist.github.com/6045777.js"></script></p>
+<script src="https://gist.github.com/6045777.js"></script>
 
 <p>This class wraps the intercepted method invocation into a try..catch block and logs any occuring exception using my custom ILogFactory, including parameter values.</p>
 
 <p>Next, create a class implementing the InterceptAttribute</p>
 
-<p><script src="https://gist.github.com/6045812.js"></script></p>
+<script src="https://gist.github.com/6045812.js"></script>
 
 <p>This attribute uses the Ninject kernel to get an instance of the ErrorLoggingInterceptor so you do not have to concern yourself explictily with providing an ILogFactory implementation, Ninject will do all the work.</p>
 
 <p>Now you can use the LogErrorAttribute to mark any method, but keep in mind that all the marked methods must be virtual</p>
 
-<p><script src="https://gist.github.com/6045825.js"></script></p>
+<script src="https://gist.github.com/6045825.js"></script>
+
+<p>[8]: <a href="http://www.nuget.org/packages/Castle.Core/">http://www.nuget.org/packages/Castle.Core/</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>

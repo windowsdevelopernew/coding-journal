@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="How to get rid of the strange line under systray in Windows Phone 8 &middot; Coding Journal">
@@ -100,7 +100,7 @@ Interested in programming languages, functional programming and data science.</p
                     <div class="post-description">
                         <p>If you create an Windows Phone 8 app and test it only on WVGA and 720p devices or emulators, you may be surprised how you app looks on a WXGA device (or emulator).</p>
 
-<p><img src="/images/line.png" alt="" class="pure-img" ></p>
+<img src="/images/line.png" alt="" class="pure-img" >
 
 <p>I have not been able the reason why this happens but the solution is quite simple. Set your page&#8217;s top border to -1.</p>
 
@@ -113,6 +113,8 @@ Interested in programming languages, functional programming and data science.</p
 <p>If you use Caliburn.Micro, you need to override the CreatePhoneApplicationFrame in the Bootstrapper instead</p>
 
 <script src="https://gist.github.com/igorkulman/9572347.js?file=line.caliburn.cs"></script>
+
+<p>[1]: <a href="http://blog.kulman.sk/wp-content/uploads/2014/03/line.png">http://blog.kulman.sk/wp-content/uploads/2014/03/line.png</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>

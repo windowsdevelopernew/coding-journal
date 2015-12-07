@@ -7,7 +7,7 @@
 
     <meta name="description" content="Adventures in the world of C#, F# and WinRT">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="C# &middot; Coding Journal">
@@ -244,7 +244,7 @@ Interested in programming languages, functional programming and data science.</p
                     <div class="post-description">
                        <p>XAML supports stating color definitions as hexa strings (starting with #) but there is no built-in way to do it in C#, you must write your own method to do it, that might look like this</p>
 
-<p><script src="https://gist.github.com/5849452.js"></script></p>
+<script src="https://gist.github.com/5849452.js"></script>
 
 
                         
@@ -274,7 +274,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>First you need to read the XAML file. You can use the standard API with Windows.ApplicationModel.Package.Current.InstalledLocation as the folder. The XAML file must be set to Build=Content in your project</p>
 
-<p><script src="https://gist.github.com/5849482.js"></script></p>
+<script src="https://gist.github.com/5849482.js"></script>
 
 
                         
@@ -306,7 +306,7 @@ Interested in programming languages, functional programming and data science.</p
                     <div class="post-description">
                        <p>If you ever generated a MD5 or SHA hash in C# you problaby uset the classes from the System.Security.Cryptography namespace. This namespace is not available in WinRT, you have to use the Windows.Security.Cryptography.Core instead. This namespace contians a class called HashAlgorithmProvider that can be used to generate hashes using MD5 and SHA (SHA1, SHA256, SHA384, SHA512). A simple method to generate a hash for a string using a given algorithm may look like this</p>
 
-<p><script src="https://gist.github.com/5849454.js"></script></p>
+<script src="https://gist.github.com/5849454.js"></script>
 
 
                         
@@ -340,7 +340,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>The Windows.System.Profile namespace contains HardwareToken that you can get by calling HardwareIdentification.GetPackageSpecificToken(null)</p>
 
-<p><script src="https://gist.github.com/5849503.js"></script></p>
+<script src="https://gist.github.com/5849503.js"></script>
 
 <p>This class contains a bunch of interesting fields</p>
 
@@ -416,7 +416,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>JSON.NET is very easy to use; first you create a JObject instance</p>
 
-<p><script src="https://gist.github.com/5857544.js"></script></p>
+<script src="https://gist.github.com/5857544.js"></script>
 
 
                         

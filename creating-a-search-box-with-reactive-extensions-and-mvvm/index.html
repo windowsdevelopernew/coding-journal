@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Creating a Search box with Reactive Extensions and MVVM &middot; Coding Journal">
@@ -100,7 +100,7 @@ Interested in programming languages, functional programming and data science.</p
                     <div class="post-description">
                         <p>Having a Search box in a Windows Phone app is a common use-case but it is only rarely done right. A good Search box does not have a Search button associated with it that the users have to click when they are finished typing and want to start the search. A good Search box starts the search immediately when the user stops typing (for a certain period of time).</p>
 
-<p>You can implement this functionality with some nasty code using a DispatcherTimer, or you can use <a href="http://msdn.microsoft.com/en-us/data/gg577609.aspx">Reactive Extensions</a>. You can use Reactive Extensions directly on a TextBox representing the Search box, but if you use MVVM (and you should) you need to attach to the property associated with the Search box instead.</p>
+<p>You can implement this functionality with some nasty code using a DispatcherTimer, or you can use [Reactive Extensions][1]. You can use Reactive Extensions directly on a TextBox representing the Search box, but if you use MVVM (and you should) you need to attach to the property associated with the Search box instead.</p>
 
 <p>Suppose the ViewModel contains a string property called SearchTerm (with two-way binding to the Search box) and an event called PropertyChanged (used for the INotifyPropertyChanged implementation). We need to observe the changes of the SearchTerm property. There is no way to do it directly, we need to observe the PropertyChanged event instead.</p>
 
@@ -108,17 +108,19 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>Using the throttle operator we will get exactly the desired behaviour of executing the Search method 0.5 seconds after the user stopped typing.</p>
 
-<p><script src="https://gist.github.com/7657908.js"></script></p>
+<script src="https://gist.github.com/7657908.js"></script>
 
 <p>However, there is a small problem. The SearchTerm property changes (and fires the PropertyChanged event) only when the Search box loses focus. We need to make the SearchTerm property change after each letter typed instead. In WPF that would be trivial using UpdateTrigger, but Windows Phone does not support UpdateTrigger.</p>
 
 <p>We need to create a custom binding utility</p>
 
-<p><script src="https://gist.github.com/7657969.js"></script></p>
+<script src="https://gist.github.com/7657969.js"></script>
 
 <p>and apply it to the Search box</p>
 
-<p><script src="https://gist.github.com/7658031.js"></script></p>
+<script src="https://gist.github.com/7658031.js"></script>
+
+<p>[1]: <a href="http://msdn.microsoft.com/en-us/data/gg577609.aspx">http://msdn.microsoft.com/en-us/data/gg577609.aspx</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>

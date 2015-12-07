@@ -7,7 +7,7 @@
 
     <meta name="description" content="Adventures in the world of C#, F# and WinRT">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Posts &middot; Coding Journal">
@@ -78,6 +78,38 @@ Interested in programming languages, functional programming and data science.</p
         <div>
             
             <div class="posts">
+                
+                <h1 class="content-subhead">03 Mar 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/back-navigation-on-backspace-key-press-in-windows-8-1-apps/" class="post-title">Back navigation on Backspace key press in Windows 8.1 apps</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>I am not a mouse or a touch person, I like using the keyboard and keyboard shortcuts for everything. So when I (have to) use a Windows 8.1 Metro app, I always miss when the app does not navigate back when I press the Backspace key, just like the browser does.</p>
+
+<p>Implementing this functionality is really simple, you just need to handle the KeyUp event and listen for the Backspace key. You can implement the KeyUp event handler on every View in your app, but that is not necessary. You can just hook up the global Window.Current.CoreWindow.KeyUp event after you app starts.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/back-navigation-on-backspace-key-press-in-windows-8-1-apps/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
                 
                 <h1 class="content-subhead">13 Feb 2015, 00:00</h1>
                 <section class="post">
@@ -208,7 +240,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>This works great, changing the color of the active PivotItem Header to the color you want and applying some opacity to the inactive PivotItem Headers.</p>
 
-<p><img src="/images/header78.png" alt="" class="pure-img" ></p>
+<img src="/images/header78.png" alt="" class="pure-img" >
 
 
                         
@@ -394,38 +426,6 @@ Interested in programming languages, functional programming and data science.</p
                         
   <div class="read-more-link">
     <a href="/visual-studio-template-for-caliburn-micro-windows-phone-apps/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">22 Sep 2014, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/detecting-tablets-and-smartphones-in-asp-net/" class="post-title">Detecting tablets and smartphones in ASP.NET</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>I recently worked on an ASP.NET application that needed to detect if users were coming from tablets or smartphones. The project used data from <a href="http://user-agent-string.info/">http://user-agent-string.info/</a> to do this detection, but the result were not really good. We needed a better solution, so I came up with using [WURFL][1].</p>
-
-<p>WURFL, the Wireless Universal Resource FiLe, is a Device Description Repository (DDR), i.e. a software component that maps HTTP Request headers to the profile of the HTTP client (Desktop, Mobile Device, Tablet, etc.) that issued the request. Adding WURFL to your ASP.NET application is easy thanks to the [WURFL_Official_API Nuget package][2]. The Nuget package also contains definition file, so you just need to update the Nuget package once in a while to get your definition file up to date.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/detecting-tablets-and-smartphones-in-asp-net/">Read More…</a>
   </div>
   
                     </div>

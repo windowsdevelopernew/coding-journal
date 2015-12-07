@@ -15,7 +15,7 @@
       <pubDate>Wed, 15 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>http://blog.kulman.sk/using-etag-to-cache-responses-in-nancyfx/</guid>
-      <description>&lt;p&gt;Caching data is usually a good idea, especially when creating APIs for mobile clients and the user may pay for each transferred byte. There are many approaches to caching data (I recommend reading &lt;a href=&#34;http://frontendplay.com/2013/05/22/http-caching-demystified/&#34;&gt;this article&lt;/a&gt;), in my last NancyFX project I used ETag.&lt;/p&gt;
+      <description>&lt;p&gt;Caching data is usually a good idea, especially when creating APIs for mobile clients and the user may pay for each transferred byte. There are many approaches to caching data (I recommend reading [this article][1]), in my last NancyFX project I used ETag.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;ETag&lt;/strong&gt;&lt;/p&gt;
 
@@ -32,6 +32,8 @@
 &lt;p&gt;Using this method is the really simple&lt;/p&gt;
 
 &lt;script src=&#34;https://gist.github.com/igorkulman/4e6d24d0fedfe8361c6b.js?file=usage.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;[1]: &lt;a href=&#34;http://frontendplay.com/2013/05/22/http-caching-demystified/&#34;&gt;http://frontendplay.com/2013/05/22/http-caching-demystified/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -41,7 +43,7 @@
       <pubDate>Mon, 12 Jan 2015 00:00:00 +0000</pubDate>
       
       <guid>http://blog.kulman.sk/nancyfx-authentication-for-rest-api/</guid>
-      <description>&lt;p&gt;NancyFX is a great .NET framework well suited for creating REST APIs. There are many ways how to approach authentication, the simplest one is the good old Forms Authentication. The idea of Forms Authentication is that the user logs in with a username and password and gets a cookie, the protected endpoints then check the cookie. NancyFX supports Forms Authentication with the &lt;a href=&#34;https://www.nuget.org/packages/Nancy.Authentication.Forms/&#34;&gt;Nancy.Authentication.Forms&lt;/a&gt; package. The &lt;a href=&#34;https://github.com/NancyFx/Nancy/wiki/Forms-Authentication&#34;&gt;documentation describes how to use it on a web page&lt;/a&gt;, but to use it with a REST API a few changes are needed.&lt;/p&gt;
+      <description>&lt;p&gt;NancyFX is a great .NET framework well suited for creating REST APIs. There are many ways how to approach authentication, the simplest one is the good old Forms Authentication. The idea of Forms Authentication is that the user logs in with a username and password and gets a cookie, the protected endpoints then check the cookie. NancyFX supports Forms Authentication with the &lt;a href=&#34;https://www.nuget.org/packages/Nancy.Authentication.Forms/&#34;&gt;Nancy.Authentication.Forms&lt;/a&gt; package. The [documentation describes how to use it on a web page][2], but to use it with a REST API a few changes are needed.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Forms Authentication differences for REST API&lt;/strong&gt;&lt;/p&gt;
 
@@ -62,6 +64,8 @@
 &lt;p&gt;The logout implementation just needs to call LogoutWithoutRedirect and return HTTP 200:&lt;/p&gt;
 
 &lt;script src=&#34;https://gist.github.com/igorkulman/2430a948fe6c426cdd01.js?file=logout.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;[2]: &lt;a href=&#34;https://github.com/NancyFx/Nancy/wiki/Forms-Authentication&#34;&gt;https://github.com/NancyFx/Nancy/wiki/Forms-Authentication&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -113,7 +117,9 @@
 
 &lt;p&gt;Thanks to Roslyn, I was able to create a really usable scripting console for the project and allow users to automate many tasks using C# scripts. This article and the demo project describe just the basics, there are many ways to make the experience better. I for example use the &lt;a href=&#34;http://codemirror.net/&#34;&gt;CodeMirror&lt;/a&gt; editor to provide C# syntax highlighting, to allow users to upload ZIP files they can process in their scripts, etc.&lt;/p&gt;
 
-&lt;p&gt;Source code: &lt;a href=&#34;https://github.com/igorkulman/WebConsole&#34;&gt;WebConsole&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Source code: [WebConsole][4]&lt;/p&gt;
+
+&lt;p&gt;[4]: &lt;a href=&#34;https://github.com/igorkulman/WebConsole&#34;&gt;https://github.com/igorkulman/WebConsole&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -123,13 +129,15 @@
       <pubDate>Wed, 02 Oct 2013 00:00:00 +0000</pubDate>
       
       <guid>http://blog.kulman.sk/returning-files-in-nancyfx/</guid>
-      <description>&lt;p&gt;In my current project, I have chosen &lt;a href=&#34;http://nancyfx.org/&#34;&gt;NancyFx&lt;/a&gt; to implement a REST API. NancyFx is a .NET framework known for its &amp;#8220;&lt;a href=&#34;https://github.com/NancyFx/Nancy/wiki/Introduction#the-super-duper-happy-path&#34;&gt;super-duper-happy-path&lt;/a&gt;&amp;#8220;.&lt;/p&gt;
+      <description>&lt;p&gt;In my current project, I have chosen &lt;a href=&#34;http://nancyfx.org/&#34;&gt;NancyFx&lt;/a&gt; to implement a REST API. NancyFx is a .NET framework known for its &amp;#8220;[super-duper-happy-path][2]&amp;#8220;.&lt;/p&gt;
 
 &lt;p&gt;In one use case I generate a ZIP file in the temp folder and I want the API to return this ZIP file. NancyFx contains a Responses.AsFile helper but it works only with paths relative to the application.&lt;/p&gt;
 
 &lt;p&gt;If you have an absolute path of a file, you cannot use it. You need to create a StreamResponse and return the file as an attachment&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/6791265.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/6791265.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;[2]: &lt;a href=&#34;https://github.com/NancyFx/Nancy/wiki/Introduction#the-super-duper-happy-path&#34;&gt;https://github.com/NancyFx/Nancy/wiki/Introduction#the-super-duper-happy-path&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -153,23 +161,25 @@
 
 &lt;p&gt;I came across &lt;a href=&#34;http://www.castleproject.org/projects/dynamicproxy/&#34;&gt;Castle Dynamic Proxy&lt;/a&gt; and realized that there are Ninject extensions that allow you to easily use it.&lt;/p&gt;
 
-&lt;p&gt;First you need to install &lt;a href=&#34;http://www.nuget.org/packages/Ninject.Extensions.Interception/3.0.0.8&#34;&gt;Ninject.Extensions.Interception&lt;/a&gt;. It has no depedencies other that Ninject, but you also have to install &lt;a href=&#34;http://www.nuget.org/packages/Ninject.Extensions.Interception.DynamicProxy/3.0.0.8&#34;&gt;Ninject.Extensions.Interception.DynamicProxy&lt;/a&gt; (and &lt;a href=&#34;http://www.nuget.org/packages/Castle.Core/&#34;&gt;Castle.Core&lt;/a&gt; as a dependency) otherwise it will not work.&lt;/p&gt;
+&lt;p&gt;First you need to install &lt;a href=&#34;http://www.nuget.org/packages/Ninject.Extensions.Interception/3.0.0.8&#34;&gt;Ninject.Extensions.Interception&lt;/a&gt;. It has no depedencies other that Ninject, but you also have to install &lt;a href=&#34;http://www.nuget.org/packages/Ninject.Extensions.Interception.DynamicProxy/3.0.0.8&#34;&gt;Ninject.Extensions.Interception.DynamicProxy&lt;/a&gt; (and [Castle.Core][8] as a dependency) otherwise it will not work.&lt;/p&gt;
 
 &lt;p&gt;First, create a class implementing the IInterceptor interface&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/6045777.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/6045777.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;This class wraps the intercepted method invocation into a try..catch block and logs any occuring exception using my custom ILogFactory, including parameter values.&lt;/p&gt;
 
 &lt;p&gt;Next, create a class implementing the InterceptAttribute&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/6045812.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/6045812.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;This attribute uses the Ninject kernel to get an instance of the ErrorLoggingInterceptor so you do not have to concern yourself explictily with providing an ILogFactory implementation, Ninject will do all the work.&lt;/p&gt;
 
 &lt;p&gt;Now you can use the LogErrorAttribute to mark any method, but keep in mind that all the marked methods must be virtual&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/6045825.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/6045825.js&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;[8]: &lt;a href=&#34;http://www.nuget.org/packages/Castle.Core/&#34;&gt;http://www.nuget.org/packages/Castle.Core/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -185,33 +195,35 @@
 
 &lt;p&gt;The first thing you need to do is to define your log entry class. You need to create a class, Azure Table Storage does not work with F# records. In my case I want to store a timestamp, message and severity.&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5822037.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/5822037.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;Alternatively you can make your class inherit from TableEntity that already contains the PartitionKey and RowKey properties. The Severity property is in my case just a simple discriminated union&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5822042.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/5822042.js&#34;&gt;&lt;/script&gt;
 
-&lt;p&gt;You can access the Azure API in C# way but you do not need to, there is a great library called &lt;a href=&#34;http://dmohl.github.com/Fog/&#34;&gt;Fog by Dan Mohl&lt;/a&gt; that makes using Azure API from F# more comfortable.&lt;/p&gt;
+&lt;p&gt;You can access the Azure API in C# way but you do not need to, there is a great library called [Fog by Dan Mohl][3] that makes using Azure API from F# more comfortable.&lt;/p&gt;
 
 &lt;p&gt;First you create a Azure Table Storage client using a connection string defined in the Windows Azure Cloud Service Configuration file for a role&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5822066.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/5822066.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;Saving a log entry is then very simple thanks to Fog&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5822061.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/5822061.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;Saving data to Azure Table Storage may be a slow operation if you do it a lot, so you may want to log asynchronously&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5822056.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/5822056.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;As you may have noticed, I use the date as the partiotion key. The thing with Azure Table Storage is, that you can get the data by partition key, row key, or all the data. The log date seems like a reasonable partition key that allows you to get log by days&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5822053.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;script src=&#34;https://gist.github.com/5822053.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; there is a more way to create the LogEntity using the CLIMuttableAttribte&lt;/p&gt;
 
 &lt;p&gt;&lt;script src=&#34;https://gist.github.com/5822050.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;[3]: &lt;a href=&#34;http://dmohl.github.com/Fog/&#34;&gt;http://dmohl.github.com/Fog/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -241,7 +253,9 @@
 
 &lt;p&gt;The majority of .NET code runs just fine in AppHarbor without any changes. If you use Nuget, you need to enabled Nuget Package Restore for your solution.&lt;/p&gt;
 
-&lt;p&gt;Let the continous deployment begin &amp;#8230; my first AppHarbor project is hosted at &lt;a href=&#34;http://myexpenses.apphb.com/&#34;&gt;http://myexpenses.apphb.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Let the continous deployment begin &amp;#8230; my first AppHarbor project is hosted at [&lt;a href=&#34;http://myexpenses.apphb.com][9&#34;&gt;http://myexpenses.apphb.com][9&lt;/a&gt;].&lt;/p&gt;
+
+&lt;p&gt;[9]: &lt;a href=&#34;http://myexpenses.apphb.com/&#34;&gt;http://myexpenses.apphb.com/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

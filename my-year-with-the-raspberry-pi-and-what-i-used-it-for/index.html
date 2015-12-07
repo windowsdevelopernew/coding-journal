@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="My year with the Raspberry Pi and what I used it for &middot; Coding Journal">
@@ -114,11 +114,11 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>I am not a hardware guy but I wanted to do some hardware experimenters to use the PIs GPIO ports. I found a simple thermometer scheme, bought the components (a thermometer sensor and a resistor) a made a colleague solder it for me. I connected the thermometer the PI and I was able to read the temperature in the room.</p>
 
-<p><img src="/images/pitherm.jpg" alt="" class="pure-img" ></p>
+<img src="/images/pitherm.jpg" alt="" class="pure-img" >
 
 <p>Reading the temperature using the command line is not really comfortable, so I created a web UI for the thermometer. I wrote it in Node.js, because it seemed like an interesting platform to try. I made the whole project open source, and you can find it at <a href="https://github.com/igorkulman/rpi-thermometer">https://github.com/igorkulman/rpi-thermometer</a>.</p>
 
-<p><img src="/images/pi-ui.png" alt="" class="pure-img" ></p>
+<img src="/images/pi-ui.png" alt="" class="pure-img" >
 
 <p>Later I added a WiFi module and tried powering the PI from a battery bank. I basically created a WiFi enabled thermometer, that looked a bit strange. I think I need to get a small LCD display, so there is no need to open a browser when you just want to know the temperature.</p>
 
@@ -130,13 +130,15 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>Last week when I bought PI 2, I migrated my media center setup to it, leaving the old PI model B for experiments. I took the old PI to the office and finally solved a real world issue. There are speakers at the office that we use to play music. The problem is, whoever want to play the musics, needs to connect the speakers to their computer, so the speakers become exclusive and not shared.</p>
 
-<p>So I connected the PI to the speakers and found and installed <a href="http://www.woutervanwijk.nl/pimusicbox/">Music Box</a> on the PI. It is a media streaming distro that allows you to play online music from sources like Youtube, Spotify or Google Music. Music Box had a web UI, so everybody on the office network could add their favorite songs to the queue easily using a browser.</p>
+<p>So I connected the PI to the speakers and found and installed [Music Box][7] on the PI. It is a media streaming distro that allows you to play online music from sources like Youtube, Spotify or Google Music. Music Box had a web UI, so everybody on the office network could add their favorite songs to the queue easily using a browser.</p>
 
 <p><strong>Windows 10?</strong></p>
 
 <p>Running a version of Windows 10 on the Pi is really interesting when you think about it, but everything I did with the Pi I was able to do without Windows. I could do it because there was a ton of open source ready made tools to help me. At least in the beginning, this will be a problem with Windows 10. I am sure it will take some time for people to create things like thermometer drivers, GPIO control libraries, etc.</p>
 
 <p>But there is one area I can see Windows 10 to excel on the Pi, and that is building GUI apps, especially touch enabled ones. Imagine you want to build something like a kiosk with a touchscreen and you need an app for that. Using Windows 10 instead of Linux will be much easier because building GUI app on Linux using QT or GTK is quite a pain, creating a Metro (universal) app is much easier.</p>
+
+<p>[7]: <a href="http://www.woutervanwijk.nl/pimusicbox/">http://www.woutervanwijk.nl/pimusicbox/</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>

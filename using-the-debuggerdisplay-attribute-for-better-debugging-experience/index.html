@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Using the DebuggerDisplay attribute for better debugging experience &middot; Coding Journal">
@@ -100,21 +100,23 @@ Interested in programming languages, functional programming and data science.</p
                     <div class="post-description">
                         <p>When debugging a C# program in Visual Studio, I tend to always hover over the variables to glance at their values and structure instead of explicitly writing their names into the watch window. If I want to explore say a collection, I need to unfold each of the items using the + button to get an idea about the data:</p>
 
-<p><img src="/images/debug1.png" alt="" class="pure-img" ></p>
+<img src="/images/debug1.png" alt="" class="pure-img" >
 
 <p>This is not very comfortable, so thankfully, there is a way to make this experience better, using the <a href="http://msdn.microsoft.com/en-us/library/system.diagnostics.debuggerdisplayattribute(v=vs.110).aspx">DebuggerDisplay</a> attribute. This attribute can be applied to any class (and struct, enum, property, field, delegate, assembly) and allows you to define the information about the class you wanto to see in the debugger.</p>
 
 <p>Give the attribute a string to be displayed and in this string you can reference any data from the class:</p>
 
-<p><script src="https://gist.github.com/7640468.js"></script></p>
+<script src="https://gist.github.com/7640468.js"></script>
 
 <p>When you hover over the data now, you will see a nice readable &#8220;labels&#8221;:</p>
 
-<p><img src="/images/debug2.png" alt="" class="pure-img" ></p>
+<img src="/images/debug2.png" alt="" class="pure-img" >
 
-<p>If you do not want to add the DebuggerDisplay attribute to all your classes manually, you can use the <a href="https://github.com/Fody/Visualize">Visualize</a> addin for <a href="https://github.com/Fody/Fody">Fody</a>. Visualize will add the DebuggerDisplay atribute to all your classes, using all the classe&#8217;s properties in the &#8220;label&#8221;.</p>
+<p>If you do not want to add the DebuggerDisplay attribute to all your classes manually, you can use the <a href="https://github.com/Fody/Visualize">Visualize</a> addin for [Fody][5]. Visualize will add the DebuggerDisplay atribute to all your classes, using all the classe&#8217;s properties in the &#8220;label&#8221;.</p>
 
 <p><strong>Warning</strong>: showing this &#8220;labels&#8221; takes some time, so do not reference to many data fields.</p>
+
+<p>[5]: <a href="https://github.com/Fody/Fody">https://github.com/Fody/Fody</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>

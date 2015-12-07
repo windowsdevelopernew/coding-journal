@@ -7,7 +7,7 @@
 
     <meta name="description" content="Adventures in the world of C#, F# and WinRT">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Winrt &middot; Coding Journal">
@@ -79,6 +79,38 @@ Interested in programming languages, functional programming and data science.</p
             
             <div class="posts">
                 
+                <h1 class="content-subhead">07 Dec 2015, 09:29</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/detecting-gestures-over-webview-on-windows-phone/" class="post-title">Detecting gestures over WebView on Windows Phone</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WINRT" href="http://blog.kulman.sk/categories/winrt">WINRT</a><a class="post-category post-category-XAML" href="http://blog.kulman.sk/categories/xaml">XAML</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>If you develop Windows Phone apps, you surely had to use the WebView component at least once. Any you must have realized, that it kind of sucks. One of the problems is that it swallows all the gestures and manipulation events. This means you cannot put it into a Pivot, you cannot detect swipe left or right events to navigate to next or previous article .. or can you?</p>
+
+<p>In a recent project, I had to implement exactly the mentioned functionality, swiping between articles displayed in a WebView. I did some research and I could not find any solution. So I had to get creative and I find a way involving JavaScript.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/detecting-gestures-over-webview-on-windows-phone/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">17 Oct 2015, 00:00</h1>
                 <section class="post">
                     <header class="post-header">
@@ -100,7 +132,7 @@ Interested in programming languages, functional programming and data science.</p
                     <div class="post-description">
                        <p>In my current project I had to implement an interesting feature for both Windows Phone 8.1 and Windows 8.1 project of the Universal app. The idea is simply. The users want to search for a movie. They enter a search term into a TextBox and a list of results is shown. The results should have the search term highlighted in them.</p>
 
-<p><img src="/images/highlighting.png" alt="" class="pure-img" ></p>
+<img src="/images/highlighting.png" alt="" class="pure-img" >
 
 
                         
@@ -388,46 +420,6 @@ Interested in programming languages, functional programming and data science.</p
                         
   <div class="read-more-link">
     <a href="/dialog-helper-for-universal-apps/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">23 Dec 2014, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/creating-a-fake-splashscreen-for-your-universal-app/" class="post-title">Creating a fake splashscreen for your Universal App</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>Sometimes you may want your app to display the startup splashscreen a bit longer, so you can initialize or fetch some data necessary for the app to run. To achieve this, you can create a fake splaschreen, a View that looks just like the splashscreen, does all the work and redirects to the real main View afterwards.</p>
-
-<p>In theory, it is quite simple:</p>
-
-<ul>
-<li>Create a SplashScreenView with just the right background and the splashscreen image</li>
-<li>Set the app to display SplashScreenView at startup</li>
-<li>Do all the initializing and data fetching in SplashScreenViewModel and redirect to there real MainView</li>
-</ul>
-
-<p>This works quite well with Windows 8.1, but on Windows Phone 8.1 there is a problem. When you run the Windows Phone 8.1 app, you will see a page transition happen between the real splashscreen and your SplashScreenView. This looks strange, so it is better to get rid of it.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/creating-a-fake-splashscreen-for-your-universal-app/">Read More…</a>
   </div>
   
                     </div>

@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Fast way to check if a file exists in WinRT &middot; Coding Journal">
@@ -102,13 +102,13 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>The first method could take advantage of the GetFilesAsync method that returns a readonly list of all the files in a folder as StorageFile objects. The StorageFile contains a property called Name that you could compare with the given filename. The whole code would look like this</p>
 
-<p><script src="https://gist.github.com/5849495.js"></script></p>
+<script src="https://gist.github.com/5849495.js"></script>
 
 <p>This method looks fairly simple, elegant and works if the folder contains only a few files. When the folder contains tens or hundreds of files, this method gets very slow. In a folder with approximately 100 files the method takes about 1.5 seconds to return the result.</p>
 
 <p>There is faster way, that works in constant time (about 50ms) even in folders with hundred files, but it is not so elegant. The idea is simple, try to access the files and if you get an exception, just return false.</p>
 
-<p><script src="https://gist.github.com/5849500.js"></script></p>
+<script src="https://gist.github.com/5849500.js"></script>
 
 <p>Although I am a big fan of elegance and readability when coding, I prefer and use the second method.</p>
 

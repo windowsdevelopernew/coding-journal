@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Leveraging ETag caching in Windows Phone and Windows apps &middot; Coding Journal">
@@ -104,7 +104,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>When the app wants to get some data, I perform a GET request including the ETag as the If-None-Match header. If my ETag matches with the ETag on the server, the server returns HTTP 304 Not Modified and I return the cached data from disk. Otherwise I read the response body and return it.</p>
 
-<p><script src="https://gist.github.com/55fa534bdcb4ab963253.js"></script></p>
+<script src="https://gist.github.com/55fa534bdcb4ab963253.js"></script>
 
 <p>This approach works with the portable Http client library, that you can use with Windows Phone 8 (Silverlight), 8.1 (Sliverlight), 8.1 XAML and Windows <sup>8</sup>&frasl;<sub>8</sub>.1. If you only need to support Windows Phone 8.1 XAML and Windows 8.1, you may want to look into the Windows.Web.Http.HttpClient.</p>
 

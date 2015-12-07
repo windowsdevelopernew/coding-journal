@@ -7,7 +7,7 @@
 
     <meta name="description" content="Adventures in the world of C#, F# and WinRT">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Posts &middot; Coding Journal">
@@ -79,6 +79,38 @@ Interested in programming languages, functional programming and data science.</p
             
             <div class="posts">
                 
+                <h1 class="content-subhead">22 Sep 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/detecting-tablets-and-smartphones-in-asp-net/" class="post-title">Detecting tablets and smartphones in ASP.NET</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>I recently worked on an ASP.NET application that needed to detect if users were coming from tablets or smartphones. The project used data from <a href="http://user-agent-string.info/">http://user-agent-string.info/</a> to do this detection, but the result were not really good. We needed a better solution, so I came up with using [WURFL][1].</p>
+
+<p>WURFL, the Wireless Universal Resource FiLe, is a Device Description Repository (DDR), i.e. a software component that maps HTTP Request headers to the profile of the HTTP client (Desktop, Mobile Device, Tablet, etc.) that issued the request. Adding WURFL to your ASP.NET application is easy thanks to the [WURFL_Official_API Nuget package][2]. The Nuget package also contains definition file, so you just need to update the Nuget package once in a while to get your definition file up to date.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/detecting-tablets-and-smartphones-in-asp-net/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">16 Sep 2014, 00:00</h1>
                 <section class="post">
                     <header class="post-header">
@@ -100,7 +132,7 @@ Interested in programming languages, functional programming and data science.</p
                     <div class="post-description">
                        <p>We have just had released a new app called TvTime. TvTime is a simple and beautiful app for tracking your favorite TV Shows. Simply add a find the TV Shows you like, add them to the list and get detailed information about actors, air times and episodes. If you decide to track unwatched episodes, you will always know what you have already seen. So get TvTime now so you never miss your favorite TV Show!</p>
 
-<p><img src="/images/tvtimepromo.jpg" alt="" class="pure-img" ></p>
+<img src="/images/tvtimepromo.jpg" alt="" class="pure-img" >
 
 <p>Main features</p>
 
@@ -178,7 +210,7 @@ Interested in programming languages, functional programming and data science.</p
                     <div class="post-description">
                        <p>I was offered to to take part in the Red Stripe Deal promotion on Windows Phone with my [Shopping List Simple][1] app from 21st August to 28th August.</p>
 
-<p><img src="/images/sk.png" alt="" class="pure-img" ></p>
+<img src="/images/sk.png" alt="" class="pure-img" >
 
 <p>In this promotion, your app has to cost less than half of the normal price. The app normally costs 1.29 USD in most countries and 0.99 USD in Czech Republic, Slovakia and Russia to boost the sales. The minimum price in Windows Phone Store is 0.99 USD so the app had to be made free for the promotion. So I filled in the form saying that I want my app to be free in all the countries during the promotion. When the time of the promotion came, the price was set to free in all the countries except Czech Republic, Slovakia and Russia. First day, first problem.</p>
 
@@ -248,7 +280,7 @@ Interested in programming languages, functional programming and data science.</p
                     <div class="post-description">
                        <p>In my current project I needed to solve one quite interesting problem. Imagine you have a map with some pins representing points of interest. If the user taps on a pin, a label with the place title is shown like on this image (that is not from the real project, obviously).</p>
 
-<p><img src="/images/image_thumb_4_4.png" alt="" class="pure-img" ></p>
+<img src="/images/image_thumb_4_4.png" alt="" class="pure-img" >
 
 <p>The client had an interesting requirement. When the user taps the pin and the label is shown, they wanted the label to be centered on the map (basically move the map so the label appears in the middle of the map).</p>
 
@@ -314,7 +346,7 @@ Interested in programming languages, functional programming and data science.</p
                     <div class="post-description">
                        <p>Windows Phone 8.1 introduced many interesting new thing, the one I personally like the best as a developer is the Share Contract. The Share Contract allows your apps to share data using an unified and easy way and also to receive data from other apps. This functionality is important for my [Pock8][1] app, which is a Pocket client. By making Pock8 app a Share Contract target, the app can receive links from other apps, more importantly from the built-in webrowser (IE). This makes the app even more easy to use and valuable.</p>
 
-<p><img src="/images/wp81.png" alt="" class="pure-img" ></p>
+<img src="/images/wp81.png" alt="" class="pure-img" >
 
 <p>The problem is that [all the documentation I found][3] and also [the sample app][4] are for Windows Runtime. Pock8 is a Silverligt app and I have no intentions to rewrite it to Windows Runtime.</p>
 
@@ -396,40 +428,6 @@ Interested in programming languages, functional programming and data science.</p
                         
   <div class="read-more-link">
     <a href="/building-windows-phone-apps-with-fake/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">24 Mar 2014, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/how-to-get-rid-of-the-strange-line-under-systray-in-windows-phone-8/" class="post-title">How to get rid of the strange line under systray in Windows Phone 8</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>If you create an Windows Phone 8 app and test it only on WVGA and 720p devices or emulators, you may be surprised how you app looks on a WXGA device (or emulator).</p>
-
-<p><img src="/images/line.png" alt="" class="pure-img" ></p>
-
-<p>I have not been able the reason why this happens but the solution is quite simple. Set your page&#8217;s top border to -1.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/how-to-get-rid-of-the-strange-line-under-systray-in-windows-phone-8/">Read More…</a>
   </div>
   
                     </div>

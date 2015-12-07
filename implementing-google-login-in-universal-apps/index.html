@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Implementing Google login in Universal Apps &middot; Coding Journal">
@@ -102,7 +102,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>WebAuthenticationBroker is a good idea but it is implemented rather poorly. It works differently on Windows 8.1 and Windows Phone 8.1 due to the &#8220;AndContinue&#8221; pattern that Windows Phone 8.1 forces on you. You can solve this with <a href="http://blog.kulman.sk/why-universal-apps-as-not-as-universal-as-you-may-think/">some ifdefs and platform specific code, as always</a>.</p>
 
-<p>The real problem s that the <a href="https://code.msdn.microsoft.com/windowsapps/Web-Authentication-d0485122">MSDN sample</a> states it works with Google login but it does not. The sample thinks it gets the authentication token but it does not, it just gets the success code that you have to exchange for the authentication token yourself.</p>
+<p>The real problem s that the [MSDN sample][3] states it works with Google login but it does not. The sample thinks it gets the authentication token but it does not, it just gets the success code that you have to exchange for the authentication token yourself.</p>
 
 <p>Lets start with a basic config</p>
 
@@ -125,6 +125,8 @@ Interested in programming languages, functional programming and data science.</p
 <p>And now you finally have a way to get the authentication token and implement Google login.</p>
 
 <script src="https://gist.github.com/igorkulman/65a406f7f3cff48be3c5.js?file=GetToken.cs"></script>
+
+<p>[3]: <a href="https://code.msdn.microsoft.com/windowsapps/Web-Authentication-d0485122">https://code.msdn.microsoft.com/windowsapps/Web-Authentication-d0485122</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>

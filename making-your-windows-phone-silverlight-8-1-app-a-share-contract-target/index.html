@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Making your Windows Phone Silverlight 8.1 app a Share Contract target &middot; Coding Journal">
@@ -100,7 +100,7 @@ Interested in programming languages, functional programming and data science.</p
                     <div class="post-description">
                         <p>Windows Phone 8.1 introduced many interesting new thing, the one I personally like the best as a developer is the Share Contract. The Share Contract allows your apps to share data using an unified and easy way and also to receive data from other apps. This functionality is important for my <a href="http://t.co/YMtrM84rwI">Pock8</a> app, which is a Pocket client. By making Pock8 app a Share Contract target, the app can receive links from other apps, more importantly from the built-in webrowser (IE). This makes the app even more easy to use and valuable.</p>
 
-<p><img src="/images/wp81.png" alt="" class="pure-img" ></p>
+<img src="/images/wp81.png" alt="" class="pure-img" >
 
 <p>The problem is that <a href="http://msdn.microsoft.com/en-us/library/windows/apps/xaml/hh871367.aspx">all the documentation I found</a> and also <a href="http://msdn.microsoft.com/en-us/library/windows/apps/xaml/hh871363.aspx">the sample app</a> are for Windows Runtime. Pock8 is a Silverligt app and I have no intentions to rewrite it to Windows Runtime.</p>
 
@@ -114,11 +114,13 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>(I use Caliburn.Micro so I do it in the OnLaunch method of the Bootstrapper)</p>
 
-<p>The next thing to do is to show a separate sharing page instead of the page you would normally show when your app starts. Create a <strong>AssociationUriMapper</strong> like you <a href="http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj206987(v=vs.105).aspx">would do when registering for a protocol</a> and simply check the <strong>ShareOperation</strong> property in App.xaml.cs:</p>
+<p>The next thing to do is to show a separate sharing page instead of the page you would normally show when your app starts. Create a <strong>AssociationUriMapper</strong> like you [would do when registering for a protocol][6] and simply check the <strong>ShareOperation</strong> property in App.xaml.cs:</p>
 
 <p>If you use Caliburn.Micro as I do, do not forget to register the AssociationUriMapper in the Boostrappers CreatePhoneApplicationFrame method:</p>
 
 <script src="https://gist.github.com/igorkulman/11111043.js?file=CreatePhoneApplicationFrame.cs"></script>
+
+<p>[6]: <a href="http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj206987(v=vs.105).aspx">http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj206987(v=vs.105).aspx</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>

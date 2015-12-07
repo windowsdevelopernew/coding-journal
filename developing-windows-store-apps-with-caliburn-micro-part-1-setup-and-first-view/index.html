@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Developing Windows Store apps with Caliburn Micro Part 1: setup and first view &middot; Coding Journal">
@@ -118,7 +118,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>Create a Blank App. Add the <a href="http://www.nuget.org/packages/Caliburn.Micro.Unity.WinRT/">Caliburn.Micro.Unity.WinRT</a> package from Nuget. It will install all the dependencies you need. Install <a href="http://www.nuget.org/packages/PropertyChanged.Fody/">PropertyChanged.Fody</a> from Nuget. Next you need to hook up PropertyChanged.Fody with Fody. Open FodyWeavers.xml and change it to</p>
 
-<p><script src="https://gist.github.com/6088620.js"></script></p>
+<script src="https://gist.github.com/6088620.js"></script>
 
 <p>PropertyChanged.Fody now knows that it should call the NotifyOfPropertyChange method from Caliburn Micro when a property gets changed. Let&#8217;s do some cleanup next. Delete MainPage.xaml, rename the Common folder to Resources and create a few additional folders:</p>
 
@@ -133,11 +133,11 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>Next make you app inherit from CaliburnUnityApplication by changing App.xaml to</p>
 
-<p><script src="https://gist.github.com/6088861.js"></script></p>
+<script src="https://gist.github.com/6088861.js"></script>
 
 <p>and cleaning up and changing App.xaml.cs to</p>
 
-<p><script src="https://gist.github.com/6088871.js"></script></p>
+<script src="https://gist.github.com/6088871.js"></script>
 
 <p><strong>First ViewModel</strong></p>
 
@@ -145,25 +145,27 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>create a new string property called Title. Add the ImplementPropertyChanged attribute to the class. This makes NotifyPropertyChanged.Fody call the NotifyOfPropertyChange whenever any of the properties (just Title for now) changes. Assing some text to the Title property in the constructor:</p>
 
-<p><script src="https://gist.github.com/6088988.js"></script></p>
+<script src="https://gist.github.com/6088988.js"></script>
 
 <p><strong>First View</strong></p>
 
 <p>Now create a view for the MainViewModel as a Blank Page. According to the naming conventions, it needs to be called MainView and created in the Views folder. Add a TextBlock to the View. To bind the text of this TextBlock to the Title property, you could use Text=&#8221;{Binding Title}&#8221;. This works just fine but you do not have to do it. Just name the TextBlock the same as the property you want it to bind to (in our case Title):</p>
 
-<p><script src="https://gist.github.com/6089012.js"></script></p>
+<script src="https://gist.github.com/6089012.js"></script>
 
 <p><strong>Navigating to the view</strong></p>
 
 <p>There is only one more thing left to do. You need to tell the framework to navigate to the MainView when the app starts. This is done in the OnLaunched method in App.xaml.cs</p>
 
-<p><script src="https://gist.github.com/6089032.js"></script></p>
+<script src="https://gist.github.com/6089032.js"></script>
 
 <p><strong>Run you app</strong></p>
 
 <p>Hit F5 and you will see your app start, navigate to MainView and show the text from the Title property in this view.</p>
 
-<p>You can find the <a href="https://github.com/igorkulman/CaliburnDemoWinRT">code on Github</a> and stay tuned for Part 2!</p>
+<p>You can find the [code on Github][9] and stay tuned for Part 2!</p>
+
+<p>[9]: <a href="https://github.com/igorkulman/CaliburnDemoWinRT">https://github.com/igorkulman/CaliburnDemoWinRT</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>

@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Removing unused strings from Windows Phone 8 RESX files &middot; Coding Journal">
@@ -100,9 +100,11 @@ Interested in programming languages, functional programming and data science.</p
                     <div class="post-description">
                         <p>Using RESX files is the standard approach to Windows Phone 8 app localization, it is even contained in the standard project templates. When you work on a project for a longer time, you may get to a situation that your RESX files contain strings that you no longer use. This is a problem especially when you want to add a new localization, because it is slower and kind of wasteful localizing unused strings.</p>
 
-<p>To solve this problem I have created a simple command line utility, that is <a href="https://github.com/igorkulman/RemoveUnusedResources">available at Github</a>. This utility assumes that you use the standard localization approach from the templates (AppResources.{lang}.resx and LocalizedStrings.{value} in XAML).</p>
+<p>To solve this problem I have created a simple command line utility, that is [available at Github][1]. This utility assumes that you use the standard localization approach from the templates (AppResources.{lang}.resx and LocalizedStrings.{value} in XAML).</p>
 
 <p>The usage is really simple. Just run the utility with the path to your project as a parameter. It will detect all resources files and remove all the unused strings from them.</p>
+
+<p>[1]: <a href="https://github.com/igorkulman/RemoveUnusedResources">https://github.com/igorkulman/RemoveUnusedResources</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>

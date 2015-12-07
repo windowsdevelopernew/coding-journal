@@ -7,7 +7,7 @@
 
     <meta name="description" content="Adventures in the world of C#, F# and WinRT">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Windows Phone &middot; Coding Journal">
@@ -79,6 +79,40 @@ Interested in programming languages, functional programming and data science.</p
             
             <div class="posts">
                 
+                <h1 class="content-subhead">24 Jun 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/converting-between-pixels-meters-and-map-coordinates-in-windows-phone/" class="post-title">Converting between pixels, meters and map coordinates in Windows Phone</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>In my current project I needed to solve one quite interesting problem. Imagine you have a map with some pins representing points of interest. If the user taps on a pin, a label with the place title is shown like on this image (that is not from the real project, obviously).</p>
+
+<img src="/images/image_thumb_4_4.png" alt="" class="pure-img" >
+
+<p>The client had an interesting requirement. When the user taps the pin and the label is shown, they wanted the label to be centered on the map (basically move the map so the label appears in the middle of the map).</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/converting-between-pixels-meters-and-map-coordinates-in-windows-phone/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">11 Jun 2014, 00:00</h1>
                 <section class="post">
                     <header class="post-header">
@@ -132,7 +166,7 @@ Interested in programming languages, functional programming and data science.</p
                     <div class="post-description">
                        <p>Windows Phone 8.1 introduced many interesting new thing, the one I personally like the best as a developer is the Share Contract. The Share Contract allows your apps to share data using an unified and easy way and also to receive data from other apps. This functionality is important for my [Pock8][1] app, which is a Pocket client. By making Pock8 app a Share Contract target, the app can receive links from other apps, more importantly from the built-in webrowser (IE). This makes the app even more easy to use and valuable.</p>
 
-<p><img src="/images/wp81.png" alt="" class="pure-img" ></p>
+<img src="/images/wp81.png" alt="" class="pure-img" >
 
 <p>The problem is that [all the documentation I found][3] and also [the sample app][4] are for Windows Runtime. Pock8 is a Silverligt app and I have no intentions to rewrite it to Windows Runtime.</p>
 
@@ -202,7 +236,7 @@ Interested in programming languages, functional programming and data science.</p
                     <div class="post-description">
                        <p>If you create an Windows Phone 8 app and test it only on WVGA and 720p devices or emulators, you may be surprised how you app looks on a WXGA device (or emulator).</p>
 
-<p><img src="/images/line.png" alt="" class="pure-img" ></p>
+<img src="/images/line.png" alt="" class="pure-img" >
 
 <p>I have not been able the reason why this happens but the solution is quite simple. Set your page&#8217;s top border to -1.</p>
 
@@ -304,7 +338,7 @@ Interested in programming languages, functional programming and data science.</p
                     <div class="post-description">
                        <p>Recently I have released a new Windows Phone app called [Pock8][1]. Pock8 is a beautiful Pocket (formerly Read It Later) client for Windows Phone. The design of the app was created by Jan Marek who worked with my on the [Shopping List Simple][2] app.</p>
 
-<p><img src="/images/pocket.png" alt="" class="pure-img" ></p>
+<img src="/images/pocket.png" alt="" class="pure-img" >
 
 <p>Our goal was to create a Pocket client that would be really easy to use and that would have a nice and simple design. I think we have achieved our goal. The main features of the app are</p>
 
@@ -392,38 +426,6 @@ Interested in programming languages, functional programming and data science.</p
                         
   <div class="read-more-link">
     <a href="/creating-a-search-box-with-reactive-extensions-and-mvvm/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">12 Jun 2013, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/windows-phone-run-background-agent-every-minute/" class="post-title">Windows Phone: run background agent every minute</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>In both Windows Phone 7 and Windows Phone 8 the background agent is executed approximately every 30 minutes. If you want to run your code more often, for example to create an app showing actual time on the live tile, you are out of luck. Are you?</p>
-
-<p>You can use [ScheduledActionService.LaunchForTest][1] to test your background agent without waiting 30 minutes for the system to run it. What if you use this method in the OnInvoke method of your background agent?</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/windows-phone-run-background-agent-every-minute/">Read More…</a>
   </div>
   
                     </div>

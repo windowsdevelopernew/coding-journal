@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="INotifyPropertyChanged the easy way in Windows Phone and Windows 8 &middot; Coding Journal">
@@ -104,11 +104,11 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>In a typical implementation, you usually have a base class implementing the interface, like</p>
 
-<p><script src="https://gist.github.com/5849361.js"></script></p>
+<script src="https://gist.github.com/5849361.js"></script>
 
 <p>or use a framework like MVVMLight, Prism or Caliburn Micro that provides such base class for you. In your view models you have properties using the PropertyChanged method</p>
 
-<p><script src="https://gist.github.com/5849364.js"></script></p>
+<script src="https://gist.github.com/5849364.js"></script>
 
 <p>You do not need to create such properties by hand, you can <a href="http://www.kulman.sk/data/down/propn.snippet">use a snippet</a>, but it is still a lot of code to do such a simple thing.</p>
 
@@ -120,7 +120,7 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>Fody has a <a href="https://github.com/Fody/PropertyChanged">PropertyChanged addin</a> that does all the INotifyPropertyChanged plumbing for you. If you want the same behavior as in my typical implementation example, there is no need for a base class. Install the <a href="https://github.com/Fody/PropertyChanged">PropertyChanged.Fody Nuget package</a>, decorate your view model class with the ImplementPropertyChanged attribute and use just basic properties</p>
 
-<p><script src="https://gist.github.com/5849367.js"></script></p>
+<script src="https://gist.github.com/5849367.js"></script>
 
 <p>That is it. Less code, the same behaviour. You can verify it with tools like <a href="http://www.telerik.com/justdecompile.aspx">Telerik JustDecompile</a>.</p>
 
@@ -128,17 +128,19 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>Fody does all the plumbing for you. It even knows that the FullName property uses FirstName and Surname and raises the PropertyChanged event for it when any og the two properties changes. The PropertyChanged.Fody addin <a href="https://github.com/Fody/PropertyChanged/wiki/Attributes">contains attributes</a>, that you can use to define dependencies</p>
 
-<p><script src="https://gist.github.com/5849371.js"></script></p>
+<script src="https://gist.github.com/5849371.js"></script>
 
 <p>or to raise the PropertyChanged event for any other property</p>
 
-<p><script src="https://gist.github.com/5849373.js"></script></p>
+<script src="https://gist.github.com/5849373.js"></script>
 
 <p>Sometimes you want to execute some additional code in the setter. Fody allows it, just create a method with the <a href="https://github.com/Fody/PropertyChanged/wiki/On_PropertyName_Changed">name On_PropertyName_Changed</a></p>
 
-<p><script src="https://gist.github.com/5849376.js"></script></p>
+<script src="https://gist.github.com/5849376.js"></script>
 
-<p>If you use a framework and you want to raise the PropertyChanged event through a method of this framework, it is not a problem. You just need to <a href="https://github.com/Fody/PropertyChanged/wiki/Options">set the EventInvokerNames options</a>. The Fody <a href="https://github.com/Fody/PropertyChanged/wiki/SupportedToolkits">documentation even describes what to set for some of the frameworks</a> so you do not have to figure it out for yourself.</p>
+<p>If you use a framework and you want to raise the PropertyChanged event through a method of this framework, it is not a problem. You just need to <a href="https://github.com/Fody/PropertyChanged/wiki/Options">set the EventInvokerNames options</a>. The Fody [documentation even describes what to set for some of the frameworks][9] so you do not have to figure it out for yourself.</p>
+
+<p>[9]: <a href="https://github.com/Fody/PropertyChanged/wiki/SupportedToolkits">https://github.com/Fody/PropertyChanged/wiki/SupportedToolkits</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>

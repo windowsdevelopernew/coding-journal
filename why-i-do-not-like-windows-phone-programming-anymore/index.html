@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.14" />
+    <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Why I do not like Windows Phone programming anymore &middot; Coding Journal">
@@ -120,11 +120,13 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>The biggest benefit of throwing away Silverlight and using the same kernel as Windows 8 should be the before-mentioned ability to share code when programming for both platforms. The Windows Phone 8 API is only a subset of the Windows 8 API (WinRT) so you cannot share everything. Take a simple task, downloading a string from the internet. In Windows Phone 7 you would use the WebClient class, in Windows 8 it is not available, so you have to go a bit deeper and use the HttpHandler class. There is no HttpHandler only WebClient so no sharing of code here. I can state many more examples.</p>
 
-<p>Sometimes you find APIs in Windows Phone 8 from phone Windows Phone 7 and Windows 8 and you are very surprised by it (I was). One example can be that to store your app&#8217;s settings you can use IssolatesStorageSettings from Windows Phone 7 and ApplicationData.Current.LocalSettings from Windows 8. It is a bit strange you say to yourself and choose to use the latter to be able to share the code with Windows 8. You implement your app using this Windows 8 API, the app compiles without problems and then you run the app. What do you get? A <a href="https://twitter.com/igorkulman/status/276698899689914368">NotImplementedException</a>! This makes me want to punch someone into the face. So why is this included in the API if it is not implemented? It should not be there or at least the compilers should warn you. There are many more Windows 8 APIs that will throw you a NotImplementedException.</p>
+<p>Sometimes you find APIs in Windows Phone 8 from phone Windows Phone 7 and Windows 8 and you are very surprised by it (I was). One example can be that to store your app&#8217;s settings you can use IssolatesStorageSettings from Windows Phone 7 and ApplicationData.Current.LocalSettings from Windows 8. It is a bit strange you say to yourself and choose to use the latter to be able to share the code with Windows 8. You implement your app using this Windows 8 API, the app compiles without problems and then you run the app. What do you get? A [NotImplementedException][5]! This makes me want to punch someone into the face. So why is this included in the API if it is not implemented? It should not be there or at least the compilers should warn you. There are many more Windows 8 APIs that will throw you a NotImplementedException.</p>
 
 <p><strong>New era?</strong></p>
 
 <p>Trying to say something positive; if you are a C++, web or game developer that you can use for skill in Windows Phone 8 programming, if you for some reason decide to target this (to be honest with ourselves) irrelevant mobile platform. If you are a C# developer the Windows Phone 8 development sucks for you. The same can be said about Windows 8 development, where creating a content app in HTML is much easier that trying to bend XAML to your needs (maybe I will write a separate post about this). Quite an interesting twist, would you not say?</p>
+
+<p>[5]: <a href="https://twitter.com/igorkulman/status/276698899689914368">https://twitter.com/igorkulman/status/276698899689914368</a></p>
 
                     </div>
                     <div id="disqus_thread"></div>
