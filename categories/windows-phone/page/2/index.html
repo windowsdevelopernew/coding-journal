@@ -79,6 +79,40 @@ Interested in programming languages, functional programming and data science.</p
             
             <div class="posts">
                 
+                <h1 class="content-subhead">20 Apr 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/leveraging-etag-caching-in-windows-phone-and-windows-apps/" class="post-title">Leveraging ETag caching in Windows Phone and Windows apps</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>In my previous article I showed you [how to implements server side caching using ETag][1]. HTTP clients on other platforms can usually work with ETag automatically, but of course, the portable HTTP client used on Windows platforms cannot. You have to implement ETag handling yourself.</p>
+
+<p>In [TvTime][2], all the server requests are GET request, so I remember the ETag values for each Url (= each GET request). I store the ETag values in application local settings.</p>
+
+<p>When the app wants to get some data, I perform a GET request including the ETag as the If-None-Match header. If my ETag matches with the ETag on the server, the server returns HTTP 304 Not Modified and I return the cached data from disk. Otherwise I read the response body and return it.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/leveraging-etag-caching-in-windows-phone-and-windows-apps/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">29 Dec 2014, 00:00</h1>
                 <section class="post">
                     <header class="post-header">
@@ -406,42 +440,6 @@ Interested in programming languages, functional programming and data science.</p
                         
   <div class="read-more-link">
     <a href="/experience-with-being-featured-in-the-red-stripe-deal-promotion-on-windows-phone/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">23 Jul 2014, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/automatic-viewmodels-and-services-registration-for-not-only-caliburn-micro/" class="post-title">Automatic ViewModels and Services registration for (not only) Caliburn.Micro</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>My MVVM framework of choice, Caliburn.Micro, provides a simple Dependency Injection container, where you have to register all your ViewModels and Services. This is done in the Bootstraper&#8217;s Configure method and may look like this:</p>
-
-<script src="https://gist.github.com/igorkulman/0353b26073fc11d3635f.js?file=reg1.cs"></script>
-
-<p>where you typically register your ViewModels as per request and services as singletons.</p>
-
-<p>Of course this is done just once, but having to register a ViewModel each time you create a new one can be a nuisance, especially in a large project.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/automatic-viewmodels-and-services-registration-for-not-only-caliburn-micro/">Read More…</a>
   </div>
   
                     </div>

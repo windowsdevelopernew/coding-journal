@@ -79,6 +79,40 @@ Interested in programming languages, functional programming and data science.</p
             
             <div class="posts">
                 
+                <h1 class="content-subhead">02 Dec 2013, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/creating-a-search-box-with-reactive-extensions-and-mvvm/" class="post-title">Creating a Search box with Reactive Extensions and MVVM</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>Having a Search box in a Windows Phone app is a common use-case but it is only rarely done right. A good Search box does not have a Search button associated with it that the users have to click when they are finished typing and want to start the search. A good Search box starts the search immediately when the user stops typing (for a certain period of time).</p>
+
+<p>You can implement this functionality with some nasty code using a DispatcherTimer, or you can use [Reactive Extensions][1]. You can use Reactive Extensions directly on a TextBox representing the Search box, but if you use MVVM (and you should) you need to attach to the property associated with the Search box instead.</p>
+
+<p>Suppose the ViewModel contains a string property called SearchTerm (with two-way binding to the Search box) and an event called PropertyChanged (used for the INotifyPropertyChanged implementation). We need to observe the changes of the SearchTerm property. There is no way to do it directly, we need to observe the PropertyChanged event instead.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/creating-a-search-box-with-reactive-extensions-and-mvvm/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">12 Jun 2013, 00:00</h1>
                 <section class="post">
                     <header class="post-header">
@@ -406,44 +440,6 @@ Interested in programming languages, functional programming and data science.</p
                         
   <div class="read-more-link">
     <a href="/using-custom-fonts-in-windows-phone-apps/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">10 Dec 2012, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/why-i-do-not-like-windows-phone-programming-anymore/" class="post-title">Why I do not like Windows Phone programming anymore</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>Before I start with the actual arguments I feel a need to state my background first so you do not mistake me with just another hater rattling about things he does not know. I have been a long time .NET developer, I have worked with winforms, webforms, mvc, compact framework. I really like C# and love F#. In February I started to work as a full time Windows Phone developer. Although I have been programming exclusively for Windows 8 for the last few months I have a ton of experience with Windows Phone programming.</p>
-
-<p><strong>Good old Windows Phone 7 times</strong></p>
-
-<p>I really like Windows Phone 7 as a programmer. Although capabilities of this mobile OS are very limited compared to other platforms, the things you can do can be done easily and reliably. The OS is based on Silverlight, which is a mature platform. Everything works as you would expect.</p>
-
-<p><strong>The abomination called Windows Phone 8</strong></p>
-
-<p>When I first got my hands on a Windows Phone 8 phone I was really disappointed. I wrote two concrete post about [troubles with Windows Phone Store region][1] and an [unaccountable approach to MP3 tags][2] but lets take it more generally. Windows Phone 8 feels like Windows Phone 7 written from scratch using another technology, visually looking nearly the same but full of bugs and unfinished things. I am really amazed at things that worked on Windows Phone 7 but work much worse on Windows Phone 8. I thought that only Czech and Slovak people suffered from the &#8220;not invented here&#8221; syndrome but clearly it might be a more widespread disease.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/why-i-do-not-like-windows-phone-programming-anymore/">Read More…</a>
   </div>
   
                     </div>

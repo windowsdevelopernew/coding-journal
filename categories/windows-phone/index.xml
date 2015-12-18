@@ -6,8 +6,34 @@
     <description>Recent content in Windows Phone on Coding Journal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 Dec 2015 09:29:12 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 18 Dec 2015 09:29:12 +0100</lastBuildDate>
     <atom:link href="http://blog.kulman.sk/categories/windows-phone/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Mobilize.net: Converting Windows Phone 8 apps to UWP? Not really</title>
+      <link>http://blog.kulman.sk/mobilize-net-converting-windows-phone-apps-to-uwp</link>
+      <pubDate>Fri, 18 Dec 2015 09:29:12 +0100</pubDate>
+      
+      <guid>http://blog.kulman.sk/mobilize-net-converting-windows-phone-apps-to-uwp</guid>
+      <description>&lt;p&gt;When Microsoft announced the Windows 10 developer platform, they also announced bridges to make porting apps from Android, iOS and Web easier. Those bridges are now either dead (Android) or unusable (iOS) but there is another tool that can be considered a bridge left. It is called &lt;a href=&#34;http://www.mobilize.net/download-silverlight-bridge&#34;&gt;Mobilize.net Silverlight&lt;/a&gt; Bridge and it is not from Microsoft. It promises converting existing Windows Phone 8 (Silverlight apps) to the Universal Windows Platform. Considering the majority of apps in the Windows Phone Store are Windows Phone 8 apps and the fact that Android and iOS developers do not really care about Windows, Mobilize.net seem to be the most useful of the bridges, because there is no easy porting apps from Windows Phone 8 to UWP, just rewriting. So I tried it out.&lt;/p&gt;
+
+&lt;img src=&#34;http://www.mobilize.net/hs-fs/hubfs/Landing_Page_Images/Windows10-Devices.png?t=1449725816496&amp;amp;width=425&amp;amp;height=210&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+
+&lt;p&gt;Mobilize.net is currently in technical preview. After you download and install it, it integrates into Visual Studio 2015 and there is a new context menu for Windows Phone 8 project, allowing you to convert them to UWP apps. If you use it, you get a dialog windows and a conversion process that will fail most of the times with a strange error. At least for me it did.&lt;/p&gt;
+
+&lt;p&gt;I got in touch with their support and I found out the reason for the conversion always failing. They do not support C# 6 all and mine, and probably all yours, project use C# 6. If you look at the error logs a bit closer, you will see error messages about failed tokenization. This is really strange, it looks like they are parsing the source code as text, instead of just using Roslyn. I do not get why, but they probably have a reason for this.&lt;/p&gt;
+
+&lt;p&gt;If you go through all the trouble and remove all the C# 6 features from your project, the conversion will succeed. You will get a UWP project, that will most likely not compile. There are two main reasons for this.&lt;/p&gt;
+
+&lt;p&gt;Mobilize.net changes your XAML to fix namespaces and replace controls that changed since Windows Phone 8, but it does not fix XAML features that were that not available in UWP. And there are quite a few of them, from StringFormat in bindings to OpacityMask on images. You will have to fix your XAML manually and while you are at this, you will also have to rewrite your XAML to accommodate for the fact that there is not just one fixed resolution like it was in Windows Phone 8. Your XAML has to be responsive now. Mobilize.net did not really help here.&lt;/p&gt;
+
+&lt;p&gt;The seconds problem are third party libraries. There are &lt;a href=&#34;https://github.com/MobilizeNet/UWPConversionMappings&#34;&gt;some mappings available for popular third party libraries&lt;/a&gt;. This mapping do two things. First they make sure the UWP project uses the correct Nuget packages and then they map namespaces, both in XAML and C#, that changed when the third party library transitioned from Windows Phone 8 to UWP. Chances are that there are no UWP versions of some or even the majority of the third party libraries you use. Probably because the functionality is nor longer available all the API has completely changed.&lt;/p&gt;
+
+&lt;p&gt;I reached out to the Mobilize.net support asking about these two things, but I never got an answer.&lt;/p&gt;
+
+&lt;p&gt;In conclusion, if your are is not trivial, you use C# 6, third party libraries and all the available XAML features, your experience will not be very good. If you are is well written (MVVM, abstractions) your are better with creating a new UWP project, pasting your code and rewriting your XAML. If your app is more trivial, Mobilize.net will probably work well for you. But in this case, rewriting your app to UWP without it would be probably takes the same amount of time.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Detecting gestures over WebView on Windows Phone</title>
@@ -406,36 +432,6 @@
 &lt;p&gt;Need another proof that the WinRT controls are slower? Just [take a look at this video comparing the media app on and old Windows Phone 7 to the media app on a much more powerful device running Windows Phone 8.1][5]. You can see that the old, single core device runs the Silverlight apps faster than the new powerful phone runs the new WinRT equivalent of the app.&lt;/p&gt;
 
 &lt;p&gt;[5]: &lt;a href=&#34;https://www.youtube.com/watch?v=nn5hVq6Q-zo&#34;&gt;https://www.youtube.com/watch?v=nn5hVq6Q-zo&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>REST service base class for Windows Phone 8.1 XAML apps</title>
-      <link>http://blog.kulman.sk/rest-service-base-class-for-windows-phone-8-1-xaml-apps/</link>
-      <pubDate>Mon, 24 Nov 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://blog.kulman.sk/rest-service-base-class-for-windows-phone-8-1-xaml-apps/</guid>
-      <description>&lt;p&gt;Communicating with a JSON based REST service is a task that many Windows Phone apps have to do. My apps sure do it a lot so I came up with a base class that I use in all of them, &lt;a href=&#34;https://github.com/igorkulman/Kulman.WPA81.BaseRestService&#34;&gt;put it on Github&lt;/a&gt; and [created a Nuget package][2], so your apps could use it to.&lt;/p&gt;
-
-&lt;p&gt;The usage of this base class is simple. Create your service class and inherit from BaseRestService. The minimum you need to do to make it work is to override the GetBaseUrl() method to set the base url for all the requests. You can (but do not have to) also override the GetRequestHeaders() method to set the default request headers.&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/igorkulman/405732bf92858dba1c3c.js?file=usage1.cs&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;and you can now use the following protected methods&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/igorkulman/405732bf92858dba1c3c.js?file=methods.cs&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;All the JSON serialization and deserialization is automatically done for you. If you need to execute some action before every request (like checking if the OAuth token expired and refreshing it), simply override the OnBeforeRequest() method.&lt;/p&gt;
-
-&lt;p&gt;Methods in your service may then look like this&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/igorkulman/405732bf92858dba1c3c.js?file=usage2.cs&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;In case of an error, the methods throw either a DeserialziationException with the original data if deserialization failed, or a ConnectionException with the HTTP status code.&lt;/p&gt;
-
-&lt;p&gt;if you need some additional features, just raise an issue in the &lt;a href=&#34;https://github.com/igorkulman/Kulman.WPA81.BaseRestService&#34;&gt;Github repo&lt;/a&gt;, or create a pull request.&lt;/p&gt;
-
-&lt;p&gt;[2]: &lt;a href=&#34;https://www.nuget.org/packages/Kulman.WPA81.BaseRestService/&#34;&gt;https://www.nuget.org/packages/Kulman.WPA81.BaseRestService/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

@@ -79,6 +79,42 @@ Interested in programming languages, functional programming and data science.</p
             
             <div class="posts">
                 
+                <h1 class="content-subhead">23 Jul 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/automatic-viewmodels-and-services-registration-for-not-only-caliburn-micro/" class="post-title">Automatic ViewModels and Services registration for (not only) Caliburn.Micro</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>My MVVM framework of choice, Caliburn.Micro, provides a simple Dependency Injection container, where you have to register all your ViewModels and Services. This is done in the Bootstraper&#8217;s Configure method and may look like this:</p>
+
+<script src="https://gist.github.com/igorkulman/0353b26073fc11d3635f.js?file=reg1.cs"></script>
+
+<p>where you typically register your ViewModels as per request and services as singletons.</p>
+
+<p>Of course this is done just once, but having to register a ViewModel each time you create a new one can be a nuisance, especially in a large project.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/automatic-viewmodels-and-services-registration-for-not-only-caliburn-micro/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">24 Jun 2014, 00:00</h1>
                 <section class="post">
                     <header class="post-header">
@@ -392,40 +428,6 @@ Interested in programming languages, functional programming and data science.</p
                         
   <div class="read-more-link">
     <a href="/free-services-to-help-you-develop-mobile-apps/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">02 Dec 2013, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/creating-a-search-box-with-reactive-extensions-and-mvvm/" class="post-title">Creating a Search box with Reactive Extensions and MVVM</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>Having a Search box in a Windows Phone app is a common use-case but it is only rarely done right. A good Search box does not have a Search button associated with it that the users have to click when they are finished typing and want to start the search. A good Search box starts the search immediately when the user stops typing (for a certain period of time).</p>
-
-<p>You can implement this functionality with some nasty code using a DispatcherTimer, or you can use [Reactive Extensions][1]. You can use Reactive Extensions directly on a TextBox representing the Search box, but if you use MVVM (and you should) you need to attach to the property associated with the Search box instead.</p>
-
-<p>Suppose the ViewModel contains a string property called SearchTerm (with two-way binding to the Search box) and an event called PropertyChanged (used for the INotifyPropertyChanged implementation). We need to observe the changes of the SearchTerm property. There is no way to do it directly, we need to observe the PropertyChanged event instead.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/creating-a-search-box-with-reactive-extensions-and-mvvm/">Read More…</a>
   </div>
   
                     </div>
