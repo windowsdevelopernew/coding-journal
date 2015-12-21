@@ -79,6 +79,44 @@ Interested in programming languages, functional programming and data science.</p
             
             <div class="posts">
                 
+                <h1 class="content-subhead">07 Apr 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/crawling-mobile-app-stores-with-f/" class="post-title">Crawling mobile app stores with F#</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Functional programming" href="http://blog.kulman.sk/categories/functional-programming">Functional programming</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>Some time ago I needed a way to programatically search the Apple AppStore and Google Play Store to get some info about apps for a project. I decided to write an F# script for that task and later added support for Windows Phone Store.</p>
+
+<p><strong>Types</strong></p>
+
+<p>I wanted the script to be easily usable from outside of F# so first I created a type for the app.</p>
+
+<script src="https://gist.github.com/igorkulman/10019990.js?file=types.fs"></script>
+
+<p>I also needed a helper function to download data from the web. I used a classic WebClient with user agent set to Chrome, because the Windows Phone Store API requires a user agent header</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/crawling-mobile-app-stores-with-f/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">31 Mar 2014, 00:00</h1>
                 <section class="post">
                     <header class="post-header">
@@ -394,42 +432,6 @@ Interested in programming languages, functional programming and data science.</p
                         
   <div class="read-more-link">
     <a href="/using-the-debuggerdisplay-attribute-for-better-debugging-experience/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">02 Oct 2013, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/returning-files-in-nancyfx/" class="post-title">Returning files in NancyFX</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Azure" href="http://blog.kulman.sk/categories/windows-azure">Windows Azure</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>In my current project, I have chosen [NancyFx][1] to implement a REST API. NancyFx is a .NET framework known for its &#8220;[super-duper-happy-path][2]&#8220;.</p>
-
-<p>In one use case I generate a ZIP file in the temp folder and I want the API to return this ZIP file. NancyFx contains a Responses.AsFile helper but it works only with paths relative to the application.</p>
-
-<p>If you have an absolute path of a file, you cannot use it. You need to create a StreamResponse and return the file as an attachment</p>
-
-<script src="https://gist.github.com/6791265.js"></script>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/returning-files-in-nancyfx/">Read More…</a>
   </div>
   
                     </div>

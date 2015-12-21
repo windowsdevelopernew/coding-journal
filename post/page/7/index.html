@@ -79,6 +79,40 @@ Interested in programming languages, functional programming and data science.</p
             
             <div class="posts">
                 
+                <h1 class="content-subhead">05 Jun 2013, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/beware-of-removing-localizations-from-your-windows-phone-apps/" class="post-title">Beware of removing localizations from your Windows Phone apps</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>When I released version 2.0 of my app [Photo Timeline][1], some users reported updating problems. I finally found out what caused the problem and submited a new build to the Windows Phone store.</p>
+
+<p>In my app I had three localizations: en-US (default), en and cs. I do not exactly remember why I had English twice as localization. I decided to remove the en localization thinking that nothing will break and that was a mistake.</p>
+
+<p><strong>Once you add a localization to your app, never remove it!</strong> If you do so, all the users who use your app with that localization will have update problems.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/beware-of-removing-localizations-from-your-windows-phone-apps/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">20 May 2013, 00:00</h1>
                 <section class="post">
                     <header class="post-header">
@@ -408,40 +442,6 @@ Interested in programming languages, functional programming and data science.</p
                         
   <div class="read-more-link">
     <a href="/f-on-azure-using-table-storage-for-logging/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">06 Feb 2013, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/reading-excel-sheets-using-f-without-com/" class="post-title">Reading Excel sheets using F# without COM</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Functional programming" href="http://blog.kulman.sk/categories/functional-programming">Functional programming</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>I needed to create an utility that would read Excel 2010 files (.xlsx) and generate XML files from them according to some specific rules. The catch was that the utility needed to run on MacOS instead of Windows.</p>
-
-<p>Reading and writing Excel files from .NET is [very easy using the Microsoft.Office.Interop assemblies][1] but they use Excel through COM and that makes them unusable outside of Windows. I found some 3rd party libraries for working with Excel and analzyed them with [The Mono Migration Analzyer]<a href="MoMA">2</a>. MoMA is a handy tool that analyzes .NET assemblies and tells you if they will run on Mono. Many of the Excel libraries I found were unusable for my use-case because they were using PInvoke calls. Only the [ExcelPackage library][3] runs on Mono.</p>
-
-<p>I wanted to use the ExcelPackage from F# not C# so I wrote a [very simple F# wrapper][4], that you can freely use. For now it contains just a few methods</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/reading-excel-sheets-using-f-without-com/">Read More…</a>
   </div>
   
                     </div>

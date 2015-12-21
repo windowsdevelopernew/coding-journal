@@ -79,6 +79,40 @@ Interested in programming languages, functional programming and data science.</p
             
             <div class="posts">
                 
+                <h1 class="content-subhead">06 Feb 2013</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/reading-excel-sheets-using-f-without-com/" class="post-title">Reading Excel sheets using F# without COM</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Functional programming" href="http://blog.kulman.sk/categories/functional-programming">Functional programming</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>I needed to create an utility that would read Excel 2010 files (.xlsx) and generate XML files from them according to some specific rules. The catch was that the utility needed to run on MacOS instead of Windows.</p>
+
+<p>Reading and writing Excel files from .NET is [very easy using the Microsoft.Office.Interop assemblies][1] but they use Excel through COM and that makes them unusable outside of Windows. I found some 3rd party libraries for working with Excel and analzyed them with [The Mono Migration Analzyer]<a href="MoMA">2</a>. MoMA is a handy tool that analyzes .NET assemblies and tells you if they will run on Mono. Many of the Excel libraries I found were unusable for my use-case because they were using PInvoke calls. Only the [ExcelPackage library][3] runs on Mono.</p>
+
+<p>I wanted to use the ExcelPackage from F# not C# so I wrote a [very simple F# wrapper][4], that you can freely use. For now it contains just a few methods</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/reading-excel-sheets-using-f-without-com/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">05 Feb 2013</h1>
                 <section class="post">
                     <header class="post-header">
@@ -401,38 +435,6 @@ Interested in programming languages, functional programming and data science.</p
                         
   <div class="read-more-link">
     <a href="/why-i-do-not-like-windows-phone-programming-anymore/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">05 Dec 2012</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/encoding-two-ints-into-a-long-to-be-used-as-navigation-parameter/" class="post-title">Encoding two ints into a long to be used as navigation parameter</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>When navigating in a Windows Store app, you can specify a navigation parameter. This navigation parameter can be any object but there is a problem. When the application is suspended, this navigation parameter is saved by the LayoutAwarePage. This works only with primitive data types, unless you change the implementation of the class which instances you pass as the navigation parameter.</p>
-
-<p>I use mainly ints (article id, gallery id &#8230;) as navigation parameters but sometimes just on int is not enough. If I want to pass two int parameters, I &#8220;encode&#8221; them into an int and then &#8220;decode&#8221; back on the target page. I have a simple Utils class for this purpose.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/encoding-two-ints-into-a-long-to-be-used-as-navigation-parameter/">Read More…</a>
   </div>
   
                     </div>
