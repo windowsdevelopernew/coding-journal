@@ -6,8 +6,286 @@
     <description>Recent content on Coding Journal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 21 Dec 2015 09:29:12 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 22 Dec 2015 16:05:22 +0100</lastBuildDate>
     <atom:link href="http://blog.kulman.sk/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Projects</title>
+      <link>http://blog.kulman.sk/projects/</link>
+      <pubDate>Tue, 22 Dec 2015 16:05:22 +0100</pubDate>
+      
+      <guid>http://blog.kulman.sk/projects/</guid>
+      <description>
+
+&lt;p&gt;List of Windows Phone and Windows projects I worked on. Listed from most recent to oldest.&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;September 2014 - Present&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;alza-cz:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Alza.cz&lt;/h2&gt;
+
+&lt;p&gt;Windows Phone shopping application for the biggest Czech on-line shop.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/alza.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;December 2014 - Present&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;alza-media:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Alza Media&lt;/h2&gt;
+
+&lt;p&gt;Windows Phone 8.1 and Windows 8.1 application for consuming music, audio books, ebooks magazines and movies purchased at Alza.cz.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/alzamedia.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;July 2015 - Present&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;o2-extra-výhody:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;O2 Extra Výhody&lt;/h2&gt;
+
+&lt;p&gt;Maintenance and new features implementation for the official Windows Phone application.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/o2extra.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;July 2015 - September 2015&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;publero:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Publero&lt;/h2&gt;
+
+&lt;p&gt;Windows Phone 8.1 and Windows 8.1 magazine reading application for Publero.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/publero.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;May 2014 - November 2014&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;air-bank:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Air Bank&lt;/h2&gt;
+
+&lt;p&gt;Windows Phone mobile banking application for Air Bank.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/airbank.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;August 2014 - October 2014&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;cell-it:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Cell-it&lt;/h2&gt;
+
+&lt;p&gt;Windows Phone application for Carphone Warehouse allowing their clients to sell their old mobile devices.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/tradein.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;August 2014 - Present&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;tvtime:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;TvTime&lt;/h2&gt;
+
+&lt;p&gt;Windows Phone application for tracking your favorite TV shows.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/tvtime.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;March 2014 - July 2014&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;space-needle:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Space Needle&lt;/h2&gt;
+
+&lt;p&gt;Official Windows Phone application for the Space Needle in Seattle.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/needle.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;May 2014 - June 2014&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;moje-o2:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Moje O2&lt;/h2&gt;
+
+&lt;p&gt;Windows Phone application for clients of Czech O2 to manage their accounts.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/o2.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;January 2014 - Present&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;pock8:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Pock8&lt;/h2&gt;
+
+&lt;p&gt;Unofficial Windows Phone client application for the Pocket (formerly Read it later) service.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/pocket.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;December 2013 - January 2014&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;lema:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;LEMA&lt;/h2&gt;
+
+&lt;p&gt;Slovak dictionary for Windows Phone.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/lema.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;September 2013 - October 2014&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;snapcat:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Snapcat&lt;/h2&gt;
+
+&lt;p&gt;The only Windows Phone application that allows cats to take selfies.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/snapcat.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;April 2013 - Present&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;shopping-list-simple:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Shopping List Simple&lt;/h2&gt;
+
+&lt;p&gt;The simplest and most beautiful grocery list application for Windows Phone.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/shoppinglist.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;October 2013 - February 2014&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;hospodářské-noviny:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Hospodářské noviny&lt;/h2&gt;
+
+&lt;p&gt;Windows 8 application for the Czech economic magazine Hospodářské noviny.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/hn.jpg&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;November 2012 - December 2012&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;blikocinkofón:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Blikocinkofón&lt;/h2&gt;
+
+&lt;p&gt;Christmas themed marketing application for Windows Phone.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/bliko.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;October 2012 - November 2012&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;stánok-7-plus:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Stánok 7 Plus&lt;/h2&gt;
+
+&lt;p&gt;Windows 8 magazines reader for the Slovak 7 Plus publisher.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/7plus.jpg&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;September 2012 - October 2012&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;myexpenses:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;MyExpenses&lt;/h2&gt;
+
+&lt;p&gt;Windows Phone client application for the MyExpenses.eu service.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/myexpenses.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;July 2012 - August 2012&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;čilichili:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;ČILICHILI&lt;/h2&gt;
+
+&lt;p&gt;Windows Phone version of the Czech Vodafone ČILICHILI magazine.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/cili.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;July 2012 - August 2012&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;vodefone-galerie:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Vodefone Galerie&lt;/h2&gt;
+
+&lt;p&gt;Windows Phone application gallery for Czech Vodafone.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/vfgalerie.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;June 2012 - July 2012&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;me2012:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;ME2012&lt;/h2&gt;
+
+&lt;p&gt;Windows Phone application for the European Championship in football in 2012, made for Czech T-Mobile.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/me2012.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;June 2012 - July 2012&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;heureka:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Heureka&lt;/h2&gt;
+
+&lt;p&gt;First Windows Phone application for the Heureka price comparison site.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/heurekacz.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;May 2012 - June 2012&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;photo-timeline:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Photo Timeline&lt;/h2&gt;
+
+&lt;p&gt;Windows Phone application for showing your photos in a different, more natural way.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/timeline.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;May 2012 - June 2012&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;e15-cz:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;E15.cz&lt;/h2&gt;
+
+&lt;p&gt;Windows 8 application for the Czech magazine E15.cz. One of the first five Windows 8 application in the Czech Windows Store.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/e15.jpg&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;April 2012 - May 2012&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;tv-program:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;TV Program&lt;/h2&gt;
+
+&lt;p&gt;TV schedule for Czech and Slovak TV stations for Windows Phone and Windows 8.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/tv.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;March 2012 - April 2012&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;sms-jízdenka:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;SMS Jízdenka&lt;/h2&gt;
+
+&lt;p&gt;Windows Phone application allowing SMS ticket ordering in Czech Republic.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/sms.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;March 2012 - April 2012&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;sokoban:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Sokoban&lt;/h2&gt;
+
+&lt;p&gt;Sokoban game implementation for Windows Phone.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/sokoban.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;March 2012 - April 2012&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;slovenské-aplikácie:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Slovenské aplikácie&lt;/h2&gt;
+
+&lt;p&gt;A list for Slovak Windows Phone and Windows applications curated by Microsoft.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/slovak.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;February 2012 - March 2012&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;frekvence-1:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Frekvence 1&lt;/h2&gt;
+
+&lt;p&gt;Windows Phone application for the Frekvence 1 radio station.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/f1.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;February 2012 - March 2012&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;evropa-2:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Evropa 2&lt;/h2&gt;
+
+&lt;p&gt;Windows Phone application for the Evropa 2 radio station.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/evropa.png&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h1 class=&#34;content-subhead space&#34;&gt;February 2012 - March 2012&lt;/h1&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;európa-2:3c42bb4157bf51d85ae7ffc4e1685909&#34;&gt;Európa 2&lt;/h2&gt;
+
+&lt;p&gt;Windows Phone application for the Európa 2 radio station.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=&#34; data-src=&#34;/images/europa.png&#34;&gt;&lt;/p&gt;
+
+&lt;script&gt;
+function init() {
+var imgDefer = document.getElementsByTagName(&#39;img&#39;);
+for (var i=0; i&lt;imgDefer.length; i++) {
+if(imgDefer[i].getAttribute(&#39;data-src&#39;)) {
+imgDefer[i].setAttribute(&#39;src&#39;,imgDefer[i].getAttribute(&#39;data-src&#39;));
+} } }
+window.onload = init;
+&lt;/script&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://blog.kulman.sk/about/</link>
+      <pubDate>Tue, 22 Dec 2015 15:44:50 +0100</pubDate>
+      
+      <guid>http://blog.kulman.sk/about/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://avatars1.githubusercontent.com/u/4746070?v=3&amp;amp;s=460&#34; alt=&#34;Igor Kulman&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Igor Kulman&lt;/strong&gt; is currently working as Windows Phone and Windows developer, also building applications for Microsoft Azure and playing with F#. Interested in programming languages, functional programming and data science.&lt;/p&gt;
+
+&lt;p&gt;This blog mostly covers my programming experience dealing with Windows Phone and Windows development. You can also find some rants here, because I do not like when stuff breaks.&lt;/p&gt;
+
+&lt;p&gt;If you want to get in touch, &lt;a href=&#34;mailto:igor@kulman.sk&#34;&gt;drop me an email&lt;/a&gt; or &lt;a href=&#34;https://www.twitter.com/igorkulman&#34;&gt;tweet to me&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>A week with Microsoft Band 2</title>
@@ -427,60 +705,6 @@
 &lt;img src=&#34;http://blog.kulman.sk/images/trayalya.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
 &lt;p&gt;[1]: &lt;a href=&#34;https://visualstudiogallery.msdn.microsoft.com/f3f23845-5b1e-4811-882f-60b7181fa6d6&#34;&gt;https://visualstudiogallery.msdn.microsoft.com/f3f23845-5b1e-4811-882f-60b7181fa6d6&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Implementing Google login in Universal Apps</title>
-      <link>http://blog.kulman.sk/implementing-google-login-in-universal-apps/</link>
-      <pubDate>Wed, 01 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://blog.kulman.sk/implementing-google-login-in-universal-apps/</guid>
-      <description>&lt;p&gt;In a recent project I had to implement Google login to an Universal App. I decided to use the native &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/windows.security.authentication.web.webauthenticationbroker.aspx&#34;&gt;WebAuthenticationBroker&lt;/a&gt; control and the implementation was not as straightforward as I hoped. By implementing Google login I mean getting the authentication token that you can then use with your server API.&lt;/p&gt;
-
-&lt;p&gt;WebAuthenticationBroker is a good idea but it is implemented rather poorly. It works differently on Windows 8.1 and Windows Phone 8.1 due to the &amp;#8220;AndContinue&amp;#8221; pattern that Windows Phone 8.1 forces on you. You can solve this with &lt;a href=&#34;http://blog.kulman.sk/why-universal-apps-as-not-as-universal-as-you-may-think/&#34;&gt;some ifdefs and platform specific code, as always&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The real problem s that the [MSDN sample][3] states it works with Google login but it does not. The sample thinks it gets the authentication token but it does not, it just gets the success code that you have to exchange for the authentication token yourself.&lt;/p&gt;
-
-&lt;p&gt;Lets start with a basic config&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/igorkulman/65a406f7f3cff48be3c5.js?file=config.cs&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;The important things here are your Google app id and Google app secret. The GoogleStartUri also contains permissions that you want to get (profile, &lt;a href=&#34;https://www.googleapis.com/auth/plus.login&#34;&gt;https://www.googleapis.com/auth/plus.login&lt;/a&gt; and &lt;a href=&#34;https://www.googleapis.com/auth/plus.me&#34;&gt;https://www.googleapis.com/auth/plus.me&lt;/a&gt; email in my case).&lt;/p&gt;
-
-&lt;p&gt;You use this config with a WebAuthenticationBroker call&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/igorkulman/65a406f7f3cff48be3c5.js?file=login.cs&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;on Windows 8.1 you get the response data immediately. On Windows Phone 8.1, you have to implement the &amp;#8220;AndContinue&amp;#8221; pattern.&lt;/p&gt;
-
-&lt;p&gt;You use the response data to parse out the success code&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/igorkulman/65a406f7f3cff48be3c5.js?file=GetGoogleSuccessCode.cs&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;Now that you have the success code, you can exchange it for the authentication token&lt;/p&gt;
-
-&lt;p&gt;And now you finally have a way to get the authentication token and implement Google login.&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/igorkulman/65a406f7f3cff48be3c5.js?file=GetToken.cs&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;[3]: &lt;a href=&#34;https://code.msdn.microsoft.com/windowsapps/Web-Authentication-d0485122&#34;&gt;https://code.msdn.microsoft.com/windowsapps/Web-Authentication-d0485122&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Removing unused strings from Windows Phone 8 RESX files</title>
-      <link>http://blog.kulman.sk/removing-unused-strings-from-windows-phone-8-resx-files/</link>
-      <pubDate>Mon, 25 May 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://blog.kulman.sk/removing-unused-strings-from-windows-phone-8-resx-files/</guid>
-      <description>&lt;p&gt;Using RESX files is the standard approach to Windows Phone 8 app localization, it is even contained in the standard project templates. When you work on a project for a longer time, you may get to a situation that your RESX files contain strings that you no longer use. This is a problem especially when you want to add a new localization, because it is slower and kind of wasteful localizing unused strings.&lt;/p&gt;
-
-&lt;p&gt;To solve this problem I have created a simple command line utility, that is [available at Github][1]. This utility assumes that you use the standard localization approach from the templates (AppResources.{lang}.resx and LocalizedStrings.{value} in XAML).&lt;/p&gt;
-
-&lt;p&gt;The usage is really simple. Just run the utility with the path to your project as a parameter. It will detect all resources files and remove all the unused strings from them.&lt;/p&gt;
-
-&lt;p&gt;[1]: &lt;a href=&#34;https://github.com/igorkulman/RemoveUnusedResources&#34;&gt;https://github.com/igorkulman/RemoveUnusedResources&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

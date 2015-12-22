@@ -61,14 +61,13 @@
             </ul>
         </nav>
 
-<div class="wide-only">
-<h2>About me</h2>
 
-<p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
-<p>
-Interested in programming languages, functional programming and data science.</p>
+<ul class="menu">
+   <li class="menu-item"><a href="/">Blog</a></li>
+    <li class="menu-item"><a href="/projects">Projects</a></li>
+    <li class="menu-item"><a href="/about">About</a></li>
+</ul>
 
-</div>
 
     </div>
 </div>
@@ -78,6 +77,76 @@ Interested in programming languages, functional programming and data science.</p
         <div>
             
             <div class="posts">
+                
+                <h1 class="content-subhead">28 Feb 2013</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/few-thoughts-about-the-windows-phone-store-certification-process/" class="post-title">Few thoughts about the Windows (Phone) Store certification process</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>Passing the certification in Windows Phone Store and Windows Store can be a very painful process, but after a few tries you get enough experience to pass your apps on the first try. You may sometimes get a tester who is really dumb and fails your app for a made up reason but usually it is just enough to submit it again so another testers gets to test it. Lately I have been seeing a strange shift in the testing quality done in the certification process.</p>
+
+<p><strong>Windows Phone Store</strong></p>
+
+<p>The certification process used to discover bugs I overlooked, so it was quite useful sometimes. But it is not anymore. Let me give you an example. I wanted to change one of my Windows Phone apps from free to paid with a 3 day trial. I have this functionality implemented in another of my apps so I simply copied the trial page, set is as the start page. I tested it in trial mode, it showed, in purchased mode, the app showed the real start page. I was under the impression that everything worked just fine.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/few-thoughts-about-the-windows-phone-store-certification-process/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">26 Feb 2013</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/f-on-azure-using-table-storage-for-logging/" class="post-title">F# on Azure: using Table Storage for logging</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Functional programming" href="http://blog.kulman.sk/categories/functional-programming">Functional programming</a><a class="post-category post-category-Windows Azure" href="http://blog.kulman.sk/categories/windows-azure">Windows Azure</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>Windows Azure finally has a good F# support. Creating F# Worker Roles is supported right from the wizzard in Visual Studio and you can create a F# Web Role using the [F# C# MVC template][1]. I decided to try it out and the first thing I needed to implement was logging. I decided for logging to Azure Table Storage.</p>
+
+<p>I assume you have a basic idea of how Azure Table Storage works. If not, there is a [good guide on the Windows Azure website][2].</p>
+
+<p>The first thing you need to do is to define your log entry class. You need to create a class, Azure Table Storage does not work with F# records. In my case I want to store a timestamp, message and severity.</p>
+
+<script src="https://gist.github.com/5822037.js"></script>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/f-on-azure-using-table-storage-for-logging/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
                 
                 <h1 class="content-subhead">06 Feb 2013</h1>
                 <section class="post">
@@ -363,78 +432,6 @@ Interested in programming languages, functional programming and data science.</p
                         
   <div class="read-more-link">
     <a href="/using-net-libraries-with-monotouch/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">19 Dec 2012</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/monotouch-ios-development-for-net-programmers/" class="post-title">MonoTouch: iOS development for .NET programmers</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Programming in general" href="http://blog.kulman.sk/categories/programming-in-general">Programming in general</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>Beeing [quite disappointed with the Windows Phone platform recently][1] I started to look for other ways to use my .NET skills and to develop for a mobile platform at the same time. I found [MonoTouch][2], a product from Xamarin that allows you to build iOS apps using C# with Mono.</p>
-
-<p><strong>What is MonoTouch?</strong></p>
-
-<p>MonoTouch is a product or a framework do develop iOS apps using [Mono]<a href="an open-source .NET implementation">3</a>. It allows you to use C# (hopefuly also F# although I have not been able to get it to work yet) and all the .NET features libraries you use and like and of course your existing codebase. No Objective-C knowledge is required, but you will have to learn about the iOS ecosystem an iOS SDK. The iOS SDK is also needed, so you cannot do the development in Windows, you have to use a Mac. There are ways to get MacOS X working on a PC as a native install or in VMWare / VirtualBox, if you just want to try it out, but it may not be legal.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/monotouch-ios-development-for-net-programmers/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">10 Dec 2012</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/why-i-do-not-like-windows-phone-programming-anymore/" class="post-title">Why I do not like Windows Phone programming anymore</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>Before I start with the actual arguments I feel a need to state my background first so you do not mistake me with just another hater rattling about things he does not know. I have been a long time .NET developer, I have worked with winforms, webforms, mvc, compact framework. I really like C# and love F#. In February I started to work as a full time Windows Phone developer. Although I have been programming exclusively for Windows 8 for the last few months I have a ton of experience with Windows Phone programming.</p>
-
-<p><strong>Good old Windows Phone 7 times</strong></p>
-
-<p>I really like Windows Phone 7 as a programmer. Although capabilities of this mobile OS are very limited compared to other platforms, the things you can do can be done easily and reliably. The OS is based on Silverlight, which is a mature platform. Everything works as you would expect.</p>
-
-<p><strong>The abomination called Windows Phone 8</strong></p>
-
-<p>When I first got my hands on a Windows Phone 8 phone I was really disappointed. I wrote two concrete post about [troubles with Windows Phone Store region][1] and an [unaccountable approach to MP3 tags][2] but lets take it more generally. Windows Phone 8 feels like Windows Phone 7 written from scratch using another technology, visually looking nearly the same but full of bugs and unfinished things. I am really amazed at things that worked on Windows Phone 7 but work much worse on Windows Phone 8. I thought that only Czech and Slovak people suffered from the &#8220;not invented here&#8221; syndrome but clearly it might be a more widespread disease.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/why-i-do-not-like-windows-phone-programming-anymore/">Read More…</a>
   </div>
   
                     </div>

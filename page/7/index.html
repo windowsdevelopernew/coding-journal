@@ -61,14 +61,13 @@
             </ul>
         </nav>
 
-<div class="wide-only">
-<h2>About me</h2>
 
-<p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
-<p>
-Interested in programming languages, functional programming and data science.</p>
+<ul class="menu">
+   <li class="menu-item"><a href="/">Blog</a></li>
+    <li class="menu-item"><a href="/projects">Projects</a></li>
+    <li class="menu-item"><a href="/about">About</a></li>
+</ul>
 
-</div>
 
     </div>
 </div>
@@ -78,6 +77,76 @@ Interested in programming languages, functional programming and data science.</p
         <div>
             
             <div class="posts">
+                
+                <h1 class="content-subhead">12 Jun 2013</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/windows-phone-run-background-agent-every-minute/" class="post-title">Windows Phone: run background agent every minute</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>In both Windows Phone 7 and Windows Phone 8 the background agent is executed approximately every 30 minutes. If you want to run your code more often, for example to create an app showing actual time on the live tile, you are out of luck. Are you?</p>
+
+<p>You can use [ScheduledActionService.LaunchForTest][1] to test your background agent without waiting 30 minutes for the system to run it. What if you use this method in the OnInvoke method of your background agent?</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/windows-phone-run-background-agent-every-minute/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">06 Jun 2013</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/inotifypropertychanged-the-easy-way-in-windows-phone-and-windows-8/" class="post-title">INotifyPropertyChanged the easy way in Windows Phone and Windows 8</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>If you develop Windows Phone, Windows 8, Silverlight or WPF apps using the MVVM pattern, you are familiar with the INotifyPropertyChanged interface.</p>
+
+<p><strong>Typical implementation</strong></p>
+
+<p>In a typical implementation, you usually have a base class implementing the interface, like</p>
+
+<script src="https://gist.github.com/5849361.js"></script>
+
+<p>or use a framework like MVVMLight, Prism or Caliburn Micro that provides such base class for you. In your view models you have properties using the PropertyChanged method</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/inotifypropertychanged-the-easy-way-in-windows-phone-and-windows-8/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
                 
                 <h1 class="content-subhead">05 Jun 2013</h1>
                 <section class="post">
@@ -372,76 +441,6 @@ Interested in programming languages, functional programming and data science.</p
                         
   <div class="read-more-link">
     <a href="/why-are-there-no-great-windows-8-apps-because-of-winrt-a-developers-view/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">28 Feb 2013</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/few-thoughts-about-the-windows-phone-store-certification-process/" class="post-title">Few thoughts about the Windows (Phone) Store certification process</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>Passing the certification in Windows Phone Store and Windows Store can be a very painful process, but after a few tries you get enough experience to pass your apps on the first try. You may sometimes get a tester who is really dumb and fails your app for a made up reason but usually it is just enough to submit it again so another testers gets to test it. Lately I have been seeing a strange shift in the testing quality done in the certification process.</p>
-
-<p><strong>Windows Phone Store</strong></p>
-
-<p>The certification process used to discover bugs I overlooked, so it was quite useful sometimes. But it is not anymore. Let me give you an example. I wanted to change one of my Windows Phone apps from free to paid with a 3 day trial. I have this functionality implemented in another of my apps so I simply copied the trial page, set is as the start page. I tested it in trial mode, it showed, in purchased mode, the app showed the real start page. I was under the impression that everything worked just fine.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/few-thoughts-about-the-windows-phone-store-certification-process/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">26 Feb 2013</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/f-on-azure-using-table-storage-for-logging/" class="post-title">F# on Azure: using Table Storage for logging</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Functional programming" href="http://blog.kulman.sk/categories/functional-programming">Functional programming</a><a class="post-category post-category-Windows Azure" href="http://blog.kulman.sk/categories/windows-azure">Windows Azure</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>Windows Azure finally has a good F# support. Creating F# Worker Roles is supported right from the wizzard in Visual Studio and you can create a F# Web Role using the [F# C# MVC template][1]. I decided to try it out and the first thing I needed to implement was logging. I decided for logging to Azure Table Storage.</p>
-
-<p>I assume you have a basic idea of how Azure Table Storage works. If not, there is a [good guide on the Windows Azure website][2].</p>
-
-<p>The first thing you need to do is to define your log entry class. You need to create a class, Azure Table Storage does not work with F# records. In my case I want to store a timestamp, message and severity.</p>
-
-<script src="https://gist.github.com/5822037.js"></script>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/f-on-azure-using-table-storage-for-logging/">Read More…</a>
   </div>
   
                     </div>
