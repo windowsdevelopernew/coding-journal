@@ -78,40 +78,6 @@
             
             <div class="posts">
                 
-                <h1 class="content-subhead">02 Dec 2013</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/creating-a-search-box-with-reactive-extensions-and-mvvm/" class="post-title">Creating a Search box with Reactive Extensions and MVVM</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>Having a Search box in a Windows Phone app is a common use-case but it is only rarely done right. A good Search box does not have a Search button associated with it that the users have to click when they are finished typing and want to start the search. A good Search box starts the search immediately when the user stops typing (for a certain period of time).</p>
-
-<p>You can implement this functionality with some nasty code using a DispatcherTimer, or you can use [Reactive Extensions][1]. You can use Reactive Extensions directly on a TextBox representing the Search box, but if you use MVVM (and you should) you need to attach to the property associated with the Search box instead.</p>
-
-<p>Suppose the ViewModel contains a string property called SearchTerm (with two-way binding to the Search box) and an event called PropertyChanged (used for the INotifyPropertyChanged implementation). We need to observe the changes of the SearchTerm property. There is no way to do it directly, we need to observe the PropertyChanged event instead.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/creating-a-search-box-with-reactive-extensions-and-mvvm/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
                 <h1 class="content-subhead">25 Nov 2013</h1>
                 <section class="post">
                     <header class="post-header">
@@ -439,6 +405,38 @@
                         
   <div class="read-more-link">
     <a href="/why-you-should-not-use-windows-store-for-in-app-purchases/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">12 Jun 2013</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/windows-phone-run-background-agent-every-minute/" class="post-title">Windows Phone: run background agent every minute</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>In both Windows Phone 7 and Windows Phone 8 the background agent is executed approximately every 30 minutes. If you want to run your code more often, for example to create an app showing actual time on the live tile, you are out of luck. Are you?</p>
+
+<p>You can use [ScheduledActionService.LaunchForTest][1] to test your background agent without waiting 30 minutes for the system to run it. What if you use this method in the OnInvoke method of your background agent?</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/windows-phone-run-background-agent-every-minute/">Read More…</a>
   </div>
   
                     </div>

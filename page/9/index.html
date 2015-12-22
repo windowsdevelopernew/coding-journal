@@ -78,40 +78,6 @@
             
             <div class="posts">
                 
-                <h1 class="content-subhead">19 Dec 2012</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/monotouch-ios-development-for-net-programmers/" class="post-title">MonoTouch: iOS development for .NET programmers</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Programming in general" href="http://blog.kulman.sk/categories/programming-in-general">Programming in general</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>Beeing [quite disappointed with the Windows Phone platform recently][1] I started to look for other ways to use my .NET skills and to develop for a mobile platform at the same time. I found [MonoTouch][2], a product from Xamarin that allows you to build iOS apps using C# with Mono.</p>
-
-<p><strong>What is MonoTouch?</strong></p>
-
-<p>MonoTouch is a product or a framework do develop iOS apps using [Mono]<a href="an open-source .NET implementation">3</a>. It allows you to use C# (hopefuly also F# although I have not been able to get it to work yet) and all the .NET features libraries you use and like and of course your existing codebase. No Objective-C knowledge is required, but you will have to learn about the iOS ecosystem an iOS SDK. The iOS SDK is also needed, so you cannot do the development in Windows, you have to use a Mac. There are ways to get MacOS X working on a PC as a native install or in VMWare / VirtualBox, if you just want to try it out, but it may not be legal.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/monotouch-ios-development-for-net-programmers/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
                 <h1 class="content-subhead">10 Dec 2012</h1>
                 <section class="post">
                     <header class="post-header">
@@ -403,6 +369,40 @@
                         
   <div class="read-more-link">
     <a href="/computing-hashes-in-winrt/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">13 Nov 2012</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/tampering-with-windows-store-apps-data/" class="post-title">Tampering with Windows Store apps data</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>Windows Store apps run in a sandbox with their data isolated from each other. So how secure is this storage from tampering by the user? It turns out not much.</p>
+
+<p>The only Windows Store app I use on my work notebook is WeatherFlow because of the live tile. The app allows you to add your city and view weather forecast for it. But there is now way to get rid of the default cities like New York, Tokyo, etc. that are in the app when you first run it. This realy annoyed me so I started to poke around.</p>
+
+<p>Using the debugger and checking the value of ApplicationData.Current.LocalFolder I found out that all the data of Windows Store apps are stored in AppData\Local\Packages in your profile (for me it is C:\Users\Igor\AppData\Local\Packages). The name of the directory for the app you are lookin for usualy contain its name, it is 08C8076A.WeatherFlow_gyyqpbm0tqk6g for WeatherFlow. The directory for each app contains a few subdirectories</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/tampering-with-windows-store-apps-data/">Read More…</a>
   </div>
   
                     </div>

@@ -78,40 +78,6 @@
             
             <div class="posts">
                 
-                <h1 class="content-subhead">27 Apr 2015</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/player-framework-localization/" class="post-title">Player Framework localization</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>In my recent universal (Windows Phone 8.1 and Windows 8.1) project I implemented PlayReady DRM protected smooth streaming movies playback using the [Player Framework][1]. This projects seems to be dead, but it is still the best option when implementing any kind of video playback.</p>
-
-<p>One of the first things I had to do was localize it&#8217;s controls, because the app I worked on was in Czech and Slovak, not in English (the only language the Player Framework supports out of the box). Not all the texts an be localized, but the most visible ones like button labels and error messages can.</p>
-
-<p>To create your own localization, I suggest you create a new RESW file in your project. You can use and existing one, but I prefer to separate the texts for the Player Framework from texts for the rest of the app.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/player-framework-localization/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
                 <h1 class="content-subhead">20 Apr 2015</h1>
                 <section class="post">
                     <header class="post-header">
@@ -419,6 +385,46 @@
                         
   <div class="read-more-link">
     <a href="/dialog-helper-for-universal-apps/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">23 Dec 2014</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/creating-a-fake-splashscreen-for-your-universal-app/" class="post-title">Creating a fake splashscreen for your Universal App</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>Sometimes you may want your app to display the startup splashscreen a bit longer, so you can initialize or fetch some data necessary for the app to run. To achieve this, you can create a fake splaschreen, a View that looks just like the splashscreen, does all the work and redirects to the real main View afterwards.</p>
+
+<p>In theory, it is quite simple:</p>
+
+<ul>
+<li>Create a SplashScreenView with just the right background and the splashscreen image</li>
+<li>Set the app to display SplashScreenView at startup</li>
+<li>Do all the initializing and data fetching in SplashScreenViewModel and redirect to there real MainView</li>
+</ul>
+
+<p>This works quite well with Windows 8.1, but on Windows Phone 8.1 there is a problem. When you run the Windows Phone 8.1 app, you will see a page transition happen between the real splashscreen and your SplashScreenView. This looks strange, so it is better to get rid of it.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/creating-a-fake-splashscreen-for-your-universal-app/">Read More…</a>
   </div>
   
                     </div>
