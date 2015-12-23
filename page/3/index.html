@@ -78,39 +78,6 @@
             
             <div class="posts">
                 
-                <h1 class="content-subhead">20 Apr 2015</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/leveraging-etag-caching-in-windows-phone-and-windows-apps/" class="post-title">Leveraging ETag caching in Windows Phone and Windows apps</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>In my previous article I showed you [how to implements server side caching using ETag][1]. HTTP clients on other platforms can usually work with ETag automatically, but of course, the portable HTTP client used on Windows platforms cannot. You have to implement ETag handling yourself.</p>
-
-<p>In [TvTime][2], all the server requests are GET request, so I remember the ETag values for each Url (= each GET request). I store the ETag values in application local settings.</p>
-
-<p>When the app wants to get some data, I perform a GET request including the ETag as the If-None-Match header. If my ETag matches with the ETag on the server, the server returns HTTP 304 Not Modified and I return the cached data from disk. Otherwise I read the response body and return it.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/leveraging-etag-caching-in-windows-phone-and-windows-apps/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
                 
                 <h1 class="content-subhead">15 Apr 2015</h1>
                 <section class="post">
@@ -425,6 +392,40 @@
                         
   <div class="read-more-link">
     <a href="/creating-a-fake-splashscreen-for-your-universal-app/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">18 Dec 2014</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/why-universal-apps-as-not-as-universal-as-you-may-think/" class="post-title">Why Universal Apps as not as universal as you may think</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>I have been developing Windows Phone apps for a few years now, always sticking to Silverlight and keeping using Silverlight also after Microsoft announced the WinRT flavor of Windows Phone apps and the so called Universal Apps. The Windows Phone 8.0 and 8.1 Silverlight APIs have some limitations, but are now well known do not contain many bugs. They are the safe choice if you want to create a Windows Phone apps. And do not forget that there are still many device running Windows Phone 8 (like Verizon customers in the US) that never got the 8.1 updated promised to everyone during the summer.</p>
+
+<p><strong>Really universal?</strong></p>
+
+<p>Windows Phone 8.1 XAML and Universal Apps included WinRT APIs that have many problems, including some that there is no solution for. I used the WinRT APIs when creating first Windows 8 apps about 2 years ago, so I am not new to the APIs. I have not touched the WinRT APIs again until recently, because there was no demand for Windows 8 or Windows 8.1 apps. Why would it? People use Windows 8 or 8.1 but do not care about Metro apps, they give them no value compared to &#8220;normal&#8221; Win32 and Windows tablets are practically non-exists (expect for the Surface tablets owned by few programmers and maybe no one else).</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/why-universal-apps-as-not-as-universal-as-you-may-think/">Read More…</a>
   </div>
   
                     </div>

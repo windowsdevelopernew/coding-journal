@@ -78,43 +78,6 @@
             
             <div class="posts">
                 
-                <h1 class="content-subhead">11 Sep 2015</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/strange-combination-of-https-and-windows-phone-8-1-that-can-make-your-app-and-phone-freeze/" class="post-title">Strange combination of HTTPS and Windows Phone 8.1 that can make your app and phone freeze</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>Last week I came upon a really bizarre problem that you may also find interesting. Lets start with a bit of context.</p>
-
-<p><strong>Tl;Dr</strong>: There seems to be a bug in Windows phone 8.1 that can make your app and the phone freezes when displaying images over HTTPS from some servers. Skip to [the end of this article][1] to see a video and get the source code.</p>
-
-<p><strong>The Windows Phone app</strong></p>
-
-<p>The app is a Windows Phone 8 shopping app for the biggest Czech online retailer. The main screen of the app contains quite a bit of data, usually about ten carousel with about 10 products and the list of main categories, so about 10 more images.</p>
-
-<p>In worst case the main screen contains over 10 hundred images. It was quite a hassle to make it work well in the Windows Phone 8 SDK (no, rewriting a shopping about with about 70 screens to Windows Phone 8.1 is not feasible). But it work juts fine. Until last week.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/strange-combination-of-https-and-windows-phone-8-1-that-can-make-your-app-and-phone-freeze/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
                 
                 <h1 class="content-subhead">10 Sep 2015</h1>
                 <section class="post">
@@ -425,6 +388,40 @@
                         
   <div class="read-more-link">
     <a href="/player-framework-localization/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">20 Apr 2015</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/leveraging-etag-caching-in-windows-phone-and-windows-apps/" class="post-title">Leveraging ETag caching in Windows Phone and Windows apps</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>In my previous article I showed you [how to implements server side caching using ETag][1]. HTTP clients on other platforms can usually work with ETag automatically, but of course, the portable HTTP client used on Windows platforms cannot. You have to implement ETag handling yourself.</p>
+
+<p>In [TvTime][2], all the server requests are GET request, so I remember the ETag values for each Url (= each GET request). I store the ETag values in application local settings.</p>
+
+<p>When the app wants to get some data, I perform a GET request including the ETag as the If-None-Match header. If my ETag matches with the ETag on the server, the server returns HTTP 304 Not Modified and I return the cached data from disk. Otherwise I read the response body and return it.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/leveraging-etag-caching-in-windows-phone-and-windows-apps/">Read More…</a>
   </div>
   
                     </div>

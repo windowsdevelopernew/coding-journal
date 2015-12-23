@@ -78,43 +78,6 @@
             
             <div class="posts">
                 
-                <h1 class="content-subhead">10 Dec 2012</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/why-i-do-not-like-windows-phone-programming-anymore/" class="post-title">Why I do not like Windows Phone programming anymore</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>Before I start with the actual arguments I feel a need to state my background first so you do not mistake me with just another hater rattling about things he does not know. I have been a long time .NET developer, I have worked with winforms, webforms, mvc, compact framework. I really like C# and love F#. In February I started to work as a full time Windows Phone developer. Although I have been programming exclusively for Windows 8 for the last few months I have a ton of experience with Windows Phone programming.</p>
-
-<p><strong>Good old Windows Phone 7 times</strong></p>
-
-<p>I really like Windows Phone 7 as a programmer. Although capabilities of this mobile OS are very limited compared to other platforms, the things you can do can be done easily and reliably. The OS is based on Silverlight, which is a mature platform. Everything works as you would expect.</p>
-
-<p><strong>The abomination called Windows Phone 8</strong></p>
-
-<p>When I first got my hands on a Windows Phone 8 phone I was really disappointed. I wrote two concrete post about [troubles with Windows Phone Store region][1] and an [unaccountable approach to MP3 tags][2] but lets take it more generally. Windows Phone 8 feels like Windows Phone 7 written from scratch using another technology, visually looking nearly the same but full of bugs and unfinished things. I am really amazed at things that worked on Windows Phone 7 but work much worse on Windows Phone 8. I thought that only Czech and Slovak people suffered from the &#8220;not invented here&#8221; syndrome but clearly it might be a more widespread disease.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/why-i-do-not-like-windows-phone-programming-anymore/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
                 
                 <h1 class="content-subhead">05 Dec 2012</h1>
                 <section class="post">
@@ -403,6 +366,44 @@
                         
   <div class="read-more-link">
     <a href="/tampering-with-windows-store-apps-data/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">08 Nov 2012</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.kulman.sk/how-to-uniquely-identify-a-windows-8-device/" class="post-title">How to uniquely identify a Windows 8 device</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>When developing a Windows 8 app you may need to uniquely identify the device the app runs on. One reason may be the implementation of in-app purchases.</p>
+
+<p>The Windows.System.Profile namespace contains HardwareToken that you can get by calling HardwareIdentification.GetPackageSpecificToken(null)</p>
+
+<script src="https://gist.github.com/5849503.js"></script>
+
+<p>This class contains a bunch of interesting fields</p>
+
+<p><script src="https://gist.github.com/5849507.js"></script></p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/how-to-uniquely-identify-a-windows-8-device/">Read More…</a>
   </div>
   
                     </div>
