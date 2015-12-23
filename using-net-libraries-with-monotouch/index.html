@@ -77,26 +77,50 @@
         <div>
             
             <div class="posts">
-                
+                <h1 class="content-subhead">28 Dec 2012</h1>
                 <section class="post">
                     <header class="post-header">
 
                         <a href="http://blog.kulman.sk/using-net-libraries-with-monotouch/" class="post-title">Using .NET libraries with MonoTouch</a>
 
-                       
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Programming in general" href="http://blog.kulman.sk/categories/programming-in-general">Programming in general</a>
+                            
+                        </p>
                     </header>
 
                   
                     <div class="post-description">
                         <p>I have been <a href="http://blog.kulman.sk/monotouch-ios-development-for-net-programmers/">playing with MonoTouch</a> only for a few days when I already started to miss all the .NET libraries I commonly use. The first one I needed to get working with MonoTouch was <a href="http://james.newtonking.com/projects/json-net.aspx">JSON.NET</a>.</p>
 
-<p>MonoDevelop does not support Nuget so you have to get your libaries the old way. I downloaded JSON.NET package from [Nuget.org][3], but it does not contain a DLL built for Mono. Harldy any Nuget package does. You can reference a DLL built for .NET, MonoDevelop will recognize it and even offer you IntelliSense but your project will not get built.</p>
+<p>MonoDevelop does not support Nuget so you have to get your libaries the old way. I downloaded JSON.NET package from <a href="http://nuget.org/">Nuget.org</a>, but it does not contain a DLL built for Mono. Harldy any Nuget package does. You can reference a DLL built for .NET, MonoDevelop will recognize it and even offer you IntelliSense but your project will not get built.</p>
 
 <p>The right way to get a .NET library working with MonoTouch is downloading its source code and building it yourself. You can use MonoDevelop to build the source codes. The only think you have to do (at least for JSON.NET) is to change the .NET profile to an equivalent Mono profile in the project settings.</p>
 
-<p>[3]: <a href="http://nuget.org/">http://nuget.org/</a></p>
-
                     </div>
+
+
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'coudingjournal';
+    var disqus_identifier = 'http:\/\/blog.kulman.sk\/using-net-libraries-with-monotouch\/';
+    var disqus_title = 'Using .NET libraries with MonoTouch';
+    var disqus_url = 'http:\/\/blog.kulman.sk\/using-net-libraries-with-monotouch\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
                     
                 </section>

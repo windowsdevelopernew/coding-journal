@@ -19,7 +19,7 @@
 
 &lt;p&gt;Reading and writing Excel files from .NET is &lt;a href=&#34;http://blogs.msdn.com/b/jackhu/archive/2011/04/19/fsharp-amp-excel-io-reading-and-writeing-to-excel.aspx&#34;&gt;very easy using the Microsoft.Office.Interop assemblies&lt;/a&gt; but they use Excel through COM and that makes them unusable outside of Windows. I found some 3rd party libraries for working with Excel and analzyed them with &lt;a href=&#34;http://www.mono-project.com/MoMA&#34;&gt;The Mono Migration Analzyer&lt;/a&gt; (MoMA). MoMA is a handy tool that analyzes .NET assemblies and tells you if they will run on Mono. Many of the Excel libraries I found were unusable for my use-case because they were using PInvoke calls. Only the &lt;a href=&#34;http://excelpackage.codeplex.com/&#34;&gt;ExcelPackage library&lt;/a&gt; runs on Mono.&lt;/p&gt;
 
-&lt;p&gt;I wanted to use the ExcelPackage from F# not C# so I wrote a [very simple F# wrapper][4], that you can freely use. For now it contains just a few methods&lt;/p&gt;
+&lt;p&gt;I wanted to use the ExcelPackage from F# not C# so I wrote a &lt;a href=&#34;https://github.com/igorkulman/ExcelPackageF&#34;&gt;very simple F# wrapper&lt;/a&gt;, that you can freely use. For now it contains just a few methods&lt;/p&gt;
 
 &lt;p&gt;Excel.getWorksheets&lt;/p&gt;
 
@@ -45,8 +45,6 @@
 
 &lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;PM&amp;gt; Install-Package ExcelPackageF
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;[4]: &lt;a href=&#34;https://github.com/igorkulman/ExcelPackageF&#34;&gt;https://github.com/igorkulman/ExcelPackageF&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -58,11 +56,9 @@
       <guid>http://blog.kulman.sk/using-net-libraries-with-monotouch/</guid>
       <description>&lt;p&gt;I have been &lt;a href=&#34;http://blog.kulman.sk/monotouch-ios-development-for-net-programmers/&#34;&gt;playing with MonoTouch&lt;/a&gt; only for a few days when I already started to miss all the .NET libraries I commonly use. The first one I needed to get working with MonoTouch was &lt;a href=&#34;http://james.newtonking.com/projects/json-net.aspx&#34;&gt;JSON.NET&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;MonoDevelop does not support Nuget so you have to get your libaries the old way. I downloaded JSON.NET package from [Nuget.org][3], but it does not contain a DLL built for Mono. Harldy any Nuget package does. You can reference a DLL built for .NET, MonoDevelop will recognize it and even offer you IntelliSense but your project will not get built.&lt;/p&gt;
+&lt;p&gt;MonoDevelop does not support Nuget so you have to get your libaries the old way. I downloaded JSON.NET package from &lt;a href=&#34;http://nuget.org/&#34;&gt;Nuget.org&lt;/a&gt;, but it does not contain a DLL built for Mono. Harldy any Nuget package does. You can reference a DLL built for .NET, MonoDevelop will recognize it and even offer you IntelliSense but your project will not get built.&lt;/p&gt;
 
 &lt;p&gt;The right way to get a .NET library working with MonoTouch is downloading its source code and building it yourself. You can use MonoDevelop to build the source codes. The only think you have to do (at least for JSON.NET) is to change the .NET profile to an equivalent Mono profile in the project settings.&lt;/p&gt;
-
-&lt;p&gt;[3]: &lt;a href=&#34;http://nuget.org/&#34;&gt;http://nuget.org/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -90,11 +86,9 @@
 
 &lt;p&gt;&lt;strong&gt;Should you use it?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;That depends. If you are a .NET developer, MonoTouch is definitely the way to do your iOS development. If you will be in a position to decide between native iOS development and MonoTouch, definetely [check out this StackOverflow question][4].&lt;/p&gt;
+&lt;p&gt;That depends. If you are a .NET developer, MonoTouch is definitely the way to do your iOS development. If you will be in a position to decide between native iOS development and MonoTouch, definetely &lt;a href=&#34;http://stackoverflow.com/questions/1583856/how-to-decide-between-monotouch-and-objective-c&#34;&gt;check out this StackOverflow question&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;The prices start at $399 for indie developers and companies with less then 10 employees. The evaluation version allows you to develop a full application and test it in the simulator, but you have to have a commercial license to deploy to a real device and to the AppStore.&lt;/p&gt;
-
-&lt;p&gt;[4]: &lt;a href=&#34;http://stackoverflow.com/questions/1583856/how-to-decide-between-monotouch-and-objective-c&#34;&gt;http://stackoverflow.com/questions/1583856/how-to-decide-between-monotouch-and-objective-c&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

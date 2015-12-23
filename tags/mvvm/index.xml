@@ -55,9 +55,7 @@
 
 &lt;script src=&#34;https://gist.github.com/5849376.js&#34;&gt;&lt;/script&gt;
 
-&lt;p&gt;If you use a framework and you want to raise the PropertyChanged event through a method of this framework, it is not a problem. You just need to &lt;a href=&#34;https://github.com/Fody/PropertyChanged/wiki/Options&#34;&gt;set the EventInvokerNames options&lt;/a&gt;. The Fody [documentation even describes what to set for some of the frameworks][9] so you do not have to figure it out for yourself.&lt;/p&gt;
-
-&lt;p&gt;[9]: &lt;a href=&#34;https://github.com/Fody/PropertyChanged/wiki/SupportedToolkits&#34;&gt;https://github.com/Fody/PropertyChanged/wiki/SupportedToolkits&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you use a framework and you want to raise the PropertyChanged event through a method of this framework, it is not a problem. You just need to &lt;a href=&#34;https://github.com/Fody/PropertyChanged/wiki/Options&#34;&gt;set the EventInvokerNames options&lt;/a&gt;. The Fody &lt;a href=&#34;https://github.com/Fody/PropertyChanged/wiki/SupportedToolkits&#34;&gt;documentation even describes what to set for some of the frameworks&lt;/a&gt; so you do not have to figure it out for yourself.&lt;/p&gt;
 </description>
     </item>
     

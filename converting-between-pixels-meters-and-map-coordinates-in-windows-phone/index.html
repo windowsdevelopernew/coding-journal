@@ -77,13 +77,22 @@
         <div>
             
             <div class="posts">
-                
+                <h1 class="content-subhead">24 Jun 2014</h1>
                 <section class="post">
                     <header class="post-header">
 
                         <a href="http://blog.kulman.sk/converting-between-pixels-meters-and-map-coordinates-in-windows-phone/" class="post-title">Converting between pixels, meters and map coordinates in Windows Phone</a>
 
-                       
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
                     </header>
 
                   
@@ -109,15 +118,30 @@
 
 <script src="https://gist.github.com/igorkulman/9fa0a229b9c2db57a172.js?file=meters.cs"></script>
 
-<p>The second conversion is more difficult, especially if you want to do it really well. I found a [simple solution that works quite ok when you are not right at the poles][3] and used it. The helper function looks like this.</p>
+<p>The second conversion is more difficult, especially if you want to do it really well. I found a <a href="https://gis.stackexchange.com/questions/2951/algorithm-for-offsetting-a-latitude-longitude-by-some-amount-of-meters">simple solution that works quite ok when you are not right at the poles</a> and used it. The helper function looks like this.</p>
 
 <script src="https://gist.github.com/igorkulman/9fa0a229b9c2db57a172.js?file=coords.cs"></script>
 
 <p>Now you just need to put it all together and you are done.</p>
 
-<p>[3]: <a href="https://gis.stackexchange.com/questions/2951/algorithm-for-offsetting-a-latitude-longitude-by-some-amount-of-meters">https://gis.stackexchange.com/questions/2951/algorithm-for-offsetting-a-latitude-longitude-by-some-amount-of-meters</a></p>
-
                     </div>
+
+
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'coudingjournal';
+    var disqus_identifier = 'http:\/\/blog.kulman.sk\/converting-between-pixels-meters-and-map-coordinates-in-windows-phone\/';
+    var disqus_title = 'Converting between pixels, meters and map coordinates in Windows Phone';
+    var disqus_url = 'http:\/\/blog.kulman.sk\/converting-between-pixels-meters-and-map-coordinates-in-windows-phone\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
                     
                 </section>

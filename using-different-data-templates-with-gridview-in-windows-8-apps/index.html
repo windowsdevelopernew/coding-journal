@@ -77,20 +77,29 @@
         <div>
             
             <div class="posts">
-                
+                <h1 class="content-subhead">30 Oct 2012</h1>
                 <section class="post">
                     <header class="post-header">
 
                         <a href="http://blog.kulman.sk/using-different-data-templates-with-gridview-in-windows-8-apps/" class="post-title">Using different data templates with GridView in Windows 8 apps</a>
 
-                       
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
                     </header>
 
                   
                     <div class="post-description">
                         <p>GridView and ListView are the two of the most commonly used components in Windows 8 apps. Items in these two components are displayed according to the DataTemplate give as the ItemTemplate property. If you do not want to display all the items the same way, you need to use a custom ItemTemplateSelector.</p>
 
-<p>Using ItemTemplateSelector in Windows 8 apps is easier and more straightforward that in Windows Phone 7 (I wrote about that [here in Slovak][1]). All you need to do is to create a class inheriting from the DataTemplateSelector and set the ItemTemplateSelector property of GridView (or ListView) to this new class.</p>
+<p>Using ItemTemplateSelector in Windows 8 apps is easier and more straightforward that in Windows Phone 7 (I wrote about that <a href="http://www.kulman.sk/sk/content/wp7-ako-zobrazovat-objekty-roznych-typov-v-listboxe">here in Slovak</a>). All you need to do is to create a class inheriting from the DataTemplateSelector and set the ItemTemplateSelector property of GridView (or ListView) to this new class.</p>
 
 <p>When inheriting from the DataTemplateSelector you need to override the SelectTemplateCore method. In this method you have accees to the binded item and and you can use it to decide which DataTemplate to return. You can define your DataTemplates in the App.xaml and access them via the Application.Current.Resources array with casting, but that is a bad habbit. A better solution would be to define public DataTemplate properties in your class and assign them in XAML.</p>
 
@@ -106,11 +115,26 @@
 
 <p>Where MagazineTemplate and BigMagazineTemplate are DataTemplates defined in your XAML. Then simply set the ItemTemplateSelector property of the GridView (ListView)</p>
 
-<script src="https://gist.github.com/5849477.js"></script>
-
-<p>[1]: <a href="http://www.kulman.sk/sk/content/wp7-ako-zobrazovat-objekty-roznych-typov-v-listboxe">http://www.kulman.sk/sk/content/wp7-ako-zobrazovat-objekty-roznych-typov-v-listboxe</a></p>
+<p><script src="https://gist.github.com/5849477.js"></script></p>
 
                     </div>
+
+
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'coudingjournal';
+    var disqus_identifier = 'http:\/\/blog.kulman.sk\/using-different-data-templates-with-gridview-in-windows-8-apps\/';
+    var disqus_title = 'Using different data templates with GridView in Windows 8 apps';
+    var disqus_url = 'http:\/\/blog.kulman.sk\/using-different-data-templates-with-gridview-in-windows-8-apps\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
                     
                 </section>

@@ -64,7 +64,7 @@
 
 &lt;p&gt;&lt;strong&gt;Insecure workaround&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;I did some research and [found out that the problem is related to the TPM chip][3]. I use the TPM chip with BitLocker in Windows 10, so It looked like it maybe be the problem.&lt;/p&gt;
+&lt;p&gt;I did some research and &lt;a href=&#34;https://forums.lenovo.com/t5/ThinkPad-T400-T500-and-newer-T/T440s-beeps-while-putting-in-sleep-mode-and-a-blank-screen/m-p/2191866&#34;&gt;found out that the problem is related to the TPM chip&lt;/a&gt;. I use the TPM chip with BitLocker in Windows 10, so It looked like it maybe be the problem.&lt;/p&gt;
 
 &lt;p&gt;So I turned off BitLocker, waited for my disk do get decrypted and disabled the TPM in BIOS. I put the computer to sleep, waited for it to go to hibernation, and nothing happened. No beeps, no problems, the computer woke normally.&lt;/p&gt;
 
@@ -73,8 +73,6 @@
 &lt;p&gt;So now I have a BIOS (that I cannot get rid of) with the security fix for an obscure issue but my disk is not encrypted and when I loose my computer or it gets stolen, anyone can read my data. Again, great work Lenovo. Time to install TrueCrypt I guess.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;: it took two month for Lenovo to acknowledge the problem and release a fix.&lt;/p&gt;
-
-&lt;p&gt;[3]: &lt;a href=&#34;https://forums.lenovo.com/t5/ThinkPad-T400-T500-and-newer-T/T440s-beeps-while-putting-in-sleep-mode-and-a-blank-screen/m-p/2191866&#34;&gt;https://forums.lenovo.com/t5/ThinkPad-T400-T500-and-newer-T/T440s-beeps-while-putting-in-sleep-mode-and-a-blank-screen/m-p/2191866&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

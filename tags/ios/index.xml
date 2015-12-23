@@ -17,11 +17,9 @@
       <guid>http://blog.kulman.sk/using-net-libraries-with-monotouch/</guid>
       <description>&lt;p&gt;I have been &lt;a href=&#34;http://blog.kulman.sk/monotouch-ios-development-for-net-programmers/&#34;&gt;playing with MonoTouch&lt;/a&gt; only for a few days when I already started to miss all the .NET libraries I commonly use. The first one I needed to get working with MonoTouch was &lt;a href=&#34;http://james.newtonking.com/projects/json-net.aspx&#34;&gt;JSON.NET&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;MonoDevelop does not support Nuget so you have to get your libaries the old way. I downloaded JSON.NET package from [Nuget.org][3], but it does not contain a DLL built for Mono. Harldy any Nuget package does. You can reference a DLL built for .NET, MonoDevelop will recognize it and even offer you IntelliSense but your project will not get built.&lt;/p&gt;
+&lt;p&gt;MonoDevelop does not support Nuget so you have to get your libaries the old way. I downloaded JSON.NET package from &lt;a href=&#34;http://nuget.org/&#34;&gt;Nuget.org&lt;/a&gt;, but it does not contain a DLL built for Mono. Harldy any Nuget package does. You can reference a DLL built for .NET, MonoDevelop will recognize it and even offer you IntelliSense but your project will not get built.&lt;/p&gt;
 
 &lt;p&gt;The right way to get a .NET library working with MonoTouch is downloading its source code and building it yourself. You can use MonoDevelop to build the source codes. The only think you have to do (at least for JSON.NET) is to change the .NET profile to an equivalent Mono profile in the project settings.&lt;/p&gt;
-
-&lt;p&gt;[3]: &lt;a href=&#34;http://nuget.org/&#34;&gt;http://nuget.org/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -49,11 +47,9 @@
 
 &lt;p&gt;&lt;strong&gt;Should you use it?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;That depends. If you are a .NET developer, MonoTouch is definitely the way to do your iOS development. If you will be in a position to decide between native iOS development and MonoTouch, definetely [check out this StackOverflow question][4].&lt;/p&gt;
+&lt;p&gt;That depends. If you are a .NET developer, MonoTouch is definitely the way to do your iOS development. If you will be in a position to decide between native iOS development and MonoTouch, definetely &lt;a href=&#34;http://stackoverflow.com/questions/1583856/how-to-decide-between-monotouch-and-objective-c&#34;&gt;check out this StackOverflow question&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;The prices start at $399 for indie developers and companies with less then 10 employees. The evaluation version allows you to develop a full application and test it in the simulator, but you have to have a commercial license to deploy to a real device and to the AppStore.&lt;/p&gt;
-
-&lt;p&gt;[4]: &lt;a href=&#34;http://stackoverflow.com/questions/1583856/how-to-decide-between-monotouch-and-objective-c&#34;&gt;http://stackoverflow.com/questions/1583856/how-to-decide-between-monotouch-and-objective-c&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

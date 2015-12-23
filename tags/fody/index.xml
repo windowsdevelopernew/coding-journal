@@ -35,11 +35,9 @@
 
 &lt;p&gt;The app is free to use with one limitation, all the list display just 5 articles at any time. You can use an in-app purchase to get rid of the limitation and support further development of the app.&lt;/p&gt;
 
-&lt;p&gt;For more info about &lt;a href=&#34;http://t.co/YMtrM84rwI&#34;&gt;Pock8&lt;/a&gt;, follow the app on Twitter at [@pock8app][4].&lt;/p&gt;
+&lt;p&gt;For more info about &lt;a href=&#34;http://t.co/YMtrM84rwI&#34;&gt;Pock8&lt;/a&gt;, follow the app on Twitter at &lt;a href=&#34;https://twitter.com/pock8app&#34;&gt;@pock8app&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://qrcode.kaywa.com/img.php?s=6&amp;#038;d=http%3A%2F%2Fwindowsphone.com%2Fs%3Fappid%3Dc00715a7-d2d4-48c1-94e2-2ecc7c1b798b&#34; alt=&#34;Pock8&#34; style=&#34;max-width:100px&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;[4]: &lt;a href=&#34;https://twitter.com/pock8app&#34;&gt;https://twitter.com/pock8app&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -81,9 +79,7 @@
 
 &lt;script src=&#34;https://gist.github.com/6607538.js&#34;&gt;&lt;/script&gt;
 
-&lt;p&gt;Next time we will implement a typical master-detail scenario showing products usign the ProductService whe have created. All the code is again [available at GitHub][2].&lt;/p&gt;
-
-&lt;p&gt;[2]: &lt;a href=&#34;https://github.com/igorkulman/CaliburnDemoWinRT&#34;&gt;https://github.com/igorkulman/CaliburnDemoWinRT&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Next time we will implement a typical master-detail scenario showing products usign the ProductService whe have created. All the code is again &lt;a href=&#34;https://github.com/igorkulman/CaliburnDemoWinRT&#34;&gt;available at GitHub&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -158,9 +154,7 @@
 
 &lt;p&gt;Hit F5 and you will see your app start, navigate to MainView and show the text from the Title property in this view.&lt;/p&gt;
 
-&lt;p&gt;You can find the [code on Github][9] and stay tuned for Part 2!&lt;/p&gt;
-
-&lt;p&gt;[9]: &lt;a href=&#34;https://github.com/igorkulman/CaliburnDemoWinRT&#34;&gt;https://github.com/igorkulman/CaliburnDemoWinRT&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can find the &lt;a href=&#34;https://github.com/igorkulman/CaliburnDemoWinRT&#34;&gt;code on Github&lt;/a&gt; and stay tuned for Part 2!&lt;/p&gt;
 </description>
     </item>
     
@@ -210,9 +204,7 @@
 
 &lt;script src=&#34;https://gist.github.com/5849376.js&#34;&gt;&lt;/script&gt;
 
-&lt;p&gt;If you use a framework and you want to raise the PropertyChanged event through a method of this framework, it is not a problem. You just need to &lt;a href=&#34;https://github.com/Fody/PropertyChanged/wiki/Options&#34;&gt;set the EventInvokerNames options&lt;/a&gt;. The Fody [documentation even describes what to set for some of the frameworks][9] so you do not have to figure it out for yourself.&lt;/p&gt;
-
-&lt;p&gt;[9]: &lt;a href=&#34;https://github.com/Fody/PropertyChanged/wiki/SupportedToolkits&#34;&gt;https://github.com/Fody/PropertyChanged/wiki/SupportedToolkits&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you use a framework and you want to raise the PropertyChanged event through a method of this framework, it is not a problem. You just need to &lt;a href=&#34;https://github.com/Fody/PropertyChanged/wiki/Options&#34;&gt;set the EventInvokerNames options&lt;/a&gt;. The Fody &lt;a href=&#34;https://github.com/Fody/PropertyChanged/wiki/SupportedToolkits&#34;&gt;documentation even describes what to set for some of the frameworks&lt;/a&gt; so you do not have to figure it out for yourself.&lt;/p&gt;
 </description>
     </item>
     

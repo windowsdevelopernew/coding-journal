@@ -33,11 +33,9 @@
 
 &lt;p&gt;&lt;strong&gt;PDFTron Mobile PDF SDK&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://www.pdftron.com/index.html&#34;&gt;PDFTron&lt;/a&gt; has a [Mobile PDF SDK][9] that works with Windows Store apps. To get a trial version you have to fill in a form where you have to describe your app. The pricing is not clear, it dependes on many factors and you need to write them an email to get a price. You can get pages from the PDF file but not in a usable format like an image.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.pdftron.com/index.html&#34;&gt;PDFTron&lt;/a&gt; has a &lt;a href=&#34;http://www.pdftron.com/pdfnet/mobile/windows8_winrt_pdf_library.html&#34;&gt;Mobile PDF SDK&lt;/a&gt; that works with Windows Store apps. To get a trial version you have to fill in a form where you have to describe your app. The pricing is not clear, it dependes on many factors and you need to write them an email to get a price. You can get pages from the PDF file but not in a usable format like an image.&lt;/p&gt;
 
 &lt;p&gt;So which PDF solution should you use? That dependes on your needs. I am afraid you will have to check each of them out by yourself and assess it according to your needs.&lt;/p&gt;
-
-&lt;p&gt;[9]: &lt;a href=&#34;http://www.pdftron.com/pdfnet/mobile/windows8_winrt_pdf_library.html&#34;&gt;http://www.pdftron.com/pdfnet/mobile/windows8_winrt_pdf_library.html&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

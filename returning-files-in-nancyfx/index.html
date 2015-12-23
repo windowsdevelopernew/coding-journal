@@ -77,18 +77,27 @@
         <div>
             
             <div class="posts">
-                
+                <h1 class="content-subhead">02 Oct 2013</h1>
                 <section class="post">
                     <header class="post-header">
 
                         <a href="http://blog.kulman.sk/returning-files-in-nancyfx/" class="post-title">Returning files in NancyFX</a>
 
-                       
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Azure" href="http://blog.kulman.sk/categories/windows-azure">Windows Azure</a>
+                            
+                        </p>
                     </header>
 
                   
                     <div class="post-description">
-                        <p>In my current project, I have chosen <a href="http://nancyfx.org/">NancyFx</a> to implement a REST API. NancyFx is a .NET framework known for its &#8220;[super-duper-happy-path][2]&#8220;.</p>
+                        <p>In my current project, I have chosen <a href="http://nancyfx.org/">NancyFx</a> to implement a REST API. NancyFx is a .NET framework known for its &#8220;<a href="https://github.com/NancyFx/Nancy/wiki/Introduction#the-super-duper-happy-path">super-duper-happy-path</a>&#8220;.</p>
 
 <p>In one use case I generate a ZIP file in the temp folder and I want the API to return this ZIP file. NancyFx contains a Responses.AsFile helper but it works only with paths relative to the application.</p>
 
@@ -96,9 +105,24 @@
 
 <script src="https://gist.github.com/6791265.js"></script>
 
-<p>[2]: <a href="https://github.com/NancyFx/Nancy/wiki/Introduction#the-super-duper-happy-path">https://github.com/NancyFx/Nancy/wiki/Introduction#the-super-duper-happy-path</a></p>
-
                     </div>
+
+
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'coudingjournal';
+    var disqus_identifier = 'http:\/\/blog.kulman.sk\/returning-files-in-nancyfx\/';
+    var disqus_title = 'Returning files in NancyFX';
+    var disqus_url = 'http:\/\/blog.kulman.sk\/returning-files-in-nancyfx\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
                     
                 </section>

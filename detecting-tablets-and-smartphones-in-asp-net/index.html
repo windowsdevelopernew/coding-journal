@@ -77,20 +77,29 @@
         <div>
             
             <div class="posts">
-                
+                <h1 class="content-subhead">22 Sep 2014</h1>
                 <section class="post">
                     <header class="post-header">
 
                         <a href="http://blog.kulman.sk/detecting-tablets-and-smartphones-in-asp-net/" class="post-title">Detecting tablets and smartphones in ASP.NET</a>
 
-                       
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
                     </header>
 
                   
                     <div class="post-description">
                         <p>I recently worked on an ASP.NET application that needed to detect if users were coming from tablets or smartphones. The project used data from <a href="http://user-agent-string.info/">http://user-agent-string.info/</a> to do this detection, but the result were not really good. We needed a better solution, so I came up with using <a href="http://wurfl.sourceforge.net/">WURFL</a>.</p>
 
-<p>WURFL, the Wireless Universal Resource FiLe, is a Device Description Repository (DDR), i.e. a software component that maps HTTP Request headers to the profile of the HTTP client (Desktop, Mobile Device, Tablet, etc.) that issued the request. Adding WURFL to your ASP.NET application is easy thanks to the [WURFL_Official_API Nuget package][2]. The Nuget package also contains definition file, so you just need to update the Nuget package once in a while to get your definition file up to date.</p>
+<p>WURFL, the Wireless Universal Resource FiLe, is a Device Description Repository (DDR), i.e. a software component that maps HTTP Request headers to the profile of the HTTP client (Desktop, Mobile Device, Tablet, etc.) that issued the request. Adding WURFL to your ASP.NET application is easy thanks to the <a href="https://www.nuget.org/packages/WURFL_Official_API/">WURFL_Official_API Nuget package</a>. The Nuget package also contains definition file, so you just need to update the Nuget package once in a while to get your definition file up to date.</p>
 
 <p>After installing the Nuget package, you need to setup WURLF in your Global.asax file</p>
 
@@ -100,9 +109,24 @@
 
 <script src="https://gist.github.com/igorkulman/dc65bf6d68aec59d57e2.js?file=wurfl_usage.cs"></script>
 
-<p>[2]: <a href="https://www.nuget.org/packages/WURFL_Official_API/">https://www.nuget.org/packages/WURFL_Official_API/</a></p>
-
                     </div>
+
+
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'coudingjournal';
+    var disqus_identifier = 'http:\/\/blog.kulman.sk\/detecting-tablets-and-smartphones-in-asp-net\/';
+    var disqus_title = 'Detecting tablets and smartphones in ASP.NET';
+    var disqus_url = 'http:\/\/blog.kulman.sk\/detecting-tablets-and-smartphones-in-asp-net\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
                     
                 </section>

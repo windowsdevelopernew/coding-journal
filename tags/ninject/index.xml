@@ -29,7 +29,7 @@
 
 &lt;p&gt;I came across &lt;a href=&#34;http://www.castleproject.org/projects/dynamicproxy/&#34;&gt;Castle Dynamic Proxy&lt;/a&gt; and realized that there are Ninject extensions that allow you to easily use it.&lt;/p&gt;
 
-&lt;p&gt;First you need to install &lt;a href=&#34;http://www.nuget.org/packages/Ninject.Extensions.Interception/3.0.0.8&#34;&gt;Ninject.Extensions.Interception&lt;/a&gt;. It has no depedencies other that Ninject, but you also have to install &lt;a href=&#34;http://www.nuget.org/packages/Ninject.Extensions.Interception.DynamicProxy/3.0.0.8&#34;&gt;Ninject.Extensions.Interception.DynamicProxy&lt;/a&gt; (and [Castle.Core][8] as a dependency) otherwise it will not work.&lt;/p&gt;
+&lt;p&gt;First you need to install &lt;a href=&#34;http://www.nuget.org/packages/Ninject.Extensions.Interception/3.0.0.8&#34;&gt;Ninject.Extensions.Interception&lt;/a&gt;. It has no depedencies other that Ninject, but you also have to install &lt;a href=&#34;http://www.nuget.org/packages/Ninject.Extensions.Interception.DynamicProxy/3.0.0.8&#34;&gt;Ninject.Extensions.Interception.DynamicProxy&lt;/a&gt; (and &lt;a href=&#34;http://www.nuget.org/packages/Castle.Core/&#34;&gt;Castle.Core&lt;/a&gt; as a dependency) otherwise it will not work.&lt;/p&gt;
 
 &lt;p&gt;First, create a class implementing the IInterceptor interface&lt;/p&gt;
 
@@ -45,9 +45,7 @@
 
 &lt;p&gt;Now you can use the LogErrorAttribute to mark any method, but keep in mind that all the marked methods must be virtual&lt;/p&gt;
 
-&lt;script src=&#34;https://gist.github.com/6045825.js&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;[8]: &lt;a href=&#34;http://www.nuget.org/packages/Castle.Core/&#34;&gt;http://www.nuget.org/packages/Castle.Core/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/6045825.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 </description>
     </item>
     

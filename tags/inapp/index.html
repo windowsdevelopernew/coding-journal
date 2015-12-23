@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creating a fake splashscreen for your Universal App &middot; Coding Journal</title>
+    <title>Inapp &middot; Coding Journal</title>
 
-    <meta name="description" content="">
+    <meta name="description" content="Adventures in the world of C#, F# and WinRT">
 
     <meta name="generator" content="Hugo 0.15" />
     <meta name="twitter:card" content="summary">
     
-    <meta name="twitter:title" content="Creating a fake splashscreen for your Universal App &middot; Coding Journal">
-    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="Inapp &middot; Coding Journal">
+    <meta name="twitter:description" content="Adventures in the world of C#, F# and WinRT">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Creating a fake splashscreen for your Universal App &middot; Coding Journal">
-    <meta property="og:description" content="">
+    <meta property="og:title" content="Inapp &middot; Coding Journal">
+    <meta property="og:description" content="Adventures in the world of C#, F# and WinRT">
 
     <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
@@ -77,11 +77,12 @@
         <div>
             
             <div class="posts">
-                <h1 class="content-subhead">23 Dec 2014</h1>
+                
+                <h1 class="content-subhead">17 Mar 2014, 00:00</h1>
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="http://blog.kulman.sk/creating-a-fake-splashscreen-for-your-universal-app/" class="post-title">Creating a fake splashscreen for your Universal App</a>
+                        <a href="http://blog.kulman.sk/testing-in-app-purchases-in-windows-phone/" class="post-title">Testing in-app purchases in Windows Phone</a>
 
                         <p class="post-meta">
                             
@@ -90,55 +91,30 @@
                             
                                 under 
                                 
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
                             
                         </p>
                     </header>
 
-                  
                     <div class="post-description">
-                        <p>Sometimes you may want your app to display the startup splashscreen a bit longer, so you can initialize or fetch some data necessary for the app to run. To achieve this, you can create a fake splaschreen, a View that looks just like the splashscreen, does all the work and redirects to the real main View afterwards.</p>
+                       <p>Windows Phone Store does not offer developers any sandbox to test in-app purchases in their apps, like stores on other platforms do. If you want test in-app purchases in your Windows Phone apps, you need to use other options.</p>
 
-<p>In theory, it is quite simple:</p>
+<p>To make in-app purchases implementation easier, I created a simple Windows Phone Store service interface in my [Kulman.WP8][1] library (also [available on Nuget][2])</p>
 
-<ul>
-<li>Create a SplashScreenView with just the right background and the splashscreen image</li>
-<li>Set the app to display SplashScreenView at startup</li>
-<li>Do all the initializing and data fetching in SplashScreenViewModel and redirect to there real MainView</li>
-</ul>
+<script src="https://gist.github.com/igorkulman/9571908.js?file=IWindowsPhoneStoreService.cs"></script>
 
-<p>This works quite well with Windows 8.1, but on Windows Phone 8.1 there is a problem. When you run the Windows Phone 8.1 app, you will see a page transition happen between the real splashscreen and your SplashScreenView. This looks strange, so it is better to get rid of it.</p>
 
-<p><strong>Managing the Frame transitions on Windows Phone 8.1</strong></p>
-
-<p>To fix this issue, you can disable the transitions on the frame and add them manually to each View other than SplashScreenView, but there is a better way. You can disable the transitions when creating the frame and the enable them after navigating from the SplashScreenView. Do not forget the <a href="http://blog.kulman.sk/why-universal-apps-as-not-as-universal-as-you-may-think/" title="Why Universal Apps as not as universal as you may think">#ifdefs, because it is one of those many things that are Windows Phone specific in the Universal Apps</a>.</p>
-
-<script src="https://gist.github.com/d61c0a71e8ed0e2fbc1d.js"></script>
-
-<p>This makes the illusion of the fake splashscreen perfect, but I would recommend adding a ProgressBar or ProgressRing to the SplashScreenView so the users do not have the feeling that your app froze.</p>
-
+                        
+  <div class="read-more-link">
+    <a href="/testing-in-app-purchases-in-windows-phone/">Read More…</a>
+  </div>
+  
                     </div>
-
-
-                    <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'coudingjournal';
-    var disqus_identifier = 'http:\/\/blog.kulman.sk\/creating-a-fake-splashscreen-for-your-universal-app\/';
-    var disqus_title = 'Creating a fake splashscreen for your Universal App';
-    var disqus_url = 'http:\/\/blog.kulman.sk\/creating-a-fake-splashscreen-for-your-universal-app\/';
-
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-                    
                 </section>
+                
             </div>
+            
+
             <div class="footer">
     <div class="pure-menu pure-menu-horizontal pure-menu-open">
         <ul>
@@ -150,7 +126,6 @@
         </div>
     </div>
 </div>
-
 
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

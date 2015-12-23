@@ -57,9 +57,7 @@
 
 &lt;p&gt;Thanks to Roslyn, I was able to create a really usable scripting console for the project and allow users to automate many tasks using C# scripts. This article and the demo project describe just the basics, there are many ways to make the experience better. I for example use the &lt;a href=&#34;http://codemirror.net/&#34;&gt;CodeMirror&lt;/a&gt; editor to provide C# syntax highlighting, to allow users to upload ZIP files they can process in their scripts, etc.&lt;/p&gt;
 
-&lt;p&gt;Source code: [WebConsole][4]&lt;/p&gt;
-
-&lt;p&gt;[4]: &lt;a href=&#34;https://github.com/igorkulman/WebConsole&#34;&gt;https://github.com/igorkulman/WebConsole&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Source code: &lt;a href=&#34;https://github.com/igorkulman/WebConsole&#34;&gt;WebConsole&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
