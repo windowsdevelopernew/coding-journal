@@ -369,41 +369,5 @@
 </description>
     </item>
     
-    <item>
-      <title>Problems getting paid from the Windows Store, again</title>
-      <link>http://blog.kulman.sk/problems-getting-paid-from-the-windows-store-again/</link>
-      <pubDate>Tue, 21 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://blog.kulman.sk/problems-getting-paid-from-the-windows-store-again/</guid>
-      <description>&lt;p&gt;I do not make much money on my Windows Phone apps (who does?), but when the payout time comes every couple of months, I expect the money to be delivered. Dealing with Microsoft, I should know better.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Failed payment&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Last month I looked into the Dev Center and saw that my scheduled payment failed, telling me to contact the support. So I did. The result was one moth of exchanging email without a solution.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Dealing with support&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The Microsoft employee told me that I am in a small group of people with this problem. I do not know if I have such a bad look always be in a problematic supposedly small group, or that the group are not that small. He told me that Microsoft will retry the payment. The payment was supposedly retried on June 24th and succeeded. So they say.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Great news, your June payout was returned due to an internal issue; however, the payout of 5264.17 CZK has been re-attempted and was successfully completed on June 24th. If you have not received the payout then please review this transaction with your bank. Please let me know if you have any further questions.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;I never got the money. The employee asked me a few times if I got the money and then resigned, telling me that it is my problem and I should check with my bank. Of course I checked with my bank, they do not have the money. If they had, they would transfer it to my account.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Will it happen again?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;So the support is not helpful, I think I will never see this money and I can just hope the next payment in a couple of months will be successful. Will it?&lt;/p&gt;
-
-&lt;p&gt;I took a look at my payout settings in the new Dev Center and it is a mess&lt;/p&gt;
-
-&lt;img src=&#34;http://blog.kulman.sk/images/payout.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
-
-&lt;p&gt;It previous pages is telling my that everything is ok and my data is valid, but is it? Those four radios do not give me the confidence to believe it. Especially seeing my old account (x3168) that was there in the Windows Store and I deleted it. I used to get the payment to the x0026 account that was in my Windows Phone Store account.&lt;/p&gt;
-
-&lt;p&gt;Funny thing about this form, I never found out how to delete this old account. If you select it, you can only edit it, no way to delete it. If I select the correct account and click save, nothing changes, the radios all remain unselected. I do now know it is a bug or another great Microsoft UI.&lt;/p&gt;
-
-&lt;p&gt;So I guess maybe the next payment will also get lost somewhere ..&lt;/p&gt;
-</description>
-    </item>
-    
   </channel>
 </rss>
