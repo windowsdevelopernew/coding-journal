@@ -47,15 +47,13 @@
 
 &lt;p&gt;Last week when I bought PI 2, I migrated my media center setup to it, leaving the old PI model B for experiments. I took the old PI to the office and finally solved a real world issue. There are speakers at the office that we use to play music. The problem is, whoever want to play the musics, needs to connect the speakers to their computer, so the speakers become exclusive and not shared.&lt;/p&gt;
 
-&lt;p&gt;So I connected the PI to the speakers and found and installed [Music Box][7] on the PI. It is a media streaming distro that allows you to play online music from sources like Youtube, Spotify or Google Music. Music Box had a web UI, so everybody on the office network could add their favorite songs to the queue easily using a browser.&lt;/p&gt;
+&lt;p&gt;So I connected the PI to the speakers and found and installed &lt;a href=&#34;http://www.woutervanwijk.nl/pimusicbox/&#34;&gt;Music Box&lt;/a&gt; on the PI. It is a media streaming distro that allows you to play online music from sources like Youtube, Spotify or Google Music. Music Box had a web UI, so everybody on the office network could add their favorite songs to the queue easily using a browser.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Windows 10?&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Running a version of Windows 10 on the Pi is really interesting when you think about it, but everything I did with the Pi I was able to do without Windows. I could do it because there was a ton of open source ready made tools to help me. At least in the beginning, this will be a problem with Windows 10. I am sure it will take some time for people to create things like thermometer drivers, GPIO control libraries, etc.&lt;/p&gt;
 
 &lt;p&gt;But there is one area I can see Windows 10 to excel on the Pi, and that is building GUI apps, especially touch enabled ones. Imagine you want to build something like a kiosk with a touchscreen and you need an app for that. Using Windows 10 instead of Linux will be much easier because building GUI app on Linux using QT or GTK is quite a pain, creating a Metro (universal) app is much easier.&lt;/p&gt;
-
-&lt;p&gt;[7]: &lt;a href=&#34;http://www.woutervanwijk.nl/pimusicbox/&#34;&gt;http://www.woutervanwijk.nl/pimusicbox/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

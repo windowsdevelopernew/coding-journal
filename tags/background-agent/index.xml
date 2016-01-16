@@ -25,9 +25,7 @@
 
 &lt;p&gt;I wonder if this code would pass certification. Has anyone tried to use it?&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; it will &lt;strong&gt;not&lt;/strong&gt; work, see [Windows Phone: Don’t call LaunchForTest in Release][3].&lt;/p&gt;
-
-&lt;p&gt;[3]: &lt;a href=&#34;http://blog.mjfnet.com/2013/01/10/windows-phone-dont-call-launchfortest-in-release/&#34;&gt;http://blog.mjfnet.com/2013/01/10/windows-phone-dont-call-launchfortest-in-release/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; it will &lt;strong&gt;not&lt;/strong&gt; work, see &lt;a href=&#34;http://blog.mjfnet.com/2013/01/10/windows-phone-dont-call-launchfortest-in-release/&#34;&gt;Windows Phone: Don’t call LaunchForTest in Release&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

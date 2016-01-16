@@ -65,9 +65,7 @@
 
 &lt;p&gt;In my opinion, Type Providers are the best feature of F# so far. It is a real shame that Microsoft does not push this language and it cannot be used everywhere where C# can. But things are getting better and you can now create an F# Worker Role in your Azure project.&lt;/p&gt;
 
-&lt;p&gt;If you are new to F# and want to learn in, definitely check out the [Try F# project][3].&lt;/p&gt;
-
-&lt;p&gt;[3]: &lt;a href=&#34;http://www.tryfsharp.org/&#34;&gt;http://www.tryfsharp.org/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you are new to F# and want to learn in, definitely check out the &lt;a href=&#34;http://www.tryfsharp.org/&#34;&gt;Try F# project&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

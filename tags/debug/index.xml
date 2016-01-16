@@ -29,11 +29,9 @@
 
 &lt;img src=&#34;http://blog.kulman.sk/images/debug2.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
-&lt;p&gt;If you do not want to add the DebuggerDisplay attribute to all your classes manually, you can use the &lt;a href=&#34;https://github.com/Fody/Visualize&#34;&gt;Visualize&lt;/a&gt; addin for [Fody][5]. Visualize will add the DebuggerDisplay atribute to all your classes, using all the classe&amp;#8217;s properties in the &amp;#8220;label&amp;#8221;.&lt;/p&gt;
+&lt;p&gt;If you do not want to add the DebuggerDisplay attribute to all your classes manually, you can use the &lt;a href=&#34;https://github.com/Fody/Visualize&#34;&gt;Visualize&lt;/a&gt; addin for &lt;a href=&#34;https://github.com/Fody/Fody&#34;&gt;Fody&lt;/a&gt;. Visualize will add the DebuggerDisplay atribute to all your classes, using all the classe&amp;#8217;s properties in the &amp;#8220;label&amp;#8221;.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Warning&lt;/strong&gt;: showing this &amp;#8220;labels&amp;#8221; takes some time, so do not reference to many data fields.&lt;/p&gt;
-
-&lt;p&gt;[5]: &lt;a href=&#34;https://github.com/Fody/Fody&#34;&gt;https://github.com/Fody/Fody&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

@@ -73,7 +73,7 @@
 
 &lt;script src=&#34;https://gist.github.com/5822042.js&#34;&gt;&lt;/script&gt;
 
-&lt;p&gt;You can access the Azure API in C# way but you do not need to, there is a great library called [Fog by Dan Mohl][3] that makes using Azure API from F# more comfortable.&lt;/p&gt;
+&lt;p&gt;You can access the Azure API in C# way but you do not need to, there is a great library called &lt;a href=&#34;http://dmohl.github.com/Fog/&#34;&gt;Fog by Dan Mohl&lt;/a&gt; that makes using Azure API from F# more comfortable.&lt;/p&gt;
 
 &lt;p&gt;First you create a Azure Table Storage client using a connection string defined in the Windows Azure Cloud Service Configuration file for a role&lt;/p&gt;
 
@@ -94,8 +94,6 @@
 &lt;p&gt;&lt;strong&gt;Update:&lt;/strong&gt; there is a more way to create the LogEntity using the CLIMuttableAttribte&lt;/p&gt;
 
 &lt;p&gt;&lt;script src=&#34;https://gist.github.com/5822050.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;[3]: &lt;a href=&#34;http://dmohl.github.com/Fog/&#34;&gt;http://dmohl.github.com/Fog/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -109,7 +107,7 @@
 
 &lt;p&gt;Reading and writing Excel files from .NET is &lt;a href=&#34;http://blogs.msdn.com/b/jackhu/archive/2011/04/19/fsharp-amp-excel-io-reading-and-writeing-to-excel.aspx&#34;&gt;very easy using the Microsoft.Office.Interop assemblies&lt;/a&gt; but they use Excel through COM and that makes them unusable outside of Windows. I found some 3rd party libraries for working with Excel and analzyed them with &lt;a href=&#34;http://www.mono-project.com/MoMA&#34;&gt;The Mono Migration Analzyer&lt;/a&gt; (MoMA). MoMA is a handy tool that analyzes .NET assemblies and tells you if they will run on Mono. Many of the Excel libraries I found were unusable for my use-case because they were using PInvoke calls. Only the &lt;a href=&#34;http://excelpackage.codeplex.com/&#34;&gt;ExcelPackage library&lt;/a&gt; runs on Mono.&lt;/p&gt;
 
-&lt;p&gt;I wanted to use the ExcelPackage from F# not C# so I wrote a [very simple F# wrapper][4], that you can freely use. For now it contains just a few methods&lt;/p&gt;
+&lt;p&gt;I wanted to use the ExcelPackage from F# not C# so I wrote a &lt;a href=&#34;https://github.com/igorkulman/ExcelPackageF&#34;&gt;very simple F# wrapper&lt;/a&gt;, that you can freely use. For now it contains just a few methods&lt;/p&gt;
 
 &lt;p&gt;Excel.getWorksheets&lt;/p&gt;
 
@@ -135,8 +133,6 @@
 
 &lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;PM&amp;gt; Install-Package ExcelPackageF
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;[4]: &lt;a href=&#34;https://github.com/igorkulman/ExcelPackageF&#34;&gt;https://github.com/igorkulman/ExcelPackageF&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -174,7 +170,7 @@
 
 &lt;p&gt;&lt;strong&gt;Installing necessary packages&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;In order to use F# Interactive in Sublime Text 2, you have to install a few packages first. All the packages can be installed using [Sublime Package Control][4]. You need to install the following packages:&lt;/p&gt;
+&lt;p&gt;In order to use F# Interactive in Sublime Text 2, you have to install a few packages first. All the packages can be installed using &lt;a href=&#34;http://wbond.net/sublime_packages/package_control&#34;&gt;Sublime Package Control&lt;/a&gt;. You need to install the following packages:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;F#&lt;/strong&gt;&lt;/li&gt;
@@ -199,9 +195,7 @@
 
 &lt;p&gt;to the &lt;em&gt;Preferences | Key bindings &amp;#8211; user&lt;/em&gt;. All the settings files in Sublime Text 2 are JSON, so you need to paste this code into the array, just after the shortcut for F# REPL, separating them by a comma&lt;/p&gt;
 
-&lt;script src=&#34;https://gist.github.com/5849442.js&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;[4]: &lt;a href=&#34;http://wbond.net/sublime_packages/package_control&#34;&gt;http://wbond.net/sublime_packages/package_control&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849442.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -261,9 +255,7 @@
 
 &lt;p&gt;In my opinion, Type Providers are the best feature of F# so far. It is a real shame that Microsoft does not push this language and it cannot be used everywhere where C# can. But things are getting better and you can now create an F# Worker Role in your Azure project.&lt;/p&gt;
 
-&lt;p&gt;If you are new to F# and want to learn in, definitely check out the [Try F# project][3].&lt;/p&gt;
-
-&lt;p&gt;[3]: &lt;a href=&#34;http://www.tryfsharp.org/&#34;&gt;http://www.tryfsharp.org/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you are new to F# and want to learn in, definitely check out the &lt;a href=&#34;http://www.tryfsharp.org/&#34;&gt;Try F# project&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

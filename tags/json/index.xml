@@ -35,13 +35,11 @@
 
 &lt;p&gt;&lt;strong&gt;DataContractJsonSerializer&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;If you do not want or cannot use JSON.NET you can use the already mentioned DataContractJsonSerializer. Before you use it, you have to create a class with the same structure as the JSON. You do not have to create it by hand; you can use the [json2csharp][3] utility.&lt;/p&gt;
+&lt;p&gt;If you do not want or cannot use JSON.NET you can use the already mentioned DataContractJsonSerializer. Before you use it, you have to create a class with the same structure as the JSON. You do not have to create it by hand; you can use the &lt;a href=&#34;http://json2csharp.com/&#34;&gt;json2csharp&lt;/a&gt; utility.&lt;/p&gt;
 
 &lt;p&gt;Using the DataContractJsonSerializer is a less readable than using JSON.NET&lt;/p&gt;
 
-&lt;script src=&#34;https://gist.github.com/5857558.js&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;[3]: &lt;a href=&#34;http://json2csharp.com/&#34;&gt;http://json2csharp.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5857558.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 </description>
     </item>
     

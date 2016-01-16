@@ -15,7 +15,7 @@
       <pubDate>Mon, 31 Mar 2014 00:00:00 +0000</pubDate>
       
       <guid>http://blog.kulman.sk/building-windows-phone-apps-with-fake/</guid>
-      <description>&lt;p&gt;[FAKE][1] is a build automation system with capabilities which are similar to make and rake. It is using an easy domain-specific language (DSL) so that you can start using it without learning F#. If you need more than the default functionality you can either write F# or simply reference .NET assemblies.&lt;/p&gt;
+      <description>&lt;p&gt;&lt;a href=&#34;http://fsharp.github.io/FAKE/&#34;&gt;FAKE&lt;/a&gt; is a build automation system with capabilities which are similar to make and rake. It is using an easy domain-specific language (DSL) so that you can start using it without learning F#. If you need more than the default functionality you can either write F# or simply reference .NET assemblies.&lt;/p&gt;
 
 &lt;p&gt;I have been using FAKE for quite some time now on some fairly complex projects for not only building but also running tests and creating and pushing Nuget packages and I really like. I decided to add FAKE build scripts to my Windows Phone apps to make the process of generating a XAP file for the Windows Phone Store easier.&lt;/p&gt;
 
@@ -28,8 +28,6 @@
 &lt;script src=&#34;https://gist.github.com/igorkulman/9842235.js?file=build.bat&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;and Nuget.exe in tools\NuGet directory.&lt;/p&gt;
-
-&lt;p&gt;[1]: &lt;a href=&#34;http://fsharp.github.io/FAKE/&#34;&gt;http://fsharp.github.io/FAKE/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

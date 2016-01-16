@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="msvalidate.01" content="5B57D04D465AB9C871A8DD4414956DB4" />
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Player Framework localization &middot; Coding Journal</title>
 
@@ -61,14 +63,13 @@
             </ul>
         </nav>
 
-<div class="wide-only">
-<h2>About me</h2>
 
-<p>Igor Kulman is currently working as Windows Phone developer, also building applications for Microsoft Azure and playing with F#.</p>
-<p>
-Interested in programming languages, functional programming and data science.</p>
+<ul class="menu">
+   <li class="menu-item"><a href="/">Blog</a></li>
+    <li class="menu-item"><a href="/projects">Projects</a></li>
+    <li class="menu-item"><a href="/about">About</a></li>
+</ul>
 
-</div>
 
     </div>
 </div>
@@ -104,15 +105,15 @@ Interested in programming languages, functional programming and data science.</p
 
 <p>To create your own localization, I suggest you create a new RESW file in your project. You can use and existing one, but I prefer to separate the texts for the Player Framework from texts for the rest of the app.</p>
 
-<p>Next you have to find out the keys for the string you want to localize. You an [find them in the source code][2]. You can just copy the content of that RESW file to yours RESW file and localized everything.</p>
+<p>Next you have to find out the keys for the string you want to localize. You an <a href="https://playerframework.codeplex.com/SourceControl/latest#Win8.Xaml.Localize.Win81/en-US/PlayerFramework.resw">find them in the source code</a>. You can just copy the content of that RESW file to yours RESW file and localized everything.</p>
 
 <p>The last step is to let the PlayerFramework know about your RESW file using</p>
 
 <script src="https://gist.github.com/a5dcc1537cb977d023b4.js"></script>
 
-<p>[2]: <a href="https://playerframework.codeplex.com/SourceControl/latest#Win8.Xaml.Localize.Win81/en-US/PlayerFramework.resw">https://playerframework.codeplex.com/SourceControl/latest#Win8.Xaml.Localize.Win81/en-US/PlayerFramework.resw</a></p>
-
                     </div>
+
+
                     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'coudingjournal';
@@ -128,6 +129,8 @@ Interested in programming languages, functional programming and data science.</p
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                    
                 </section>
             </div>
             <div class="footer">

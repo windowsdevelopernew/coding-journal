@@ -19,7 +19,7 @@
 
 &lt;p&gt;&lt;strong&gt;Installing necessary packages&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;In order to use F# Interactive in Sublime Text 2, you have to install a few packages first. All the packages can be installed using [Sublime Package Control][4]. You need to install the following packages:&lt;/p&gt;
+&lt;p&gt;In order to use F# Interactive in Sublime Text 2, you have to install a few packages first. All the packages can be installed using &lt;a href=&#34;http://wbond.net/sublime_packages/package_control&#34;&gt;Sublime Package Control&lt;/a&gt;. You need to install the following packages:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;F#&lt;/strong&gt;&lt;/li&gt;
@@ -44,9 +44,7 @@
 
 &lt;p&gt;to the &lt;em&gt;Preferences | Key bindings &amp;#8211; user&lt;/em&gt;. All the settings files in Sublime Text 2 are JSON, so you need to paste this code into the array, just after the shortcut for F# REPL, separating them by a comma&lt;/p&gt;
 
-&lt;script src=&#34;https://gist.github.com/5849442.js&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;[4]: &lt;a href=&#34;http://wbond.net/sublime_packages/package_control&#34;&gt;http://wbond.net/sublime_packages/package_control&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;script src=&#34;https://gist.github.com/5849442.js&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 </description>
     </item>
     

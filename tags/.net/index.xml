@@ -17,7 +17,7 @@
       <guid>http://blog.kulman.sk/detecting-tablets-and-smartphones-in-asp-net/</guid>
       <description>&lt;p&gt;I recently worked on an ASP.NET application that needed to detect if users were coming from tablets or smartphones. The project used data from &lt;a href=&#34;http://user-agent-string.info/&#34;&gt;http://user-agent-string.info/&lt;/a&gt; to do this detection, but the result were not really good. We needed a better solution, so I came up with using &lt;a href=&#34;http://wurfl.sourceforge.net/&#34;&gt;WURFL&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;WURFL, the Wireless Universal Resource FiLe, is a Device Description Repository (DDR), i.e. a software component that maps HTTP Request headers to the profile of the HTTP client (Desktop, Mobile Device, Tablet, etc.) that issued the request. Adding WURFL to your ASP.NET application is easy thanks to the [WURFL_Official_API Nuget package][2]. The Nuget package also contains definition file, so you just need to update the Nuget package once in a while to get your definition file up to date.&lt;/p&gt;
+&lt;p&gt;WURFL, the Wireless Universal Resource FiLe, is a Device Description Repository (DDR), i.e. a software component that maps HTTP Request headers to the profile of the HTTP client (Desktop, Mobile Device, Tablet, etc.) that issued the request. Adding WURFL to your ASP.NET application is easy thanks to the &lt;a href=&#34;https://www.nuget.org/packages/WURFL_Official_API/&#34;&gt;WURFL_Official_API Nuget package&lt;/a&gt;. The Nuget package also contains definition file, so you just need to update the Nuget package once in a while to get your definition file up to date.&lt;/p&gt;
 
 &lt;p&gt;After installing the Nuget package, you need to setup WURLF in your Global.asax file&lt;/p&gt;
 
@@ -26,8 +26,6 @@
 &lt;p&gt;I recommend setting the match mode to accuracy instead of speed, to get the best results. Using the WURFL library is also quite easy, just pass the user agent string and get the properties you want.&lt;/p&gt;
 
 &lt;script src=&#34;https://gist.github.com/igorkulman/dc65bf6d68aec59d57e2.js?file=wurfl_usage.cs&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;[2]: &lt;a href=&#34;https://www.nuget.org/packages/WURFL_Official_API/&#34;&gt;https://www.nuget.org/packages/WURFL_Official_API/&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -79,9 +77,7 @@
 
 &lt;p&gt;The majority of .NET code runs just fine in AppHarbor without any changes. If you use Nuget, you need to enabled Nuget Package Restore for your solution.&lt;/p&gt;
 
-&lt;p&gt;Let the continous deployment begin &amp;#8230; my first AppHarbor project is hosted at [&lt;a href=&#34;http://myexpenses.apphb.com][9&#34;&gt;http://myexpenses.apphb.com][9&lt;/a&gt;].&lt;/p&gt;
-
-&lt;p&gt;[9]: &lt;a href=&#34;http://myexpenses.apphb.com/&#34;&gt;http://myexpenses.apphb.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Let the continous deployment begin &amp;#8230; my first AppHarbor project is hosted at &lt;a href=&#34;http://myexpenses.apphb.com/&#34;&gt;http://myexpenses.apphb.com&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

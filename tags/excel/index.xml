@@ -19,7 +19,7 @@
 
 &lt;p&gt;Reading and writing Excel files from .NET is &lt;a href=&#34;http://blogs.msdn.com/b/jackhu/archive/2011/04/19/fsharp-amp-excel-io-reading-and-writeing-to-excel.aspx&#34;&gt;very easy using the Microsoft.Office.Interop assemblies&lt;/a&gt; but they use Excel through COM and that makes them unusable outside of Windows. I found some 3rd party libraries for working with Excel and analzyed them with &lt;a href=&#34;http://www.mono-project.com/MoMA&#34;&gt;The Mono Migration Analzyer&lt;/a&gt; (MoMA). MoMA is a handy tool that analyzes .NET assemblies and tells you if they will run on Mono. Many of the Excel libraries I found were unusable for my use-case because they were using PInvoke calls. Only the &lt;a href=&#34;http://excelpackage.codeplex.com/&#34;&gt;ExcelPackage library&lt;/a&gt; runs on Mono.&lt;/p&gt;
 
-&lt;p&gt;I wanted to use the ExcelPackage from F# not C# so I wrote a [very simple F# wrapper][4], that you can freely use. For now it contains just a few methods&lt;/p&gt;
+&lt;p&gt;I wanted to use the ExcelPackage from F# not C# so I wrote a &lt;a href=&#34;https://github.com/igorkulman/ExcelPackageF&#34;&gt;very simple F# wrapper&lt;/a&gt;, that you can freely use. For now it contains just a few methods&lt;/p&gt;
 
 &lt;p&gt;Excel.getWorksheets&lt;/p&gt;
 
@@ -45,8 +45,6 @@
 
 &lt;pre&gt;&lt;code class=&#34;language-fsharp&#34;&gt;PM&amp;gt; Install-Package ExcelPackageF
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;[4]: &lt;a href=&#34;https://github.com/igorkulman/ExcelPackageF&#34;&gt;https://github.com/igorkulman/ExcelPackageF&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
