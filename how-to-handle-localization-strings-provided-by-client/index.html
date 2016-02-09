@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="msvalidate.01" content="5B57D04D465AB9C871A8DD4414956DB4" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to handle localization strings provided by the client in a Windows Phone app &middot; Coding Journal</title>
+
+    <meta name="description" content="I currently work on a Windows Phone 8.1 app for a client with an interesting approach to app localization. They have a Google Docs sheet with all the localization string for the app in all the supported languages and a tool that converts this localization strings in to per-language versioned JSON files. The generated JSON files are kept in a git repository. The Android, iOS and now my Windows Phone app should have the git repository added as a submodule. When a new version of the JSON files with the localization appear in the submodule, the app should use them. Seems reasonable and efficient, so how to approach this on Windows Phone?">
+
+    <meta name="generator" content="Hugo 0.15" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="How to handle localization strings provided by the client in a Windows Phone app &middot; Coding Journal">
+    <meta name="twitter:description" content="I currently work on a Windows Phone 8.1 app for a client with an interesting approach to app localization. They have a Google Docs sheet with all the localization string for the app in all the supported languages and a tool that converts this localization strings in to per-language versioned JSON files. The generated JSON files are kept in a git repository. The Android, iOS and now my Windows Phone app should have the git repository added as a submodule. When a new version of the JSON files with the localization appear in the submodule, the app should use them. Seems reasonable and efficient, so how to approach this on Windows Phone?">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How to handle localization strings provided by the client in a Windows Phone app &middot; Coding Journal">
+    <meta property="og:description" content="I currently work on a Windows Phone 8.1 app for a client with an interesting approach to app localization. They have a Google Docs sheet with all the localization string for the app in all the supported languages and a tool that converts this localization strings in to per-language versioned JSON files. The generated JSON files are kept in a git repository. The Android, iOS and now my Windows Phone app should have the git repository added as a submodule. When a new version of the JSON files with the localization appear in the submodule, the app should use them. Seems reasonable and efficient, so how to approach this on Windows Phone?">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="https://blog.kulman.sk/css/all.min.css">    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://blog.kulman.sk/css/custom.css">
+
+    <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="https://blog.kulman.sk/index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="https://blog.kulman.sk">Coding Journal</a></h1>
+            <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
+        </hgroup>
+
+        <nav class="nav wide-only">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/igorkulman"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/igorkulman "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://blog.kulman.sk/index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+
+
+<ul class="menu">
+   <li class="menu-item"><a href="/">Blog</a></li>
+    <li class="menu-item"><a href="/projects">Projects</a></li>
+    <li class="menu-item"><a href="/about">About</a></li>
+</ul>
+
+
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                <h1 class="content-subhead">09 Feb 2016</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/how-to-handle-localization-strings-provided-by-client" class="post-title">How to handle localization strings provided by the client in a Windows Phone app</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="https://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                  
+                    <div class="post-description">
+                        <p>I currently work on a Windows Phone 8.1 app for a client with an interesting approach to app localization. They have a Google Docs sheet with all the localization string for the app in all the supported languages and a tool that converts this localization strings in to per-language versioned JSON files. The generated JSON files are kept in a git repository. The Android, iOS and now my Windows Phone app should have the git repository added as a submodule. When a new version of the JSON files with the localization appear in the submodule, the app should use them.</p>
+
+<p><strong>Deciding the localization approach</strong></p>
+
+<p>In the old days of Windows Phone 7 and Windows Phone 8 I would simply write an utility that reads the newest version of the JSON localization files and generate a RESX file for each language. RESX is XML format that is simple to generate. If you had a localized string with a key say Game, you would put it everywhere when the localization of the word game was needed. Simple</p>
+
+<p>In Windows Phone 8.1 (and 10) you should use RESW files for localization. This is the new x:Uid approach that, in my honest opinion, really sucks. It forces you to duplicate string if you use I string in multiple places, there is no design time support, you never know what UI element are localized and what you forgot to localize. Simply put, it is a mess. This approach is not usable at all with the string client provides.</p>
+
+<p>There is no way to make any script generate a RESW file with duplicated string matching the multiple usages of each string. If you have a localized string with a key Game and 2 TextBlocks and 1 Buttons that use it, you need to put it into the RESW file 3 times, once for each UI element. SO instead of a Game key, you would have a GameTextBlock.Text key, an AnotherGameTextBlock.Text and a GameButton.Content key, all with the same value and applied in design time. Madness.</p>
+
+<p><strong>Using RESX files on Windows Phone 8.1</strong></p>
+
+<p>One approach to solve this problem is to use the good old RESX files with your Windows Phone 8.1 project. Typically by creating a Portable Class Library (PCL) with the RESX files, doing a bit of configuration for the supported languages and linking this PCL project to your Windows Phone 8.1 project. You can find a few articles about this approach online and also a few gotchas and their solutions. It sounds like a good idea at first, but it is too problematic for my tastes.</p>
+
+<p>I tried this approach but ended frustrated with too many problems too solve, like Visual Studio hanging when deploying to a device when using RESX files. So I decided to go with a custom solution.</p>
+
+<p><strong>Generating Windows Phone 8-like localization strings</strong></p>
+
+<p>Finally I decided to generate a class that would look and behave similar to the old Windows Phone 8-like localization strings class. The idea is quite simple, no need to a PCL or any RESX files.</p>
+
+<p>The first step is to create a directory and empty RESW files for each supported language in the Windows Phone 8.1 project</p>
+
+<img src="/images/languages.png" alt="" class="pure-img" >
+
+<p>Then write a script that generates all the RESW files from the newest JSON localization files</p>
+
+<script src="https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=localization-converter-1.cs"></script>
+
+<p>Now with the RESW files populated with all the localization string it is time to put them to use. First I created a <code>LocalizedStrings</code> class very similar to the one in Windows Phone 8:</p>
+
+<script src="https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=LocalizedStrings.cs"></script>
+
+<p>and added it to <code>App.xaml</code> as a dictionary resources called <code>S</code></p>
+
+<script src="https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=App.xaml"></script>
+
+<p>The interesting ans still missing part is the <code>AppResources</code> class referenced in <code>LocalizedStrings</code>. It is a partial class, consisting of <code>ResourceLoader</code> instance to get the string at runtime and a Singleton to get the string from C# code</p>
+
+<script src="https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=AppResources.cs"></script>
+
+<p>The second part of this class is generated by the same script that generates the RESW files. For each key in the localization string, it generates a property like this in the <code>AppResources</code> class</p>
+
+<script src="https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=AppResources.strings.cs"></script>
+
+<p>The code to generate this is part of the script</p>
+
+<script src="https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=localization-converter-2.cs"></script>
+
+<p><strong>The result</strong></p>
+
+<p>When you put all this pieces together, you have a RESW files with all the localization strings and a localization class that can be generated on demand. I run the script and generate the files every time there is an update in the git submodule with the JSON localization files.</p>
+
+<p>When I want to use any of these localization string in XAML, I simply use it like this</p>
+
+<script src="https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=xaml-usage.xaml"></script>
+
+<p>Using a binding allows me to use to use the same localization keys for many elements and I do not have to duplicate the keys like in the x:Uid scenario.</p>
+
+<p>If I need to used a localization string in C#, I have a strongly typed access to it</p>
+
+<script src="https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=csharp-usage.cs"></script>
+
+<p>instead of creating a <code>ResourceLoader</code> instance and calling <code>GetString</code> with a string parameter.</p>
+
+<p>Another approach would be having a public property with the <code>AppResources</code> instance in a <code>ViewModel</code> base class, it would make the binding shorter.</p>
+
+                    </div>
+
+
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'coudingjournal';
+    var disqus_identifier = 'https:\/\/blog.kulman.sk\/how-to-handle-localization-strings-provided-by-client';
+    var disqus_title = 'How to handle localization strings provided by the client in a Windows Phone app';
+    var disqus_url = 'https:\/\/blog.kulman.sk\/how-to-handle-localization-strings-provided-by-client';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                    
+                </section>
+            </div>
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="https://blog.kulman.sk/js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-49528577-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

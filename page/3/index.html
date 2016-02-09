@@ -28,11 +28,11 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
     <!--<![endif]-->
 
-    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">    
+    <link rel="stylesheet" href="https://blog.kulman.sk/css/all.min.css">    
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://blog.kulman.sk/css/custom.css">
+    <link rel="stylesheet" href="https://blog.kulman.sk/css/custom.css">
 
-    <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://blog.kulman.sk/index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="https://blog.kulman.sk/index.xml" />
 </head>
 <body>
 
@@ -41,7 +41,7 @@
     <div class="sidebar pure-u-1 pure-u-md-1-4">
     <div class="header">
         <hgroup>
-            <h1 class="brand-title"><a href="http://blog.kulman.sk">Coding Journal</a></h1>
+            <h1 class="brand-title"><a href="https://blog.kulman.sk">Coding Journal</a></h1>
             <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
         </hgroup>
 
@@ -58,7 +58,7 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="pure-button" href="http://blog.kulman.sk/index.xml"><i class="fa fa-rss"></i> rss</a>
+                    <a class="pure-button" href="https://blog.kulman.sk/index.xml"><i class="fa fa-rss"></i> rss</a>
                 </li>
             </ul>
         </nav>
@@ -81,11 +81,11 @@
             <div class="posts">
                 
                 
-                <h1 class="content-subhead">15 Apr 2015</h1>
+                <h1 class="content-subhead">20 Apr 2015</h1>
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="http://blog.kulman.sk/using-etag-to-cache-responses-in-nancyfx/" class="post-title">Using ETag to cache responses in NancyFX</a>
+                        <a href="https://blog.kulman.sk/leveraging-etag-caching-in-windows-phone-and-windows-apps/" class="post-title">Leveraging ETag caching in Windows Phone and Windows apps</a>
 
                         <p class="post-meta">
                             
@@ -94,7 +94,41 @@
                             
                                 under 
                                 
-                                <a class="post-category post-category-Windows Azure" href="http://blog.kulman.sk/categories/windows-azure">Windows Azure</a>
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="https://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>In my previous article I showed you [how to implements server side caching using ETag][1]. HTTP clients on other platforms can usually work with ETag automatically, but of course, the portable HTTP client used on Windows platforms cannot. You have to implement ETag handling yourself.</p>
+
+<p>In [TvTime][2], all the server requests are GET request, so I remember the ETag values for each Url (= each GET request). I store the ETag values in application local settings.</p>
+
+<p>When the app wants to get some data, I perform a GET request including the ETag as the If-None-Match header. If my ETag matches with the ETag on the server, the server returns HTTP 304 Not Modified and I return the cached data from disk. Otherwise I read the response body and return it.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/leveraging-etag-caching-in-windows-phone-and-windows-apps/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">15 Apr 2015</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/using-etag-to-cache-responses-in-nancyfx/" class="post-title">Using ETag to cache responses in NancyFX</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Azure" href="https://blog.kulman.sk/categories/windows-azure">Windows Azure</a>
                             
                         </p>
                     </header>
@@ -119,7 +153,7 @@
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="http://blog.kulman.sk/measuring-and-recording-the-room-temperature-with-a-raspberry-pi/" class="post-title">Measuring and recording the room temperature with a Raspberry Pi</a>
+                        <a href="https://blog.kulman.sk/measuring-and-recording-the-room-temperature-with-a-raspberry-pi/" class="post-title">Measuring and recording the room temperature with a Raspberry Pi</a>
 
                         <p class="post-meta">
                             
@@ -128,7 +162,7 @@
                             
                                 under 
                                 
-                                <a class="post-category post-category-Raspberry Pi" href="http://blog.kulman.sk/categories/raspberry-pi">Raspberry Pi</a>
+                                <a class="post-category post-category-Raspberry Pi" href="https://blog.kulman.sk/categories/raspberry-pi">Raspberry Pi</a>
                             
                         </p>
                     </header>
@@ -155,7 +189,7 @@
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="http://blog.kulman.sk/back-navigation-on-backspace-key-press-in-windows-8-1-apps/" class="post-title">Back navigation on Backspace key press in Windows 8.1 apps</a>
+                        <a href="https://blog.kulman.sk/back-navigation-on-backspace-key-press-in-windows-8-1-apps/" class="post-title">Back navigation on Backspace key press in Windows 8.1 apps</a>
 
                         <p class="post-meta">
                             
@@ -164,7 +198,7 @@
                             
                                 under 
                                 
-                                <a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                                <a class="post-category post-category-WinRT" href="https://blog.kulman.sk/categories/winrt">WinRT</a>
                             
                         </p>
                     </header>
@@ -187,7 +221,7 @@
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="http://blog.kulman.sk/my-year-with-the-raspberry-pi-and-what-i-used-it-for/" class="post-title">My year with the Raspberry Pi and what I used it for</a>
+                        <a href="https://blog.kulman.sk/my-year-with-the-raspberry-pi-and-what-i-used-it-for/" class="post-title">My year with the Raspberry Pi and what I used it for</a>
 
                         <p class="post-meta">
                             
@@ -196,7 +230,7 @@
                             
                                 under 
                                 
-                                <a class="post-category post-category-Programming in general" href="http://blog.kulman.sk/categories/programming-in-general">Programming in general</a>
+                                <a class="post-category post-category-Programming in general" href="https://blog.kulman.sk/categories/programming-in-general">Programming in general</a>
                             
                         </p>
                     </header>
@@ -221,7 +255,7 @@
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="http://blog.kulman.sk/automatically-push-your-git-repos-before-computer-shutdown/" class="post-title">Automatically push your Git repos before computer shutdown</a>
+                        <a href="https://blog.kulman.sk/automatically-push-your-git-repos-before-computer-shutdown/" class="post-title">Automatically push your Git repos before computer shutdown</a>
 
                         <p class="post-meta">
                             
@@ -230,7 +264,7 @@
                             
                                 under 
                                 
-                                <a class="post-category post-category-PowerShell" href="http://blog.kulman.sk/categories/powershell">PowerShell</a>
+                                <a class="post-category post-category-PowerShell" href="https://blog.kulman.sk/categories/powershell">PowerShell</a>
                             
                         </p>
                     </header>
@@ -253,7 +287,7 @@
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="http://blog.kulman.sk/nancyfx-authentication-for-rest-api/" class="post-title">NancyFX authentication for REST API</a>
+                        <a href="https://blog.kulman.sk/nancyfx-authentication-for-rest-api/" class="post-title">NancyFX authentication for REST API</a>
 
                         <p class="post-meta">
                             
@@ -262,7 +296,7 @@
                             
                                 under 
                                 
-                                <a class="post-category post-category-Windows Azure" href="http://blog.kulman.sk/categories/windows-azure">Windows Azure</a>
+                                <a class="post-category post-category-Windows Azure" href="https://blog.kulman.sk/categories/windows-azure">Windows Azure</a>
                             
                         </p>
                     </header>
@@ -287,7 +321,7 @@
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="http://blog.kulman.sk/changing-the-pivotitem-header-color-in-windows-phone-8-1-xaml/" class="post-title">Changing the PivotItem header color in Windows Phone 8.1 XAML</a>
+                        <a href="https://blog.kulman.sk/changing-the-pivotitem-header-color-in-windows-phone-8-1-xaml/" class="post-title">Changing the PivotItem header color in Windows Phone 8.1 XAML</a>
 
                         <p class="post-meta">
                             
@@ -296,7 +330,7 @@
                             
                                 under 
                                 
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
                             
                         </p>
                     </header>
@@ -327,7 +361,7 @@
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="http://blog.kulman.sk/dialog-helper-for-universal-apps/" class="post-title">Dialog helper for Universal Apps the easy way</a>
+                        <a href="https://blog.kulman.sk/dialog-helper-for-universal-apps/" class="post-title">Dialog helper for Universal Apps the easy way</a>
 
                         <p class="post-meta">
                             
@@ -336,7 +370,7 @@
                             
                                 under 
                                 
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="https://blog.kulman.sk/categories/winrt">WinRT</a>
                             
                         </p>
                     </header>
@@ -363,7 +397,7 @@
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="http://blog.kulman.sk/creating-a-fake-splashscreen-for-your-universal-app/" class="post-title">Creating a fake splashscreen for your Universal App</a>
+                        <a href="https://blog.kulman.sk/creating-a-fake-splashscreen-for-your-universal-app/" class="post-title">Creating a fake splashscreen for your Universal App</a>
 
                         <p class="post-meta">
                             
@@ -372,7 +406,7 @@
                             
                                 under 
                                 
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="https://blog.kulman.sk/categories/winrt">WinRT</a>
                             
                         </p>
                     </header>
@@ -394,40 +428,6 @@
                         
   <div class="read-more-link">
     <a href="/creating-a-fake-splashscreen-for-your-universal-app/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">18 Dec 2014</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/why-universal-apps-as-not-as-universal-as-you-may-think/" class="post-title">Why Universal Apps as not as universal as you may think</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>I have been developing Windows Phone apps for a few years now, always sticking to Silverlight and keeping using Silverlight also after Microsoft announced the WinRT flavor of Windows Phone apps and the so called Universal Apps. The Windows Phone 8.0 and 8.1 Silverlight APIs have some limitations, but are now well known do not contain many bugs. They are the safe choice if you want to create a Windows Phone apps. And do not forget that there are still many device running Windows Phone 8 (like Verizon customers in the US) that never got the 8.1 updated promised to everyone during the summer.</p>
-
-<p><strong>Really universal?</strong></p>
-
-<p>Windows Phone 8.1 XAML and Universal Apps included WinRT APIs that have many problems, including some that there is no solution for. I used the WinRT APIs when creating first Windows 8 apps about 2 years ago, so I am not new to the APIs. I have not touched the WinRT APIs again until recently, because there was no demand for Windows 8 or Windows 8.1 apps. Why would it? People use Windows 8 or 8.1 but do not care about Metro apps, they give them no value compared to &#8220;normal&#8221; Win32 and Windows tablets are practically non-exists (expect for the Surface tablets owned by few programmers and maybe no one else).</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/why-universal-apps-as-not-as-universal-as-you-may-think/">Read More…</a>
   </div>
   
                     </div>
@@ -459,7 +459,7 @@
         </ul>
     </div>
 </div>
-<script src="http://blog.kulman.sk/js/all.min.js"></script>
+<script src="https://blog.kulman.sk/js/all.min.js"></script>
         </div>
     </div>
 </div>

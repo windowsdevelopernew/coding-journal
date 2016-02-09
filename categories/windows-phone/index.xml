@@ -2,22 +2,96 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Windows Phone on Coding Journal</title>
-    <link>http://blog.kulman.sk/categories/windows-phone/</link>
+    <link>https://blog.kulman.sk/categories/windows-phone/</link>
     <description>Recent content in Windows Phone on Coding Journal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Dec 2015 09:29:12 +0100</lastBuildDate>
-    <atom:link href="http://blog.kulman.sk/categories/windows-phone/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 Feb 2016 09:29:12 +0100</lastBuildDate>
+    <atom:link href="https://blog.kulman.sk/categories/windows-phone/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>How to handle localization strings provided by the client in a Windows Phone app</title>
+      <link>https://blog.kulman.sk/how-to-handle-localization-strings-provided-by-client</link>
+      <pubDate>Tue, 09 Feb 2016 09:29:12 +0100</pubDate>
+      
+      <guid>https://blog.kulman.sk/how-to-handle-localization-strings-provided-by-client</guid>
+      <description>&lt;p&gt;I currently work on a Windows Phone 8.1 app for a client with an interesting approach to app localization. They have a Google Docs sheet with all the localization string for the app in all the supported languages and a tool that converts this localization strings in to per-language versioned JSON files. The generated JSON files are kept in a git repository. The Android, iOS and now my Windows Phone app should have the git repository added as a submodule. When a new version of the JSON files with the localization appear in the submodule, the app should use them.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Deciding the localization approach&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In the old days of Windows Phone 7 and Windows Phone 8 I would simply write an utility that reads the newest version of the JSON localization files and generate a RESX file for each language. RESX is XML format that is simple to generate. If you had a localized string with a key say Game, you would put it everywhere when the localization of the word game was needed. Simple&lt;/p&gt;
+
+&lt;p&gt;In Windows Phone 8.1 (and 10) you should use RESW files for localization. This is the new x:Uid approach that, in my honest opinion, really sucks. It forces you to duplicate string if you use I string in multiple places, there is no design time support, you never know what UI element are localized and what you forgot to localize. Simply put, it is a mess. This approach is not usable at all with the string client provides.&lt;/p&gt;
+
+&lt;p&gt;There is no way to make any script generate a RESW file with duplicated string matching the multiple usages of each string. If you have a localized string with a key Game and 2 TextBlocks and 1 Buttons that use it, you need to put it into the RESW file 3 times, once for each UI element. SO instead of a Game key, you would have a GameTextBlock.Text key, an AnotherGameTextBlock.Text and a GameButton.Content key, all with the same value and applied in design time. Madness.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Using RESX files on Windows Phone 8.1&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;One approach to solve this problem is to use the good old RESX files with your Windows Phone 8.1 project. Typically by creating a Portable Class Library (PCL) with the RESX files, doing a bit of configuration for the supported languages and linking this PCL project to your Windows Phone 8.1 project. You can find a few articles about this approach online and also a few gotchas and their solutions. It sounds like a good idea at first, but it is too problematic for my tastes.&lt;/p&gt;
+
+&lt;p&gt;I tried this approach but ended frustrated with too many problems too solve, like Visual Studio hanging when deploying to a device when using RESX files. So I decided to go with a custom solution.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Generating Windows Phone 8-like localization strings&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally I decided to generate a class that would look and behave similar to the old Windows Phone 8-like localization strings class. The idea is quite simple, no need to a PCL or any RESX files.&lt;/p&gt;
+
+&lt;p&gt;The first step is to create a directory and empty RESW files for each supported language in the Windows Phone 8.1 project&lt;/p&gt;
+
+&lt;img src=&#34;https://blog.kulman.sk/images/languages.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+
+&lt;p&gt;Then write a script that generates all the RESW files from the newest JSON localization files&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=localization-converter-1.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Now with the RESW files populated with all the localization string it is time to put them to use. First I created a &lt;code&gt;LocalizedStrings&lt;/code&gt; class very similar to the one in Windows Phone 8:&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=LocalizedStrings.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;and added it to &lt;code&gt;App.xaml&lt;/code&gt; as a dictionary resources called &lt;code&gt;S&lt;/code&gt;&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=App.xaml&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;The interesting ans still missing part is the &lt;code&gt;AppResources&lt;/code&gt; class referenced in &lt;code&gt;LocalizedStrings&lt;/code&gt;. It is a partial class, consisting of &lt;code&gt;ResourceLoader&lt;/code&gt; instance to get the string at runtime and a Singleton to get the string from C# code&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=AppResources.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;The second part of this class is generated by the same script that generates the RESW files. For each key in the localization string, it generates a property like this in the &lt;code&gt;AppResources&lt;/code&gt; class&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=AppResources.strings.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;The code to generate this is part of the script&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=localization-converter-2.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;The result&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;When you put all this pieces together, you have a RESW files with all the localization strings and a localization class that can be generated on demand. I run the script and generate the files every time there is an update in the git submodule with the JSON localization files.&lt;/p&gt;
+
+&lt;p&gt;When I want to use any of these localization string in XAML, I simply use it like this&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=xaml-usage.xaml&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Using a binding allows me to use to use the same localization keys for many elements and I do not have to duplicate the keys like in the x:Uid scenario.&lt;/p&gt;
+
+&lt;p&gt;If I need to used a localization string in C#, I have a strongly typed access to it&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=csharp-usage.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;instead of creating a &lt;code&gt;ResourceLoader&lt;/code&gt; instance and calling &lt;code&gt;GetString&lt;/code&gt; with a string parameter.&lt;/p&gt;
+
+&lt;p&gt;Another approach would be having a public property with the &lt;code&gt;AppResources&lt;/code&gt; instance in a &lt;code&gt;ViewModel&lt;/code&gt; base class, it would make the binding shorter.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Mobilize.net: Converting Windows Phone 8 apps to UWP? Not really</title>
-      <link>http://blog.kulman.sk/mobilize-net-converting-windows-phone-apps-to-uwp</link>
+      <link>https://blog.kulman.sk/mobilize-net-converting-windows-phone-apps-to-uwp</link>
       <pubDate>Fri, 18 Dec 2015 09:29:12 +0100</pubDate>
       
-      <guid>http://blog.kulman.sk/mobilize-net-converting-windows-phone-apps-to-uwp</guid>
+      <guid>https://blog.kulman.sk/mobilize-net-converting-windows-phone-apps-to-uwp</guid>
       <description>&lt;p&gt;When Microsoft announced the Windows 10 developer platform, they also announced bridges to make porting apps from Android, iOS and Web easier. Those bridges are now either dead (Android) or unusable (iOS) but there is another tool that can be considered a bridge left. It is called &lt;a href=&#34;http://www.mobilize.net/download-silverlight-bridge&#34;&gt;Mobilize.net Silverlight&lt;/a&gt; Bridge and it is not from Microsoft. It promises converting existing Windows Phone 8 (Silverlight apps) to the Universal Windows Platform. Considering the majority of apps in the Windows Phone Store are Windows Phone 8 apps and the fact that Android and iOS developers do not really care about Windows, Mobilize.net seem to be the most useful of the bridges, because there is no easy porting apps from Windows Phone 8 to UWP, just rewriting. So I tried it out.&lt;/p&gt;
 
-&lt;img src=&#34;http://blog.kulman.sk/images/Windows10-Devices.png?t=1449725816496&amp;amp;width=425&amp;amp;height=210&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+&lt;img src=&#34;https://blog.kulman.sk/images/Windows10-Devices.png?t=1449725816496&amp;amp;width=425&amp;amp;height=210&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
 &lt;p&gt;Mobilize.net is currently in technical preview. After you download and install it, it integrates into Visual Studio 2015 and there is a new context menu for Windows Phone 8 project, allowing you to convert them to UWP apps. If you use it, you get a dialog windows and a conversion process that will fail most of the times with a strange error. At least for me it did.&lt;/p&gt;
 
@@ -37,10 +111,10 @@
     
     <item>
       <title>Detecting gestures over WebView on Windows Phone</title>
-      <link>http://blog.kulman.sk/detecting-gestures-over-webview-on-windows-phone/</link>
+      <link>https://blog.kulman.sk/detecting-gestures-over-webview-on-windows-phone/</link>
       <pubDate>Mon, 07 Dec 2015 09:29:12 +0100</pubDate>
       
-      <guid>http://blog.kulman.sk/detecting-gestures-over-webview-on-windows-phone/</guid>
+      <guid>https://blog.kulman.sk/detecting-gestures-over-webview-on-windows-phone/</guid>
       <description>&lt;p&gt;If you develop Windows Phone apps, you surely had to use the WebView component at least once. Any you must have realized, that it kind of sucks. One of the problems is that it swallows all the gestures and manipulation events. This means you cannot put it into a Pivot, you cannot detect swipe left or right events to navigate to next or previous article .. or can you?&lt;/p&gt;
 
 &lt;p&gt;In a recent project, I had to implement exactly the mentioned functionality, swiping between articles displayed in a WebView. I did some research and I could not find any solution. So I had to get creative and I find a way involving JavaScript.&lt;/p&gt;
@@ -57,13 +131,13 @@
     
     <item>
       <title>Highlighting letters in TextBlock in Windows Phone 8.1 and Windows 8.1</title>
-      <link>http://blog.kulman.sk/highlighting-letters-in-textblock-in-windows-phone-8-1-and-windows-8-1/</link>
+      <link>https://blog.kulman.sk/highlighting-letters-in-textblock-in-windows-phone-8-1-and-windows-8-1/</link>
       <pubDate>Sat, 17 Oct 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/highlighting-letters-in-textblock-in-windows-phone-8-1-and-windows-8-1/</guid>
+      <guid>https://blog.kulman.sk/highlighting-letters-in-textblock-in-windows-phone-8-1-and-windows-8-1/</guid>
       <description>&lt;p&gt;In my current project I had to implement an interesting feature for both Windows Phone 8.1 and Windows 8.1 project of the Universal app. The idea is simply. The users want to search for a movie. They enter a search term into a TextBox and a list of results is shown. The results should have the search term highlighted in them.&lt;/p&gt;
 
-&lt;img src=&#34;http://blog.kulman.sk/images/highlighting.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+&lt;img src=&#34;https://blog.kulman.sk/images/highlighting.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
 &lt;p&gt;The standard TextBlock used to display the movie titles does not support any kind of letter highlighting, so I had to write a custom one. I created a custom UserControl. The UserControl contains a few dependency properties Text, HighlightedText, HighlightBrush and a TextBlock. When Text or HighlightedText change, the Text is then split into multiple Runs that are added to the TextBlock.&lt;/p&gt;
 
@@ -75,10 +149,10 @@
     
     <item>
       <title>Strange combination of HTTPS and Windows Phone 8.1 that can make your app and phone freeze</title>
-      <link>http://blog.kulman.sk/strange-combination-of-https-and-windows-phone-8-1-that-can-make-your-app-and-phone-freeze/</link>
+      <link>https://blog.kulman.sk/strange-combination-of-https-and-windows-phone-8-1-that-can-make-your-app-and-phone-freeze/</link>
       <pubDate>Fri, 11 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/strange-combination-of-https-and-windows-phone-8-1-that-can-make-your-app-and-phone-freeze/</guid>
+      <guid>https://blog.kulman.sk/strange-combination-of-https-and-windows-phone-8-1-that-can-make-your-app-and-phone-freeze/</guid>
       <description>&lt;p&gt;Last week I came upon a really bizarre problem that you may also find interesting. Lets start with a bit of context.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Tl;Dr&lt;/strong&gt;: There seems to be a bug in Windows phone 8.1 that can make your app and the phone freezes when displaying images over HTTPS from some servers. Skip to &lt;a href=&#34;#bug&#34;&gt;the end of this article&lt;/a&gt; to see a video and get the source code.&lt;/p&gt;
@@ -113,13 +187,13 @@
     
     <item>
       <title>Microsoft’s Outlook on Android and iOS</title>
-      <link>http://blog.kulman.sk/microsofts-outlook-on-android-and-ios/</link>
+      <link>https://blog.kulman.sk/microsofts-outlook-on-android-and-ios/</link>
       <pubDate>Thu, 10 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/microsofts-outlook-on-android-and-ios/</guid>
+      <guid>https://blog.kulman.sk/microsofts-outlook-on-android-and-ios/</guid>
       <description>&lt;p&gt;To those who don’t know, Microsoft launched several months ago Outlook for Android and iOS phones and tablets. Microsoft’s new brand of Outlook have replace the failing “Outlook-branded apps” that are only available to the current subscribers of Office 365. The upheaval comes after Microsoft acquired San Francisco-based company, &lt;a href=&#34;https://www.acompli.com/&#34;&gt;Acompli.com&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.kulman.sk/images/Outlook-Best-New-Apps.png&#34; class=&#34;pure-img-width&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.kulman.sk/images/Outlook-Best-New-Apps.png&#34; class=&#34;pure-img-width&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;Acompli is an “advanced email application that empowers professionals to do more with emails, full calendaring, easy file sharing and log all the important people in one email format.” The format supports Microsoft’s Office 365, Gmail and Google Apps.&lt;/p&gt;
 
@@ -133,10 +207,10 @@
     
     <item>
       <title>Problems getting paid from the Windows Store, again</title>
-      <link>http://blog.kulman.sk/problems-getting-paid-from-the-windows-store-again/</link>
+      <link>https://blog.kulman.sk/problems-getting-paid-from-the-windows-store-again/</link>
       <pubDate>Tue, 21 Jul 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/problems-getting-paid-from-the-windows-store-again/</guid>
+      <guid>https://blog.kulman.sk/problems-getting-paid-from-the-windows-store-again/</guid>
       <description>&lt;p&gt;I do not make much money on my Windows Phone apps (who does?), but when the payout time comes every couple of months, I expect the money to be delivered. Dealing with Microsoft, I should know better.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Failed payment&lt;/strong&gt;&lt;/p&gt;
@@ -157,7 +231,7 @@
 
 &lt;p&gt;I took a look at my payout settings in the new Dev Center and it is a mess&lt;/p&gt;
 
-&lt;img src=&#34;http://blog.kulman.sk/images/payout.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+&lt;img src=&#34;https://blog.kulman.sk/images/payout.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
 &lt;p&gt;It previous pages is telling my that everything is ok and my data is valid, but is it? Those four radios do not give me the confidence to believe it. Especially seeing my old account (x3168) that was there in the Windows Store and I deleted it. I used to get the payment to the x0026 account that was in my Windows Phone Store account.&lt;/p&gt;
 
@@ -169,10 +243,10 @@
     
     <item>
       <title>Removing unused strings from Windows Phone 8 RESX files</title>
-      <link>http://blog.kulman.sk/removing-unused-strings-from-windows-phone-8-resx-files/</link>
+      <link>https://blog.kulman.sk/removing-unused-strings-from-windows-phone-8-resx-files/</link>
       <pubDate>Mon, 25 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/removing-unused-strings-from-windows-phone-8-resx-files/</guid>
+      <guid>https://blog.kulman.sk/removing-unused-strings-from-windows-phone-8-resx-files/</guid>
       <description>&lt;p&gt;Using RESX files is the standard approach to Windows Phone 8 app localization, it is even contained in the standard project templates. When you work on a project for a longer time, you may get to a situation that your RESX files contain strings that you no longer use. This is a problem especially when you want to add a new localization, because it is slower and kind of wasteful localizing unused strings.&lt;/p&gt;
 
 &lt;p&gt;To solve this problem I have created a simple command line utility, that is &lt;a href=&#34;https://github.com/igorkulman/RemoveUnusedResources&#34;&gt;available at Github&lt;/a&gt;. This utility assumes that you use the standard localization approach from the templates (AppResources.{lang}.resx and LocalizedStrings.{value} in XAML).&lt;/p&gt;
@@ -183,10 +257,10 @@
     
     <item>
       <title>Customizing the Player Framework UI</title>
-      <link>http://blog.kulman.sk/customizing-the-player-framework-ui/</link>
+      <link>https://blog.kulman.sk/customizing-the-player-framework-ui/</link>
       <pubDate>Mon, 04 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/customizing-the-player-framework-ui/</guid>
+      <guid>https://blog.kulman.sk/customizing-the-player-framework-ui/</guid>
       <description>&lt;p&gt;In my last article I gave you a tip on how to localize the Player Framework, in this article I will show you have to customize the UI of the actual player.&lt;/p&gt;
 
 &lt;p&gt;The first step is to obtain the Generic.xaml file that the Player Framework uses for styling. You can find it in C:\ Program Files (x86)\ Microsoft SDKs\ Windows\ v8.0\ ExtensionSDKs\ Microsoft.PlayerFramework.Xaml\ 2.0.0.0\ Redist\ CommonConfiguration\ neutral\ Microsoft.PlayerFramework\ Themes. Copy it to your projects and rename it to something more telling, like PlayerFramework.xaml.&lt;/p&gt;
@@ -201,10 +275,10 @@
     
     <item>
       <title>The death of the WinRT developer?</title>
-      <link>http://blog.kulman.sk/the-death-of-the-winrt-developer/</link>
+      <link>https://blog.kulman.sk/the-death-of-the-winrt-developer/</link>
       <pubDate>Thu, 30 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/the-death-of-the-winrt-developer/</guid>
+      <guid>https://blog.kulman.sk/the-death-of-the-winrt-developer/</guid>
       <description>&lt;p&gt;As many other Windows Phone / Windows 8 / Universal apps developers (lets just call us WinRT developers) I watched the Build 2015 keynote last night. And I did not like it. I know Microsoft does not know to communicate but the message for me was clear. We, the WinRT developer, are no longer needed.&lt;/p&gt;
 
 &lt;p&gt;First, Microsoft announced that WPF apps will be allowed to be submitted to the Windows Store to be used on desktops / tablets. So why would anyone want to develop (or want to have developed) a Windows 8 (WinRT) app, when they can just use WPF and get everything done easier? I do not know.&lt;/p&gt;
@@ -243,10 +317,10 @@
     
     <item>
       <title>Player Framework localization</title>
-      <link>http://blog.kulman.sk/player-framework-localization/</link>
+      <link>https://blog.kulman.sk/player-framework-localization/</link>
       <pubDate>Mon, 27 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/player-framework-localization/</guid>
+      <guid>https://blog.kulman.sk/player-framework-localization/</guid>
       <description>&lt;p&gt;In my recent universal (Windows Phone 8.1 and Windows 8.1) project I implemented PlayReady DRM protected smooth streaming movies playback using the &lt;a href=&#34;https://playerframework.codeplex.com/&#34;&gt;Player Framework&lt;/a&gt;. This projects seems to be dead, but it is still the best option when implementing any kind of video playback.&lt;/p&gt;
 
 &lt;p&gt;One of the first things I had to do was localize it&amp;#8217;s controls, because the app I worked on was in Czech and Slovak, not in English (the only language the Player Framework supports out of the box). Not all the texts an be localized, but the most visible ones like button labels and error messages can.&lt;/p&gt;
@@ -263,10 +337,10 @@
     
     <item>
       <title>Leveraging ETag caching in Windows Phone and Windows apps</title>
-      <link>http://blog.kulman.sk/leveraging-etag-caching-in-windows-phone-and-windows-apps/</link>
+      <link>https://blog.kulman.sk/leveraging-etag-caching-in-windows-phone-and-windows-apps/</link>
       <pubDate>Mon, 20 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/leveraging-etag-caching-in-windows-phone-and-windows-apps/</guid>
+      <guid>https://blog.kulman.sk/leveraging-etag-caching-in-windows-phone-and-windows-apps/</guid>
       <description>&lt;p&gt;In my previous article I showed you &lt;a href=&#34;http://blog.kulman.sk/using-etag-to-cache-responses-in-nancyfx/&#34; title=&#34;Using ETag to cache responses in NancyFX&#34;&gt;how to implements server side caching using ETag&lt;/a&gt;. HTTP clients on other platforms can usually work with ETag automatically, but of course, the portable HTTP client used on Windows platforms cannot. You have to implement ETag handling yourself.&lt;/p&gt;
 
 &lt;p&gt;In &lt;a href=&#34;http://blog.kulman.sk/tvtime-track-your-favorite-tv-shows-on-windows-phone/&#34; title=&#34;TvTime: track your favorite TV shows on Windows Phone&#34;&gt;TvTime&lt;/a&gt;, all the server requests are GET request, so I remember the ETag values for each Url (= each GET request). I store the ETag values in application local settings.&lt;/p&gt;
@@ -281,10 +355,10 @@
     
     <item>
       <title>Changing the PivotItem header color in Windows Phone 8.1 XAML</title>
-      <link>http://blog.kulman.sk/changing-the-pivotitem-header-color-in-windows-phone-8-1-xaml/</link>
+      <link>https://blog.kulman.sk/changing-the-pivotitem-header-color-in-windows-phone-8-1-xaml/</link>
       <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/changing-the-pivotitem-header-color-in-windows-phone-8-1-xaml/</guid>
+      <guid>https://blog.kulman.sk/changing-the-pivotitem-header-color-in-windows-phone-8-1-xaml/</guid>
       <description>&lt;p&gt;Windows Phone 8.1 XAML contains a Pivot control that looks like the one from Windows Phone &lt;sup&gt;7&lt;/sup&gt;&amp;frasl;&lt;sub&gt;8&lt;/sub&gt; and also should behave the same way, but does not. You will find the first problem with the new Pivot when you want to change the PivotItem header color.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Windows Phone &lt;sup&gt;7&lt;/sup&gt;&amp;frasl;&lt;sub&gt;8&lt;/sub&gt;&lt;/strong&gt;&lt;/p&gt;
@@ -295,13 +369,13 @@
 
 &lt;p&gt;This works great, changing the color of the active PivotItem Header to the color you want and applying some opacity to the inactive PivotItem Headers.&lt;/p&gt;
 
-&lt;img src=&#34;http://blog.kulman.sk/images/header78.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+&lt;img src=&#34;https://blog.kulman.sk/images/header78.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
 &lt;p&gt;&lt;strong&gt;Windows Phone 8.1 XAML&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;If you apply the same Header template to PivotItem in Windows Phone 8.1 XAML, you will find that there is a bug in the control. The inactive PivotItem Headers do not get opacity change applied.&lt;/p&gt;
 
-&lt;img src=&#34;http://blog.kulman.sk/images/header81.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+&lt;img src=&#34;https://blog.kulman.sk/images/header81.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
 &lt;p&gt;This is obviously a problem, if you do not want to do same SelectedIndex manipulation to change the color programatically for all the inactive PivotItem headers.&lt;/p&gt;
 
@@ -313,10 +387,10 @@
     
     <item>
       <title>Dialog helper for Universal Apps the easy way</title>
-      <link>http://blog.kulman.sk/dialog-helper-for-universal-apps/</link>
+      <link>https://blog.kulman.sk/dialog-helper-for-universal-apps/</link>
       <pubDate>Wed, 24 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/dialog-helper-for-universal-apps/</guid>
+      <guid>https://blog.kulman.sk/dialog-helper-for-universal-apps/</guid>
       <description>&lt;p&gt;Today I read Joost van Schaik&amp;#8217;s blog post called &lt;a href=&#34;http://dotnetbyexample.blogspot.nl/2014/12/a-behavior-to-show-messagedialog-from.html&#34;&gt;A behavior to show a MessageDialog from a MVVMLight viewmodel in Universal apps–with callbacks&lt;/a&gt;. I am not a MVVMLight guy (I use Caliburn.Micro) and I personally use an approach that uses a little less code, employing a helper class.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Helper class&lt;/strong&gt;&lt;/p&gt;
@@ -351,10 +425,10 @@
     
     <item>
       <title>Creating a fake splashscreen for your Universal App</title>
-      <link>http://blog.kulman.sk/creating-a-fake-splashscreen-for-your-universal-app/</link>
+      <link>https://blog.kulman.sk/creating-a-fake-splashscreen-for-your-universal-app/</link>
       <pubDate>Tue, 23 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/creating-a-fake-splashscreen-for-your-universal-app/</guid>
+      <guid>https://blog.kulman.sk/creating-a-fake-splashscreen-for-your-universal-app/</guid>
       <description>&lt;p&gt;Sometimes you may want your app to display the startup splashscreen a bit longer, so you can initialize or fetch some data necessary for the app to run. To achieve this, you can create a fake splaschreen, a View that looks just like the splashscreen, does all the work and redirects to the real main View afterwards.&lt;/p&gt;
 
 &lt;p&gt;In theory, it is quite simple:&lt;/p&gt;
@@ -374,50 +448,6 @@
 &lt;script src=&#34;https://gist.github.com/d61c0a71e8ed0e2fbc1d.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;This makes the illusion of the fake splashscreen perfect, but I would recommend adding a ProgressBar or ProgressRing to the SplashScreenView so the users do not have the feeling that your app froze.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Why Universal Apps as not as universal as you may think</title>
-      <link>http://blog.kulman.sk/why-universal-apps-as-not-as-universal-as-you-may-think/</link>
-      <pubDate>Thu, 18 Dec 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://blog.kulman.sk/why-universal-apps-as-not-as-universal-as-you-may-think/</guid>
-      <description>&lt;p&gt;I have been developing Windows Phone apps for a few years now, always sticking to Silverlight and keeping using Silverlight also after Microsoft announced the WinRT flavor of Windows Phone apps and the so called Universal Apps. The Windows Phone 8.0 and 8.1 Silverlight APIs have some limitations, but are now well known do not contain many bugs. They are the safe choice if you want to create a Windows Phone apps. And do not forget that there are still many device running Windows Phone 8 (like Verizon customers in the US) that never got the 8.1 updated promised to everyone during the summer.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Really universal?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Windows Phone 8.1 XAML and Universal Apps included WinRT APIs that have many problems, including some that there is no solution for. I used the WinRT APIs when creating first Windows 8 apps about 2 years ago, so I am not new to the APIs. I have not touched the WinRT APIs again until recently, because there was no demand for Windows 8 or Windows 8.1 apps. Why would it? People use Windows 8 or 8.1 but do not care about Metro apps, they give them no value compared to &amp;#8220;normal&amp;#8221; Win32 and Windows tablets are practically non-exists (expect for the Surface tablets owned by few programmers and maybe no one else).&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Universal Apps&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Recently, a client was thinking about adding a Windows Phone app for their service the its existing Android and iOS apps, but they did not think it was worth the money. So the local Microsoft branch told them they would pay for the app (seems like many of the app here are created this way) under two conditions. The app had to be a Universal App and had to be finished before the years end. The client agreed and I had to create a Universal App. And the problems started.&lt;/p&gt;
-
-&lt;p&gt;In theory, Universal Apps are supposed to make code sharing between Windows Phone and Windows 8.1 simple and allow you to reuse as much code as possible. This works on the trivial Microsoft samples, but try to create a real world app. I have a business logic project with API calls, storage, etc. in a portable class library (like I always did before Universal Apps existed) and I created an Universal App from the template. And the #ifdef hell started.&lt;/p&gt;
-
-&lt;img src=&#34;http://blog.kulman.sk/images/56995992.jpg&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
-
-&lt;p&gt;&lt;strong&gt;#ifdefs everywhere&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;With Universal Apps you can safely share the ViewModels (I am using Caliburn.Micro) .. and that is about it. You have to create separate Views (because on phone and desktop information is typically displayed different), but the worst parts are the #ifdefs.&lt;/p&gt;
-
-&lt;p&gt;You need to set some properties of the main Frame, you have to use #ifdefs because the frame is a bit different on phone and desktop (like animations). You want to reuse as much DataTemplates as possible, so add another #ifdef for adding the right resource dictionary or many #ifdefs in the data templates to tune them, because it does not matter you use GridView on phone and GridView on desktop, they behave a bit differently in some cases.&lt;/p&gt;
-
-&lt;p&gt;Then you need to add audio playback to your app. There is a background audio playback API for Windows Phone 8.1 and none for Windows 8.1 In Windows 8.1 you need a global MediaElement in your Frame and handling everything differently. So add another big #ifdef. And by the way, the background audio playback API for Windows Phone 8.1 really sucks compared to the old Silverlight APIs. Just try downloading the &lt;a href=&#34;https://code.msdn.microsoft.com/windowsapps/BackgroundAudio-63bbc319&#34;&gt;sample form MSDN&lt;/a&gt; and hitting Suspend and Resume in Visual Studio, the background agent crashes horribly, without any exception and takes your Visual Studio instance to hell with it. And of course, the background audio playback API does not work on some phones. &lt;a href=&#34;https://stackoverflow.com/questions/26175599/windows-phone-8-1-rt-backgroundmediaplayer-not-working&#34;&gt;Just does not work&lt;/a&gt;. I confirmed this finding with other developers. Another messed up API that used to work before the whole Universal Apps hype. And explain this to the client who sees that things like this work on iOS, work on Android, hell, they even for on Windows Phone 8.0 (Slivelight) apps.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;More messed up APIs&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;So background audio playback API for Windows Phone 8.1 is messed up, anything else? Sure. BackgroundDownloader is another example. In Silverlight, there was a BackgroundDownloader that was quite limited, but it worked. In Universal Apps, there is a new BackgroundDownloader with some new features, and some essential ones missing. For example, in Silverlight, each download could have a Tag, where you can store any data so you know something about the download when it finishes (to what business entity it belongs, etc.). Not any more in Universal Apps. There is no Tag, so you have to build and manage you own kind of index for all the downloads, so you can actually match them to your business entities. An annoyance, but nothing you cannot manage, right.&lt;/p&gt;
-
-&lt;p&gt;The BackgroundDownloader in Universal Apps has a bigger problem. It sometimes crashes so horribly, that it reboots the whole device! No exception, no logs, just a reboot. The maximum limit for the BackgroundDownloader is 1000 downloads, but try adding say 300 to the queue, cancelling them after a few minutes (does not seem to matter if you use one cancellation token or give each download its own) and there is a good chance the phone or the emulator will reboot itself. Not always, but quite often. Again, try explaining this issue to the client.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Performance&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;In Silverlight, I commonly used the LongListSelector to display data, using it with a WrapPanel when I needed to create a two column layout. The LongListSelector is gone, in Universal Apps you have to use GridView also on Windows Phone. Or you can use the ListView with a custom wrap panel you write yourself or download somewhere, but it takes some effort to make it do virtualization properly.&lt;/p&gt;
-
-&lt;p&gt;So you use GridView on both Windows Phone 8.1 and Windows 8.1 to make it consistent. Add tens f of items with images to it and the performance starts to really suffer. Gray placeholders will show up and more importantly, &lt;a href=&#34;https://stackoverflow.com/questions/27488201/gridview-and-placeholders-that-never-disapper-in-windows-8-and-windows-phone-app&#34;&gt;never disappears&lt;/a&gt;. You do not event need images, just add about 300 text only items to the GridView and the gray placeholders will starts to show when scrolling.&lt;/p&gt;
-
-&lt;p&gt;Need another proof that the WinRT controls are slower? Just &lt;a href=&#34;https://www.youtube.com/watch?v=nn5hVq6Q-zo&#34;&gt;take a look at this video comparing the media app on and old Windows Phone 7 to the media app on a much more powerful device running Windows Phone 8.1&lt;/a&gt;. You can see that the old, single core device runs the Silverlight apps faster than the new powerful phone runs the new WinRT equivalent of the app.&lt;/p&gt;
 </description>
     </item>
     

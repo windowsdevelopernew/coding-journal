@@ -2,19 +2,93 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Winrt on Coding Journal</title>
-    <link>http://blog.kulman.sk/categories/winrt/</link>
+    <link>https://blog.kulman.sk/categories/winrt/</link>
     <description>Recent content in Winrt on Coding Journal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 Dec 2015 09:29:12 +0100</lastBuildDate>
-    <atom:link href="http://blog.kulman.sk/categories/winrt/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 Feb 2016 09:29:12 +0100</lastBuildDate>
+    <atom:link href="https://blog.kulman.sk/categories/winrt/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>How to handle localization strings provided by the client in a Windows Phone app</title>
+      <link>https://blog.kulman.sk/how-to-handle-localization-strings-provided-by-client</link>
+      <pubDate>Tue, 09 Feb 2016 09:29:12 +0100</pubDate>
+      
+      <guid>https://blog.kulman.sk/how-to-handle-localization-strings-provided-by-client</guid>
+      <description>&lt;p&gt;I currently work on a Windows Phone 8.1 app for a client with an interesting approach to app localization. They have a Google Docs sheet with all the localization string for the app in all the supported languages and a tool that converts this localization strings in to per-language versioned JSON files. The generated JSON files are kept in a git repository. The Android, iOS and now my Windows Phone app should have the git repository added as a submodule. When a new version of the JSON files with the localization appear in the submodule, the app should use them.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Deciding the localization approach&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In the old days of Windows Phone 7 and Windows Phone 8 I would simply write an utility that reads the newest version of the JSON localization files and generate a RESX file for each language. RESX is XML format that is simple to generate. If you had a localized string with a key say Game, you would put it everywhere when the localization of the word game was needed. Simple&lt;/p&gt;
+
+&lt;p&gt;In Windows Phone 8.1 (and 10) you should use RESW files for localization. This is the new x:Uid approach that, in my honest opinion, really sucks. It forces you to duplicate string if you use I string in multiple places, there is no design time support, you never know what UI element are localized and what you forgot to localize. Simply put, it is a mess. This approach is not usable at all with the string client provides.&lt;/p&gt;
+
+&lt;p&gt;There is no way to make any script generate a RESW file with duplicated string matching the multiple usages of each string. If you have a localized string with a key Game and 2 TextBlocks and 1 Buttons that use it, you need to put it into the RESW file 3 times, once for each UI element. SO instead of a Game key, you would have a GameTextBlock.Text key, an AnotherGameTextBlock.Text and a GameButton.Content key, all with the same value and applied in design time. Madness.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Using RESX files on Windows Phone 8.1&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;One approach to solve this problem is to use the good old RESX files with your Windows Phone 8.1 project. Typically by creating a Portable Class Library (PCL) with the RESX files, doing a bit of configuration for the supported languages and linking this PCL project to your Windows Phone 8.1 project. You can find a few articles about this approach online and also a few gotchas and their solutions. It sounds like a good idea at first, but it is too problematic for my tastes.&lt;/p&gt;
+
+&lt;p&gt;I tried this approach but ended frustrated with too many problems too solve, like Visual Studio hanging when deploying to a device when using RESX files. So I decided to go with a custom solution.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Generating Windows Phone 8-like localization strings&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally I decided to generate a class that would look and behave similar to the old Windows Phone 8-like localization strings class. The idea is quite simple, no need to a PCL or any RESX files.&lt;/p&gt;
+
+&lt;p&gt;The first step is to create a directory and empty RESW files for each supported language in the Windows Phone 8.1 project&lt;/p&gt;
+
+&lt;img src=&#34;https://blog.kulman.sk/images/languages.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+
+&lt;p&gt;Then write a script that generates all the RESW files from the newest JSON localization files&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=localization-converter-1.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Now with the RESW files populated with all the localization string it is time to put them to use. First I created a &lt;code&gt;LocalizedStrings&lt;/code&gt; class very similar to the one in Windows Phone 8:&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=LocalizedStrings.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;and added it to &lt;code&gt;App.xaml&lt;/code&gt; as a dictionary resources called &lt;code&gt;S&lt;/code&gt;&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=App.xaml&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;The interesting ans still missing part is the &lt;code&gt;AppResources&lt;/code&gt; class referenced in &lt;code&gt;LocalizedStrings&lt;/code&gt;. It is a partial class, consisting of &lt;code&gt;ResourceLoader&lt;/code&gt; instance to get the string at runtime and a Singleton to get the string from C# code&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=AppResources.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;The second part of this class is generated by the same script that generates the RESW files. For each key in the localization string, it generates a property like this in the &lt;code&gt;AppResources&lt;/code&gt; class&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=AppResources.strings.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;The code to generate this is part of the script&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=localization-converter-2.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;The result&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;When you put all this pieces together, you have a RESW files with all the localization strings and a localization class that can be generated on demand. I run the script and generate the files every time there is an update in the git submodule with the JSON localization files.&lt;/p&gt;
+
+&lt;p&gt;When I want to use any of these localization string in XAML, I simply use it like this&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=xaml-usage.xaml&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Using a binding allows me to use to use the same localization keys for many elements and I do not have to duplicate the keys like in the x:Uid scenario.&lt;/p&gt;
+
+&lt;p&gt;If I need to used a localization string in C#, I have a strongly typed access to it&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=csharp-usage.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;instead of creating a &lt;code&gt;ResourceLoader&lt;/code&gt; instance and calling &lt;code&gt;GetString&lt;/code&gt; with a string parameter.&lt;/p&gt;
+
+&lt;p&gt;Another approach would be having a public property with the &lt;code&gt;AppResources&lt;/code&gt; instance in a &lt;code&gt;ViewModel&lt;/code&gt; base class, it would make the binding shorter.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Detecting gestures over WebView on Windows Phone</title>
-      <link>http://blog.kulman.sk/detecting-gestures-over-webview-on-windows-phone/</link>
+      <link>https://blog.kulman.sk/detecting-gestures-over-webview-on-windows-phone/</link>
       <pubDate>Mon, 07 Dec 2015 09:29:12 +0100</pubDate>
       
-      <guid>http://blog.kulman.sk/detecting-gestures-over-webview-on-windows-phone/</guid>
+      <guid>https://blog.kulman.sk/detecting-gestures-over-webview-on-windows-phone/</guid>
       <description>&lt;p&gt;If you develop Windows Phone apps, you surely had to use the WebView component at least once. Any you must have realized, that it kind of sucks. One of the problems is that it swallows all the gestures and manipulation events. This means you cannot put it into a Pivot, you cannot detect swipe left or right events to navigate to next or previous article .. or can you?&lt;/p&gt;
 
 &lt;p&gt;In a recent project, I had to implement exactly the mentioned functionality, swiping between articles displayed in a WebView. I did some research and I could not find any solution. So I had to get creative and I find a way involving JavaScript.&lt;/p&gt;
@@ -31,13 +105,13 @@
     
     <item>
       <title>Highlighting letters in TextBlock in Windows Phone 8.1 and Windows 8.1</title>
-      <link>http://blog.kulman.sk/highlighting-letters-in-textblock-in-windows-phone-8-1-and-windows-8-1/</link>
+      <link>https://blog.kulman.sk/highlighting-letters-in-textblock-in-windows-phone-8-1-and-windows-8-1/</link>
       <pubDate>Sat, 17 Oct 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/highlighting-letters-in-textblock-in-windows-phone-8-1-and-windows-8-1/</guid>
+      <guid>https://blog.kulman.sk/highlighting-letters-in-textblock-in-windows-phone-8-1-and-windows-8-1/</guid>
       <description>&lt;p&gt;In my current project I had to implement an interesting feature for both Windows Phone 8.1 and Windows 8.1 project of the Universal app. The idea is simply. The users want to search for a movie. They enter a search term into a TextBox and a list of results is shown. The results should have the search term highlighted in them.&lt;/p&gt;
 
-&lt;img src=&#34;http://blog.kulman.sk/images/highlighting.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+&lt;img src=&#34;https://blog.kulman.sk/images/highlighting.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
 &lt;p&gt;The standard TextBlock used to display the movie titles does not support any kind of letter highlighting, so I had to write a custom one. I created a custom UserControl. The UserControl contains a few dependency properties Text, HighlightedText, HighlightBrush and a TextBlock. When Text or HighlightedText change, the Text is then split into multiple Runs that are added to the TextBlock.&lt;/p&gt;
 
@@ -49,10 +123,10 @@
     
     <item>
       <title>Problems getting paid from the Windows Store, again</title>
-      <link>http://blog.kulman.sk/problems-getting-paid-from-the-windows-store-again/</link>
+      <link>https://blog.kulman.sk/problems-getting-paid-from-the-windows-store-again/</link>
       <pubDate>Tue, 21 Jul 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/problems-getting-paid-from-the-windows-store-again/</guid>
+      <guid>https://blog.kulman.sk/problems-getting-paid-from-the-windows-store-again/</guid>
       <description>&lt;p&gt;I do not make much money on my Windows Phone apps (who does?), but when the payout time comes every couple of months, I expect the money to be delivered. Dealing with Microsoft, I should know better.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Failed payment&lt;/strong&gt;&lt;/p&gt;
@@ -73,7 +147,7 @@
 
 &lt;p&gt;I took a look at my payout settings in the new Dev Center and it is a mess&lt;/p&gt;
 
-&lt;img src=&#34;http://blog.kulman.sk/images/payout.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+&lt;img src=&#34;https://blog.kulman.sk/images/payout.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
 &lt;p&gt;It previous pages is telling my that everything is ok and my data is valid, but is it? Those four radios do not give me the confidence to believe it. Especially seeing my old account (x3168) that was there in the Windows Store and I deleted it. I used to get the payment to the x0026 account that was in my Windows Phone Store account.&lt;/p&gt;
 
@@ -85,10 +159,10 @@
     
     <item>
       <title>Implementing Google login in Universal Apps</title>
-      <link>http://blog.kulman.sk/implementing-google-login-in-universal-apps/</link>
+      <link>https://blog.kulman.sk/implementing-google-login-in-universal-apps/</link>
       <pubDate>Wed, 01 Jul 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/implementing-google-login-in-universal-apps/</guid>
+      <guid>https://blog.kulman.sk/implementing-google-login-in-universal-apps/</guid>
       <description>&lt;p&gt;In a recent project I had to implement Google login to an Universal App. I decided to use the native &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/windows.security.authentication.web.webauthenticationbroker.aspx&#34;&gt;WebAuthenticationBroker&lt;/a&gt; control and the implementation was not as straightforward as I hoped. By implementing Google login I mean getting the authentication token that you can then use with your server API.&lt;/p&gt;
 
 &lt;p&gt;WebAuthenticationBroker is a good idea but it is implemented rather poorly. It works differently on Windows 8.1 and Windows Phone 8.1 due to the &amp;#8220;AndContinue&amp;#8221; pattern that Windows Phone 8.1 forces on you. You can solve this with &lt;a href=&#34;http://blog.kulman.sk/why-universal-apps-as-not-as-universal-as-you-may-think/&#34;&gt;some ifdefs and platform specific code, as always&lt;/a&gt;.&lt;/p&gt;
@@ -121,10 +195,10 @@
     
     <item>
       <title>Customizing the Player Framework UI</title>
-      <link>http://blog.kulman.sk/customizing-the-player-framework-ui/</link>
+      <link>https://blog.kulman.sk/customizing-the-player-framework-ui/</link>
       <pubDate>Mon, 04 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/customizing-the-player-framework-ui/</guid>
+      <guid>https://blog.kulman.sk/customizing-the-player-framework-ui/</guid>
       <description>&lt;p&gt;In my last article I gave you a tip on how to localize the Player Framework, in this article I will show you have to customize the UI of the actual player.&lt;/p&gt;
 
 &lt;p&gt;The first step is to obtain the Generic.xaml file that the Player Framework uses for styling. You can find it in C:\ Program Files (x86)\ Microsoft SDKs\ Windows\ v8.0\ ExtensionSDKs\ Microsoft.PlayerFramework.Xaml\ 2.0.0.0\ Redist\ CommonConfiguration\ neutral\ Microsoft.PlayerFramework\ Themes. Copy it to your projects and rename it to something more telling, like PlayerFramework.xaml.&lt;/p&gt;
@@ -139,10 +213,10 @@
     
     <item>
       <title>The death of the WinRT developer?</title>
-      <link>http://blog.kulman.sk/the-death-of-the-winrt-developer/</link>
+      <link>https://blog.kulman.sk/the-death-of-the-winrt-developer/</link>
       <pubDate>Thu, 30 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/the-death-of-the-winrt-developer/</guid>
+      <guid>https://blog.kulman.sk/the-death-of-the-winrt-developer/</guid>
       <description>&lt;p&gt;As many other Windows Phone / Windows 8 / Universal apps developers (lets just call us WinRT developers) I watched the Build 2015 keynote last night. And I did not like it. I know Microsoft does not know to communicate but the message for me was clear. We, the WinRT developer, are no longer needed.&lt;/p&gt;
 
 &lt;p&gt;First, Microsoft announced that WPF apps will be allowed to be submitted to the Windows Store to be used on desktops / tablets. So why would anyone want to develop (or want to have developed) a Windows 8 (WinRT) app, when they can just use WPF and get everything done easier? I do not know.&lt;/p&gt;
@@ -181,10 +255,10 @@
     
     <item>
       <title>Player Framework localization</title>
-      <link>http://blog.kulman.sk/player-framework-localization/</link>
+      <link>https://blog.kulman.sk/player-framework-localization/</link>
       <pubDate>Mon, 27 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/player-framework-localization/</guid>
+      <guid>https://blog.kulman.sk/player-framework-localization/</guid>
       <description>&lt;p&gt;In my recent universal (Windows Phone 8.1 and Windows 8.1) project I implemented PlayReady DRM protected smooth streaming movies playback using the &lt;a href=&#34;https://playerframework.codeplex.com/&#34;&gt;Player Framework&lt;/a&gt;. This projects seems to be dead, but it is still the best option when implementing any kind of video playback.&lt;/p&gt;
 
 &lt;p&gt;One of the first things I had to do was localize it&amp;#8217;s controls, because the app I worked on was in Czech and Slovak, not in English (the only language the Player Framework supports out of the box). Not all the texts an be localized, but the most visible ones like button labels and error messages can.&lt;/p&gt;
@@ -201,10 +275,10 @@
     
     <item>
       <title>Leveraging ETag caching in Windows Phone and Windows apps</title>
-      <link>http://blog.kulman.sk/leveraging-etag-caching-in-windows-phone-and-windows-apps/</link>
+      <link>https://blog.kulman.sk/leveraging-etag-caching-in-windows-phone-and-windows-apps/</link>
       <pubDate>Mon, 20 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/leveraging-etag-caching-in-windows-phone-and-windows-apps/</guid>
+      <guid>https://blog.kulman.sk/leveraging-etag-caching-in-windows-phone-and-windows-apps/</guid>
       <description>&lt;p&gt;In my previous article I showed you &lt;a href=&#34;http://blog.kulman.sk/using-etag-to-cache-responses-in-nancyfx/&#34; title=&#34;Using ETag to cache responses in NancyFX&#34;&gt;how to implements server side caching using ETag&lt;/a&gt;. HTTP clients on other platforms can usually work with ETag automatically, but of course, the portable HTTP client used on Windows platforms cannot. You have to implement ETag handling yourself.&lt;/p&gt;
 
 &lt;p&gt;In &lt;a href=&#34;http://blog.kulman.sk/tvtime-track-your-favorite-tv-shows-on-windows-phone/&#34; title=&#34;TvTime: track your favorite TV shows on Windows Phone&#34;&gt;TvTime&lt;/a&gt;, all the server requests are GET request, so I remember the ETag values for each Url (= each GET request). I store the ETag values in application local settings.&lt;/p&gt;
@@ -219,10 +293,10 @@
     
     <item>
       <title>Back navigation on Backspace key press in Windows 8.1 apps</title>
-      <link>http://blog.kulman.sk/back-navigation-on-backspace-key-press-in-windows-8-1-apps/</link>
+      <link>https://blog.kulman.sk/back-navigation-on-backspace-key-press-in-windows-8-1-apps/</link>
       <pubDate>Tue, 03 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/back-navigation-on-backspace-key-press-in-windows-8-1-apps/</guid>
+      <guid>https://blog.kulman.sk/back-navigation-on-backspace-key-press-in-windows-8-1-apps/</guid>
       <description>&lt;p&gt;I am not a mouse or a touch person, I like using the keyboard and keyboard shortcuts for everything. So when I (have to) use a Windows 8.1 Metro app, I always miss when the app does not navigate back when I press the Backspace key, just like the browser does.&lt;/p&gt;
 
 &lt;p&gt;Implementing this functionality is really simple, you just need to handle the KeyUp event and listen for the Backspace key. You can implement the KeyUp event handler on every View in your app, but that is not necessary. You can just hook up the global Window.Current.CoreWindow.KeyUp event after you app starts.&lt;/p&gt;
@@ -235,10 +309,10 @@
     
     <item>
       <title>Dialog helper for Universal Apps the easy way</title>
-      <link>http://blog.kulman.sk/dialog-helper-for-universal-apps/</link>
+      <link>https://blog.kulman.sk/dialog-helper-for-universal-apps/</link>
       <pubDate>Wed, 24 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/dialog-helper-for-universal-apps/</guid>
+      <guid>https://blog.kulman.sk/dialog-helper-for-universal-apps/</guid>
       <description>&lt;p&gt;Today I read Joost van Schaik&amp;#8217;s blog post called &lt;a href=&#34;http://dotnetbyexample.blogspot.nl/2014/12/a-behavior-to-show-messagedialog-from.html&#34;&gt;A behavior to show a MessageDialog from a MVVMLight viewmodel in Universal apps–with callbacks&lt;/a&gt;. I am not a MVVMLight guy (I use Caliburn.Micro) and I personally use an approach that uses a little less code, employing a helper class.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Helper class&lt;/strong&gt;&lt;/p&gt;
@@ -273,10 +347,10 @@
     
     <item>
       <title>Creating a fake splashscreen for your Universal App</title>
-      <link>http://blog.kulman.sk/creating-a-fake-splashscreen-for-your-universal-app/</link>
+      <link>https://blog.kulman.sk/creating-a-fake-splashscreen-for-your-universal-app/</link>
       <pubDate>Tue, 23 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/creating-a-fake-splashscreen-for-your-universal-app/</guid>
+      <guid>https://blog.kulman.sk/creating-a-fake-splashscreen-for-your-universal-app/</guid>
       <description>&lt;p&gt;Sometimes you may want your app to display the startup splashscreen a bit longer, so you can initialize or fetch some data necessary for the app to run. To achieve this, you can create a fake splaschreen, a View that looks just like the splashscreen, does all the work and redirects to the real main View afterwards.&lt;/p&gt;
 
 &lt;p&gt;In theory, it is quite simple:&lt;/p&gt;
@@ -301,10 +375,10 @@
     
     <item>
       <title>Why Universal Apps as not as universal as you may think</title>
-      <link>http://blog.kulman.sk/why-universal-apps-as-not-as-universal-as-you-may-think/</link>
+      <link>https://blog.kulman.sk/why-universal-apps-as-not-as-universal-as-you-may-think/</link>
       <pubDate>Thu, 18 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/why-universal-apps-as-not-as-universal-as-you-may-think/</guid>
+      <guid>https://blog.kulman.sk/why-universal-apps-as-not-as-universal-as-you-may-think/</guid>
       <description>&lt;p&gt;I have been developing Windows Phone apps for a few years now, always sticking to Silverlight and keeping using Silverlight also after Microsoft announced the WinRT flavor of Windows Phone apps and the so called Universal Apps. The Windows Phone 8.0 and 8.1 Silverlight APIs have some limitations, but are now well known do not contain many bugs. They are the safe choice if you want to create a Windows Phone apps. And do not forget that there are still many device running Windows Phone 8 (like Verizon customers in the US) that never got the 8.1 updated promised to everyone during the summer.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Really universal?&lt;/strong&gt;&lt;/p&gt;
@@ -317,7 +391,7 @@
 
 &lt;p&gt;In theory, Universal Apps are supposed to make code sharing between Windows Phone and Windows 8.1 simple and allow you to reuse as much code as possible. This works on the trivial Microsoft samples, but try to create a real world app. I have a business logic project with API calls, storage, etc. in a portable class library (like I always did before Universal Apps existed) and I created an Universal App from the template. And the #ifdef hell started.&lt;/p&gt;
 
-&lt;img src=&#34;http://blog.kulman.sk/images/56995992.jpg&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+&lt;img src=&#34;https://blog.kulman.sk/images/56995992.jpg&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
 &lt;p&gt;&lt;strong&gt;#ifdefs everywhere&lt;/strong&gt;&lt;/p&gt;
 
@@ -345,10 +419,10 @@
     
     <item>
       <title>REST service base class for Windows Phone 8.1 XAML apps</title>
-      <link>http://blog.kulman.sk/rest-service-base-class-for-windows-phone-8-1-xaml-apps/</link>
+      <link>https://blog.kulman.sk/rest-service-base-class-for-windows-phone-8-1-xaml-apps/</link>
       <pubDate>Mon, 24 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/rest-service-base-class-for-windows-phone-8-1-xaml-apps/</guid>
+      <guid>https://blog.kulman.sk/rest-service-base-class-for-windows-phone-8-1-xaml-apps/</guid>
       <description>&lt;p&gt;Communicating with a JSON based REST service is a task that many Windows Phone apps have to do. My apps sure do it a lot so I came up with a base class that I use in all of them, &lt;a href=&#34;https://github.com/igorkulman/Kulman.WPA81.BaseRestService&#34;&gt;put it on Github&lt;/a&gt; and &lt;a href=&#34;https://www.nuget.org/packages/Kulman.WPA81.BaseRestService/&#34;&gt;created a Nuget package&lt;/a&gt;, so your apps could use it to.&lt;/p&gt;
 
 &lt;p&gt;The usage of this base class is simple. Create your service class and inherit from BaseRestService. The minimum you need to do to make it work is to override the GetBaseUrl() method to set the base url for all the requests. You can (but do not have to) also override the GetRequestHeaders() method to set the default request headers.&lt;/p&gt;
@@ -373,10 +447,10 @@
     
     <item>
       <title>Detecting tablets and smartphones in ASP.NET</title>
-      <link>http://blog.kulman.sk/detecting-tablets-and-smartphones-in-asp-net/</link>
+      <link>https://blog.kulman.sk/detecting-tablets-and-smartphones-in-asp-net/</link>
       <pubDate>Mon, 22 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/detecting-tablets-and-smartphones-in-asp-net/</guid>
+      <guid>https://blog.kulman.sk/detecting-tablets-and-smartphones-in-asp-net/</guid>
       <description>&lt;p&gt;I recently worked on an ASP.NET application that needed to detect if users were coming from tablets or smartphones. The project used data from &lt;a href=&#34;http://user-agent-string.info/&#34;&gt;http://user-agent-string.info/&lt;/a&gt; to do this detection, but the result were not really good. We needed a better solution, so I came up with using &lt;a href=&#34;http://wurfl.sourceforge.net/&#34;&gt;WURFL&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;WURFL, the Wireless Universal Resource FiLe, is a Device Description Repository (DDR), i.e. a software component that maps HTTP Request headers to the profile of the HTTP client (Desktop, Mobile Device, Tablet, etc.) that issued the request. Adding WURFL to your ASP.NET application is easy thanks to the &lt;a href=&#34;https://www.nuget.org/packages/WURFL_Official_API/&#34;&gt;WURFL_Official_API Nuget package&lt;/a&gt;. The Nuget package also contains definition file, so you just need to update the Nuget package once in a while to get your definition file up to date.&lt;/p&gt;
@@ -388,41 +462,6 @@
 &lt;p&gt;I recommend setting the match mode to accuracy instead of speed, to get the best results. Using the WURFL library is also quite easy, just pass the user agent string and get the properties you want.&lt;/p&gt;
 
 &lt;script src=&#34;https://gist.github.com/igorkulman/dc65bf6d68aec59d57e2.js?file=wurfl_usage.cs&#34;&gt;&lt;/script&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Converting between pixels, meters and map coordinates in Windows Phone</title>
-      <link>http://blog.kulman.sk/converting-between-pixels-meters-and-map-coordinates-in-windows-phone/</link>
-      <pubDate>Tue, 24 Jun 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://blog.kulman.sk/converting-between-pixels-meters-and-map-coordinates-in-windows-phone/</guid>
-      <description>&lt;p&gt;In my current project I needed to solve one quite interesting problem. Imagine you have a map with some pins representing points of interest. If the user taps on a pin, a label with the place title is shown like on this image (that is not from the real project, obviously).&lt;/p&gt;
-
-&lt;img src=&#34;http://blog.kulman.sk/images/image_thumb_4_4.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
-
-&lt;p&gt;The client had an interesting requirement. When the user taps the pin and the label is shown, they wanted the label to be centered on the map (basically move the map so the label appears in the middle of the map).&lt;/p&gt;
-
-&lt;p&gt;In Windows Phone you can only center the map to a GeoCoordinate. If you center the map to the tapped pin&amp;#8217;s coordinate, it is not quite right, you also need to move it by half the width of the label to the left (and half of the height down). So the solution consists of two steps&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Convert half of the label width in pixels to meters for a given zoom level (pixels -&amp;gt; meters conversion)&lt;/li&gt;
-&lt;li&gt;Subtract the result from the pin&amp;#8217;s coordinate (meters -&amp;gt; degrees conversion)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;(and the same for height)&lt;/p&gt;
-
-&lt;p&gt;The map component in Windows Phone 8 and 8.1 has quite a &lt;a href=&#34;http://msdn.microsoft.com/en-us/library/aa940990.aspx&#34;&gt;nice documentation&lt;/a&gt;, so the first step requires some math but is not so difficult.&lt;/p&gt;
-
-&lt;p&gt;I created two helper functions to take care of this first conversion&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/igorkulman/9fa0a229b9c2db57a172.js?file=meters.cs&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;The second conversion is more difficult, especially if you want to do it really well. I found a &lt;a href=&#34;https://gis.stackexchange.com/questions/2951/algorithm-for-offsetting-a-latitude-longitude-by-some-amount-of-meters&#34;&gt;simple solution that works quite ok when you are not right at the poles&lt;/a&gt; and used it. The helper function looks like this.&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/igorkulman/9fa0a229b9c2db57a172.js?file=coords.cs&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;Now you just need to put it all together and you are done.&lt;/p&gt;
 </description>
     </item>
     

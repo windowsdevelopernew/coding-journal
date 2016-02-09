@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hash on Coding Journal</title>
-    <link>http://blog.kulman.sk/tags/hash/</link>
+    <link>https://blog.kulman.sk/tags/hash/</link>
     <description>Recent content in Hash on Coding Journal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 15 Nov 2012 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog.kulman.sk/tags/hash/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.kulman.sk/tags/hash/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Computing hashes in WinRT</title>
-      <link>http://blog.kulman.sk/computing-hashes-in-winrt/</link>
+      <link>https://blog.kulman.sk/computing-hashes-in-winrt/</link>
       <pubDate>Thu, 15 Nov 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/computing-hashes-in-winrt/</guid>
+      <guid>https://blog.kulman.sk/computing-hashes-in-winrt/</guid>
       <description>&lt;p&gt;If you ever generated a MD5 or SHA hash in C# you problaby uset the classes from the System.Security.Cryptography namespace. This namespace is not available in WinRT, you have to use the Windows.Security.Cryptography.Core instead. This namespace contians a class called HashAlgorithmProvider that can be used to generate hashes using MD5 and SHA (SHA1, SHA256, SHA384, SHA512). A simple method to generate a hash for a string using a given algorithm may look like this&lt;/p&gt;
 
 &lt;script src=&#34;https://gist.github.com/5849454.js&#34;&gt;&lt;/script&gt;

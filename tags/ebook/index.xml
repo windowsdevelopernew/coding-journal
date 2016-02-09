@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ebook on Coding Journal</title>
-    <link>http://blog.kulman.sk/tags/ebook/</link>
+    <link>https://blog.kulman.sk/tags/ebook/</link>
     <description>Recent content in Ebook on Coding Journal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 20 Aug 2013 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://blog.kulman.sk/tags/ebook/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.kulman.sk/tags/ebook/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Succinctly series of free books for programmers</title>
-      <link>http://blog.kulman.sk/succinctly-series-of-free-books-for-programmers/</link>
+      <link>https://blog.kulman.sk/succinctly-series-of-free-books-for-programmers/</link>
       <pubDate>Tue, 20 Aug 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/succinctly-series-of-free-books-for-programmers/</guid>
+      <guid>https://blog.kulman.sk/succinctly-series-of-free-books-for-programmers/</guid>
       <description>&lt;p&gt;I have recently come across an intreresting project by &lt;a href=&#34;http://www.syncfusion.com?UTM_medium=kulmanblogreview&#34;&gt;Syncfusion&lt;/a&gt;, a company providing software components for the Microsoft platform.&lt;/p&gt;
 
 &lt;table style=&#34;margin-bottom:20px;&#34;&gt;

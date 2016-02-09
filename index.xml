@@ -2,19 +2,93 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Coding Journal</title>
-    <link>http://blog.kulman.sk/</link>
+    <link>https://blog.kulman.sk/</link>
     <description>Recent content on Coding Journal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 Dec 2015 15:44:50 +0100</lastBuildDate>
-    <atom:link href="http://blog.kulman.sk/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 Feb 2016 09:29:12 +0100</lastBuildDate>
+    <atom:link href="https://blog.kulman.sk/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>How to handle localization strings provided by the client in a Windows Phone app</title>
+      <link>https://blog.kulman.sk/how-to-handle-localization-strings-provided-by-client</link>
+      <pubDate>Tue, 09 Feb 2016 09:29:12 +0100</pubDate>
+      
+      <guid>https://blog.kulman.sk/how-to-handle-localization-strings-provided-by-client</guid>
+      <description>&lt;p&gt;I currently work on a Windows Phone 8.1 app for a client with an interesting approach to app localization. They have a Google Docs sheet with all the localization string for the app in all the supported languages and a tool that converts this localization strings in to per-language versioned JSON files. The generated JSON files are kept in a git repository. The Android, iOS and now my Windows Phone app should have the git repository added as a submodule. When a new version of the JSON files with the localization appear in the submodule, the app should use them.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Deciding the localization approach&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In the old days of Windows Phone 7 and Windows Phone 8 I would simply write an utility that reads the newest version of the JSON localization files and generate a RESX file for each language. RESX is XML format that is simple to generate. If you had a localized string with a key say Game, you would put it everywhere when the localization of the word game was needed. Simple&lt;/p&gt;
+
+&lt;p&gt;In Windows Phone 8.1 (and 10) you should use RESW files for localization. This is the new x:Uid approach that, in my honest opinion, really sucks. It forces you to duplicate string if you use I string in multiple places, there is no design time support, you never know what UI element are localized and what you forgot to localize. Simply put, it is a mess. This approach is not usable at all with the string client provides.&lt;/p&gt;
+
+&lt;p&gt;There is no way to make any script generate a RESW file with duplicated string matching the multiple usages of each string. If you have a localized string with a key Game and 2 TextBlocks and 1 Buttons that use it, you need to put it into the RESW file 3 times, once for each UI element. SO instead of a Game key, you would have a GameTextBlock.Text key, an AnotherGameTextBlock.Text and a GameButton.Content key, all with the same value and applied in design time. Madness.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Using RESX files on Windows Phone 8.1&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;One approach to solve this problem is to use the good old RESX files with your Windows Phone 8.1 project. Typically by creating a Portable Class Library (PCL) with the RESX files, doing a bit of configuration for the supported languages and linking this PCL project to your Windows Phone 8.1 project. You can find a few articles about this approach online and also a few gotchas and their solutions. It sounds like a good idea at first, but it is too problematic for my tastes.&lt;/p&gt;
+
+&lt;p&gt;I tried this approach but ended frustrated with too many problems too solve, like Visual Studio hanging when deploying to a device when using RESX files. So I decided to go with a custom solution.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Generating Windows Phone 8-like localization strings&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally I decided to generate a class that would look and behave similar to the old Windows Phone 8-like localization strings class. The idea is quite simple, no need to a PCL or any RESX files.&lt;/p&gt;
+
+&lt;p&gt;The first step is to create a directory and empty RESW files for each supported language in the Windows Phone 8.1 project&lt;/p&gt;
+
+&lt;img src=&#34;https://blog.kulman.sk/images/languages.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+
+&lt;p&gt;Then write a script that generates all the RESW files from the newest JSON localization files&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=localization-converter-1.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Now with the RESW files populated with all the localization string it is time to put them to use. First I created a &lt;code&gt;LocalizedStrings&lt;/code&gt; class very similar to the one in Windows Phone 8:&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=LocalizedStrings.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;and added it to &lt;code&gt;App.xaml&lt;/code&gt; as a dictionary resources called &lt;code&gt;S&lt;/code&gt;&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=App.xaml&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;The interesting ans still missing part is the &lt;code&gt;AppResources&lt;/code&gt; class referenced in &lt;code&gt;LocalizedStrings&lt;/code&gt;. It is a partial class, consisting of &lt;code&gt;ResourceLoader&lt;/code&gt; instance to get the string at runtime and a Singleton to get the string from C# code&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=AppResources.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;The second part of this class is generated by the same script that generates the RESW files. For each key in the localization string, it generates a property like this in the &lt;code&gt;AppResources&lt;/code&gt; class&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=AppResources.strings.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;The code to generate this is part of the script&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=localization-converter-2.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;The result&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;When you put all this pieces together, you have a RESW files with all the localization strings and a localization class that can be generated on demand. I run the script and generate the files every time there is an update in the git submodule with the JSON localization files.&lt;/p&gt;
+
+&lt;p&gt;When I want to use any of these localization string in XAML, I simply use it like this&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=xaml-usage.xaml&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Using a binding allows me to use to use the same localization keys for many elements and I do not have to duplicate the keys like in the x:Uid scenario.&lt;/p&gt;
+
+&lt;p&gt;If I need to used a localization string in C#, I have a strongly typed access to it&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/53a29b6e2143cac1ec8a.js?file=csharp-usage.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;instead of creating a &lt;code&gt;ResourceLoader&lt;/code&gt; instance and calling &lt;code&gt;GetString&lt;/code&gt; with a string parameter.&lt;/p&gt;
+
+&lt;p&gt;Another approach would be having a public property with the &lt;code&gt;AppResources&lt;/code&gt; instance in a &lt;code&gt;ViewModel&lt;/code&gt; base class, it would make the binding shorter.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>A week with Microsoft Band 2</title>
-      <link>http://blog.kulman.sk/a-week-with-microsoft-band-2</link>
+      <link>https://blog.kulman.sk/a-week-with-microsoft-band-2</link>
       <pubDate>Mon, 21 Dec 2015 09:29:12 +0100</pubDate>
       
-      <guid>http://blog.kulman.sk/a-week-with-microsoft-band-2</guid>
+      <guid>https://blog.kulman.sk/a-week-with-microsoft-band-2</guid>
       <description>&lt;p&gt;About a week ago I got a Microsoft Band 2. I really wanted to try out the device, because this second generation does not look as bad as the first one, there are new sensors added and generally it should be a visible improvement over the original Band. I have been an iPhone users for about two years now (approximately the time since last good Windows Phone device was released), currently using iPhone 6s so I was also curious to know how well the Band 2 works with iOS. This blog post sums up my impressions after a week of using the Microsoft Band 2 with my iPhone.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Expectations and habits&lt;/strong&gt;&lt;/p&gt;
@@ -35,18 +109,18 @@
 
 &lt;p&gt;After I installed the Microsoft Health app for iOS on my phone, the pairing was quick without any problems. The app installed a firmware updated to the Band 2 while pairing. The next day the Microsoft Health app was updated and it updated the firmware in the Band 2 again. This time  the firmware update brought two new functions: controlling the music playback and inactivity reminder. I do not much care about the music controls, I can pause my podcasts using the button on my headphones. Inactivity reminder is a great feature, reminding you to wake up and take a few steps when sitting idle for a long time. I really do not know why this function was not in the Band from the beginning.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.kulman.sk/images/BandSetup.png&#34; class=&#34;pure-img-width&#34;&gt;
-&lt;img src=&#34;http://blog.kulman.sk/images/BandUI2.png&#34; class=&#34;pure-img-width&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.kulman.sk/images/BandSetup.png&#34; class=&#34;pure-img-width&#34;&gt;
+&lt;img src=&#34;https://blog.kulman.sk/images/BandUI2.png&#34; class=&#34;pure-img-width&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Microsoft Health and Health Dashboard&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Microsoft Health is the app you use to configure and manage your Band. It has a &amp;ldquo;windowsy&amp;rdquo; look and feel event on iOS (including messed up margins on some screens). It can import data from the iOS Health app, so it can show you number of steps that the iPhone records. But it cannot export the data back to iOS Health. This means that data like the data about your sleep can be accessed only from the Microsoft Health app and are not propagated to other iOS app that can import data from iOS Health.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.kulman.sk/images/BandDashboard1.png&#34; class=&#34;pure-img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.kulman.sk/images/BandDashboard1.png&#34; class=&#34;pure-img&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;You can connect the Microsoft Health app to the Microsoft Health Vault, which has a nice web dashboard. This dashboard is more detailed and more simple to use that the app in the phone. But you have to be ok with your data being exported to some Microsoft data center. If you choose to use the Health Vault you can compare your data to groups of other people. I do not know about any other platforms that allows you to do this. And it is always nice to compare your data to people of similar age, height and weight and see that you condition is not as bad as you may have thought.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.kulman.sk/images/BandDashboard2.png&#34; class=&#34;pure-img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.kulman.sk/images/BandDashboard2.png&#34; class=&#34;pure-img&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Apps and Web Tiles&lt;/strong&gt;&lt;/p&gt;
 
@@ -58,8 +132,8 @@
 
 &lt;p&gt;The Band counts your steps, distance traveled, floors climbed and checks your heart rate while at it. If you go for a run you can enable GPS and track your route.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.kulman.sk/images/BandSteps.png&#34; class=&#34;pure-img-width&#34;&gt;
-&lt;img src=&#34;http://blog.kulman.sk/images/BandGPS.png&#34; class=&#34;pure-img-width&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.kulman.sk/images/BandSteps.png&#34; class=&#34;pure-img-width&#34;&gt;
+&lt;img src=&#34;https://blog.kulman.sk/images/BandGPS.png&#34; class=&#34;pure-img-width&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;I could not have the Band on me while going to my Wing Chun practice. It would get destroyed. No similar devices are meant to be used when doing martial arts. It is a shame, I would be really interested to see my heart rate history doing the practice.&lt;/p&gt;
 
@@ -67,8 +141,8 @@
 
 &lt;p&gt;Sleep tracking is the feature I was looking forward to the most. The Band track the time it takes you to fall asleep, the length and quality of your sleep (deep and light sleep cycles), the number of times you wake up and your heart rate. It can function as an alarm, waking you up in the morning by vibrating on your wrist. The alarm can be set to a specific time or you can use the smart alarm feature. The smart alarm monitors your sleep cycle and always wakes you up in a light sleep phase, up to 30 minutes before the time you set. For me it basically meant getting up 30 minutes earlier every day.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.kulman.sk/images/BandSleep1.png&#34; class=&#34;pure-img-width&#34;&gt;
-&lt;img src=&#34;http://blog.kulman.sk/images/BandSleep2.png&#34; class=&#34;pure-img-width&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.kulman.sk/images/BandSleep1.png&#34; class=&#34;pure-img-width&#34;&gt;
+&lt;img src=&#34;https://blog.kulman.sk/images/BandSleep2.png&#34; class=&#34;pure-img-width&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Notifications&lt;/strong&gt;&lt;/p&gt;
 
@@ -76,7 +150,7 @@
 
 &lt;p&gt;I did not bother to set up notifications for other apps. But the Microsoft Health app also offered me notifications for Calendar, Facebook, Facebook Messenger, Twitter and a generic one called Notifications Center.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.kulman.sk/images/BandUI1.png&#34; class=&#34;pure-img-width&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.kulman.sk/images/BandUI1.png&#34; class=&#34;pure-img-width&#34;&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Battery usage&lt;/strong&gt;&lt;/p&gt;
 
@@ -108,13 +182,13 @@
     
     <item>
       <title>Mobilize.net: Converting Windows Phone 8 apps to UWP? Not really</title>
-      <link>http://blog.kulman.sk/mobilize-net-converting-windows-phone-apps-to-uwp</link>
+      <link>https://blog.kulman.sk/mobilize-net-converting-windows-phone-apps-to-uwp</link>
       <pubDate>Fri, 18 Dec 2015 09:29:12 +0100</pubDate>
       
-      <guid>http://blog.kulman.sk/mobilize-net-converting-windows-phone-apps-to-uwp</guid>
+      <guid>https://blog.kulman.sk/mobilize-net-converting-windows-phone-apps-to-uwp</guid>
       <description>&lt;p&gt;When Microsoft announced the Windows 10 developer platform, they also announced bridges to make porting apps from Android, iOS and Web easier. Those bridges are now either dead (Android) or unusable (iOS) but there is another tool that can be considered a bridge left. It is called &lt;a href=&#34;http://www.mobilize.net/download-silverlight-bridge&#34;&gt;Mobilize.net Silverlight&lt;/a&gt; Bridge and it is not from Microsoft. It promises converting existing Windows Phone 8 (Silverlight apps) to the Universal Windows Platform. Considering the majority of apps in the Windows Phone Store are Windows Phone 8 apps and the fact that Android and iOS developers do not really care about Windows, Mobilize.net seem to be the most useful of the bridges, because there is no easy porting apps from Windows Phone 8 to UWP, just rewriting. So I tried it out.&lt;/p&gt;
 
-&lt;img src=&#34;http://blog.kulman.sk/images/Windows10-Devices.png?t=1449725816496&amp;amp;width=425&amp;amp;height=210&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+&lt;img src=&#34;https://blog.kulman.sk/images/Windows10-Devices.png?t=1449725816496&amp;amp;width=425&amp;amp;height=210&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
 &lt;p&gt;Mobilize.net is currently in technical preview. After you download and install it, it integrates into Visual Studio 2015 and there is a new context menu for Windows Phone 8 project, allowing you to convert them to UWP apps. If you use it, you get a dialog windows and a conversion process that will fail most of the times with a strange error. At least for me it did.&lt;/p&gt;
 
@@ -134,10 +208,10 @@
     
     <item>
       <title>Detecting gestures over WebView on Windows Phone</title>
-      <link>http://blog.kulman.sk/detecting-gestures-over-webview-on-windows-phone/</link>
+      <link>https://blog.kulman.sk/detecting-gestures-over-webview-on-windows-phone/</link>
       <pubDate>Mon, 07 Dec 2015 09:29:12 +0100</pubDate>
       
-      <guid>http://blog.kulman.sk/detecting-gestures-over-webview-on-windows-phone/</guid>
+      <guid>https://blog.kulman.sk/detecting-gestures-over-webview-on-windows-phone/</guid>
       <description>&lt;p&gt;If you develop Windows Phone apps, you surely had to use the WebView component at least once. Any you must have realized, that it kind of sucks. One of the problems is that it swallows all the gestures and manipulation events. This means you cannot put it into a Pivot, you cannot detect swipe left or right events to navigate to next or previous article .. or can you?&lt;/p&gt;
 
 &lt;p&gt;In a recent project, I had to implement exactly the mentioned functionality, swiping between articles displayed in a WebView. I did some research and I could not find any solution. So I had to get creative and I find a way involving JavaScript.&lt;/p&gt;
@@ -154,10 +228,10 @@
     
     <item>
       <title>The sad state of DVLUP (MS Tech Rewards)</title>
-      <link>http://blog.kulman.sk/the-sad-state-of-dvlup-ms-tech-rewards/</link>
+      <link>https://blog.kulman.sk/the-sad-state-of-dvlup-ms-tech-rewards/</link>
       <pubDate>Wed, 25 Nov 2015 12:41:12 +0100</pubDate>
       
-      <guid>http://blog.kulman.sk/the-sad-state-of-dvlup-ms-tech-rewards/</guid>
+      <guid>https://blog.kulman.sk/the-sad-state-of-dvlup-ms-tech-rewards/</guid>
       <description>&lt;p&gt;If you are a Windows Phone developer you must know DVLUP. It was a program for developers developed by Nokia. The idea was simple. Do Windows Phone development related challenges, make your apps better thanks to them, get points, exchange points for rewards. Sounds good, does it not?&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Interesting, but location dependent&lt;/strong&gt;&lt;/p&gt;
@@ -187,10 +261,10 @@
     
     <item>
       <title>Going static: From Wordpress to Hugo</title>
-      <link>http://blog.kulman.sk/going-static-from-wordpress-to-hugo</link>
+      <link>https://blog.kulman.sk/going-static-from-wordpress-to-hugo</link>
       <pubDate>Mon, 23 Nov 2015 13:13:55 +0100</pubDate>
       
-      <guid>http://blog.kulman.sk/going-static-from-wordpress-to-hugo</guid>
+      <guid>https://blog.kulman.sk/going-static-from-wordpress-to-hugo</guid>
       <description>&lt;p&gt;As you may have noticed, &lt;a href=&#34;http://www.smashingmagazine.com/2015/11/modern-static-website-generators-next-big-thing/?utm_content=buffer882bd&amp;amp;utm_medium=social&amp;amp;utm_source=twitter.com&amp;amp;utm_campaign=buffer&#34;&gt;static site generation is the next big think&lt;/a&gt;. When I created this blog a few years ago I choose Wordpress, because it seemed like a good choice. Now I have grown tired with updating plugins, exchanging broken plugins for alternative ones and so one. So I decided to try to go the static site generation route to make the blog easier to maintain.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Jekyll? Octopress? FsBlog? Hugo!&lt;/strong&gt;&lt;/p&gt;
@@ -213,10 +287,10 @@
     
     <item>
       <title>Enabling and disabling hardware devices with PowerShell</title>
-      <link>http://blog.kulman.sk/enabling-and-disabling-hardware-devices-with-powershell/</link>
+      <link>https://blog.kulman.sk/enabling-and-disabling-hardware-devices-with-powershell/</link>
       <pubDate>Fri, 06 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/enabling-and-disabling-hardware-devices-with-powershell/</guid>
+      <guid>https://blog.kulman.sk/enabling-and-disabling-hardware-devices-with-powershell/</guid>
       <description>&lt;p&gt;I have a built-in fingerprint reader on my Thinkpad notebook that I use for loging in almost exclusively. I say almost because since I upgraded to Windows 10 it sometimes just stops working when the computer wakes up from sleep. I found out that to make it work again I have to go to the Device Manager, find it, disable it and enabled it back again.&lt;/p&gt;
 
 &lt;p&gt;Of course, I was looking for a way to automate this, because I do not think that this issue will be fixed any time soon by Microsoft or Lenovo. I found out there is a &lt;a href=&#34;https://gallery.technet.microsoft.com/Device-Management-7fad2388&#34;&gt;PowerShell cmdlet that expose device enumeration and management APIs&lt;/a&gt;. Using this cmdlet I wrote a simple PowerShell script to the the work.&lt;/p&gt;
@@ -229,44 +303,44 @@
     
     <item>
       <title>Visual Studio extensions to make your life easier</title>
-      <link>http://blog.kulman.sk/visual-studio-extensions-to-make-your-life-easier/</link>
+      <link>https://blog.kulman.sk/visual-studio-extensions-to-make-your-life-easier/</link>
       <pubDate>Mon, 02 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/visual-studio-extensions-to-make-your-life-easier/</guid>
+      <guid>https://blog.kulman.sk/visual-studio-extensions-to-make-your-life-easier/</guid>
       <description>&lt;p&gt;This blog post is inspired by the &lt;a href=&#34;http://hmemcpy.com/2015/10/7-open-source-visual-studio-extensions-to-make-your-life-easier/&#34;&gt;7 open-source Visual Studio Extensions to make your life easier&lt;/a&gt; article. In the article Igal Tabachnik showed his favorite Visual Studio extensions, that were quite interesting. I also use a few Visual Studio extensions that make my life easier, so I decided to share.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://visualstudiogallery.msdn.microsoft.com/e792686d-542b-474a-8c55-630980e72c30&#34;&gt;Indent Guides&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Small and simple extension with just one task, displaying indent and page width guides in Visual Studio text editor windows. There are three styles of guides: solid, dotted and dashed, available in thin and thick varieties and customizable color.&lt;/p&gt;
 
-&lt;img src=&#34;http://blog.kulman.sk/images/guides.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+&lt;img src=&#34;https://blog.kulman.sk/images/guides.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.visualstudiogallery.msdn.microsoft.com/f4d9c2b5-d6d7-4543-a7a5-2d7ebabc2496&#34;&gt;VSColorOutput&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;VSColorOutput can change the color of a line emitted to the output window based on specified rules. The rules consist of regular expressions. Rules map to classifications which in turn map to colors. The default patterns will color build errors in red, warnings in yellow/gold and successful build messages in green. It also colors the output of debug messages when running an app, so you can easily sort exceptions and your custom debug messages containing certain words.&lt;/p&gt;
 
-&lt;img src=&#34;http://blog.kulman.sk/images/vscoloroutput.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+&lt;img src=&#34;https://blog.kulman.sk/images/vscoloroutput.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://visualstudiogallery.msdn.microsoft.com/f3f23845-5b1e-4811-882f-60b7181fa6d6&#34;&gt;Rename Visual Studio Windows Title&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;By default, Visual Studio shows the name of the opened solution name in the title. This makes it easier to navigate among multiple instances of Visual Studio. You see the solution name next to the Visual Studio icon in the taskbar and also in the task manager, when you have to (and we all sometimes have to) kill the right Visual Studio because it stopped responding. You can use it with Git and show the branch or any other info. For more information about this extension, see a &lt;a href=&#34;http://blog.kulman.sk/quick-tip-showing-solution-branch-name-in-visual-studio-title/&#34;&gt;separate blog post I wrote&lt;/a&gt;.&lt;/p&gt;
 
-&lt;img src=&#34;http://blog.kulman.sk/images/trayalya.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+&lt;img src=&#34;https://blog.kulman.sk/images/trayalya.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://visualstudiogallery.msdn.microsoft.com/03448836-db42-46b3-a5c7-5fc5d36a8308&#34;&gt;AsyncFixer&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;AsyncFixer helps developers in finding and correcting 3 common async/await misuses. AsyncFixer was tested with hundreds of C# apps and successfully handles many corner cases. AsyncFixer will work just in the IDE and work as an analyzer on every project you open in Visual Studio. It can also operate in batch mode to correct all misuses in the document, project, or solution.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://blog.kulman.sk/images/asyncfixer-1.gif&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://blog.kulman.sk/images/asyncfixer-1.gif&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Lenovo, why do you screw Thinkpads with every update?</title>
-      <link>http://blog.kulman.sk/lenovo-why-do-you-screw-thinkpads-with-every-update/</link>
+      <link>https://blog.kulman.sk/lenovo-why-do-you-screw-thinkpads-with-every-update/</link>
       <pubDate>Wed, 21 Oct 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/lenovo-why-do-you-screw-thinkpads-with-every-update/</guid>
+      <guid>https://blog.kulman.sk/lenovo-why-do-you-screw-thinkpads-with-every-update/</guid>
       <description>&lt;p&gt;I have a Lenovo Thinpad T440s that I got about a year ago after a great experience with a company issued Lenovo Thinkpad T420 I used for about two and half years before that. I use it daily for on-site work, not so much at home, where I have a desktop computer. The T440s is thinner and lighter than T420, but otherwise everything is just worse. You cannot change RAM or disk so easily as on the T420, the keyboard and trackpoint are worse (the trackpoint does not have physical buttons like on the T420 but &lt;a href=&#34;http://camerongray.me/2015/02/fitting-physical-trackpoint-buttons-to-a-lenovo-thinkpad-t440s/&#34;&gt;I had it replaced for one that does&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;So why did I get the T440s? Because it seemed like a wise choice at the time, compared to the competition. It has a trackpoint, fingerprint reader, a keyboard with all the keys in the right place and it is, after all, a Thinkpad, a sturdy and reliable work machine build from good materials.&lt;/p&gt;
@@ -297,13 +371,13 @@
     
     <item>
       <title>Highlighting letters in TextBlock in Windows Phone 8.1 and Windows 8.1</title>
-      <link>http://blog.kulman.sk/highlighting-letters-in-textblock-in-windows-phone-8-1-and-windows-8-1/</link>
+      <link>https://blog.kulman.sk/highlighting-letters-in-textblock-in-windows-phone-8-1-and-windows-8-1/</link>
       <pubDate>Sat, 17 Oct 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/highlighting-letters-in-textblock-in-windows-phone-8-1-and-windows-8-1/</guid>
+      <guid>https://blog.kulman.sk/highlighting-letters-in-textblock-in-windows-phone-8-1-and-windows-8-1/</guid>
       <description>&lt;p&gt;In my current project I had to implement an interesting feature for both Windows Phone 8.1 and Windows 8.1 project of the Universal app. The idea is simply. The users want to search for a movie. They enter a search term into a TextBox and a list of results is shown. The results should have the search term highlighted in them.&lt;/p&gt;
 
-&lt;img src=&#34;http://blog.kulman.sk/images/highlighting.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+&lt;img src=&#34;https://blog.kulman.sk/images/highlighting.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
 
 &lt;p&gt;The standard TextBlock used to display the movie titles does not support any kind of letter highlighting, so I had to write a custom one. I created a custom UserControl. The UserControl contains a few dependency properties Text, HighlightedText, HighlightBrush and a TextBlock. When Text or HighlightedText change, the Text is then split into multiple Runs that are added to the TextBlock.&lt;/p&gt;
 
@@ -315,10 +389,10 @@
     
     <item>
       <title>Strange combination of HTTPS and Windows Phone 8.1 that can make your app and phone freeze</title>
-      <link>http://blog.kulman.sk/strange-combination-of-https-and-windows-phone-8-1-that-can-make-your-app-and-phone-freeze/</link>
+      <link>https://blog.kulman.sk/strange-combination-of-https-and-windows-phone-8-1-that-can-make-your-app-and-phone-freeze/</link>
       <pubDate>Fri, 11 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://blog.kulman.sk/strange-combination-of-https-and-windows-phone-8-1-that-can-make-your-app-and-phone-freeze/</guid>
+      <guid>https://blog.kulman.sk/strange-combination-of-https-and-windows-phone-8-1-that-can-make-your-app-and-phone-freeze/</guid>
       <description>&lt;p&gt;Last week I came upon a really bizarre problem that you may also find interesting. Lets start with a bit of context.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Tl;Dr&lt;/strong&gt;: There seems to be a bug in Windows phone 8.1 that can make your app and the phone freezes when displaying images over HTTPS from some servers. Skip to &lt;a href=&#34;#bug&#34;&gt;the end of this article&lt;/a&gt; to see a video and get the source code.&lt;/p&gt;
@@ -348,26 +422,6 @@
 &lt;div class=&#34;embed video-player&#34;&gt;
 &lt;iframe src=&#34;http://player.vimeo.com/video/138747871&#34; width=&#34;640&#34; height=&#34;385&#34; frameborder=&#34;0&#34; webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Microsoft’s Outlook on Android and iOS</title>
-      <link>http://blog.kulman.sk/microsofts-outlook-on-android-and-ios/</link>
-      <pubDate>Thu, 10 Sep 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://blog.kulman.sk/microsofts-outlook-on-android-and-ios/</guid>
-      <description>&lt;p&gt;To those who don’t know, Microsoft launched several months ago Outlook for Android and iOS phones and tablets. Microsoft’s new brand of Outlook have replace the failing “Outlook-branded apps” that are only available to the current subscribers of Office 365. The upheaval comes after Microsoft acquired San Francisco-based company, &lt;a href=&#34;https://www.acompli.com/&#34;&gt;Acompli.com&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://blog.kulman.sk/images/Outlook-Best-New-Apps.png&#34; class=&#34;pure-img-width&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;Acompli is an “advanced email application that empowers professionals to do more with emails, full calendaring, easy file sharing and log all the important people in one email format.” The format supports Microsoft’s Office 365, Gmail and Google Apps.&lt;/p&gt;
-
-&lt;p&gt;Microsoft’s plan is for both the Accompli and the new Outlook app to replace the rather dated Outlook-branded apps. The newfangled Outlook app is primarily based on the technology from the Acompli app that the company acquired for $200 million. Microsoft stated that it was a major factor in buying the app, as its staff could then make up the core group of engineers needed to drive the new Outlook app forward.&lt;/p&gt;
-
-&lt;p&gt;It’s no surprise that Microsoft is shifting its focus from PC-installed base as &lt;a href=&#34;http://www.geekwire.com/2014/flurry-report-mobile-phones-162-minutes/&#34;&gt;GeekWire.com&lt;/a&gt; reports that a study showed Americans spend approximately 162 minutes a day on their phones browsing. And with Gaming Realms, the developer behind the entertainment medium &lt;a href=&#34;https://www.pocketfruity.com/casino&#34;&gt;PocketFruity.com&lt;/a&gt;, claiming that the global smartphone use has now reached 17%, apps are seeing a spike regarding financial investments and support.&lt;/p&gt;
-
-&lt;p&gt;It will be interesting to see how well the new Outlook app is received after a year or so. With the app retaining many of the features that its recent acquisition Acompli successfully exhibited, there’s a possibility that the consumer base may just stay with the Acompli until Outlook perfects the new app further, and add features that will set it apart from other leading email applications.&lt;/p&gt;
 </description>
     </item>
     

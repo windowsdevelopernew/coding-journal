@@ -28,11 +28,11 @@
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
     <!--<![endif]-->
 
-    <link rel="stylesheet" href="http://blog.kulman.sk/css/all.min.css">    
+    <link rel="stylesheet" href="https://blog.kulman.sk/css/all.min.css">    
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://blog.kulman.sk/css/custom.css">
+    <link rel="stylesheet" href="https://blog.kulman.sk/css/custom.css">
 
-    <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="http://blog.kulman.sk/index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="https://blog.kulman.sk/index.xml" />
 </head>
 <body>
 
@@ -41,7 +41,7 @@
     <div class="sidebar pure-u-1 pure-u-md-1-4">
     <div class="header">
         <hgroup>
-            <h1 class="brand-title"><a href="http://blog.kulman.sk">Coding Journal</a></h1>
+            <h1 class="brand-title"><a href="https://blog.kulman.sk">Coding Journal</a></h1>
             <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
         </hgroup>
 
@@ -58,7 +58,7 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="pure-button" href="http://blog.kulman.sk/index.xml"><i class="fa fa-rss"></i> rss</a>
+                    <a class="pure-button" href="https://blog.kulman.sk/index.xml"><i class="fa fa-rss"></i> rss</a>
                 </li>
             </ul>
         </nav>
@@ -80,11 +80,11 @@
             
             <div class="posts">
                 
-                <h1 class="content-subhead">21 Dec 2015, 09:29</h1>
+                <h1 class="content-subhead">09 Feb 2016, 09:29</h1>
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="http://blog.kulman.sk/a-week-with-microsoft-band-2" class="post-title">A week with Microsoft Band 2</a>
+                        <a href="https://blog.kulman.sk/how-to-handle-localization-strings-provided-by-client" class="post-title">How to handle localization strings provided by the client in a Windows Phone app</a>
 
                         <p class="post-meta">
                             
@@ -93,7 +93,43 @@
                             
                                 under 
                                 
-                                <a class="post-category post-category-Micorosft Band" href="http://blog.kulman.sk/categories/micorosft-band">Micorosft Band</a><a class="post-category post-category-iOS" href="http://blog.kulman.sk/categories/ios">iOS</a>
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="https://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>I currently work on a Windows Phone 8.1 app for a client with an interesting approach to app localization. They have a Google Docs sheet with all the localization string for the app in all the supported languages and a tool that converts this localization strings in to per-language versioned JSON files. The generated JSON files are kept in a git repository. The Android, iOS and now my Windows Phone app should have the git repository added as a submodule. When a new version of the JSON files with the localization appear in the submodule, the app should use them.</p>
+
+<p><strong>Deciding the localization approach</strong></p>
+
+<p>In the old days of Windows Phone 7 and Windows Phone 8 I would simply write an utility that reads the newest version of the JSON localization files and generate a RESX file for each language. RESX is XML format that is simple to generate. If you had a localized string with a key say Game, you would put it everywhere when the localization of the word game was needed. Simple</p>
+
+<p>In Windows Phone 8.1 (and 10) you should use RESW files for localization. This is the new x:Uid approach that, in my honest opinion, really sucks. It forces you to duplicate string if you use I string in multiple places, there is no design time support, you never know what UI element are localized and what you forgot to localize. Simply put, it is a mess. This approach is not usable at all with the string client provides.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/how-to-handle-localization-strings-provided-by-client">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">21 Dec 2015, 09:29</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/a-week-with-microsoft-band-2" class="post-title">A week with Microsoft Band 2</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Microsoft Band" href="https://blog.kulman.sk/categories/microsoft-band">Microsoft Band</a><a class="post-category post-category-iOS" href="https://blog.kulman.sk/categories/ios">iOS</a>
                             
                         </p>
                     </header>
@@ -120,7 +156,7 @@
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="http://blog.kulman.sk/mobilize-net-converting-windows-phone-apps-to-uwp" class="post-title">Mobilize.net: Converting Windows Phone 8 apps to UWP? Not really</a>
+                        <a href="https://blog.kulman.sk/mobilize-net-converting-windows-phone-apps-to-uwp" class="post-title">Mobilize.net: Converting Windows Phone 8 apps to UWP? Not really</a>
 
                         <p class="post-meta">
                             
@@ -129,7 +165,7 @@
                             
                                 under 
                                 
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-UWP" href="http://blog.kulman.sk/categories/uwp">UWP</a><a class="post-category post-category-XAML" href="http://blog.kulman.sk/categories/xaml">XAML</a>
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-UWP" href="https://blog.kulman.sk/categories/uwp">UWP</a><a class="post-category post-category-XAML" href="https://blog.kulman.sk/categories/xaml">XAML</a>
                             
                         </p>
                     </header>
@@ -154,7 +190,7 @@
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="http://blog.kulman.sk/detecting-gestures-over-webview-on-windows-phone/" class="post-title">Detecting gestures over WebView on Windows Phone</a>
+                        <a href="https://blog.kulman.sk/detecting-gestures-over-webview-on-windows-phone/" class="post-title">Detecting gestures over WebView on Windows Phone</a>
 
                         <p class="post-meta">
                             
@@ -163,7 +199,7 @@
                             
                                 under 
                                 
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WINRT" href="http://blog.kulman.sk/categories/winrt">WINRT</a><a class="post-category post-category-XAML" href="http://blog.kulman.sk/categories/xaml">XAML</a>
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WINRT" href="https://blog.kulman.sk/categories/winrt">WINRT</a><a class="post-category post-category-XAML" href="https://blog.kulman.sk/categories/xaml">XAML</a>
                             
                         </p>
                     </header>
@@ -186,7 +222,7 @@
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="http://blog.kulman.sk/the-sad-state-of-dvlup-ms-tech-rewards/" class="post-title">The sad state of DVLUP (MS Tech Rewards)</a>
+                        <a href="https://blog.kulman.sk/the-sad-state-of-dvlup-ms-tech-rewards/" class="post-title">The sad state of DVLUP (MS Tech Rewards)</a>
 
                         <p class="post-meta">
                             
@@ -195,7 +231,7 @@
                             
                                 under 
                                 
-                                <a class="post-category post-category-Rants" href="http://blog.kulman.sk/categories/rants">Rants</a>
+                                <a class="post-category post-category-Rants" href="https://blog.kulman.sk/categories/rants">Rants</a>
                             
                         </p>
                     </header>
@@ -222,7 +258,7 @@
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="http://blog.kulman.sk/going-static-from-wordpress-to-hugo" class="post-title">Going static: From Wordpress to Hugo</a>
+                        <a href="https://blog.kulman.sk/going-static-from-wordpress-to-hugo" class="post-title">Going static: From Wordpress to Hugo</a>
 
                         <p class="post-meta">
                             
@@ -231,7 +267,7 @@
                             
                                 under 
                                 
-                                <a class="post-category post-category-Web" href="http://blog.kulman.sk/categories/web">Web</a>
+                                <a class="post-category post-category-Web" href="https://blog.kulman.sk/categories/web">Web</a>
                             
                         </p>
                     </header>
@@ -256,7 +292,7 @@
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="http://blog.kulman.sk/enabling-and-disabling-hardware-devices-with-powershell/" class="post-title">Enabling and disabling hardware devices with PowerShell</a>
+                        <a href="https://blog.kulman.sk/enabling-and-disabling-hardware-devices-with-powershell/" class="post-title">Enabling and disabling hardware devices with PowerShell</a>
 
                         <p class="post-meta">
                             
@@ -265,7 +301,7 @@
                             
                                 under 
                                 
-                                <a class="post-category post-category-PowerShell" href="http://blog.kulman.sk/categories/powershell">PowerShell</a>
+                                <a class="post-category post-category-PowerShell" href="https://blog.kulman.sk/categories/powershell">PowerShell</a>
                             
                         </p>
                     </header>
@@ -288,7 +324,7 @@
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="http://blog.kulman.sk/visual-studio-extensions-to-make-your-life-easier/" class="post-title">Visual Studio extensions to make your life easier</a>
+                        <a href="https://blog.kulman.sk/visual-studio-extensions-to-make-your-life-easier/" class="post-title">Visual Studio extensions to make your life easier</a>
 
                         <p class="post-meta">
                             
@@ -297,7 +333,7 @@
                             
                                 under 
                                 
-                                <a class="post-category post-category-Programming in general" href="http://blog.kulman.sk/categories/programming-in-general">Programming in general</a>
+                                <a class="post-category post-category-Programming in general" href="https://blog.kulman.sk/categories/programming-in-general">Programming in general</a>
                             
                         </p>
                     </header>
@@ -318,7 +354,7 @@
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="http://blog.kulman.sk/lenovo-why-do-you-screw-thinkpads-with-every-update/" class="post-title">Lenovo, why do you screw Thinkpads with every update?</a>
+                        <a href="https://blog.kulman.sk/lenovo-why-do-you-screw-thinkpads-with-every-update/" class="post-title">Lenovo, why do you screw Thinkpads with every update?</a>
 
                         <p class="post-meta">
                             
@@ -327,7 +363,7 @@
                             
                                 under 
                                 
-                                <a class="post-category post-category-Rants" href="http://blog.kulman.sk/categories/rants">Rants</a>
+                                <a class="post-category post-category-Rants" href="https://blog.kulman.sk/categories/rants">Rants</a>
                             
                         </p>
                     </header>
@@ -352,7 +388,7 @@
                 <section class="post">
                     <header class="post-header">
 
-                        <a href="http://blog.kulman.sk/highlighting-letters-in-textblock-in-windows-phone-8-1-and-windows-8-1/" class="post-title">Highlighting letters in TextBlock in Windows Phone 8.1 and Windows 8.1</a>
+                        <a href="https://blog.kulman.sk/highlighting-letters-in-textblock-in-windows-phone-8-1-and-windows-8-1/" class="post-title">Highlighting letters in TextBlock in Windows Phone 8.1 and Windows 8.1</a>
 
                         <p class="post-meta">
                             
@@ -361,7 +397,7 @@
                             
                                 under 
                                 
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="http://blog.kulman.sk/categories/winrt">WinRT</a>
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="https://blog.kulman.sk/categories/winrt">WinRT</a>
                             
                         </p>
                     </header>
@@ -375,44 +411,6 @@
                         
   <div class="read-more-link">
     <a href="/highlighting-letters-in-textblock-in-windows-phone-8-1-and-windows-8-1/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">11 Sep 2015, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="http://blog.kulman.sk/strange-combination-of-https-and-windows-phone-8-1-that-can-make-your-app-and-phone-freeze/" class="post-title">Strange combination of HTTPS and Windows Phone 8.1 that can make your app and phone freeze</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="http://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>Last week I came upon a really bizarre problem that you may also find interesting. Lets start with a bit of context.</p>
-
-<p><strong>Tl;Dr</strong>: There seems to be a bug in Windows phone 8.1 that can make your app and the phone freezes when displaying images over HTTPS from some servers. Skip to <a href="#bug">the end of this article</a> to see a video and get the source code.</p>
-
-<p><strong>The Windows Phone app</strong></p>
-
-<p>The app is a Windows Phone 8 shopping app for the biggest Czech online retailer. The main screen of the app contains quite a bit of data, usually about ten carousel with about 10 products and the list of main categories, so about 10 more images.</p>
-
-<p>In worst case the main screen contains over 10 hundred images. It was quite a hassle to make it work well in the Windows Phone 8 SDK (no, rewriting a shopping about with about 70 screens to Windows Phone 8.1 is not feasible). But it work juts fine. Until last week.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/strange-combination-of-https-and-windows-phone-8-1-that-can-make-your-app-and-phone-freeze/">Read More…</a>
   </div>
   
                     </div>
@@ -440,7 +438,7 @@
         </ul>
     </div>
 </div>
-<script src="http://blog.kulman.sk/js/all.min.js"></script>
+<script src="https://blog.kulman.sk/js/all.min.js"></script>
         </div>
     </div>
 </div>
