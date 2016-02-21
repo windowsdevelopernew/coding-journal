@@ -80,6 +80,38 @@
             
             <div class="posts">
                 
+                <h1 class="content-subhead">11 Jun 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/ignoring-certificate-errors-in-windows-phone-8-1/" class="post-title">Ignoring certificate errors in Windows Phone 8.1</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>Connecting to servers with self-signed, expired or otherwise problematic certificates has always been a problem in Windows Phone. There is no way to ignore certificate errors in Windows Phone 7 and Windows Phone 8, not even using the new Portable HTTP Client Libraries. If you are dealing with a self-signed certificate on the server, you have to somehow get it (may not always be possible) and install it on the device or in the emulator (for emulator every time you close and start it again). Ignoring certificate errors would be a much more comfortable approach. Of course, only do it in development with dev servers, not in production.</p>
+
+<p>In Windows Phone 8.1 there are strangely two HttpClient classes, one in System.Net.Http and another in Windows.Web.Http. Normally you would go with the one in System.Net.Http because you are probably using it thanks to the mentioned Portable HTTP Client Libraries on every other platform. You are out of luck in Windows Phone 8.1 XAML, if you want to ignore certificate errors, you have to use the one from Windows.Web.Http, because only this one accepts an IHttpFilter as an argument.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/ignoring-certificate-errors-in-windows-phone-8-1/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">23 Apr 2014, 00:00</h1>
                 <section class="post">
                     <header class="post-header">
@@ -401,40 +433,6 @@
                         
   <div class="read-more-link">
     <a href="/c-scripting-console-for-asp-net-mvc-application/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">02 Dec 2013, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/creating-a-search-box-with-reactive-extensions-and-mvvm/" class="post-title">Creating a Search box with Reactive Extensions and MVVM</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>Having a Search box in a Windows Phone app is a common use-case but it is only rarely done right. A good Search box does not have a Search button associated with it that the users have to click when they are finished typing and want to start the search. A good Search box starts the search immediately when the user stops typing (for a certain period of time).</p>
-
-<p>You can implement this functionality with some nasty code using a DispatcherTimer, or you can use [Reactive Extensions][1]. You can use Reactive Extensions directly on a TextBox representing the Search box, but if you use MVVM (and you should) you need to attach to the property associated with the Search box instead.</p>
-
-<p>Suppose the ViewModel contains a string property called SearchTerm (with two-way binding to the Search box) and an event called PropertyChanged (used for the INotifyPropertyChanged implementation). We need to observe the changes of the SearchTerm property. There is no way to do it directly, we need to observe the PropertyChanged event instead.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/creating-a-search-box-with-reactive-extensions-and-mvvm/">Read More…</a>
   </div>
   
                     </div>
