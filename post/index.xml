@@ -6,8 +6,42 @@
     <description>Recent content in Posts on Coding Journal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Feb 2016 09:29:12 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 14 Mar 2016 09:29:12 +0100</lastBuildDate>
     <atom:link href="https://blog.kulman.sk/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Choosing an image from gallery or camera a bit better in Universal Windows apps</title>
+      <link>https://blog.kulman.sk/choosing-an-image-from-gallery-or-camera-in-uwp</link>
+      <pubDate>Mon, 14 Mar 2016 09:29:12 +0100</pubDate>
+      
+      <guid>https://blog.kulman.sk/choosing-an-image-from-gallery-or-camera-in-uwp</guid>
+      <description>&lt;p&gt;When developing Windows Phone apps you may encounter a use case when you have to allow the user to either pick a photo from the photos gallery in the photo or a take a new photo using the phone&amp;rsquo;s camera. One example of this may be the registration process when the user may choose a profile picture.&lt;/p&gt;
+
+&lt;p&gt;In Windows Phone 8.1, this task is quite simple, just use the &lt;code&gt;FileOpenPicker&lt;/code&gt;. It allows you to pick a photo from the gallery or take a new photo. Just take a look at this animation showing how the users takes a new photo using the phone&amp;rsquo;s camera.&lt;/p&gt;
+
+&lt;img src=&#34;https://blog.kulman.sk/images/wpa81.gif&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+
+&lt;p&gt;The code for this is relatively simple, although the &lt;code&gt;AndContinue&lt;/code&gt; pattern can be a pain&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/2885b4a6faa5b0861f17.js?file=pick-wpa81.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;In Windows 10 Mobile, the &lt;code&gt;FileOpenPicker&lt;/code&gt; has been changed to be more customizable. This make the process of  taking a new photo using the phone&amp;rsquo;s camera totally hidden. Not a chance a common user will discover it, just take a look at this animation.&lt;/p&gt;
+
+&lt;img src=&#34;https://blog.kulman.sk/images/uwp.gif&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+
+&lt;p&gt;So how to make this experience a bit better for the user? My solution is instead of launching the &lt;code&gt;FileOpenPicker&lt;/code&gt; showing a &lt;code&gt;Flyout&lt;/code&gt; with two options; Choose from gallery and Take photo. The Choose from gallery option just launches the &lt;code&gt;FileOpenPicker&lt;/code&gt;&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/2885b4a6faa5b0861f17.js?file=pick-uwp.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;and the Take photo option uses CameraCaptureUI to directly take a photo&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/2885b4a6faa5b0861f17.js?file=camera-uwp.cs&#34;&gt;&lt;/script&gt;       
+
+&lt;p&gt;The result might look like this. Do not forget to add an option to delete the photo if one is already chosen.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://blog.kulman.sk/images/uwp2.gif&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Using Hockey App to distribute Windows Phone apps</title>
@@ -39,7 +73,7 @@
 
 &lt;p&gt;&lt;strong&gt;Signing the binary&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Each time you submit a new build to Hockey App, you need to sign the binary (XAP in my case) with the certificate. The [signing process differs for XAP and APPX files][1].&lt;/p&gt;
+&lt;p&gt;Each time you submit a new build to Hockey App, you need to sign the binary (XAP in my case) with the certificate. The &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/windows/apps/dn168929(v=vs.105).aspx&#34;&gt;signing process differs for XAP and APPX files&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;For XAP files it is just calling the right PowerShell script with the correct parameters&lt;/p&gt;
 
@@ -52,9 +86,6 @@
 &lt;p&gt;Once you upload a signed binary to Hockey App, your testers can download it using a web browser to their devices. Each device needs to install the company profile (the application enrollment token) once, and then can install the builds you provide.&lt;/p&gt;
 
 &lt;p&gt;Installation of the Windows Phone app builds is a bit strange, no install progress or success messages, the app just appears in the list ofter one or two minutes. But it works, and it is much faster and more flexible than the Private Beta provides by the Windows Store.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[1]: https://msdn.microsoft.com/en-us/library/windows/apps/dn168929(v=vs.105).aspx
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -527,26 +558,6 @@
 &lt;p&gt;Funny thing about this form, I never found out how to delete this old account. If you select it, you can only edit it, no way to delete it. If I select the correct account and click save, nothing changes, the radios all remain unselected. I do now know it is a bug or another great Microsoft UI.&lt;/p&gt;
 
 &lt;p&gt;So I guess maybe the next payment will also get lost somewhere ..&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Quick Tip: Showing solution branch name in Visual Studio title</title>
-      <link>https://blog.kulman.sk/quick-tip-showing-solution-branch-name-in-visual-studio-title/</link>
-      <pubDate>Tue, 21 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.kulman.sk/quick-tip-showing-solution-branch-name-in-visual-studio-title/</guid>
-      <description>&lt;p&gt;By default, Visual Studio shows the name of the opened solution name in the title. This makes it easier to navigate among multiple instances of Visual Studio. You see the solution name next to the Visual Studio icon in the taskbar and also in the task manager, when you have to (and we all sometimes have to) kill the right Visual Studio because it stopped responding.&lt;/p&gt;
-
-&lt;p&gt;I work with Git, switching branches frequently, especially working on features and bug fixes. In this situation, it would be nice if Visual Studio showed not only the solution name but also the current branch in its title. No problem, there is an extension for that.&lt;/p&gt;
-
-&lt;p&gt;The extension is called &lt;a href=&#34;https://visualstudiogallery.msdn.microsoft.com/f3f23845-5b1e-4811-882f-60b7181fa6d6&#34;&gt;Rename Visual Studio Window&lt;/a&gt; and it works with Visual Studio 2015, 2013, 2012, 2010. This extension supports Git, so you can easily add the branch name to the title with a config like mine using [gitBranchName].&lt;/p&gt;
-
-&lt;img src=&#34;https://blog.kulman.sk/images/rename.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
-
-&lt;p&gt;Your taskbar will then look like this&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://blog.kulman.sk/images/trayalya.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
 </description>
     </item>
     

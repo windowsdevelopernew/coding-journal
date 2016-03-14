@@ -6,8 +6,42 @@
     <description>Recent content on Coding Journal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Feb 2016 09:29:12 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 14 Mar 2016 09:29:12 +0100</lastBuildDate>
     <atom:link href="https://blog.kulman.sk/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Choosing an image from gallery or camera a bit better in Universal Windows apps</title>
+      <link>https://blog.kulman.sk/choosing-an-image-from-gallery-or-camera-in-uwp</link>
+      <pubDate>Mon, 14 Mar 2016 09:29:12 +0100</pubDate>
+      
+      <guid>https://blog.kulman.sk/choosing-an-image-from-gallery-or-camera-in-uwp</guid>
+      <description>&lt;p&gt;When developing Windows Phone apps you may encounter a use case when you have to allow the user to either pick a photo from the photos gallery in the photo or a take a new photo using the phone&amp;rsquo;s camera. One example of this may be the registration process when the user may choose a profile picture.&lt;/p&gt;
+
+&lt;p&gt;In Windows Phone 8.1, this task is quite simple, just use the &lt;code&gt;FileOpenPicker&lt;/code&gt;. It allows you to pick a photo from the gallery or take a new photo. Just take a look at this animation showing how the users takes a new photo using the phone&amp;rsquo;s camera.&lt;/p&gt;
+
+&lt;img src=&#34;https://blog.kulman.sk/images/wpa81.gif&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+
+&lt;p&gt;The code for this is relatively simple, although the &lt;code&gt;AndContinue&lt;/code&gt; pattern can be a pain&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/2885b4a6faa5b0861f17.js?file=pick-wpa81.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;In Windows 10 Mobile, the &lt;code&gt;FileOpenPicker&lt;/code&gt; has been changed to be more customizable. This make the process of  taking a new photo using the phone&amp;rsquo;s camera totally hidden. Not a chance a common user will discover it, just take a look at this animation.&lt;/p&gt;
+
+&lt;img src=&#34;https://blog.kulman.sk/images/uwp.gif&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+
+&lt;p&gt;So how to make this experience a bit better for the user? My solution is instead of launching the &lt;code&gt;FileOpenPicker&lt;/code&gt; showing a &lt;code&gt;Flyout&lt;/code&gt; with two options; Choose from gallery and Take photo. The Choose from gallery option just launches the &lt;code&gt;FileOpenPicker&lt;/code&gt;&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/2885b4a6faa5b0861f17.js?file=pick-uwp.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;and the Take photo option uses CameraCaptureUI to directly take a photo&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/2885b4a6faa5b0861f17.js?file=camera-uwp.cs&#34;&gt;&lt;/script&gt;       
+
+&lt;p&gt;The result might look like this. Do not forget to add an option to delete the photo if one is already chosen.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://blog.kulman.sk/images/uwp2.gif&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Using Hockey App to distribute Windows Phone apps</title>
@@ -39,7 +73,7 @@
 
 &lt;p&gt;&lt;strong&gt;Signing the binary&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Each time you submit a new build to Hockey App, you need to sign the binary (XAP in my case) with the certificate. The [signing process differs for XAP and APPX files][1].&lt;/p&gt;
+&lt;p&gt;Each time you submit a new build to Hockey App, you need to sign the binary (XAP in my case) with the certificate. The &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/windows/apps/dn168929(v=vs.105).aspx&#34;&gt;signing process differs for XAP and APPX files&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;For XAP files it is just calling the right PowerShell script with the correct parameters&lt;/p&gt;
 
@@ -52,9 +86,6 @@
 &lt;p&gt;Once you upload a signed binary to Hockey App, your testers can download it using a web browser to their devices. Each device needs to install the company profile (the application enrollment token) once, and then can install the builds you provide.&lt;/p&gt;
 
 &lt;p&gt;Installation of the Windows Phone app builds is a bit strange, no install progress or success messages, the app just appears in the list ofter one or two minutes. But it works, and it is much faster and more flexible than the Private Beta provides by the Windows Store.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[1]: https://msdn.microsoft.com/en-us/library/windows/apps/dn168929(v=vs.105).aspx
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -381,40 +412,6 @@
 &lt;p&gt;AsyncFixer helps developers in finding and correcting 3 common async/await misuses. AsyncFixer was tested with hundreds of C# apps and successfully handles many corner cases. AsyncFixer will work just in the IDE and work as an analyzer on every project you open in Visual Studio. It can also operate in batch mode to correct all misuses in the document, project, or solution.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;https://blog.kulman.sk/images/asyncfixer-1.gif&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Lenovo, why do you screw Thinkpads with every update?</title>
-      <link>https://blog.kulman.sk/lenovo-why-do-you-screw-thinkpads-with-every-update/</link>
-      <pubDate>Wed, 21 Oct 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.kulman.sk/lenovo-why-do-you-screw-thinkpads-with-every-update/</guid>
-      <description>&lt;p&gt;I have a Lenovo Thinpad T440s that I got about a year ago after a great experience with a company issued Lenovo Thinkpad T420 I used for about two and half years before that. I use it daily for on-site work, not so much at home, where I have a desktop computer. The T440s is thinner and lighter than T420, but otherwise everything is just worse. You cannot change RAM or disk so easily as on the T420, the keyboard and trackpoint are worse (the trackpoint does not have physical buttons like on the T420 but &lt;a href=&#34;http://camerongray.me/2015/02/fitting-physical-trackpoint-buttons-to-a-lenovo-thinkpad-t440s/&#34;&gt;I had it replaced for one that does&lt;/a&gt;).&lt;/p&gt;
-
-&lt;p&gt;So why did I get the T440s? Because it seemed like a wise choice at the time, compared to the competition. It has a trackpoint, fingerprint reader, a keyboard with all the keys in the right place and it is, after all, a Thinkpad, a sturdy and reliable work machine build from good materials.&lt;/p&gt;
-
-&lt;p&gt;But not really. As every Thinkpad fan can tell you, the quality of Thinkpads is declining (even when not counting the plastic Thinkpad Edge computers that are not &amp;#8220;real&amp;#8221; Thinkpads). It seems like Lenovo simply does not care, making the hardware worse and software even more so. Gone are the superb ThinkVantage tools, only the Thinkpad update utility remained. And it often install software and drivers that can screw up your computer. It happened to many times, this is the latest incident.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Security BIOS update&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The latest problem is with a BIOS update. Lenovo releases BIOS 2.35 for my T440s, fixing a &lt;a href=&#34;https://support.lenovo.com/us/en/product_security/smm_attack&#34;&gt;SMM &amp;#8220;Incursion&amp;#8221; Attack&lt;/a&gt;. The BIOS update as pushed to me as critical using the Thinkpad update tools and fixing security problems is always a good thing. So I installed it. And problems started.&lt;/p&gt;
-
-&lt;p&gt;When I put the computer to sleep and it went from sleep to hibernation after 180 minutes (default settings), the computer started to beep madly and hung on a black screen. Not really a good sight.&lt;/p&gt;
-
-&lt;p&gt;I figured it must be because of the BIOS update, so I went to the Lenovo website to download the previous BIOS update. I downloaded BIOS 2.34 and could not installed it because of I strange error. Then I noticed this note in the BIOS 2.35 changelog: &lt;strong&gt;&amp;#8220;If the UEFI BIOS has been updated to version 2.35 or higher, it is no longer able to roll back to the version before 2.35 for security improvement.&amp;#8221;&lt;/strong&gt;. So my computer got screwed. I had a problematic BIOS and could not downgrade. Great work Lenovo.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Insecure workaround&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;I did some research and &lt;a href=&#34;https://forums.lenovo.com/t5/ThinkPad-T400-T500-and-newer-T/T440s-beeps-while-putting-in-sleep-mode-and-a-blank-screen/m-p/2191866&#34;&gt;found out that the problem is related to the TPM chip&lt;/a&gt;. I use the TPM chip with BitLocker in Windows 10, so It looked like it maybe be the problem.&lt;/p&gt;
-
-&lt;p&gt;So I turned off BitLocker, waited for my disk do get decrypted and disabled the TPM in BIOS. I put the computer to sleep, waited for it to go to hibernation, and nothing happened. No beeps, no problems, the computer woke normally.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Conclusion&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;So now I have a BIOS (that I cannot get rid of) with the security fix for an obscure issue but my disk is not encrypted and when I loose my computer or it gets stolen, anyone can read my data. Again, great work Lenovo. Time to install TrueCrypt I guess.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Update&lt;/strong&gt;: it took two month for Lenovo to acknowledge the problem and release a fix.&lt;/p&gt;
 </description>
     </item>
     

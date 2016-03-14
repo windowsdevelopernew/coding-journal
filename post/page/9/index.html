@@ -80,6 +80,40 @@
             
             <div class="posts">
                 
+                <h1 class="content-subhead">28 Dec 2012, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/using-net-libraries-with-monotouch/" class="post-title">Using .NET libraries with MonoTouch</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Programming in general" href="https://blog.kulman.sk/categories/programming-in-general">Programming in general</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>I have been [playing with MonoTouch][1] only for a few days when I already started to miss all the .NET libraries I commonly use. The first one I needed to get working with MonoTouch was [JSON.NET][2].</p>
+
+<p>MonoDevelop does not support Nuget so you have to get your libaries the old way. I downloaded JSON.NET package from [Nuget.org][3], but it does not contain a DLL built for Mono. Harldy any Nuget package does. You can reference a DLL built for .NET, MonoDevelop will recognize it and even offer you IntelliSense but your project will not get built.</p>
+
+<p>The right way to get a .NET library working with MonoTouch is downloading its source code and building it yourself. You can use MonoDevelop to build the source codes. The only think you have to do (at least for JSON.NET) is to change the .NET profile to an equivalent Mono profile in the project settings.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/using-net-libraries-with-monotouch/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">19 Dec 2012, 00:00</h1>
                 <section class="post">
                     <header class="post-header">
@@ -373,38 +407,6 @@
                         
   <div class="read-more-link">
     <a href="/loading-xaml-components-at-runtime/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">15 Nov 2012, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/computing-hashes-in-winrt/" class="post-title">Computing hashes in WinRT</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-WinRT" href="https://blog.kulman.sk/categories/winrt">WinRT</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>If you ever generated a MD5 or SHA hash in C# you problaby uset the classes from the System.Security.Cryptography namespace. This namespace is not available in WinRT, you have to use the Windows.Security.Cryptography.Core instead. This namespace contians a class called HashAlgorithmProvider that can be used to generate hashes using MD5 and SHA (SHA1, SHA256, SHA384, SHA512). A simple method to generate a hash for a string using a given algorithm may look like this</p>
-
-<script src="https://gist.github.com/5849454.js"></script>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/computing-hashes-in-winrt/">Read More…</a>
   </div>
   
                     </div>
