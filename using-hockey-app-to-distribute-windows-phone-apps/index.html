@@ -123,7 +123,7 @@
 
 <p><strong>Signing the binary</strong></p>
 
-<p>Each time you submit a new build to Hockey App, you need to sign the binary (XAP in my case) with the certificate. The <a href="https://msdn.microsoft.com/en-us/library/windows/apps/dn168929(v=vs.105">signing process differs for XAP and APPX files</a>.aspx).</p>
+<p>Each time you submit a new build to Hockey App, you need to sign the binary (XAP in my case) with the certificate. The [signing process differs for XAP and APPX files][1].</p>
 
 <p>For XAP files it is just calling the right PowerShell script with the correct parameters</p>
 
@@ -136,6 +136,9 @@
 <p>Once you upload a signed binary to Hockey App, your testers can download it using a web browser to their devices. Each device needs to install the company profile (the application enrollment token) once, and then can install the builds you provide.</p>
 
 <p>Installation of the Windows Phone app builds is a bit strange, no install progress or success messages, the app just appears in the list ofter one or two minutes. But it works, and it is much faster and more flexible than the Private Beta provides by the Windows Store.</p>
+
+<pre><code>[1]: https://msdn.microsoft.com/en-us/library/windows/apps/dn168929(v=vs.105).aspx
+</code></pre>
 
                     </div>
 
