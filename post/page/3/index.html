@@ -80,6 +80,104 @@
             
             <div class="posts">
                 
+                <h1 class="content-subhead">25 May 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/removing-unused-strings-from-windows-phone-8-resx-files/" class="post-title">Removing unused strings from Windows Phone 8 RESX files</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>Using RESX files is the standard approach to Windows Phone 8 app localization, it is even contained in the standard project templates. When you work on a project for a longer time, you may get to a situation that your RESX files contain strings that you no longer use. This is a problem especially when you want to add a new localization, because it is slower and kind of wasteful localizing unused strings.</p>
+
+<p>To solve this problem I have created a simple command line utility, that is [available at Github][1]. This utility assumes that you use the standard localization approach from the templates (AppResources.{lang}.resx and LocalizedStrings.{value} in XAML).</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/removing-unused-strings-from-windows-phone-8-resx-files/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">06 May 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/custom-datetime-deserialization-with-json-net/" class="post-title">Custom DateTime deserialization with JSON.NET</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Programming in general" href="https://blog.kulman.sk/categories/programming-in-general">Programming in general</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>Sometimes you cannot influence the design of the API you have to use and wonder, why the API uses so strangely serialized DateTime and how to handle it using JSON.NET.</p>
+
+<p>Luckily, JSON.NET makes plugging in custom serializers / deserializes quite easy. There are a few base classes to help you write your own converter, when dealing with DateTime you want to inherit the DateTimeConverterBase class.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/custom-datetime-deserialization-with-json-net/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">04 May 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/customizing-the-player-framework-ui/" class="post-title">Customizing the Player Framework UI</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="https://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>In my last article I gave you a tip on how to localize the Player Framework, in this article I will show you have to customize the UI of the actual player.</p>
+
+<p>The first step is to obtain the Generic.xaml file that the Player Framework uses for styling. You can find it in C:\ Program Files (x86)\ Microsoft SDKs\ Windows\ v8.0\ ExtensionSDKs\ Microsoft.PlayerFramework.Xaml\ 2.0.0.0\ Redist\ CommonConfiguration\ neutral\ Microsoft.PlayerFramework\ Themes. Copy it to your projects and rename it to something more telling, like PlayerFramework.xaml.</p>
+
+<p>You can now edit the copied XAML file and customize it any way you want. If you do the styling for a Windows Phone app, keep in mind that the ControlPanel switches to the Compact states and a few transformations are applied by default, that can interfere with your styling.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/customizing-the-player-framework-ui/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">30 Apr 2015, 00:00</h1>
                 <section class="post">
                     <header class="post-header">
@@ -320,112 +418,6 @@
                     </div>
                 </section>
                 
-                <h1 class="content-subhead">02 Feb 2015, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/automatically-push-your-git-repos-before-computer-shutdown/" class="post-title">Automatically push your Git repos before computer shutdown</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-PowerShell" href="https://blog.kulman.sk/categories/powershell">PowerShell</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>I use two computers, my desktop computer located at home and set up for work and play and a work notebook (company provided) that I usually leave at the office. I use both computers for work and sometimes I forget to do &#8216;git push&#8217; when working at my home desktop computer. The next day, when using the work notebook, I wonder where the code from the previous day has disappeared.</p>
-
-<p>Of course, I can solve it by connecting to my home Raspberry Pi through SSH, waking the desktop computer over LAN from it, connecting to it using Remote Desktop to do the &#8216;git push&#8217; .. not really a simple solution, there must be a better way.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/automatically-push-your-git-repos-before-computer-shutdown/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">12 Jan 2015, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/nancyfx-authentication-for-rest-api/" class="post-title">NancyFX authentication for REST API</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Azure" href="https://blog.kulman.sk/categories/windows-azure">Windows Azure</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>NancyFX is a great .NET framework well suited for creating REST APIs. There are many ways how to approach authentication, the simplest one is the good old Forms Authentication. The idea of Forms Authentication is that the user logs in with a username and password and gets a cookie, the protected endpoints then check the cookie. NancyFX supports Forms Authentication with the [Nancy.Authentication.Forms][1] package. The [documentation describes how to use it on a web page][2], but to use it with a REST API a few changes are needed.</p>
-
-<p><strong>Forms Authentication differences for REST API</strong></p>
-
-<p>There are things you want to do differently in a REST API than on a web page. If a user tries to access a protected endpoint, the Forms Authentication on a normal web page redirects him to the login page. In REST API, you typically want the endpoint just to return HTTP 401, no redirects. Also, when a user successfully logs in, you just typically want to return HTTP 200, no redirects.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/nancyfx-authentication-for-rest-api/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">29 Dec 2014, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/changing-the-pivotitem-header-color-in-windows-phone-8-1-xaml/" class="post-title">Changing the PivotItem header color in Windows Phone 8.1 XAML</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>Windows Phone 8.1 XAML contains a Pivot control that looks like the one from Windows Phone <sup>7</sup>&frasl;<sub>8</sub> and also should behave the same way, but does not. You will find the first problem with the new Pivot when you want to change the PivotItem header color.</p>
-
-<p><strong>Windows Phone <sup>7</sup>&frasl;<sub>8</sub></strong></p>
-
-<p>If you want to change the PivotItem header color in Windows Phone <sup>7</sup>&frasl;<sub>8</sub>, you just define the color in the Header template:</p>
-
-<script src="https://gist.github.com/igorkulman/a49d0c7d471c4de42521.js?file=wp8.xaml"></script>
-
-<p>This works great, changing the color of the active PivotItem Header to the color you want and applying some opacity to the inactive PivotItem Headers.</p>
-
-<img src="/images/header78.png" alt="" class="pure-img" >
-
-
-                        
-  <div class="read-more-link">
-    <a href="/changing-the-pivotitem-header-color-in-windows-phone-8-1-xaml/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
             </div>
             
 <div class="pagination">
@@ -435,7 +427,7 @@
         <i class="fa fa-angle-double-left"></i>&nbsp;Newer
       </a>
       
-    <span class="post-list-pagination-item post-list-pagination-item-current">Page 3 of 10</span>
+    <span class="post-list-pagination-item post-list-pagination-item-current">Page 3 of 11</span>
     
       <a href="/post/page/4/" class="post-list-pagination-item pure-button post-list-pagination-item-next">
         Older&nbsp;<i class="fa fa-angle-double-right"></i>

@@ -6,8 +6,110 @@
     <description>Recent content in Posts on Coding Journal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Mar 2016 09:29:12 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jun 2016 09:29:12 +0100</lastBuildDate>
     <atom:link href="https://blog.kulman.sk/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Creating a simple Windows 10 game with Win2D</title>
+      <link>https://blog.kulman.sk/creating-a-simple-windows-10-game-with-win2d</link>
+      <pubDate>Wed, 15 Jun 2016 09:29:12 +0100</pubDate>
+      
+      <guid>https://blog.kulman.sk/creating-a-simple-windows-10-game-with-win2d</guid>
+      <description>&lt;p&gt;Some time ago while looking at some pixel art work I got an idea to create a retro pixel art game for Windows 10. The choice was obvious, &lt;a href=&#34;https://www.microsoft.com/store/apps/9nblggh4xdln&#34;&gt;Sokoban&lt;/a&gt;. I have a very special relationship with the Sokoban game. The Delpi version of Sokoban was the first game I ever created. I later ported it to all the platforms I played with, namely J2ME (for my Siemens S60 phone), Linux (using Kylix which was basically a Delphi for Linux), Windows Phone 7 and now &lt;a href=&#34;https://www.microsoft.com/store/apps/9nblggh4xdln&#34;&gt;Sokoban Pixel&lt;/a&gt; for the Universal Windows Platform.&lt;/p&gt;
+
+&lt;img src=&#34;https://blog.kulman.sk/images/sokoban-gameplay.gif&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+
+&lt;p&gt;&lt;strong&gt;Win2D&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I did not want to learn &lt;a href=&#34;https://unity3d.com/&#34;&gt;Unity&lt;/a&gt; and I considered it quite a overkill for such a simple game. &lt;a href=&#34;http://www.monogame.net/&#34;&gt;Monogame&lt;/a&gt; seemed like an obvious choice, because my Sokoban for Windows Phone 7 was written in XNA. But Monogame requires too much ceremony to install and set up so I was not very eager to use it. I found &lt;a href=&#34;https://github.com/Microsoft/Win2D&#34;&gt;Win2D&lt;/a&gt;. Win2D is an easy-to-use Windows Runtime API for immediate mode 2D graphics rendering with GPU acceleration. It is available to C# and C++ developers writing Windows apps for Windows 8.1, Windows Phone 8.1 and Windows 10. It utilizes the power of Direct2D, and integrates seamlessly with XAML and CoreWindow. This means you can create a normal XAML application, create all your non-gameplay screens in XAML and use Win2D just for the actual gameplay.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Initial setup and loading resources&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To get started with Win2D just install the &lt;code&gt;Win2D.uwp&lt;/code&gt; Nuget package and add a &lt;code&gt;CanvasControl&lt;/code&gt; to your app. That&amp;rsquo;s it, no more setup required.&lt;/p&gt;
+
+&lt;p&gt;Before drawing any resources you need to first load them. This should be done in the &lt;code&gt;CreateResources&lt;/code&gt; event of the &lt;code&gt;CanvasControl&lt;/code&gt;. This method should not be async so if you need to load your resources asynchronously (as you always do) you need to use a trick with a separate method&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/39f73f5117a02c94fbe3b85ec57bb8a8.js?file=load.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;The code snippet also shows how to load a simple image as a resources. You probably will not need to load anything other that images in a simple game.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Drawing the game&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To make the &lt;code&gt;CanvasControl&lt;/code&gt; draw your game you need to hook up the &lt;code&gt;Draw&lt;/code&gt; event and put all you rendering logic there. There are basically just two things you will want to render, text and images&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/39f73f5117a02c94fbe3b85ec57bb8a8.js?file=draw.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;Both methods have many overloads so it is up to you to choose the one that suits you best. There are also other methods for drawing primitives like likes or circles, take a look at the &lt;a href=&#34;http://microsoft.github.io/Win2D/html/Introduction.htm&#34;&gt;documentation&lt;/a&gt;. When creating a pixel art game, make use you use the &lt;code&gt;CanvasImageInterpolation.NearestNeighbor&lt;/code&gt; otherwise your images will look blurred if not on sufficient resolution.&lt;/p&gt;
+
+&lt;p&gt;Depending on the type of your game, you may need to refresh the game canvas periodically or just as a reaction to the user input. In both cases, just call &lt;code&gt;Invalidate()&lt;/code&gt; on your &lt;code&gt;CanvasControl&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Handling user input&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;If you want to make you game great on Windows 10, you need to handle a few different input methods because Windows 10 runs on a variety of different devices.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Keyboard and controller&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;First you should handle input from the keyboard, so the game is comfortably playable on a notebook or desktop PC. To do this, you can just subscribe to the &lt;code&gt;KeyUp&lt;/code&gt; method of the current page or to the global &lt;code&gt;Window.Current.CoreWindow.KeyUp&lt;/code&gt; event. Both events give you a &lt;code&gt;VirtualKey&lt;/code&gt; that the user pressed and you just decide what to do.&lt;/p&gt;
+
+&lt;p&gt;If you want to make your game playable on the XBox One or on the PC with a XBox One controller, you should handle the controller input. Handling the controller input is the same as handling the keyboard, you just check for different keys. The resulting code may look like this.&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/39f73f5117a02c94fbe3b85ec57bb8a8.js?file=input.cs&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;If you want to make your game run on XBox One and do not have an XBox One to test it, just get the XBox One controller, connect it to your PC with an USB cable and make sure the whole game is controllable and playable just with it, without the keyboard or mouse.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Touch devices&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Making your game playable on a phone or on a tablet is a bit tricky. There are no input devices usually attached, so you have to come up with your own. There are many ways to handle this. You can recognizes swipes on the device, or make the user tilt the device. But the solution I like the best is to render a simple d-pad in the right corner of the screen. This way the user can hold the device in both hands and use the right thumb to play the game.&lt;/p&gt;
+
+&lt;img src=&#34;https://blog.kulman.sk/images/sokoban-dpad.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+
+&lt;p&gt;&lt;strong&gt;Conclusion&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;When building a simple 2D game for Windows 10, making it a UWP app and use Win2D. The Win2D framework is easy to work with and embed into UWP apps.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Creating better forms in Windows Phone apps</title>
+      <link>https://blog.kulman.sk/creating-better-forms-in-windows-phone-apps</link>
+      <pubDate>Tue, 29 Mar 2016 09:29:12 +0100</pubDate>
+      
+      <guid>https://blog.kulman.sk/creating-better-forms-in-windows-phone-apps</guid>
+      <description>&lt;p&gt;If you are a Windows Phone user you must know that filling in forms in apps is usually a real pain. There is no good way to move from one input to another or to collapse the keyboard. The whole process becomes a struggle, tapping outside the input fields to collapse the keyboard allowing you to scroll to the next input or to the submit button at the top of the screen, usually occluded by the keyboard.&lt;/p&gt;
+
+&lt;p&gt;The typical struggle to get to the last input fields and the submit button may look like this&lt;/p&gt;
+
+&lt;img src=&#34;https://blog.kulman.sk/images/forms1.gif&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+
+&lt;p&gt;There is no guidance on how to approach this. Take a look at the Store app on Windows 10 mobile, the perfect example of bad UI and UX directly from Microsoft and try review an app. You fill in the title of the review, then struggle to go into the review text input, you have to tap somewhere above the input to hide the keyboard, but not to hit the stars control &amp;hellip; just an UX disaster.&lt;/p&gt;
+
+&lt;p&gt;There is one simple thing you can do to make the experience much better for the user. When the keyboard appears on the screen, take the area of the screen than contains the input and add it a bottom margin corresponding to the height of the keyboard. This will make the whole screen longer and all the inputs and the submit button will be available while scrolling without the need to hide the keyboard.&lt;/p&gt;
+
+&lt;p&gt;The whole experience becomes much better&lt;/p&gt;
+
+&lt;img src=&#34;https://blog.kulman.sk/images/forms2.gif&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+
+&lt;p&gt;Implementation is also simple.&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/250de623e9213bc3bf90.js&#34;&gt;&lt;/script&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Using Tooltips to make better menus in Windows apps</title>
+      <link>https://blog.kulman.sk/using-tooltips-to-make-better-menus-in-windows-apps</link>
+      <pubDate>Wed, 23 Mar 2016 09:29:12 +0100</pubDate>
+      
+      <guid>https://blog.kulman.sk/using-tooltips-to-make-better-menus-in-windows-apps</guid>
+      <description>&lt;p&gt;If you use Windows apps with navigation menus consisting of icons, you may have noticed that some of those apps show you a text when hovering above those icons. This is a nice touch for the users, allowing them to quickly grasp the meaning of the menu icons without the need to click them or to expand the menu (if available).&lt;/p&gt;
+
+&lt;img src=&#34;https://blog.kulman.sk/images/tooltips.gif&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
+
+&lt;p&gt;Implementing this kind of hovers is really easy thanks to the &lt;code&gt;ToolTipService&lt;/code&gt; that is available in Windows 8.1 and Windows 10 UWP. You can add &lt;code&gt;&amp;lt;ToolTipService.ToolTip&amp;gt;&lt;/code&gt; with any element and include basically any XAML content as the tooltip. Here is a sample from the animation using a simple localized &lt;code&gt;TextBlock&lt;/code&gt;&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/igorkulman/c7320d81f9b882bcfd69.js&#34;&gt;&lt;/script&gt;
+</description>
+    </item>
     
     <item>
       <title>Choosing an image from gallery or camera a bit better in Universal Windows apps</title>
@@ -464,100 +566,6 @@
 &lt;script src=&#34;https://gist.github.com/87b051f2f3a54bf895f0.js&#34;&gt;&lt;/script&gt;
 
 &lt;p&gt;The whole working custom control is available at Github: &lt;a href=&#34;https://github.com/igorkulman/Kulman.WPA81.HighlightTextBox&#34;&gt;https://github.com/igorkulman/Kulman.WPA81.HighlightTextBox&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Strange combination of HTTPS and Windows Phone 8.1 that can make your app and phone freeze</title>
-      <link>https://blog.kulman.sk/strange-combination-of-https-and-windows-phone-8-1-that-can-make-your-app-and-phone-freeze/</link>
-      <pubDate>Fri, 11 Sep 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.kulman.sk/strange-combination-of-https-and-windows-phone-8-1-that-can-make-your-app-and-phone-freeze/</guid>
-      <description>&lt;p&gt;Last week I came upon a really bizarre problem that you may also find interesting. Lets start with a bit of context.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Tl;Dr&lt;/strong&gt;: There seems to be a bug in Windows phone 8.1 that can make your app and the phone freezes when displaying images over HTTPS from some servers. Skip to &lt;a href=&#34;#bug&#34;&gt;the end of this article&lt;/a&gt; to see a video and get the source code.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The Windows Phone app&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The app is a Windows Phone 8 shopping app for the biggest Czech online retailer. The main screen of the app contains quite a bit of data, usually about ten carousel with about 10 products and the list of main categories, so about 10 more images.&lt;/p&gt;
-
-&lt;p&gt;In worst case the main screen contains over 10 hundred images. It was quite a hassle to make it work well in the Windows Phone 8 SDK (no, rewriting a shopping about with about 70 screens to Windows Phone 8.1 is not feasible). But it work juts fine. Until last week.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;The problem&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Last week, users started to report that the app freezes on the main screen, sometime making the whole phone freeze. This was really bad. Frozen app means not only angry customers but customer that do not buy stuff. So I started to investigate.&lt;/p&gt;
-
-&lt;p&gt;First I thought there may be a problem in the app, although the app was last updated more than a month ago and the problem started only last week. Everything worked fine in the emulator, the problem was reproducible only on real devices. I tried showing only one carousel to make the app render much less data, did not help. I tried making the app show only one product in the only one carousel, still a problem. So it looked like the images were the problem. I tried replacing all the real image urls with random images from &lt;a href=&#34;http://lorempixel.com&#34;&gt;lorempixel.com&lt;/a&gt; and the app worked just fine.&lt;/p&gt;
-
-&lt;p&gt;I determined that the source of the problems are the images on the server. Talking with the server customer&amp;#8217;s people I found out that the images on the server were exchanged for bigger one because of the iPhones. But it did not make sense. I tried using much bigger random images and the app worked fine. I tried downloading the images and using them locally, the app worked fine.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong id=&#34;bug&#34;&gt;Windows Phone 8.1 bug?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Finally I found out that the app worked the whole time on phones with Windows 10, only phones with Windows Phone 8.1 were affected. Android and iOS apps that the customer has also never experienced this problem. This make me thing that there is some kind of bug in Windows Phone 8.1 that causes this behavior, because the app does not do any image processing, it only uses an Image control and sets is Source url.&lt;/p&gt;
-
-&lt;p&gt;Here is a sample app to reproduce the problem: &lt;a href=&#34;https://github.com/igorkulman/WindowsPhoneHttpsImageBug&#34;&gt;https://github.com/igorkulman/WindowsPhoneHttpsImageBug&lt;/a&gt;. The solution contains a Windows Phone 8 project and a Windows Phone 8.1. Both apps suffer from the sample problem, but the problem is worse in the Silverlight app. This also makes me think that this is a Windows Phone 8.1 bug, independent on the Windows Phone SDK version.&lt;/p&gt;
-
-&lt;p&gt;I made a video using the sample app showing the problem&lt;/p&gt;
-
-&lt;div class=&#34;embed video-player&#34;&gt;
-&lt;iframe src=&#34;http://player.vimeo.com/video/138747871&#34; width=&#34;640&#34; height=&#34;385&#34; frameborder=&#34;0&#34; webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Microsoft’s Outlook on Android and iOS</title>
-      <link>https://blog.kulman.sk/microsofts-outlook-on-android-and-ios/</link>
-      <pubDate>Thu, 10 Sep 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.kulman.sk/microsofts-outlook-on-android-and-ios/</guid>
-      <description>&lt;p&gt;To those who don’t know, Microsoft launched several months ago Outlook for Android and iOS phones and tablets. Microsoft’s new brand of Outlook have replace the failing “Outlook-branded apps” that are only available to the current subscribers of Office 365. The upheaval comes after Microsoft acquired San Francisco-based company, &lt;a href=&#34;https://www.acompli.com/&#34;&gt;Acompli.com&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://blog.kulman.sk/images/Outlook-Best-New-Apps.png&#34; class=&#34;pure-img-width&#34;&gt;&lt;/p&gt;
-
-&lt;p&gt;Acompli is an “advanced email application that empowers professionals to do more with emails, full calendaring, easy file sharing and log all the important people in one email format.” The format supports Microsoft’s Office 365, Gmail and Google Apps.&lt;/p&gt;
-
-&lt;p&gt;Microsoft’s plan is for both the Accompli and the new Outlook app to replace the rather dated Outlook-branded apps. The newfangled Outlook app is primarily based on the technology from the Acompli app that the company acquired for $200 million. Microsoft stated that it was a major factor in buying the app, as its staff could then make up the core group of engineers needed to drive the new Outlook app forward.&lt;/p&gt;
-
-&lt;p&gt;It’s no surprise that Microsoft is shifting its focus from PC-installed base as &lt;a href=&#34;http://www.geekwire.com/2014/flurry-report-mobile-phones-162-minutes/&#34;&gt;GeekWire.com&lt;/a&gt; reports that a study showed Americans spend approximately 162 minutes a day on their phones browsing. And with Gaming Realms, the developer behind the entertainment medium &lt;a href=&#34;https://www.pocketfruity.com/casino&#34;&gt;PocketFruity.com&lt;/a&gt;, claiming that the global smartphone use has now reached 17%, apps are seeing a spike regarding financial investments and support.&lt;/p&gt;
-
-&lt;p&gt;It will be interesting to see how well the new Outlook app is received after a year or so. With the app retaining many of the features that its recent acquisition Acompli successfully exhibited, there’s a possibility that the consumer base may just stay with the Acompli until Outlook perfects the new app further, and add features that will set it apart from other leading email applications.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Problems getting paid from the Windows Store, again</title>
-      <link>https://blog.kulman.sk/problems-getting-paid-from-the-windows-store-again/</link>
-      <pubDate>Tue, 21 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.kulman.sk/problems-getting-paid-from-the-windows-store-again/</guid>
-      <description>&lt;p&gt;I do not make much money on my Windows Phone apps (who does?), but when the payout time comes every couple of months, I expect the money to be delivered. Dealing with Microsoft, I should know better.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Failed payment&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Last month I looked into the Dev Center and saw that my scheduled payment failed, telling me to contact the support. So I did. The result was one moth of exchanging email without a solution.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Dealing with support&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The Microsoft employee told me that I am in a small group of people with this problem. I do not know if I have such a bad look always be in a problematic supposedly small group, or that the group are not that small. He told me that Microsoft will retry the payment. The payment was supposedly retried on June 24th and succeeded. So they say.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Great news, your June payout was returned due to an internal issue; however, the payout of 5264.17 CZK has been re-attempted and was successfully completed on June 24th. If you have not received the payout then please review this transaction with your bank. Please let me know if you have any further questions.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;I never got the money. The employee asked me a few times if I got the money and then resigned, telling me that it is my problem and I should check with my bank. Of course I checked with my bank, they do not have the money. If they had, they would transfer it to my account.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Will it happen again?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;So the support is not helpful, I think I will never see this money and I can just hope the next payment in a couple of months will be successful. Will it?&lt;/p&gt;
-
-&lt;p&gt;I took a look at my payout settings in the new Dev Center and it is a mess&lt;/p&gt;
-
-&lt;img src=&#34;https://blog.kulman.sk/images/payout.png&#34; alt=&#34;&#34; class=&#34;pure-img&#34; &gt;
-
-&lt;p&gt;It previous pages is telling my that everything is ok and my data is valid, but is it? Those four radios do not give me the confidence to believe it. Especially seeing my old account (x3168) that was there in the Windows Store and I deleted it. I used to get the payment to the x0026 account that was in my Windows Phone Store account.&lt;/p&gt;
-
-&lt;p&gt;Funny thing about this form, I never found out how to delete this old account. If you select it, you can only edit it, no way to delete it. If I select the correct account and click save, nothing changes, the radios all remain unselected. I do now know it is a bug or another great Microsoft UI.&lt;/p&gt;
-
-&lt;p&gt;So I guess maybe the next payment will also get lost somewhere ..&lt;/p&gt;
 </description>
     </item>
     

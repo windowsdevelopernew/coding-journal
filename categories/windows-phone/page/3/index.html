@@ -80,6 +80,110 @@
             
             <div class="posts">
                 
+                <h1 class="content-subhead">18 Dec 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/why-universal-apps-as-not-as-universal-as-you-may-think/" class="post-title">Why Universal Apps as not as universal as you may think</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="https://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>I have been developing Windows Phone apps for a few years now, always sticking to Silverlight and keeping using Silverlight also after Microsoft announced the WinRT flavor of Windows Phone apps and the so called Universal Apps. The Windows Phone 8.0 and 8.1 Silverlight APIs have some limitations, but are now well known do not contain many bugs. They are the safe choice if you want to create a Windows Phone apps. And do not forget that there are still many device running Windows Phone 8 (like Verizon customers in the US) that never got the 8.1 updated promised to everyone during the summer.</p>
+
+<p><strong>Really universal?</strong></p>
+
+<p>Windows Phone 8.1 XAML and Universal Apps included WinRT APIs that have many problems, including some that there is no solution for. I used the WinRT APIs when creating first Windows 8 apps about 2 years ago, so I am not new to the APIs. I have not touched the WinRT APIs again until recently, because there was no demand for Windows 8 or Windows 8.1 apps. Why would it? People use Windows 8 or 8.1 but do not care about Metro apps, they give them no value compared to &#8220;normal&#8221; Win32 and Windows tablets are practically non-exists (expect for the Surface tablets owned by few programmers and maybe no one else).</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/why-universal-apps-as-not-as-universal-as-you-may-think/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">24 Nov 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/rest-service-base-class-for-windows-phone-8-1-xaml-apps/" class="post-title">REST service base class for Windows Phone 8.1 XAML apps</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="https://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>Communicating with a JSON based REST service is a task that many Windows Phone apps have to do. My apps sure do it a lot so I came up with a base class that I use in all of them, [put it on Github][1] and [created a Nuget package][2], so your apps could use it to.</p>
+
+<p>The usage of this base class is simple. Create your service class and inherit from BaseRestService. The minimum you need to do to make it work is to override the GetBaseUrl() method to set the base url for all the requests. You can (but do not have to) also override the GetRequestHeaders() method to set the default request headers.</p>
+
+<script src="https://gist.github.com/igorkulman/405732bf92858dba1c3c.js?file=usage1.cs"></script>
+
+<p>and you can now use the following protected methods</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/rest-service-base-class-for-windows-phone-8-1-xaml-apps/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">03 Nov 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/visual-studio-template-for-caliburn-micro-windows-phone-apps/" class="post-title">Visual Studio template for Caliburn.Micro Windows Phone apps</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>I have been building Windows Phone apps using the [Caliburn.Micro][1] framework for some time now. Setting up a new project takes some time and can be easily automated, so I decided to create a Visual Studio template for Windows Phone apps build with Caliburn.Micro.</p>
+
+<p>The templates can be downloaded from [the Visual Studio Extensions gallery][2] and used to build Windows Phone 8 and Windows Phone 8.1 Silverlight apps. It contains the basic setup with Caliburn Micro and [Fody][3], with a sample view and viewmodel.</p>
+
+<p>The [source code is available on GitHub][4], so if you want to modify it to best suit your needs, feel free to do it.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/visual-studio-template-for-caliburn-micro-windows-phone-apps/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">16 Sep 2014, 00:00</h1>
                 <section class="post">
                     <header class="post-header">
@@ -325,108 +429,6 @@
                         
   <div class="read-more-link">
     <a href="/making-your-windows-phone-silverlight-8-1-app-a-share-contract-target/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">31 Mar 2014, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/building-windows-phone-apps-with-fake/" class="post-title">Building Windows Phone apps with FAKE</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>[FAKE][1] is a build automation system with capabilities which are similar to make and rake. It is using an easy domain-specific language (DSL) so that you can start using it without learning F#. If you need more than the default functionality you can either write F# or simply reference .NET assemblies.</p>
-
-<p>I have been using FAKE for quite some time now on some fairly complex projects for not only building but also running tests and creating and pushing Nuget packages and I really like. I decided to add FAKE build scripts to my Windows Phone apps to make the process of generating a XAP file for the Windows Phone Store easier.</p>
-
-<p>The FAKE script I use can by used with any Windows Phone app, it will build all the projects and copy the XAP file to a release directory.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/building-windows-phone-apps-with-fake/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">24 Mar 2014, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/how-to-get-rid-of-the-strange-line-under-systray-in-windows-phone-8/" class="post-title">How to get rid of the strange line under systray in Windows Phone 8</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>If you create an Windows Phone 8 app and test it only on WVGA and 720p devices or emulators, you may be surprised how you app looks on a WXGA device (or emulator).</p>
-
-<img src="/images/line.png" alt="" class="pure-img" >
-
-<p>I have not been able the reason why this happens but the solution is quite simple. Set your page&#8217;s top border to -1.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/how-to-get-rid-of-the-strange-line-under-systray-in-windows-phone-8/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">20 Mar 2014, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/getting-contacts-on-windows-phone-the-asyncawait-way/" class="post-title">Getting contacts on Windows Phone the async/await way</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>Getting contacts info on Windows Phone means using a callback based API provided by the Windows Phone SDK</p>
-
-<script src="https://gist.github.com/igorkulman/9572748.js?file=Contacts.Standard.cs"></script>
-
-<p>I really dislike all the callback-based API so I was looking for a way to convert it to an async/await based API. And it is quite easy to do so</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/getting-contacts-on-windows-phone-the-asyncawait-way/">Read More…</a>
   </div>
   
                     </div>

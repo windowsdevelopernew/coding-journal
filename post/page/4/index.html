@@ -80,6 +80,112 @@
             
             <div class="posts">
                 
+                <h1 class="content-subhead">02 Feb 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/automatically-push-your-git-repos-before-computer-shutdown/" class="post-title">Automatically push your Git repos before computer shutdown</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-PowerShell" href="https://blog.kulman.sk/categories/powershell">PowerShell</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>I use two computers, my desktop computer located at home and set up for work and play and a work notebook (company provided) that I usually leave at the office. I use both computers for work and sometimes I forget to do &#8216;git push&#8217; when working at my home desktop computer. The next day, when using the work notebook, I wonder where the code from the previous day has disappeared.</p>
+
+<p>Of course, I can solve it by connecting to my home Raspberry Pi through SSH, waking the desktop computer over LAN from it, connecting to it using Remote Desktop to do the &#8216;git push&#8217; .. not really a simple solution, there must be a better way.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/automatically-push-your-git-repos-before-computer-shutdown/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">12 Jan 2015, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/nancyfx-authentication-for-rest-api/" class="post-title">NancyFX authentication for REST API</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Azure" href="https://blog.kulman.sk/categories/windows-azure">Windows Azure</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>NancyFX is a great .NET framework well suited for creating REST APIs. There are many ways how to approach authentication, the simplest one is the good old Forms Authentication. The idea of Forms Authentication is that the user logs in with a username and password and gets a cookie, the protected endpoints then check the cookie. NancyFX supports Forms Authentication with the [Nancy.Authentication.Forms][1] package. The [documentation describes how to use it on a web page][2], but to use it with a REST API a few changes are needed.</p>
+
+<p><strong>Forms Authentication differences for REST API</strong></p>
+
+<p>There are things you want to do differently in a REST API than on a web page. If a user tries to access a protected endpoint, the Forms Authentication on a normal web page redirects him to the login page. In REST API, you typically want the endpoint just to return HTTP 401, no redirects. Also, when a user successfully logs in, you just typically want to return HTTP 200, no redirects.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/nancyfx-authentication-for-rest-api/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">29 Dec 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/changing-the-pivotitem-header-color-in-windows-phone-8-1-xaml/" class="post-title">Changing the PivotItem header color in Windows Phone 8.1 XAML</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>Windows Phone 8.1 XAML contains a Pivot control that looks like the one from Windows Phone <sup>7</sup>&frasl;<sub>8</sub> and also should behave the same way, but does not. You will find the first problem with the new Pivot when you want to change the PivotItem header color.</p>
+
+<p><strong>Windows Phone <sup>7</sup>&frasl;<sub>8</sub></strong></p>
+
+<p>If you want to change the PivotItem header color in Windows Phone <sup>7</sup>&frasl;<sub>8</sub>, you just define the color in the Header template:</p>
+
+<script src="https://gist.github.com/igorkulman/a49d0c7d471c4de42521.js?file=wp8.xaml"></script>
+
+<p>This works great, changing the color of the active PivotItem Header to the color you want and applying some opacity to the inactive PivotItem Headers.</p>
+
+<img src="/images/header78.png" alt="" class="pure-img" >
+
+
+                        
+  <div class="read-more-link">
+    <a href="/changing-the-pivotitem-header-color-in-windows-phone-8-1-xaml/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">24 Dec 2014, 00:00</h1>
                 <section class="post">
                     <header class="post-header">
@@ -336,110 +442,6 @@
                     </div>
                 </section>
                 
-                <h1 class="content-subhead">15 Sep 2014, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/what-to-put-on-the-about-screen-of-your-windows-phone-app/" class="post-title">What to put on the about screen of your Windows Phone app</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>The about screen of a Windows Phone app is usually the most overlooked part of the app. Sure, the users usually visit it only once, after installing the app, if ever, but it is a part of your Windows Phone app that you could put to a good use.</p>
-
-<p>If you have ever taken a DVLUP challenge you may have noticed, that they recommend you place a text describing your app on the about screen. I really do not agree with this. If users install your app, they know what the app does and if they cannot figure it out, then your UI is a failure and the about screen will not save you.</p>
-
-<p>After some trial and error I came up with a standardized about screen I now use in all my apps. It is a pivot with two tabs; About and More apps.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/what-to-put-on-the-about-screen-of-your-windows-phone-app/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">29 Aug 2014, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/experience-with-being-featured-in-the-red-stripe-deal-promotion-on-windows-phone/" class="post-title">Experience with being featured in the Red Stripe Deal promotion on Windows Phone</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>I was offered to to take part in the Red Stripe Deal promotion on Windows Phone with my [Shopping List Simple][1] app from 21st August to 28th August.</p>
-
-<img src="/images/sk.png" alt="" class="pure-img" >
-
-<p>In this promotion, your app has to cost less than half of the normal price. The app normally costs 1.29 USD in most countries and 0.99 USD in Czech Republic, Slovakia and Russia to boost the sales. The minimum price in Windows Phone Store is 0.99 USD so the app had to be made free for the promotion. So I filled in the form saying that I want my app to be free in all the countries during the promotion. When the time of the promotion came, the price was set to free in all the countries except Czech Republic, Slovakia and Russia. First day, first problem.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/experience-with-being-featured-in-the-red-stripe-deal-promotion-on-windows-phone/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">23 Jul 2014, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/automatic-viewmodels-and-services-registration-for-not-only-caliburn-micro/" class="post-title">Automatic ViewModels and Services registration for (not only) Caliburn.Micro</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>My MVVM framework of choice, Caliburn.Micro, provides a simple Dependency Injection container, where you have to register all your ViewModels and Services. This is done in the Bootstraper&#8217;s Configure method and may look like this:</p>
-
-<script src="https://gist.github.com/igorkulman/0353b26073fc11d3635f.js?file=reg1.cs"></script>
-
-<p>where you typically register your ViewModels as per request and services as singletons.</p>
-
-<p>Of course this is done just once, but having to register a ViewModel each time you create a new one can be a nuisance, especially in a large project.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/automatic-viewmodels-and-services-registration-for-not-only-caliburn-micro/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
             </div>
             
 <div class="pagination">
@@ -449,7 +451,7 @@
         <i class="fa fa-angle-double-left"></i>&nbsp;Newer
       </a>
       
-    <span class="post-list-pagination-item post-list-pagination-item-current">Page 4 of 10</span>
+    <span class="post-list-pagination-item post-list-pagination-item-current">Page 4 of 11</span>
     
       <a href="/post/page/5/" class="post-list-pagination-item pure-button post-list-pagination-item-next">
         Older&nbsp;<i class="fa fa-angle-double-right"></i>

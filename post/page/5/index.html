@@ -80,6 +80,110 @@
             
             <div class="posts">
                 
+                <h1 class="content-subhead">15 Sep 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/what-to-put-on-the-about-screen-of-your-windows-phone-app/" class="post-title">What to put on the about screen of your Windows Phone app</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>The about screen of a Windows Phone app is usually the most overlooked part of the app. Sure, the users usually visit it only once, after installing the app, if ever, but it is a part of your Windows Phone app that you could put to a good use.</p>
+
+<p>If you have ever taken a DVLUP challenge you may have noticed, that they recommend you place a text describing your app on the about screen. I really do not agree with this. If users install your app, they know what the app does and if they cannot figure it out, then your UI is a failure and the about screen will not save you.</p>
+
+<p>After some trial and error I came up with a standardized about screen I now use in all my apps. It is a pivot with two tabs; About and More apps.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/what-to-put-on-the-about-screen-of-your-windows-phone-app/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">29 Aug 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/experience-with-being-featured-in-the-red-stripe-deal-promotion-on-windows-phone/" class="post-title">Experience with being featured in the Red Stripe Deal promotion on Windows Phone</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>I was offered to to take part in the Red Stripe Deal promotion on Windows Phone with my [Shopping List Simple][1] app from 21st August to 28th August.</p>
+
+<img src="/images/sk.png" alt="" class="pure-img" >
+
+<p>In this promotion, your app has to cost less than half of the normal price. The app normally costs 1.29 USD in most countries and 0.99 USD in Czech Republic, Slovakia and Russia to boost the sales. The minimum price in Windows Phone Store is 0.99 USD so the app had to be made free for the promotion. So I filled in the form saying that I want my app to be free in all the countries during the promotion. When the time of the promotion came, the price was set to free in all the countries except Czech Republic, Slovakia and Russia. First day, first problem.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/experience-with-being-featured-in-the-red-stripe-deal-promotion-on-windows-phone/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">23 Jul 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/automatic-viewmodels-and-services-registration-for-not-only-caliburn-micro/" class="post-title">Automatic ViewModels and Services registration for (not only) Caliburn.Micro</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>My MVVM framework of choice, Caliburn.Micro, provides a simple Dependency Injection container, where you have to register all your ViewModels and Services. This is done in the Bootstraper&#8217;s Configure method and may look like this:</p>
+
+<script src="https://gist.github.com/igorkulman/0353b26073fc11d3635f.js?file=reg1.cs"></script>
+
+<p>where you typically register your ViewModels as per request and services as singletons.</p>
+
+<p>Of course this is done just once, but having to register a ViewModel each time you create a new one can be a nuisance, especially in a large project.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/automatic-viewmodels-and-services-registration-for-not-only-caliburn-micro/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">24 Jun 2014, 00:00</h1>
                 <section class="post">
                     <header class="post-header">
@@ -322,120 +426,6 @@
                     </div>
                 </section>
                 
-                <h1 class="content-subhead">17 Mar 2014, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/testing-in-app-purchases-in-windows-phone/" class="post-title">Testing in-app purchases in Windows Phone</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>Windows Phone Store does not offer developers any sandbox to test in-app purchases in their apps, like stores on other platforms do. If you want test in-app purchases in your Windows Phone apps, you need to use other options.</p>
-
-<p>To make in-app purchases implementation easier, I created a simple Windows Phone Store service interface in my [Kulman.WP8][1] library (also [available on Nuget][2])</p>
-
-<script src="https://gist.github.com/igorkulman/9571908.js?file=IWindowsPhoneStoreService.cs"></script>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/testing-in-app-purchases-in-windows-phone/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">14 Mar 2014, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/pock8-beautiful-pocket-client-for-windows-phone/" class="post-title">Pock8: beautiful Pocket client for Windows Phone</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>Recently I have released a new Windows Phone app called [Pock8][1]. Pock8 is a beautiful Pocket (formerly Read It Later) client for Windows Phone. The design of the app was created by Jan Marek who worked with my on the [Shopping List Simple][2] app.</p>
-
-<img src="/images/pocket.png" alt="" class="pure-img" >
-
-<p>Our goal was to create a Pocket client that would be really easy to use and that would have a nice and simple design. I think we have achieved our goal. The main features of the app are</p>
-
-<ul>
-<li>clean and simple design</li>
-<li>optimized article view for comfortable reading</li>
-<li>article cache for offline reading</li>
-<li>dark theme for OLED screens or reading in the dark</li>
-<li>support for receiving articles from other apps like WPCentral</li>
-<li>listening to articles aloud</li>
-<li>sharing articles</li>
-</ul>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/pock8-beautiful-pocket-client-for-windows-phone/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">05 Mar 2014, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/free-services-to-help-you-develop-mobile-apps/" class="post-title">Free services to help you develop mobile apps</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>If you develop mobile or any other kinds of apps, you need to have your source code versioned and stored in a safe place, cooperate with other people, track information about the usage of your apps and track all the errors that may occur. There are many free services that may help you with those tasks. In this article I will give you a list of the ones I use when developing [my apps][1].</p>
-
-<p><strong>Bitbucket: source control and issue tracker</strong></p>
-
-<p>I use Git as my source control system and all my private repos are stored at [Bitbucket]<a href="public at [GitHub][3]">2</a>. Bitbucket offers unlimited number of private repos and cooperation with up to 5 other people for free.</p>
-
-<p>For each private repo you can create a private issue tracker also for free, so all your code and issues are at the same place. The main advantage is that source control and issue tracker are connected, so you can comment or close issues directly from Git commits.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/free-services-to-help-you-develop-mobile-apps/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
             </div>
             
 <div class="pagination">
@@ -445,7 +435,7 @@
         <i class="fa fa-angle-double-left"></i>&nbsp;Newer
       </a>
       
-    <span class="post-list-pagination-item post-list-pagination-item-current">Page 5 of 10</span>
+    <span class="post-list-pagination-item post-list-pagination-item-current">Page 5 of 11</span>
     
       <a href="/post/page/6/" class="post-list-pagination-item pure-button post-list-pagination-item-next">
         Older&nbsp;<i class="fa fa-angle-double-right"></i>

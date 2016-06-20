@@ -80,6 +80,108 @@
             
             <div class="posts">
                 
+                <h1 class="content-subhead">31 Mar 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/building-windows-phone-apps-with-fake/" class="post-title">Building Windows Phone apps with FAKE</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>[FAKE][1] is a build automation system with capabilities which are similar to make and rake. It is using an easy domain-specific language (DSL) so that you can start using it without learning F#. If you need more than the default functionality you can either write F# or simply reference .NET assemblies.</p>
+
+<p>I have been using FAKE for quite some time now on some fairly complex projects for not only building but also running tests and creating and pushing Nuget packages and I really like. I decided to add FAKE build scripts to my Windows Phone apps to make the process of generating a XAP file for the Windows Phone Store easier.</p>
+
+<p>The FAKE script I use can by used with any Windows Phone app, it will build all the projects and copy the XAP file to a release directory.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/building-windows-phone-apps-with-fake/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">24 Mar 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/how-to-get-rid-of-the-strange-line-under-systray-in-windows-phone-8/" class="post-title">How to get rid of the strange line under systray in Windows Phone 8</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>If you create an Windows Phone 8 app and test it only on WVGA and 720p devices or emulators, you may be surprised how you app looks on a WXGA device (or emulator).</p>
+
+<img src="/images/line.png" alt="" class="pure-img" >
+
+<p>I have not been able the reason why this happens but the solution is quite simple. Set your page&#8217;s top border to -1.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/how-to-get-rid-of-the-strange-line-under-systray-in-windows-phone-8/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">20 Mar 2014, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/getting-contacts-on-windows-phone-the-asyncawait-way/" class="post-title">Getting contacts on Windows Phone the async/await way</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>Getting contacts info on Windows Phone means using a callback based API provided by the Windows Phone SDK</p>
+
+<script src="https://gist.github.com/igorkulman/9572748.js?file=Contacts.Standard.cs"></script>
+
+<p>I really dislike all the callback-based API so I was looking for a way to convert it to an async/await based API. And it is quite easy to do so</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/getting-contacts-on-windows-phone-the-asyncawait-way/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">17 Mar 2014, 00:00</h1>
                 <section class="post">
                     <header class="post-header">
@@ -327,112 +429,6 @@
                         
   <div class="read-more-link">
     <a href="/beware-of-removing-localizations-from-your-windows-phone-apps/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">20 May 2013, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/getting-paid-for-your-windows-phone-apps-is-a-real-pain/" class="post-title">Windows Phone Store and problems with payments</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>I have been a Windows Phone developer for over a year now and my paid apps made me some money. The small amount of money made is not interesting, more interesting is that getting the money from Microsoft has been a real pain. Maybe because I live <strong>outside the US</strong>, maybe it is a geographically independent problem. If you are a developer and live outside the US, I really want to hear your experience.</p>
-
-<p><strong>No exact info about payment rules?</strong></p>
-
-<p>First, there is no exact information about how often a developer gets paid. The [getting paid section][1] in the Windows Phone Dev Center only informs you about tax and bank info, that you need to provide to get paid. I remember that I once heard that developers get paid when their earnings get pass $200, but I was not able to get any official info about this. The first payment I got from Windows Phone Store was $52.50 and I know a developer with $900 earned and no money sent to him, so I guess the $200 limit is not true.</p>
-
-<p>The [$200 limit should be true for Windows Store][2], but Windows Phone Store is a different store with different rules.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/getting-paid-for-your-windows-phone-apps-is-a-real-pain/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">18 Apr 2013, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/useful-tools-for-windows-store-developers/" class="post-title">Useful tools for Windows Store developers</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="https://blog.kulman.sk/categories/winrt">WinRT</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>I recently discovered two really neet tools that helped me with Windows Store app development.</p>
-
-<p><strong>Windows Store Icon Maker</strong></p>
-
-<p>When creating a Windows Store or Windows 8 apps, there are many icon sizes you have to provide. If you do nont wat to do all the resizing by yourself, you can use the [Windows Store Icon Maker][1]. It is a fork of the [Windows Phone Icons Maker][2] with added support for Windows Store apps. It takes a 300x300px icon as input and outputs all the square icons you need.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/useful-tools-for-windows-store-developers/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">15 Apr 2013, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/do-you-need-to-create-a-special-windows-phone-8-build-of-your-windows-phone-app/" class="post-title">Do you need to create a special Windows Phone 8 build of your Windows Phone app?</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>If you create a Windows Phone app and you want it to be able to run on both Windows Phone 7 and Windows Phone 8, you target Windows Phone 7 and the app runs on Windows Phone 8 automatically. But is it really enough to create a Windows Phone 7 buíld? Not if you want to create a really well designed app.</p>
-
-<p>The problem with Windows Phone 8 from a designers point of view is that it introduces two new display resolutions. Windows Phone 7 supports just one resolution, WVGA of 800x480px. Windows Phone 8 adds WXGA (1280&#215;768) and 720p (1280&#215;720). If you run your Windows Phone 7 app on a WXGA device, the app is proportionally scaled by a factor of 1.6 to fill out the whole screen. As long as you provide all your images scaled by the same factor, the app looks ok.</p>
-
-<p>The problem is 720p, because it is a different aspect ratio (16:9 vs 15:9). Your Windows Phone 7 app running on a 720p app is first scaled by a factor of 1.5 to 1200&#215;720 and the rest of the display (80px) is padded on top or bottom, depending on the VerticalAlignment. By default, the padding is added to the top of your app making your header 80px higher:</p>
-
-<img src="/images/wp7header.png" alt="" class="pure-img" >
-
-
-                        
-  <div class="read-more-link">
-    <a href="/do-you-need-to-create-a-special-windows-phone-8-build-of-your-windows-phone-app/">Read More…</a>
   </div>
   
                     </div>

@@ -80,6 +80,126 @@
             
             <div class="posts">
                 
+                <h1 class="content-subhead">27 Mar 2013, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/displaying-pdf-files-in-windows-store-apps/" class="post-title">Displaying PDF files in Windows Store apps</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="https://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>Displaying PDF files in a mobile apps is a valid use case and there are many iOS and Android app that do it. WinRT has no APIs for displaying PDF files. The only thing you can do with a PDF in WinRT is to display it in the default PDF viewer app using the Windows.System.Launcher.LaunchFileAsync method. This is typicaly not what you want to do. This method takes the user out of your app and more importantly the PDF can be copied, shared, etc.</p>
+
+<p>There are a few 3rd party components for displaying PDF files in Windows Store apps, each has some problems and restrictions.</p>
+
+<p><strong>ComponentOne PDFViewer</strong></p>
+
+<p>[ComponentOne][1] has a [PDFViewer component][2] as part of their [Studio for WinRT XAML][3] package. This package costs $895. There are [many limitations][4] when using this component that you need to be aware of. If you want to have more control over the rendered PDF files, you can get all the pages as FrameworkElements and do not need to use the PDFViewer as one monolitic component. It does not support all the fonts and complex documents are rendered really messed up, it was not usable for me at all.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/displaying-pdf-files-in-windows-store-apps/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">21 Mar 2013, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/windows-store-limits-the-number-of-in-app-purchases-for-an-app/" class="post-title">Windows Store limits the number of in-app purchases for an app</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-WinRT" href="https://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>Windows 8 development has [many problems and pitfalls because of WinRT][1]. Windows Store, the only distribution channel for Windows 8 apps, has some problems too. One of them is really serious for everyone who wants to create a newspaper or newsreader app with in-app purchases.</p>
+
+<p>We developed a Windows 8 app for a local newspaper. The content consists of issues, there is one issue published each work day. The users can buy the issues using in-app purchases. The problem is that there is a limit of <del datetime="2013-05-26T14:03:17+00:00">100</del> 200 in-app purchases that can be defined for a single app in Windows Store. I really do not know what would Microsoft impose such a limit.</p>
+
+<p>As far as I know there is no way around the limit. We need to either delete in-app purchases for old issues so user will no longer be able to buy them (which is stupid and as ot turns out not possible) or create new app with a different name and in-app purchases for another time period (which is even more stupid).</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/windows-store-limits-the-number-of-in-app-purchases-for-an-app/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">18 Mar 2013, 00:00</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/my-windows-phone-and-windows-8-mini-libraries/" class="post-title">My Windows Phone and Windows 8 mini-libraries</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-WinRT" href="https://blog.kulman.sk/categories/winrt">WinRT</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>I am a big fan of open-source software. I decided to make my mini-libraries, that I use for Windows Phone and Windows 8 development, available to everyone who would be interested. Both are basically a collection of useful utilities and components that I wrote myself or found on various forums and slightly modified. Source code is available on BitBucket and packages on Nuget.</p>
+
+<p><strong>Windows Phone</strong></p>
+
+<p>Code: <a href="https://github.com/igorkulman/Kulman.WP7">https://github.com/igorkulman/Kulman.WP7</a></p>
+
+<p>Nuget: <a href="https://nuget.org/packages/Kulman.WP7/">https://nuget.org/packages/Kulman.WP7/</a></p>
+
+<p><strong>Windows 8</strong></p>
+
+<p>Code: <a href="https://github.com/igorkulman/Kulman.WinRT">https://github.com/igorkulman/Kulman.WinRT</a></p>
+
+<p>Nuget: <a href="https://nuget.org/packages/Kulman.WinRT">https://nuget.org/packages/Kulman.WinRT</a></p>
+
+<p>My Windows 8 mini-library is best used with the [WinRTXAMLToolkit][1] that I contributed to once ot twice.</p>
+
+<p><strong>AutoCompleteBox for WinRT</strong></p>
+
+<p>Code: <a href="https://github.com/igorkulman/AutoCompleteBox">https://github.com/igorkulman/AutoCompleteBox</a></p>
+
+<p>Nuget: <a href="https://nuget.org/packages/AutoCompleteBoxWinRT/">https://nuget.org/packages/AutoCompleteBoxWinRT/</a></p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/my-windows-phone-and-windows-8-mini-libraries/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">14 Mar 2013, 00:00</h1>
                 <section class="post">
                     <header class="post-header">
@@ -328,121 +448,6 @@
                     </div>
                 </section>
                 
-                <h1 class="content-subhead">15 Jan 2013, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/using-sublime-text-2-as-f-repl/" class="post-title">Using Sublime Text 2 as F# REPL</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Functional programming" href="https://blog.kulman.sk/categories/functional-programming">Functional programming</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>[Sublime Text 2][1] is a great multi-purpose text editor that you can run on Windows, MacOS and Linux. You can configure Sublime Text 2 to higlight and compile F# files and even to use F# Interactive and make it a F# REPL. Using Sublime Text 2 as F# REPL is useful when you work on MacOS and Linux (F# 3.0 works great with [Mono][2]) and cannot use Visual Studio 2012. If you are new to Sublime Text 2, check out the [Perfect Workflow in Sublime Text: Free Course][3].</p>
-
-<p><strong>Installing necessary packages</strong></p>
-
-<p>In order to use F# Interactive in Sublime Text 2, you have to install a few packages first. All the packages can be installed using [Sublime Package Control][4]. You need to install the following packages:</p>
-
-<ul>
-<li><strong>F#</strong></li>
-<li><strong>SublimeREPL</strong></li>
-</ul>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/using-sublime-text-2-as-f-repl/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">08 Jan 2013, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/appharbor-great-place-to-start-your-net-project/" class="post-title">AppHarbor: great place to start your .NET project</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Programming in general" href="https://blog.kulman.sk/categories/programming-in-general">Programming in general</a><a class="post-category post-category-Windows Azure" href="https://blog.kulman.sk/categories/windows-azure">Windows Azure</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>If you want to host your .NET project on the Internet, there are classic ASP.NET webhosting on one side of the spectrum and Microsoft Azure on the other. If you are looking for something in the middle, take a look at [AppHarbor][1].</p>
-
-<p><strong>AppHarbor</strong></p>
-
-<p>AppHarbor is a flexible and scalable .NET Platform-as-a-Service, that you can even [use for free][2], limited to one web or worker role. It runs in AWS and is quite similiar to Heroku.</p>
-
-<p><strong>Variety of Add-ons</strong></p>
-
-<p>There are [many add-on supported by AppHarbor][3], including SQL Server, MongoDB, RavenDB, MySQL, Memcacher &#8230; Many of these ad-ons offer free versions so you can test them for free. If you run into some problems, you can use [the support forums][4] or [StackOverflow][5].</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/appharbor-great-place-to-start-your-net-project/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">03 Jan 2013, 00:00</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/visual-studio-achievements-a-bit-of-gamification-to-your-programming/" class="post-title">Visual Studio Achievements: a bit of gamification to your programming</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Programming in general" href="https://blog.kulman.sk/categories/programming-in-general">Programming in general</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>Gamification is a great concept that works really well for some people, including me. Gamification may very well be the reason for success of projects like [StackOveflow][1] or [Duolingo][2].</p>
-
-<p><strong>Visual Studio Achievements</strong></p>
-
-<p>[Visual Studio Achievements][3] is Visual Studio plugin that rewards you for good practices like having 1000 localized values ([Localization Master][4]) and even for bad practices like writin a single line of 300 characters long ([Scroll Bar Wizard][5]). For some of the achievements you need to have FxCop installed, but the majority get awareded without the need for it.</p>
-
-<img src="/images/VisualStudio_badges_2.jpg" alt="" class="pure-img" >
-
-<p>You can find out interesting information about your programming, check out [my profile][7].</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/visual-studio-achievements-a-bit-of-gamification-to-your-programming/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
             </div>
             
 <div class="pagination">
@@ -452,7 +457,7 @@
         <i class="fa fa-angle-double-left"></i>&nbsp;Newer
       </a>
       
-    <span class="post-list-pagination-item post-list-pagination-item-current">Page 8 of 10</span>
+    <span class="post-list-pagination-item post-list-pagination-item-current">Page 8 of 11</span>
     
       <a href="/post/page/9/" class="post-list-pagination-item pure-button post-list-pagination-item-next">
         Older&nbsp;<i class="fa fa-angle-double-right"></i>

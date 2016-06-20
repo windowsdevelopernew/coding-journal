@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="msvalidate.01" content="5B57D04D465AB9C871A8DD4414956DB4" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating a simple Windows 10 game with Win2D &middot; Coding Journal</title>
+
+    <meta name="description" content="Some time ago while looking at some pixel art work I got an idea to create a retro pixel art game for Windows 10. The choice was obvious, Sokoban. I have a very special relationship with the Sokoban game. The Delpi version of Sokoban was the first game I ever created. I later ported it to all the platforms I played with, namely J2ME (for my Siemens S60 phone), Linux (using Kylix which was basically a Delphi for Linux), Windows Phone 7 and now Sokoban Pixel for the Universal Windows Platform.">
+
+    <meta name="generator" content="Hugo 0.15" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="Creating a simple Windows 10 game with Win2D &middot; Coding Journal">
+    <meta name="twitter:description" content="Some time ago while looking at some pixel art work I got an idea to create a retro pixel art game for Windows 10. The choice was obvious, Sokoban. I have a very special relationship with the Sokoban game. The Delpi version of Sokoban was the first game I ever created. I later ported it to all the platforms I played with, namely J2ME (for my Siemens S60 phone), Linux (using Kylix which was basically a Delphi for Linux), Windows Phone 7 and now Sokoban Pixel for the Universal Windows Platform.">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Creating a simple Windows 10 game with Win2D &middot; Coding Journal">
+    <meta property="og:description" content="Some time ago while looking at some pixel art work I got an idea to create a retro pixel art game for Windows 10. The choice was obvious, Sokoban. I have a very special relationship with the Sokoban game. The Delpi version of Sokoban was the first game I ever created. I later ported it to all the platforms I played with, namely J2ME (for my Siemens S60 phone), Linux (using Kylix which was basically a Delphi for Linux), Windows Phone 7 and now Sokoban Pixel for the Universal Windows Platform.">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="https://blog.kulman.sk/css/all.min.css">    
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://blog.kulman.sk/css/custom.css">
+
+    <link rel="alternate" type="application/rss+xml" title="Coding Journal" href="https://blog.kulman.sk/index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="https://blog.kulman.sk">Coding Journal</a></h1>
+            <h2 class="brand-tagline"> Adventures in the world of C#, F# and WinRT </h2>
+        </hgroup>
+
+        <nav class="nav wide-only">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/igorkulman"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/igorkulman "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://blog.kulman.sk/index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+
+
+<ul class="menu">
+   <li class="menu-item"><a href="/">Blog</a></li>
+    <li class="menu-item"><a href="/projects">Projects</a></li>
+    <li class="menu-item"><a href="/about">About</a></li>
+</ul>
+
+
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                <h1 class="content-subhead">15 Jun 2016</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/creating-a-simple-windows-10-game-with-win2d" class="post-title">Creating a simple Windows 10 game with Win2D</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a><a class="post-category post-category-Windows Store" href="https://blog.kulman.sk/categories/windows-store">Windows Store</a><a class="post-category post-category-UWP" href="https://blog.kulman.sk/categories/uwp">UWP</a>
+                            
+                        </p>
+                    </header>
+
+                  
+                    <div class="post-description">
+                        <p>Some time ago while looking at some pixel art work I got an idea to create a retro pixel art game for Windows 10. The choice was obvious, <a href="https://www.microsoft.com/store/apps/9nblggh4xdln">Sokoban</a>. I have a very special relationship with the Sokoban game. The Delpi version of Sokoban was the first game I ever created. I later ported it to all the platforms I played with, namely J2ME (for my Siemens S60 phone), Linux (using Kylix which was basically a Delphi for Linux), Windows Phone 7 and now <a href="https://www.microsoft.com/store/apps/9nblggh4xdln">Sokoban Pixel</a> for the Universal Windows Platform.</p>
+
+<img src="/images/sokoban-gameplay.gif" alt="" class="pure-img" >
+
+<p><strong>Win2D</strong></p>
+
+<p>I did not want to learn <a href="https://unity3d.com/">Unity</a> and I considered it quite a overkill for such a simple game. <a href="http://www.monogame.net/">Monogame</a> seemed like an obvious choice, because my Sokoban for Windows Phone 7 was written in XNA. But Monogame requires too much ceremony to install and set up so I was not very eager to use it. I found <a href="https://github.com/Microsoft/Win2D">Win2D</a>. Win2D is an easy-to-use Windows Runtime API for immediate mode 2D graphics rendering with GPU acceleration. It is available to C# and C++ developers writing Windows apps for Windows 8.1, Windows Phone 8.1 and Windows 10. It utilizes the power of Direct2D, and integrates seamlessly with XAML and CoreWindow. This means you can create a normal XAML application, create all your non-gameplay screens in XAML and use Win2D just for the actual gameplay.</p>
+
+<p><strong>Initial setup and loading resources</strong></p>
+
+<p>To get started with Win2D just install the <code>Win2D.uwp</code> Nuget package and add a <code>CanvasControl</code> to your app. That&rsquo;s it, no more setup required.</p>
+
+<p>Before drawing any resources you need to first load them. This should be done in the <code>CreateResources</code> event of the <code>CanvasControl</code>. This method should not be async so if you need to load your resources asynchronously (as you always do) you need to use a trick with a separate method</p>
+
+<script src="https://gist.github.com/igorkulman/39f73f5117a02c94fbe3b85ec57bb8a8.js?file=load.cs"></script>
+
+<p>The code snippet also shows how to load a simple image as a resources. You probably will not need to load anything other that images in a simple game.</p>
+
+<p><strong>Drawing the game</strong></p>
+
+<p>To make the <code>CanvasControl</code> draw your game you need to hook up the <code>Draw</code> event and put all you rendering logic there. There are basically just two things you will want to render, text and images</p>
+
+<script src="https://gist.github.com/igorkulman/39f73f5117a02c94fbe3b85ec57bb8a8.js?file=draw.cs"></script>
+
+<p>Both methods have many overloads so it is up to you to choose the one that suits you best. There are also other methods for drawing primitives like likes or circles, take a look at the <a href="http://microsoft.github.io/Win2D/html/Introduction.htm">documentation</a>. When creating a pixel art game, make use you use the <code>CanvasImageInterpolation.NearestNeighbor</code> otherwise your images will look blurred if not on sufficient resolution.</p>
+
+<p>Depending on the type of your game, you may need to refresh the game canvas periodically or just as a reaction to the user input. In both cases, just call <code>Invalidate()</code> on your <code>CanvasControl</code>.</p>
+
+<p><strong>Handling user input</strong></p>
+
+<p>If you want to make you game great on Windows 10, you need to handle a few different input methods because Windows 10 runs on a variety of different devices.</p>
+
+<p><strong><em>Keyboard and controller</em></strong></p>
+
+<p>First you should handle input from the keyboard, so the game is comfortably playable on a notebook or desktop PC. To do this, you can just subscribe to the <code>KeyUp</code> method of the current page or to the global <code>Window.Current.CoreWindow.KeyUp</code> event. Both events give you a <code>VirtualKey</code> that the user pressed and you just decide what to do.</p>
+
+<p>If you want to make your game playable on the XBox One or on the PC with a XBox One controller, you should handle the controller input. Handling the controller input is the same as handling the keyboard, you just check for different keys. The resulting code may look like this.</p>
+
+<script src="https://gist.github.com/igorkulman/39f73f5117a02c94fbe3b85ec57bb8a8.js?file=input.cs"></script>
+
+<p>If you want to make your game run on XBox One and do not have an XBox One to test it, just get the XBox One controller, connect it to your PC with an USB cable and make sure the whole game is controllable and playable just with it, without the keyboard or mouse.</p>
+
+<p><strong><em>Touch devices</em></strong></p>
+
+<p>Making your game playable on a phone or on a tablet is a bit tricky. There are no input devices usually attached, so you have to come up with your own. There are many ways to handle this. You can recognizes swipes on the device, or make the user tilt the device. But the solution I like the best is to render a simple d-pad in the right corner of the screen. This way the user can hold the device in both hands and use the right thumb to play the game.</p>
+
+<img src="/images/sokoban-dpad.png" alt="" class="pure-img" >
+
+<p><strong>Conclusion</strong></p>
+
+<p>When building a simple 2D game for Windows 10, making it a UWP app and use Win2D. The Win2D framework is easy to work with and embed into UWP apps.</p>
+
+                    </div>
+
+                     <div class="pure-g" style="margin-bottom:1em">
+  <div class="pure-u-1-2">
+     <a class="pure-button  pure-button-primary" style="margin-top:12px" href="https://github.com/igorkulman/coding-journal/edit/master/content/post/2016-06-15-creating-a-simple-windows-10-game-with-win2d.md" title="Help improve article post\2016-06-15-creating-a-simple-windows-10-game-with-win2d.md">Edit</a>
+   </div>
+   <div class="pure-u-1-2">
+   <p style="text-align:right">This content is open source. 
+   Please <a href="https://github.com/igorkulman/coding-journal/edit/master/content/post/2016-06-15-creating-a-simple-windows-10-game-with-win2d.md" title="Help improve article post\2016-06-15-creating-a-simple-windows-10-game-with-win2d.md">help improve it</a>.</p>
+  </div>
+</div>
+
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'coudingjournal';
+    var disqus_identifier = 'https:\/\/blog.kulman.sk\/creating-a-simple-windows-10-game-with-win2d';
+    var disqus_title = 'Creating a simple Windows 10 game with Win2D';
+    var disqus_url = 'https:\/\/blog.kulman.sk\/creating-a-simple-windows-10-game-with-win2d';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                    
+                </section>
+
+
+            </div>
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="https://blog.kulman.sk/js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-49528577-2', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

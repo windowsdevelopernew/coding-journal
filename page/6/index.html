@@ -81,6 +81,120 @@
             <div class="posts">
                 
                 
+                <h1 class="content-subhead">17 Mar 2014</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/testing-in-app-purchases-in-windows-phone/" class="post-title">Testing in-app purchases in Windows Phone</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>Windows Phone Store does not offer developers any sandbox to test in-app purchases in their apps, like stores on other platforms do. If you want test in-app purchases in your Windows Phone apps, you need to use other options.</p>
+
+<p>To make in-app purchases implementation easier, I created a simple Windows Phone Store service interface in my [Kulman.WP8][1] library (also [available on Nuget][2])</p>
+
+<script src="https://gist.github.com/igorkulman/9571908.js?file=IWindowsPhoneStoreService.cs"></script>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/testing-in-app-purchases-in-windows-phone/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">14 Mar 2014</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/pock8-beautiful-pocket-client-for-windows-phone/" class="post-title">Pock8: beautiful Pocket client for Windows Phone</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>Recently I have released a new Windows Phone app called [Pock8][1]. Pock8 is a beautiful Pocket (formerly Read It Later) client for Windows Phone. The design of the app was created by Jan Marek who worked with my on the [Shopping List Simple][2] app.</p>
+
+<img src="/images/pocket.png" alt="" class="pure-img" >
+
+<p>Our goal was to create a Pocket client that would be really easy to use and that would have a nice and simple design. I think we have achieved our goal. The main features of the app are</p>
+
+<ul>
+<li>clean and simple design</li>
+<li>optimized article view for comfortable reading</li>
+<li>article cache for offline reading</li>
+<li>dark theme for OLED screens or reading in the dark</li>
+<li>support for receiving articles from other apps like WPCentral</li>
+<li>listening to articles aloud</li>
+<li>sharing articles</li>
+</ul>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/pock8-beautiful-pocket-client-for-windows-phone/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
+                <h1 class="content-subhead">05 Mar 2014</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://blog.kulman.sk/free-services-to-help-you-develop-mobile-apps/" class="post-title">Free services to help you develop mobile apps</a>
+
+                        <p class="post-meta">
+                            
+                                By <strong class="post-author">Igor Kulman</strong>
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-Windows Phone" href="https://blog.kulman.sk/categories/windows-phone">Windows Phone</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                       <p>If you develop mobile or any other kinds of apps, you need to have your source code versioned and stored in a safe place, cooperate with other people, track information about the usage of your apps and track all the errors that may occur. There are many free services that may help you with those tasks. In this article I will give you a list of the ones I use when developing [my apps][1].</p>
+
+<p><strong>Bitbucket: source control and issue tracker</strong></p>
+
+<p>I use Git as my source control system and all my private repos are stored at [Bitbucket]<a href="public at [GitHub][3]">2</a>. Bitbucket offers unlimited number of private repos and cooperation with up to 5 other people for free.</p>
+
+<p>For each private repo you can create a private issue tracker also for free, so all your code and issues are at the same place. The main advantage is that source control and issue tracker are connected, so you can comment or close issues directly from Git commits.</p>
+
+
+                        
+  <div class="read-more-link">
+    <a href="/free-services-to-help-you-develop-mobile-apps/">Read More…</a>
+  </div>
+  
+                    </div>
+                </section>
+                
                 <h1 class="content-subhead">09 Jan 2014</h1>
                 <section class="post">
                     <header class="post-header">
@@ -343,112 +457,6 @@
                     </div>
                 </section>
                 
-                <h1 class="content-subhead">06 Aug 2013</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/developing-windows-store-apps-with-caliburn-micro-part-2-navigation/" class="post-title">Developing Windows Store apps with Caliburn Micro Part 2: navigation</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-WinRT" href="https://blog.kulman.sk/categories/winrt">WinRT</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>In this second part you will add another ViewModel and View and implement navigation between two ViewModels, including saving the navigation state between starts. The code is as always [available at Github][1].</p>
-
-<p><strong>Invoking ViewModel methods</strong></p>
-
-<p>If you want to test out navigation between ViewModels, you first need something that will trigger the navigation. The easiest way to do this is to use a standard Button. If you do MVVM &#8220;by hand&#8221;, you are probably used to creating ICommand properties and binding them to the Button&#8217;s Command dependency property.</p>
-
-<p>Caliburn Micro offers an easier way. If you want a Button to invoke a method on your ViewModel, just the give the button the same name as the name of the button. The method should be public void.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/developing-windows-store-apps-with-caliburn-micro-part-2-navigation/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">30 Jul 2013</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/developing-windows-store-apps-with-caliburn-micro-part-1-setup-and-first-view/" class="post-title">Developing Windows Store apps with Caliburn Micro Part 1: setup and first view</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-WinRT" href="https://blog.kulman.sk/categories/winrt">WinRT</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>I have been developing Windows Store apps for some time. I have always used MVVM, but mostly &#8220;my own&#8221; MVVM. I have finally decided to use a &#8220;real&#8221; MVVM framework and I have chosen Caliburn Micro, because I did not like MVVM very much. In this article I am going to show you how to use Caliburn Micro, Unity and Fody to develop Windows Store apps.</p>
-
-<p><strong>Caliburn Micro</strong></p>
-
-<p>[Caliburn Micro][1] is a small, yet powerful framework, designed for building applications across all Xaml Platforms. With strong support for MVVM and other proven UI patterns, Caliburn.Micro will enable you to build your solution quickly, without the need to sacrifice code quality or testability.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/developing-windows-store-apps-with-caliburn-micro-part-1-setup-and-first-view/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
-                <h1 class="content-subhead">24 Jul 2013</h1>
-                <section class="post">
-                    <header class="post-header">
-
-                        <a href="https://blog.kulman.sk/intercepting-methods-with-ninject-for-error-logging/" class="post-title">Intercepting methods with Ninject for error logging</a>
-
-                        <p class="post-meta">
-                            
-                                By <strong class="post-author">Igor Kulman</strong>
-                            
-                            
-                                under 
-                                
-                                <a class="post-category post-category-Windows Azure" href="https://blog.kulman.sk/categories/windows-azure">Windows Azure</a>
-                            
-                        </p>
-                    </header>
-
-                    <div class="post-description">
-                       <p>I am currently working on a fairly large Windows Azure projects that among other things conatins a Web Role where I use [Ninject][1] as a dependency container. As the business logic library grew larger I found myself writing a lot of repeating boiler plate code to log exceptions in many important methods. I wantet to remove all the boiler plate code and create a custom attribute, say LogErrorAttribute with one simple goal: each method decorated woth this attribute should log info about any occuring exception.</p>
-
-<p><strong>IL weaving?</strong></p>
-
-<p>I have been using [Fody][2] for some time to [implement the INotifyPropertyChanged calls for me in Windows Phone and Windows 8 projects][3] so it was my first choice.</p>
-
-<p>There is a [Fody.MethodDecorator][4] extensions that allows you to execute your code on a methods start, exit and exception. Writing the exception to Console is trivial, but I wanted to use a implementation of my custom ILogFactory.</p>
-
-
-                        
-  <div class="read-more-link">
-    <a href="/intercepting-methods-with-ninject-for-error-logging/">Read More…</a>
-  </div>
-  
-                    </div>
-                </section>
-                
             </div>
             
 <div class="pagination">
@@ -458,7 +466,7 @@
         <i class="fa fa-angle-double-left"></i>&nbsp;Newer
       </a>
       
-    <span class="post-list-pagination-item post-list-pagination-item-current">Page 6 of 10</span>
+    <span class="post-list-pagination-item post-list-pagination-item-current">Page 6 of 11</span>
     
       <a href="/page/7/" class="post-list-pagination-item pure-button post-list-pagination-item-next">
         Older&nbsp;<i class="fa fa-angle-double-right"></i>

@@ -3,8 +3,38 @@
   
   <url>
     <loc>https://blog.kulman.sk/</loc>
-    <lastmod>2016-03-14T09:29:12+01:00</lastmod>
+    <lastmod>2016-06-15T09:29:12+01:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kulman.sk/creating-a-simple-windows-10-game-with-win2d</loc>
+    <lastmod>2016-06-15T09:29:12+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.kulman.sk/projects/sokoban-pixel/</loc>
+    <lastmod>2016-06-12T06:56:45+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.kulman.sk/projects/iihf/</loc>
+    <lastmod>2016-04-20T07:56:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.kulman.sk/creating-better-forms-in-windows-phone-apps</loc>
+    <lastmod>2016-03-29T09:29:12+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.kulman.sk/projects/lepsimisto/</loc>
+    <lastmod>2016-03-28T07:56:44+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.kulman.sk/using-tooltips-to-make-better-menus-in-windows-apps</loc>
+    <lastmod>2016-03-23T09:29:12+01:00</lastmod>
   </url>
   
   <url>
